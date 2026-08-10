@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script_04_musician.rpy", line 116: if statement expects a non-empty block.
+    if not musician_show_seen:
+                              ^
+
+Ren'Py Version: Ren'Py 8.5.0.25111603
+Sun Jul  5 16:45:50 2026
