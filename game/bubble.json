@@ -1,0 +1,344 @@
+{
+    "omamori_charisma_ef64ad15": {
+        "area": [
+            640,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "omamori_intelligence_ccb157aa": {
+        "area": [
+            640,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "omamori_job_a336446a": {
+        "area": [
+            640,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "omamori_love_7fff44c4": {
+        "area": [
+            560,
+            180,
+            640,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "omamori_money_af7c032e": {
+        "area": [
+            560,
+            180,
+            640,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "omamori_strength_b7287576": {
+        "area": [
+            560,
+            180,
+            640,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_blush_orange_a9c362aa": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_blush_pink_e448d3d0": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_dress_cute_f7e00f39": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_dress_flapper_6ee9fb49": {
+        "area": [
+            160,
+            180,
+            800,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_dress_hakama_8d1fffe9": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_dress_modern_1bd3170a": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_dress_prim_674d0430": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hair_band_4768f878": {
+        "area": [
+            80,
+            180,
+            640,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hair_bow_261c79ac": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hair_flower_809d2692": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hair_hat_6ba1a756": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hair_ribbon_7bf41c08": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hair_ribbon_f7aec801": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hand_evening_ac41270b": {
+        "area": [
+            160,
+            225,
+            560,
+            225
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hand_parasol_91e7732f": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hand_round_4c0f3f9b": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_hand_straw_df43db1d": {
+        "area": [
+            160,
+            225,
+            560,
+            225
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_notebook_650a3a65": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_pen_26c3ad46": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_shadow_blue_87a0c3b3": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_shadow_brown_08c115cb": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_shadow_orange_cf575139": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_shadow_pink_1d0c3f59": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_shoes_boots_f37a15e2": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_shoes_heels_f507ba2e": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_shoes_koppori_0a4efbe4": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_shoes_pumps_9809dd32": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_shoes_zori_e026917a": {
+        "area": [
+            160,
+            180,
+            560,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_stick_orange_5c0b68dc": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_stick_peach_9aa367f4": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_stick_pink_f2b3c498": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    },
+    "purchase_stick_red_e482649c": {
+        "area": [
+            160,
+            180,
+            720,
+            270
+        ],
+        "properties": "bottom_right"
+    }
+}
