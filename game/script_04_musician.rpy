@@ -1039,6 +1039,7 @@ label musician_8:
     return
 
 label musician_tower:
+    $ story_flags["musician_8_day"] = totaldays
     # Pickup at cafe
     scene bg cafeleft with dissolve
     show table_left zorder 2.0:
@@ -1228,6 +1229,236 @@ label musician_tower:
     $ musician_event = False
     call screen bedroom
 
+label musician_10:
+    $ set_flag("musician_cafe_show_seen")
+    $ story_flags["musician_cafe_show_day"] = totaldays
+    show musician shy2:
+        xalign 0.85 zoom 0.6 yalign 0.6
+    show fans
+    show cafetableright zorder 2.0
+    fan "One pudding please!"
+    naomi happy "Coming right up!"
+    naomi thinking "(Word got around about tonight's performance.)"
+    show kirako happy with moveinleft
+    kirako "Is it just me or is the cafe fuller tonight?"
+    fan "One pudding please!"
+    naomi happy "Coming right up!"
+    hide kirako with moveoutleft
+    show musician shy:
+        xalign 0.85 zoom 0.6 yalign 0.6
+    fan "This is different from the cello... But I like this better!"
+    fan "I didn't think the shamisen could be this cool."
+    fan "Hideo-sama!"
+    naomi thinking "(This tune...)"
+    naomi happy "(It's the one he was working on.)"
+    naomi troubled "(But why do I feel like I have heard this before...?)"
+    show musician troubled:
+        xalign 0.85 zoom 0.6 yalign 0.6
+    show bg caferight as cutscene_copy at atl_dizzy
+    if persistent.haptics_enabled:
+        $ renpy.vibrate(0.5)
+    naomi pain "(I know this tune!)" with vpunch
+    show musician surprised:
+        xalign 0.85 zoom 0.6 yalign 0.6
+    fan "Bravo! Hideo-sama!"
+    fan "Encore!"
+    naomi happy "Bravo, Hideo!"
+    show musician happy:
+        xalign 0.85 zoom 0.6 yalign 0.6
+    musician "Thank you for listening."
+    hide fans
+    show musician troubled:
+        xalign 0.5 zoom 1.0 yalign 0.5
+    with dissolve
+    musician "Was it okay?"
+    naomi happy "It was more than okay."
+    naomi relieved "You wrote that yourself, didn't you."
+    show musician shy
+    musician "..."
+    if relationship_points["musician"] >= 4:
+        jump musician_ending_irl
+    else:
+        show musician shy2:
+            xalign 0.5 zoom 1.0 yalign 0.5
+            linear 0.5 xalign 0.9 zoom 1.0 yalign 0.5
+        show kirako happy with moveinleft:
+            xalign 0.2
+        kirako "Well! I don't know what that was, but I liked it."
+        kirako "We should have you back."
+        show musician shy2
+        musician "...Maybe."
+    return
+
+label musician_ending_irl:
+    naomi happy "Hideo?"
+    show bg caferight as cutscene_copy at atl_dizzy
+    if persistent.haptics_enabled:
+        $ renpy.vibrate(0.5)
+    naomi pain "Ah!" with vpunch
+    show musician shy
+    musician "You helped me to be true to myself."
+    show musician troubled
+    musician "It's my turn to help you remember who you are."
+    naomi troubled "Who I am?"
+    musician "Listen."
+    naomi thinking "This sound..."
+    naomi surprised "It's from my dream!"
+    show bg caferight as bg_copy at atl_dizzy
+    image musician glitched3:
+        glitch("musician troubled")
+        pause 0.1
+        glitch("musician troubled",offset=60,randomKey=None)
+        pause 0.1
+        glitch("musician troubled")
+        pause 0.1
+        "musician troubled"
+    show musician glitched3
+    naomi pain "Ngh!" with vpunch
+    musician "Come back, Naomi."
+    hide cafetableright
+    show black1:
+        xalign 0.5 yalign 1.0 #full close
+    show black2:
+        xalign 0.5 yalign 0.0 #full close
+    hide window
+    with Pixellate(2.0,5)
+    show text "{color=#ffffff}'Naomi.'{/color}":
+        xalign 0.5 yalign 0.8
+    pause
+    show text "{color=#ffffff}This music...{/color}":
+        xalign 0.5 yalign 0.8
+    pause
+    show musician shy zorder 2
+    show text "{color=#ffffff}Hideo.{/color}" zorder 3:
+        xalign 0.5 yalign 0.8
+    with dissolve
+    pause
+    hide text
+    show text "{color=#ffffff}A classmate who seemed aloof, until one day.{/color}" zorder 3:
+        xalign 0.5 yalign 0.8
+    with dissolve
+    pause
+    show musician happy zorder 2:
+        zoom 1.0 xalign 0.8 yalign 0.0
+        ease 2.0 xalign 0.9 ypos 0.0 zoom 1.2
+    show text "{color=#ffffff}'Everyone makes mistakes starting out.'{/color}" zorder 3:
+        xalign 0.1 yalign 0.25
+    with dissolve
+    pause
+    hide text
+    show text "{color=#ffffff}I discovered his kindness.{/color}" zorder 3:
+        xalign 0.5 yalign 0.8
+    with dissolve
+    pause
+    hide text
+    show text "{color=#ffffff}I wanted to encourage him too.{/color}" zorder 3:
+        xalign 0.5 yalign 0.8
+    with dissolve
+    pause
+    show musician shy2  zorder 2:
+        zoom 1.0 xalign 0.1 yalign 0.0
+        ease 2.0 xalign 0.1 ypos 0.0 zoom 1.2
+    show text "{color=#ffffff}'That really means a lot to me.'{/color}" zorder 3:
+        xalign 0.8 yalign 0.2
+    with dissolve
+    pause
+    hide text
+    show text "{color=#ffffff}He was often shy to say how he felt, but.{/color}" zorder 3:
+        xalign 0.5 yalign 0.8
+    with dissolve
+    pause
+    show musician troubled zorder 2:
+        zoom 1.2 xalign 0.65 yalign 0.0
+        ease 2.0 zoom 1.5 yalign 0.1
+    show text "{color=#ffffff}'You give me courage.'{/color}" zorder 3:
+        xalign 0.1 yalign 0.25
+    with dissolve
+    pause
+    hide text
+    show text "{color=#ffffff}I was happy when he told me that.{/color}" zorder 3:
+        xalign 0.5 yalign 0.8
+    with dissolve
+    pause
+    show bg irl
+    show black1 zorder 2:
+        xalign 0.5 yalign 1.0 #full close
+        easein 3.5 yalign 1.3 #part open
+        pause 0.5
+        easeout 2.5 yalign 3.5 #full open
+    show black2 zorder 2:
+        xalign 0.5 yalign 0.0 #full close
+        easein 3.5 yalign -0.3 #part open
+        pause 0.5
+        easeout 2.5 yalign -2.5 #full open
+    show text "{color=#ffffff}Hideo.{/color}" zorder 3:
+        xalign 0.5 yalign 0.8
+        pause 3.5
+        easeout 3 alpha 0.0
+    show musician troubled zorder 1:
+        zoom 2.0 yalign 0.0 xalign 0.1 xzoom -1.0
+    pause
+    hide black1
+    hide black2
+    hide text
+    show musician troubled:
+        zoom 2.0 yalign 0.0 xalign 0.1
+        easein 0.5 zoom 2.5 yalign 0.05 xpos -0.1
+    show text "{color=#000000}'Naomi?'{/color}" zorder 3:
+        xalign 0.7 yalign 0.8 alpha 1.0
+    pause
+    show musician surprised:
+        zoom 2.5 yalign 0.05 xpos -0.1
+    show text "{color=#000000}'You're awake!'{/color}" zorder 3:
+        xalign 0.7 yalign 0.8
+    pause
+    show text "{color=#000000}I was asleep?{/color}" zorder 3:
+        xalign 0.9 yalign 0.8
+    pause
+    show musician troubled:
+        zoom 2.5 yalign 0.05 xpos -0.1 xzoom -1.0
+    show text "{color=#000000}'You've been unconscious for two days.'{/color}" zorder 3:
+        xalign 0.8 yalign 0.8
+    pause
+    show text "{color=#000000}Two...{/color}" zorder 3:
+        xalign 0.9 yalign 0.8
+    pause
+    show musician troubled:
+        zoom 2.5 yalign 0.05 xpos -0.1 xzoom -1.0
+    show text "{color=#000000}'Rest. I'll go get the doctor.'{/color}" zorder 3:
+        xalign 0.85 yalign 0.8
+    pause
+    show black1 zorder 2:
+        xalign 0.5 yalign 3.5 #full open
+        easein 3.5 yalign 1.3 #part open
+        pause 0.5
+        easeout 2.5 yalign 1.0 #full close
+    show black2 zorder 2:
+        xalign 0.5 yalign -2.5 #full open
+        easein 3.5 yalign -0.3 #part open
+        pause 0.5
+        easeout 2.5 yalign 0.0 #full close
+    pause
+    show text "{color=#ffffff}A few months later, when I had recovered enough...{/color}":
+        xalign 0.5 yalign 0.5
+    pause
+    hide black1
+    hide black2
+    hide musician
+    hide text
+    show musician_cutscene_3
+    with Fade(2.0,0.5,0.5)
+    pause
+    show black1:
+        xalign 0.5 yalign 1.0 #full close
+    show black2:
+        xalign 0.5 yalign 0.0 #full close
+    show text "{color=#ffffff}Thank you for playing!{/color}":
+        xalign 0.5 yalign 0.5
+    with Fade(2.0,0.5,0.5)
+    pause
+    $ renpy.full_restart()
+
+
 label theatre_ending:
     play music "<from 135 to 155>cello.mp3"
     naomi happy "I guess this is where I'll be working from now on."
@@ -1244,3 +1475,4 @@ label theatre_ending:
     with Fade(2.0,0.5,0.5)
     pause
     $ renpy.full_restart()
+

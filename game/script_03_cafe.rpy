@@ -74,15 +74,12 @@ label check_cafe_visits:
                 renpy.random.shuffle(eligible)
                 visiting_chars.append(eligible[0])
         elif eligible:
-            renpy.random.shuffle(eligible)  # shuffle first to break ties randomly
-            if renpy.random.random() < CATCHUP_CHANCE:
-                sort_key = lambda c: total_visits[c]
-                reverse = False
-            else:
-                sort_key = lambda c: encounters[c]
-                reverse = True
+            renpy.random.shuffle(eligible)
             pool = fixed_chars_today if fixed_chars_today else eligible
-            visiting_chars.append(sorted(pool, key=sort_key, reverse=reverse)[0])
+            if renpy.random.random() < CATCHUP_CHANCE:
+                visiting_chars.append(sorted(pool, key=lambda c: total_visits[c])[0])
+            else:
+                visiting_chars.append(sorted(pool, key=lambda c: encounters[c], reverse=True)[0])
             remaining = [c for c in eligible if c not in visiting_chars]
             if remaining:
                 visiting_chars.append(renpy.random.choice(remaining))
