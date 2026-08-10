@@ -244,6 +244,7 @@ screen dev_overlay():
         ypadding 20
         vbox:
             spacing 6
+            text "total days: [totaldays] days left"
             text "musician pts: [relationship_points['musician']]"
             text "musician stage: [get_stage('musician')]"
             text "café visits: [total_visits['musician']]"

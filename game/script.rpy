@@ -292,7 +292,8 @@ default cafe_encounter_triggers = {
     "musician": {
         0: {"item": "Pudding", "condition": None},
         5: {"item": "Pudding", "condition": None},
-        8: {"item": "Pudding", "condition": musician_8_condition}
+        8: {"item": "Pudding", "condition": musician_8_condition},
+        10: {"item": "Pudding", "condition": musician_cafe_show_condition}
     },
     "doctor": {
         0: {"item": "Cake", "condition": None}
@@ -395,6 +396,12 @@ default musician_5_seen = False
 init python:
     def musician_8_condition():
         return 14 <= totaldays <= 21 and dayofweeknumber == 5 and flag("pre_musician_event_2")
+    def musician_cafe_show_condition():
+        return (
+            encounters["musician"] >= 8
+            and not flag("musician_cafe_show_seen")
+            and (story_flags.get("musician_8_day", totaldays) - totaldays) >= 2
+        )
 
 # ============================================
 # ITEMS

@@ -302,15 +302,14 @@ label fighter_1_daikichi:
             $ inventory.update({"omikuji_daikichi_half":["Half of an omikuji."]})
             show fighter blush
             fighter blush "..."
-            show fighter grin
+            show fighter determined
             fighter "I'm glad! Thank you!"
             hide omikuji_daikichi_half2
             show fighter wink
             fighter "Hopefully, the good fortune will let us meet again."
-            naomi blush "..."
-            show fighter grin
-            fighter "See you around!"
             show fighter happy
+            naomi blush "..."
+            fighter "See you around!"
             hide fighter with moveoutleft
         "Show sympathy":
             $ inventory.update({"omikuji_daikichi":["A slip of paper predicting good fortune."]})
@@ -324,9 +323,9 @@ label fighter_1_daikichi:
             show fighter angry
             fighter "What?! Damn bird just crapped on me!"
             naomi surprised "What?! Are you alright?"
-            show fighter grin
-            fighter "Yeah don't worry about it, I'm fine!"
             show fighter wink
+            fighter "Yeah don't worry about it, I'm fine!"
+            show fighter happy
             fighter "See you around!"
             hide fighter with moveoutleft
     return
@@ -383,7 +382,7 @@ label fighter_1_kyo:
         zoom 0.1 xalign 0.35 yalign 0.6 xzoom -1.0 matrixcolor BrightnessMatrix(-0.5)
     pause
     show fighter happy:
-        zoom 1.0 xalign 0.5 matrixcolor BrightnessMatrix(0)
+        zoom 1.0 xzoom 1.0 xalign 0.5 matrixcolor BrightnessMatrix(0)
     fighter "...and there. Tied it to the tree."
     menu:
         "Accept with thanks":
@@ -396,9 +395,9 @@ label fighter_1_kyo:
             show fighter grin
             fighter "Yeah don't worry about it, I'm fine!"
             naomi relieved "If we meet again, please let me return the favor."
-            show fighter happy
-            fighter "I'll remember that!"
             show fighter wink
+            fighter "I'll remember that!"
+            show fighter happy
             fighter "See you around!"
             hide fighter with moveoutleft
             return
@@ -421,15 +420,14 @@ label fighter_1_kyo:
             naomi happy "We can share the good fortune."
             show fighter blush
             fighter "..."
-            show fighter grin
+            show fighter determined
             fighter "I'm glad! Thank you!"
             hide omikuji_daikichi_half2
             show fighter wink
             fighter "Hopefully, the good fortune will let us meet again."
-            naomi blush "..."
-            show fighter grin
-            fighter "See you around!"
             show fighter happy
+            naomi blush "..."
+            fighter "See you around!"
             hide fighter with moveoutleft
             return
 
