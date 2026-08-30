@@ -2,6 +2,8 @@
 
 label opening_sequence:
 
+    scene bg opening
+
     show text "{color=#ffffff}I'm chasing a cat. It's getting away from me.{/color}":
         xalign 0.5 yalign 0.5
     pause

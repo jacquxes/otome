@@ -268,6 +268,14 @@ default encounters = {
     "soldier": 0,
 }
 
+default location_visits = {
+    "theatre": 0,
+    "hospital": 0,
+    "office": 0,
+    "dojo": 0,
+    "station": 0,
+}
+
 # Total interactions (key scenes + casual visits) - used for balancing
 default total_visits = {
     "musician": 0,
@@ -291,9 +299,10 @@ default visited_today = {
 default cafe_encounter_triggers = {
     "musician": {
         0: {"item": "Pudding", "condition": None},
-        5: {"item": "Pudding", "condition": None},
-        8: {"item": "Pudding", "condition": musician_8_condition},
-        10: {"item": "Pudding", "condition": musician_cafe_show_condition}
+        4: {"item": "Pudding", "condition": None},
+        6: {"item": "Pudding", "condition": None},
+        9: {"item": "Pudding", "condition": musician_9_condition},
+        11: {"item": "Pudding", "condition": musician_11_condition},
     },
     "doctor": {
         0: {"item": "Cake", "condition": None}
@@ -392,16 +401,65 @@ default pre_musician_event_2 = False
 default enable_merchant_event_1 = False
 default musician_5_seen = False
 
-# Conditional functions for event
+
+# ============================================
+# MUSICIAN FLAGS
+# ============================================
+
+define MUSICIAN_INTRO_GAP = 1
+
+# Condition functions for musician encounters
 init python:
-    def musician_8_condition():
-        return 14 <= totaldays <= 21 and dayofweeknumber == 5 and flag("pre_musician_event_2")
-    def musician_cafe_show_condition():
-        return (
-            encounters["musician"] >= 8
-            and not flag("musician_cafe_show_seen")
-            and (story_flags.get("musician_8_day", totaldays) - totaldays) >= 2
-        )
+
+    def _musician_day_gate(flag_key, gap=None):
+        if gap is None:
+            gap = MUSICIAN_INTRO_GAP
+        last_day = story_flags.get(flag_key, -9999)
+        return (last_day - totaldays) >= gap
+
+    def musician_8_gate():
+        return _musician_day_gate("musician_1_day")
+
+    def musician_8_ready():
+        return relationship_points["musician"] >= 3 and not flag("musician_show_seen")
+
+    def musician_casual_paused():
+        return flag("musician_show_seen") and encounters["musician"] < 10
+
+    def musician_9_condition():
+        return flag("musician_ticketer_talk_seen")
+
+    def musician_9_blocked():
+        encounters["musician"] += 1
+
+    def musician_9_branch():
+        days_since_9 = story_flags.get("musician_9_day", -9999) - totaldays
+        return "musician_9a" if days_since_9 <= 2 else "musician_9b"
+
+    def musician_11_condition():
+        return dayofweeknumber == 5
+
+    musician_encounter_table = {
+        1: {"label": "musician_1"},
+        3: {"label": "musician_3"},
+        5: {"label": "musician_5"},
+        7: {"label": "musician_7"},
+        8: {"condition": musician_8_ready, "label": "musician_8"},
+        10: {"branch": musician_9_branch},
+    }
+
+    def get_musician_action():
+        entry = musician_encounter_table.get(encounters["musician"])
+        if not entry:
+            return None
+        if "branch" in entry:
+            return entry["branch"]()
+        condition = entry.get("condition")
+        if condition is None or condition():
+            return entry["label"]
+        elif "on_blocked" in entry:
+            entry["on_blocked"]()
+        return None
 
 # ============================================
 # ITEMS
@@ -456,6 +514,7 @@ image ticket_front_new = Transform("images/inventory/ticket_front_new.png",zoom=
 image ticket_front_used = Transform("images/inventory/ticket_front_used.png",zoom=0.2)
 
 # Define and resize bg images
+image bg opening = Transform("images/bg opening.png",zoom=1.5)
 image bg cafeleft = im.Scale("images/cafe/cafeleft.png", 1920, 1080)
 image bg caferight = im.Scale("images/cafe/caferight.png", 1920, 1080)
 image bg dept = im.Scale("images/bg dept.png", 1920, 1080)
