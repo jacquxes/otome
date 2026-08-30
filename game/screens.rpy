@@ -250,6 +250,7 @@ screen dev_overlay():
             text "café visits: [total_visits['musician']]"
             text "visited today: [visited_today['musician']]"
             text "encounters: [encounters['musician']]"
+            text "theatre visits: [location_visits['theatre']]"
 
 init python:
     config.overlay_screens.append("dev_overlay")

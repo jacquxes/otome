@@ -43,6 +43,8 @@ label check_cafe_visits:
             mapping = item_to_character.get(item)
             if mapping is None or isinstance(mapping, list):
                 continue
+            if mapping == "musician" and musician_casual_paused():
+                continue
             if mapping in unlocked_chars and not visited_today[mapping] and mapping not in already_picked:
                 eligible.append(mapping)
                 already_picked.add(mapping)
@@ -56,6 +58,7 @@ label check_cafe_visits:
             candidates = [
                 c for c in mapping
                 if c in unlocked_chars and not visited_today[c] and c not in already_picked
+                and not (c == "musician" and musician_casual_paused())
             ]
             if candidates:
                 if renpy.random.random() < CATCHUP_CHANCE:
@@ -146,7 +149,7 @@ label after_work_cafe:
     call check_cafe_visits
 
     show cafetableright zorder 3.0
-    show kirako happy with moveinleft
+    show kirako happy with dissolve
     kirako "Thank you for your help Naomi!"
     $ tips = renpy.random.randint(10, 15)
     $ money += tips
@@ -179,8 +182,66 @@ label after_work_cafe:
 # CASUAL VISITS
 # ============================================
 
-label casual_musician:
-    "Hideo stops by, says he's craving something sweet today."
+label casual_musician:    
+    show cafetableright zorder 3.0
+    if encounters["musician"] == 2:
+        call musician_2
+    else:
+        if 4 <= encounters["musician"] <= 6:
+            show fans_less with dissolve
+        show musician shy with dissolve:
+            xalign 0.5
+        naomi happy "Craving something sweet today?"
+        show musician shy2
+        musician "Yeah, pudding please."
+        naomi happy "Coming right up!"
+        window hide
+        show pudding zorder 3.0:
+            xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
+            easein 1.0 ypos 0.7 zpos 0
+        pause
+        naomi relieved "Here you go!"
+        show musician happy
+        musician "Thanks."
+    if 4 <= encounters["musician"] <= 6:
+        customer "Pudding, please!"
+        naomi happy "Right up!"
+        show musician shy
+        musician "There's been more customers lately."
+        naomi smirk "Yeah, the pudding's been selling out lately."
+        show musician thinking
+        musician "Selling out?"
+        naomi smirk "Don't worry, we keep one just for you."
+        show musician happy
+        musician "Thanks."
+    if encounters["musician"] == 9:
+        naomi troubled "How was rehearsal today?"
+        show musician shy
+        musician "...Fine."
+        naomi troubled "..."
+        show musician shy2
+        musician "It really was. I've been..."
+        show musician shy
+        musician "Back to my usual."
+        naomi relieved "Alright."
+        show musician happy
+        musician "...Thanks for asking."
+    if encounters["musician"] == 10:
+        show musician shy2
+        musician "...I'll be at the theatre then."
+        naomi happy "See you there!"
+    if encounters["musician"] == 11:
+        naomi happy "How's the song coming along?"
+        show musician thinking
+        musician "...It's coming along."
+        naomi happy "Coming along, huh."
+        show musician happy
+        musician "I'll keep working at it."
+        naomi happy "I'm waiting."
+    hide musician
+    hide pudding
+    hide fans_less
+    with dissolve
     return
 
 label casual_doctor:
@@ -392,7 +453,7 @@ label merchant_1:
     $ guy_display = True
     $ encounters["merchant"] += 1
     if merchant_choice == 0:        
-        show merchant frownside with moveinleft:
+        show merchant frownside with dissolve:
             xalign 0.5
         merchant "A coffee please."
         naomi happy "One coffee. Please wait a mo-"
@@ -526,7 +587,7 @@ label merchant_1:
                 naomi sleepy "It's fine, really."
                 naomi thinking "(I guess I can visit his office and see how it goes...)"
     elif merchant_choice == 1:
-        show merchant frown with moveinleft:
+        show merchant frown with dissolve:
             xalign 0.5
         merchant "A coffee please."
         show merchant frownside

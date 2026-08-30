@@ -1,65 +1,41 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-Compiling ATL code at game/script_04_musician.rpy:1280
-  File "game/script_03_cafe.rpy", line 146, in script call
+While running game code:
+  File "game/script_03_cafe.rpy", line 149, in script call
     call check_cafe_visits
-  File "game/script_03_cafe.rpy", line 105, in script call
-    call expression override1
-  File "game/script_04_musician.rpy", line 1278, in script
-    show musician shy2:
-Exception: Expression '0.5' is not an ATL transform, and so cannot be included in an ATL interpolation.
+  File "game/script_03_cafe.rpy", line 132, in script call
+    call expression "casual_" + char2
+  File "game/script_03_cafe.rpy", line 229, in script
+    if encounters["musician"] == 10 and days_since_9 <= 2:
+  File "game/script_03_cafe.rpy", line 229, in <module>
+    if encounters["musician"] == 10 and days_since_9 <= 2:
+                                        ^^^^^^^^^^^^      
+NameError: name 'days_since_9' is not defined. Did you mean: 'days_since_show'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script_03_cafe.rpy", line 146, in script call
+  File "game/script_03_cafe.rpy", line 149, in script call
     call check_cafe_visits
-  File "game/script_03_cafe.rpy", line 105, in script call
-    call expression override1
-  File "game/script_04_musician.rpy", line 1278, in script
-    show musician shy2:
-  File "renpy/ast.py", line 1357, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ast.py", line 730, in show_imspec
-    renpy.config.show(
-    ~~~~~~~~~~~~~~~~~^
-        name, at_list=at_list, layer=layer, what=expression, zorder=zorder, tag=tag, behind=behind, atl=atl
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "renpy/exports/displayexports.py", line 513, in show
-    sls.add(
-    ~~~~~~~^
-        layer,
-        ^^^^^^
-    ...<8 lines>...
-        transient=transient,
-        ^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "renpy/display/scenelists.py", line 464, in add
-    thing.visit_all(lambda d: None)
-    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 448, in visit_all
-    for d in self.visit():
-             ~~~~~~~~~~^^ 
-  File "renpy/atl.py", line 739, in visit
-    block = self.compile()
-            ~~~~~~~~~~~~^^
-  File "renpy/atl.py", line 650, in compile
-    block = self.atl.compile(self.context)
-            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "renpy/atl.py", line 844, in compile
-    statements = [i.compile(ctx) for i in self.statements]
-                  ~~~~~~~~~^^^^^                          
-  File "renpy/atl.py", line 1206, in compile
-    raise Exception(
-        "Expression %r is not an ATL transform, and so cannot be included in an ATL interpolation." % expr
-    )
-Exception: Expression '0.5' is not an ATL transform, and so cannot be included in an ATL interpolation.
+  File "game/script_03_cafe.rpy", line 132, in script call
+    call expression "casual_" + char2
+  File "game/script_03_cafe.rpy", line 229, in script
+    if encounters["musician"] == 10 and days_since_9 <= 2:
+  File "renpy/ast.py", line 2079, in execute
+    if renpy.python.py_eval(condition):
+       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^ 
+  File "renpy/python.py", line 1305, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1298, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/script_03_cafe.rpy", line 229, in <module>
+    if encounters["musician"] == 10 and days_since_9 <= 2:
+                                        ^^^^^^^^^^^^      
+NameError: name 'days_since_9' is not defined. Did you mean: 'days_since_show'?
 
 macOS-15.6.1-arm64-arm-64bit arm64
 Ren'Py 8.5.0.25111603
 Naomi in Romanceland 1.0
-Mon Aug 10 17:32:49 2026
+Mon Aug 17 11:00:54 2026

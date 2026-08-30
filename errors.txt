@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script_04_musician.rpy", line 1276: if statement expects a non-empty block.
-    if relationship_points["musician"] >= 13:
-                                             ^
+File "game/script_04_musician.rpy", line 1019: expected statement.
+    naomi
+         ^
 
 Ren'Py Version: Ren'Py 8.5.0.25111603
-Mon Aug 10 17:32:04 2026
+Sun Aug 16 21:54:35 2026

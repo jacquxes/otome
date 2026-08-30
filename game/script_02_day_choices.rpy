@@ -200,7 +200,7 @@ label weekend_saturday:
     scene bg cafeleft with fade
     play music "<from 1 to 79.5>spring.mp3" loop if_changed
     naomi sleepy "It's Saturday."
-    if musician_event == 1:
+    if musician_event == 1 and totaldays <= 16:
         naomi thinking "The cello performance is this afternoon."
     if merchant_event == True:
         naomi thinking "I have to go with Yujiro to the dance hall tonight."
@@ -219,7 +219,7 @@ label weekend_saturday:
         "Work at the cafe":
             call work_cafe
     scene bg cafeleft with fade
-    if musician_event == 1:
+    if musician_event == 1 and totaldays <= 16:
         jump musician_show
     menu:
         naomi thinking "What should I do this afternoon?"
@@ -494,7 +494,7 @@ label end_day:
                 pause
                 $ day_display = True
                 jump next_morning
-            if musician_dream == True and musician_courage > 2:
+            if musician_dream == True:
                 $ day_display = False
                 define fadehold = Fade (1.0,1.0,2.0)
                 image black1 = "black_1.png"

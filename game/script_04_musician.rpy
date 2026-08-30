@@ -1,152 +1,72 @@
-# label imperial_theatre:
-
-#     scene bg imperial theatre
-#     if musician_ending == True:
-#         if musician_courage > 2:
-#             jump musician_final_irl
-#         else:
-#             jump musician_final_not
-#     if totaldays == 0:
-#         jump theatre_ending
-
-#     if encounters["musician"] == 1:
-#         call musician_2
-#     elif encounters["musician"] == 4:
-#         if totaldays > 3:
-#             call musician_6a
-#         else:
-#             call musician_6b
-#     if musician_job == 1:
-#         # naomi thinking "(I wonder if I'll run into Hideo.)"
-#         # naomi thinking "(I haven't had the chance to thank him for this job...)"
-#         call musician_3
-#     play music "<from 246>cello.mp3" fadein 3 if_changed
-#     naomi happy "I'll work a shift now."
-#     show bg imperial theatre:
-#         linear 2.0 xalign 1.0 yalign 0.5 zoom 2.0
-#     ticketer "Come on over here then."
-#     show time:
-#         xalign 0.5 yalign 0.5
-#         ease 1.0 rotate 45
-#         ease 1.0 rotate -45
-#         ease 1.0 rotate 0
-#     naomi thinking "..."
-#     hide time
-#     if musician_job == 1:
-#         customer "Front row tickets for the Saturday afternoon performance."
-#         naomi relieved "Please wait a moment."
-#         naomi troubled "(This performance is pretty popular.)"
-#         naomi troubled "I only have seats at the back, is that alright?"
-#         customer "But I won't be able to see the handsome cellist."
-#         naomi troubled "..."
-#         customer "Better than nothing. I'll take it then."
-#         naomi relieved "Have a good day."
-#         naomi thinking "(Handsome cellist?)"
-#     if musician_job > 5 and encounters["musician"] < 4 and musician_event == 2:
-#         ticketer "Are you friends with the cellist?"
-#         ticketer "I heard he's been skipping rehearsals."
-#         naomi surprised "You mean Hideo?"
-#         naomi troubled "(Come to think of it, I haven't seen him here lately...)"
-#         naomi troubled "(Perhaps he might drop by the cafe instead.)"
-#         $ encounters["musician"] = 3
-#     hide time
-#     $ timeslot -= 1
-#     naomi sleepy "I've sold quite a bit today."
-#     $ salary = renpy.random.randint(8, 12)
-#     $ money += salary
-#     ticketer "Here's [salary] yen for today's work."
-#     if musician_job == 1:
-#         naomi happy "Thank you!"
-#         if totaldays > 9:
-#             ticketer "By the way, do you want to see the Saturday afternoon performance?"
-#             naomi thinking "It's really popular, isn't it?"
-#             menu:
-#                 ticketer "There are only a few seats at the last row, but you can have one for 10 yen."
-#                 "I'll take it" if money >= 10:
-#                     $ money -= 10
-#                     naomi happy "I'll take it."
-#                     ticketer "Here you go then."
-#                     window hide
-#                     show ticket_back_new:
-#                         xalign 0.4 yalign 0.6 zpos 0 zoom 0.5
-#                         easein 1.0 xalign 0.5 yalign 0.7 zpos 400 zoom 1.0
-#                     pause
-#                     hide ticket_back_new with moveoutbottom
-#                     $ inventory.update({"ticket_back_new":["Ticket for a seat in the last row."]})
-#                     $ musician_choice += 1
-#                     $ musician_event = 1
-#                 "I'll pass":
-#                     naomi relieved "I'll pass. Maybe next time."
-#                     ticketer "Alright."
-#     if musician_job == 3 and totaldays > 8:
-#         stop music fadeout 3
-#         call musician_4
-#     if musician_job > 7 and encounters["musician"] == 5 and pre_musician_event_2 == True:
-#         stop music fadeout 3
-#         call musician_7
-#     # if musician_job == 8 and musician_event == 2:
-#     #     call musician_5
-#     $ musician_job += 1
-#     # Check if morning or afternoon
-#     if timeslot == 1:
-#         menu:
-#             ticketer "Do you want to work the afternoon too?"
-#             "Work the afternoon":
-#                 naomi happy "Sure, I'll stay for the afternoon."
-#                 jump imperial_theatre
-#             "Go out":
-#                 naomi relieved "No, I'll head off now."
-#                 ticketer "See you next time."
-#                 stop music fadeout 5
-#                 jump ginza_small
-#     if timeslot < 1:
-#         naomi relieved "I'll head home now."
-#         ticketer "See you next time."
-#         stop music fadeout 5
-#         jump evening_time
-
-
 label imperial_theatre:
 
     scene bg imperial theatre
     play music "<from 246>cello.mp3" fadein 3 if_changed
 
-    ## Encounter 2: First time at Imperial Theatre
-    if encounters["musician"] == 3:
-        if not flag("musician_show_seen"):
-            call musician_3
-        else:
-            $ encounters["musician"] += 1
-    if encounters["musician"] == 2:
-        call musician_2
-    if encounters["musician"] == 1:
-        call musician_1
-    if encounters["musician"] == 7:
-        $ days_since_musician_5 = story_flags.get("musician_5_day", -9999) - totaldays
-        if days_since_musician_5 <= 2:
-            call musician_6a
-        else:
-            call musician_6b
+    $ location_visits["theatre"] += 1
 
     ## Post-show disappearance
     $ days_since_show = story_flags.get("musician_show_day", -9999) - totaldays
 
-    if days_since_show >= 4 and not flag("musician_ticketer_talk_seen"):
-        ticketer "Are you friends with the cellist?"
-        ticketer "I heard he's been skipping rehearsals."
-        naomi surprised "You mean Hideo?"
-        naomi troubled "(Come to think of it, I haven't seen him here lately...)"
-        naomi troubled "(Perhaps he might drop by the cafe instead.)"
-        $ set_flag("musician_ticketer_talk_seen")
-        $ encounters["musician"] += 1
-    elif 0 < days_since_show < 4:
-        naomi troubled "(I wonder where Hideo's been. I haven't seen him around here lately.)"
+    $ musician_next = get_musician_action()
+    if musician_next:
+        call expression musician_next from _call_musician_encounter
+    else:
+        if days_since_show >= 4 and not flag("musician_ticketer_talk_seen"):
+            ticketer "Are you the girl from the cellist's cafe?"
+            ticketer "I heard he's been skipping rehearsals."
+            naomi surprised "You mean Hideo?"
+            ticketer "Yes. If you see him, tell him the orchestra is waiting for him."
+            naomi happy "Sure, I'll pass on the message."
+            naomi troubled "(Come to think of it, I haven't seen him here lately...)"
+            naomi troubled "(Perhaps he might drop by the cafe instead.)"
+            $ set_flag("musician_ticketer_talk_seen")
+        elif 0 < days_since_show < 4:
+            show fans_less with dissolve
+            fan "The orchestra came out during their break, but I didn't see Hideo."
+            fan "I waited since early this morning, but he didn't appear either."
+            naomi troubled "(I wonder where Hideo's been. It looks like his fans haven't spotted him lately.)"
+            hide fans_less with dissolve
+        else:
+            if encounters["musician"] <= 2:
+                show fans_less
+                naomi thinking "(Hideo's fans are staking out for him again.)"
+                fan "I heard the tickets for Saturday's performance are all sold out."
+                fan "As expected of Hideo-sama."
+                fan "I can't wait to hear his cello solo."
+                naomi thinking "(So he plays the cello.)"
+                naomi troubled "(But, what's that instrument he's always carrying around?)"
+                hide fans_less with dissolve
+                naomi thinking "(Nothing left for me to do here.)"
+            if 3 < encounters["musician"] <= 4:
+                show fans_less
+                fan "Someone said she saw Hideo leave the building."
+                naomi thinking "(Looks like I missed him this time.)"
+                naomi happy "Hideo's favourite pudding, come get yours!"
+                fan "Is this from the rumoured cafe?"
+                naomi happy "Yes, Hideo's a regular at the Cafe Diamond in Asakusa!"
+                naomi happy "This is his favourite pudding."
+                fan "I'll have one pudding, please!"
+                naomi thinking "(The pudding is popular, and Hideo even more so!)"
+                fan "Oh, the same flavor as Hideo-sama!"
+                fan "I'll have a pudding too, please!"
+                naomi troubled "I'm sorry, we are out of pudding."
+                naomi happy "But you can visit us in Asakusa. You might run into Hideo himself!"
+                fan "A chance to run into Hideo? Let's visit that cafe!"
+                naomi happy "(Good. More business for the cafe.)"
+            if encounters["musician"] > 4:
+                show fans_less
+                naomi happy "Pudding from the Cafe Diamond! It's Hideo's favorite pudding."
+                fan "I'll have one!"
+                fan "I'll pass this time."
+                hide fans_less with dissolve
+                naomi thinking "(Sales were a little less today.)"
 
     $ timeslot -= 1
 
     ## Check if morning or afternoon
     if timeslot == 1:
-        naomi thinking "Where should I go next?"
+        naomi thinking "(Where should I go next?)"
         stop music fadeout 5
         jump ginza_small
     if timeslot < 1:
@@ -156,14 +76,12 @@ label imperial_theatre:
 
 label musician_0:
     show cafetableright zorder 3.0
-    show musician shy with moveinleft:
+    show musician shy with dissolve:
         xalign 0.5
     $ musician_name = "???"
     naomi thinking "..."
     musician "..."
     naomi surprised "(Oh! A customer.)"
-    # naomi surprised "(He's carrying a shamisen?)"
-    # naomi troubled "(He looks a little unfriendly...)"
     naomi happy "Hi! What can I get for you?"
     show musician shy2
     musician "...Pudding, please."
@@ -211,23 +129,29 @@ label musician_0:
     naomi thinking "(He knows I'm new.)"
     naomi happy "Have you been coming often?"
     show musician shy
-    musician "Every now and then."
+    musician "Just every now and then."
     show musician happy
     musician "When I feel like having pudding."
+    naomi happy "(He must like the pudding here.)"
     show musician shy2
     musician "...But it's been quieter lately."
     naomi surprised "Is that so?"
+    musician "Yeah, well."
+    musician "It's how things are."
+    show musician shy
     musician "A new cafe opens, some customers go there."
     naomi thinking "(So there's been competition from other cafes.)"
     naomi happy "You're still here, though."
-    show musician shy
+    show musician happy
     musician "...The pudding's better here."
     naomi relieved "(He really likes the pudding.)"
     naomi relieved "Any ideas how we could get more customers in?"
     show musician thinking
     musician "..."
+    musician "More customers.. It's tough."
+    naomi troubled "It's fine, you don't have t-"
     show musician shy2
-    musician "There's the theatre crowd."
+    musician "Well, there's the theatre crowd."
     naomi surprised "Theatre crowd?"
     show musician shy
     musician "After a show, people look for somewhere to go."
@@ -236,41 +160,6 @@ label musician_0:
     naomi thinking "(Ginza is a little far. But if he came here just for pudding...)"
     naomi angry "(It's worth looking into.)"
     naomi happy "Thank you for the suggestion, I'll talk to the owner."
-    # naomi thinking "(Someone who comes here often. Maybe he can give me some ideas.)"
-    # menu:
-    #     naomi thinking "(What should I ask?)"
-    #     "Ask about the shamisen":
-    #         $ musician_courage += 1
-    #         naomi happy "Is that a shamisen you're carrying?"
-    #         show musician shy2
-    #         musician "Yes."
-    #         naomi happy "You're a musician then?"
-    #         show musician shy
-    #         musician "You could say that."
-    #         naomi relieved "Do you perform somewhere?"
-    #         show musician thinking
-    #         musician "The Imperial Theatre."
-    #         naomi surprised "(The Imperial Theatre!)"
-    #         naomi thinking "(That crowd, coming here after a show...)"
-    #         naomi happy "I'd love to hear you play someday."
-    #         show musician shy
-    #         musician "...Maybe someday."
-    #     "Ask for ideas for cafe":
-            # naomi relieved "Actually, I've been wondering..."
-            # naomi troubled "The cafe has been a little quiet lately..."
-            # naomi relieved "Any idea how we could make it better?"
-            # show musician thinking
-            # musician "..."
-            # show musician shy2
-            # musician "There's the theatre crowd."
-            # naomi surprised "Theatre crowd?"
-            # show musician shy
-            # musician "After a show, people look for somewhere to go."
-            # show musician thinking
-            # musician "...I perform at the Imperial Theatre. In Ginza."
-            # naomi thinking "(Ginza is a little far. But if he came here just for pudding...)"
-            # naomi angry "(It's worth looking into.)"
-            # naomi happy "The theatre! I hadn't thought of that."
     naomi thinking "(I should get his name at least.)"
     naomi happy "By the way, I'm Naomi. You are...?"
     show musician shy
@@ -279,16 +168,13 @@ label musician_0:
     $ musician_name = "Hideo"
     show musician happy
     musician "Nice meeting you too, Naomi."
-    show musician shy2
-    musician "So, I'll see you again?"
-    naomi happy "Yes, see you next time!"
     hide musician
     hide pudding_no
     hide pudding_cherry
-    with moveoutleft
+    with dissolve
     naomi thinking "(The Imperial Theatre.)"
     naomi thinking "(I should go and have a look.)"
-    # $ encounters["musician"] += 1
+    $ story_flags["musician_0_day"] = totaldays
     $ unlock_imp_th = True
     return
 
@@ -296,9 +182,8 @@ label musician_1:
     show fans_less
     naomi happy "So this is the Imperial Theatre... It's grand!"
     naomi thinking "I hear music from behind the doors."
-    naomi happy "Could Hideo be rehearsing today?"
     naomi pain "Such a lovely music."
-    naomi thinking "(I wonder what upcoming performances there are.)"
+    naomi thinking "I wonder what upcoming performances there are."
     show fans_less:
         linear 2.0 xalign 1.0 yalign 0.5 zoom 2.0
     show bg imperial theatre:
@@ -344,119 +229,294 @@ label musician_1:
     naomi surprised "(Hideo's fans follow him outside the theatre.)"
     naomi thinking "(If they knew about Cafe Diamond...)"
     naomi happy "That's it."
-    naomi thinking "Now I need to convince Hideo to help."
-    # naomi happy "Music really draws people..."
-    # naomi surprised "What if we had that in the cafe?"
-    # naomi thinking "A night of music. Fans who might become patrons."
-    # naomi happy "That's it."
-    # naomi thinking "Now I just need to convince Hideo."
+    naomi thinking "I need a plan to get these fans to our cafe."
+    $ story_flags["musician_1_day"] = totaldays
     $ encounters["musician"] += 1
     return
 
-# label musician_2:
-#     play music "<from 135 to 155>cello.mp3"
-#     naomi happy "So this is the Imperial Theatre... It's grand!"
-#     naomi thinking "Now where can I find Hideo?"
-#     naomi surprised "Ah but."
-#     naomi pain "What is this music? Such a lonesone tune, I feel my heart ache."
-#     naomi thinking "It wouldn't hurt just to listen for a while."
-#     stop music fadeout 3
-#     show musician shy with moveinleft:
-#         xalign 0.5
-#     window hide
-#     pause
-#     musician "Hey, you came."
-#     naomi happy "Hey!"
-#     menu:
-#         "Ask about job":
-#             naomi blush "Umm... About what we discussed before..."
-#             show musician shy2
-#             musician "Ah, yes..."
-#         "Ask about music":
-#             $ musician_courage += 1
-#             naomi troubled "I heard music..."
-#             show musician shy
-#             musician "Were you listening?"
-#             show musician shy2
-#             musician "It was full of mistakes... I'm still working on-"
-#             naomi thinking "Everyone makes mistakes starting out."
-#             show musician surprised
-#             naomi smirk "Someone told me that."
-#             musician "..."
-#             naomi happy "Besides, I didn't think it sounded bad."
-#             naomi relieved "I was moved by it."
-#             show musician happy
-#             musician "Thanks for telling me."
-#             show musician shy
-#             musician "It'll be perfect by performance day."
-#             naomi relieved "That's the spirit!"
-#             show musician shy2
-#             musician "...Oh, yeah."
-#     show musician thinking
-#     musician "They're hiring staff to sell tickets on weekdays."
-#     musician "If you want, you can start immediately."
-#     $ encounters["musician"] += 1
-#     naomi happy "Thank you so much!"
-#     show musician shy2
-#     musician "You're welcome."
-#     show musician shy
-#     musician "I've got to get back to practice."
-#     naomi blush "Sorry for disturbing you!"
-#     show musician shy2
-#     musician "I'll see you around, then?"
-#     if musician_courage > 0:
-#         show musician happy
-#     naomi blush "Yes, see you!"
-#     hide musician with moveoutleft
-#     play music "<from 246>cello.mp3"
-#     naomi thinking "I guess this is the ticket counter."
-#     show bg imperial theatre:
-#         linear 2.0 xalign 1.0 yalign 0.5 zoom 2.0
-#     naomi troubled "Hello, I'm Naomi. I heard that I could start working today?"
-#     ticketer "You're the new girl, yes?" 
-#     ticketer "You can work morning or afternoon shifts on weekdays and you'll be paid for your time."
-#     return
-
 label musician_2:
-    play music "<from 135 to 155>cello.mp3"
-    naomi thinking "Where can I find Hideo? I need to convince him to help us."
-    naomi surprised "Ah but."
-    naomi pain "Is this the cello? Such a lonesone tune, I feel my heart ache."
-    naomi sleepy "I'll just listen for a while."
-    stop music fadeout 3
-    show musician shy with moveinleft:
+    $ encounters["musician"] += 1
+    show musician shy with dissolve:
         xalign 0.5
+    naomi thinking "(How do I get Hideo's fans to Cafe Diamond?)"
+    naomi surprised "Oh, sorry!"
+    naomi happy "Pudding, yes?"
     window hide
+    show pudding zorder 3.0:
+        xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
+        easein 1.0 ypos 0.7 zpos 0
     pause
-    show musician shy
-    musician "..."
-    naomi surprised "Hideo!"
-    show musician surprised
-    musician "...Naomi?"
-    naomi happy "I was looking for you, but I got distracted by the lovely cello music..."
-    show musician shy2
-    musician "You were listening?"
-    naomi surprised "Was that you? I thought you played the shamisen."
-    show musician shy
-    musician "Well, I play the cello now."
-    naomi thinking "(Handsome cellist...)"
-    naomi surprised "Are you performing this Saturday?"
-    show musician shy2
-    musician "Yeah..."
-    show musician shy
-    musician "Uh, you were looking for me?"
-    naomi blush "Yes, I was hoping to get your help..."
-    naomi thinking "I have an idea how we could help the cafe."
-    naomi happy "Music on some evenings, something to bring new crowd in."
-    naomi troubled "I was wondering... Would you consider playing there sometime?"
     show musician thinking
-    musician "The cello doesn't work well on its own."
-    musician "It needs an orchestra to be complete."
-    show musician troubled
-    musician "...Sorry."
-    naomi thinking "(He didn't say no, but he seems reluctant.)"
-    naomi troubled "(I don't want to be too pushy, but I really hope he can help.)"
+    musician "You're distracted."
+    naomi blush "...I was thinking how to bring the theatre crowd to the cafe."
+    musician "..."
+    musician "How about if you brought the cafe to the theatre?"
+    naomi surprised "Cafe to the theatre?"
+    show musician shy
+    musician "Yeah..."
+    show musician thinking
+    musician "Some pudding during breaks would be nice."
+    naomi smirk "You just want to eat pudding, don't you?"
+    show musician happy
+    musician "You caught me."
+    hide musician
+    hide pudding
+    with dissolve
+    naomi thinking "(But still, it's an idea.)"
+    naomi thinking "(I'll bring some pudding when I visit the theatre.)"
+    return
+
+label musician_3:
+    show fans_less
+    $ encounters["musician"] += 1
+    naomi thinking "(Hideo's fans are here as usual.)"
+    naomi thinking "(I've brought the puddings from the cafe.)"
+    naomi happy "Hello! Would you like to give Hideo's favourite pudding a try?"
+    fan "Hideo's favourite pudding?"
+    naomi happy "Yes, Hideo's a regular at the Cafe Diamond in Asakusa!"
+    naomi happy "This is his favourite pudding."
+    fan "Tasting the same flavor as Hideo-sama? Give me one!"
+    fan "A pudding, please!"
+    fan "I'll have a pudding too, please!"
+    naomi troubled "I'm sorry, we are out of pudding."
+    naomi happy "But you can visit us in Asakusa. You might run into Hideo himself!"
+    fan "A chance to run into Hideo? Let's visit that cafe!"
+    fan "He might have gone there. Let's go now!"
+    naomi happy "(Good. More business for the cafe.)"
     menu:
+        naomi thinking "(I should guide these customers to the cafe, but this music...)"
+        "Guide the customers":
+            naomi happy "Please follow me, I will bring you to the cafe."
+            fan "Lead the way!"
+            scene bg caferight
+            show fans_less
+            show cafetableright zorder 3.0
+            with dissolve
+            fan "Pudding, please!"
+            naomi happy "Coming right up!"
+            show pudding zorder 3.0:
+                xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
+                easein 1.0 ypos 0.7 zpos 0
+            fan "The food is delicious!"
+            fan "I'll come again to see if I can catch Hideo."
+            naomi thinking "(Good, my strategy is working out.)"
+            naomi thinking "(I'll visit the theatre again to get more fans here.)"
+            naomi happy "Thank you for your patronage!"
+            hide fans_less
+            hide pudding
+            with dissolve
+            show kirako happy with dissolve
+            kirako "Thank you for your help Naomi!"
+            show kirako pout
+            kirako "Is it just me, or was the cafe busier today?"
+            $ tips = renpy.random.randint(10, 15)
+            $ money += tips
+            show kirako happy
+            kirako "Here you go, [tips] yen in tips today."
+            
+            # Deduct timeslot and check if morning or afternoon
+            $ timeslot -= 1
+            if timeslot == 1:
+                naomi happy "Thank you!"
+                hide kirako with dissolve
+                scene bg cafeleft with pushright
+                menu:
+                    naomi thinking "What should I do this afternoon?"
+                    "Work in cafe":
+                        jump work_cafe
+                    "Go out":
+                        stop music fadeout 3
+                        jump asakusa_small
+            if timeslot < 1:
+                kirako "Have a good rest, dear."
+                naomi happy "You too, good night!"
+                stop music fadeout 3
+                jump evening_time
+        "Listen to music":    
+            hide fans_less with dissolve
+            naomi sleepy "(I'll just listen for a while.)"
+            stop music fadeout 3
+            window hide
+            show musician thinking:
+                xalign 0.5
+            with dissolve
+            pause
+            musician "...Naomi?"
+            naomi surprised "Hideo!"
+            musician "What are you doing here?"
+            naomi happy "I came to promote the cafe, like you suggested."
+            show musician shy
+            musician "I see. How did it go?"
+            naomi happy "I think it worked! People are heading to the cafe."
+            naomi thinking "I brought your favourite pudding, and it was a hit."
+            naomi troubled "It sold out within minutes... Sorry."
+            show musician happy
+            musician "It's alright, I'm glad for the cafe."
+            musician "I've got to get back to practice now."
+            musician "Bring extra for me next time."
+            hide musician with dissolve
+            play music "<from 246>cello.mp3"
+            naomi happy "We're off to a promising start."
+            naomi thinking "I'll just have to keep coming with the puddings."
+            $ add_point("musician")
+            return
+
+
+label musician_4:
+    show cafetableright zorder 3.0
+    show musician shy with dissolve:
+        xalign 0.5
+    naomi happy "Hi! The usual?"
+    musician "Yes, please."
+    window hide
+    show pudding zorder 3.0:
+        xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
+        easein 1.0 ypos 0.7 zpos 0
+    pause
+    naomi happy "I've been meaning to ask, what's that you're always carrying?"
+    show musician surprised
+    musician "...This?"
+    show musician shy
+    musician "A shamisen."
+    naomi happy "Do you play that in the orchestra?"
+    musician "Nah, it doesn't fit in an orchestra."
+    musician "I play the cello now."
+    menu:
+        "Ask about cello":
+            naomi thinking "I see."
+            naomi happy "When did you pick up the cello?"
+            musician "Just about half a year back."
+            naomi surprised "Half a year?"
+            naomi thinking "(Unthinkable given his level of mastery.)"
+            naomi thinking "You must have worked very hard at it."
+            show musician happy
+            musician "Yeah, it was difficult."
+        "Ask about shamisen":
+            naomi thinking "Why do you carry it around then?"
+            show musician shy2
+            musician "...I'm just used to having it with me."
+            naomi thinking "(It means enough to him that he carries it with him.)" 
+            show musician surprised
+            naomi relieved "I'd love to hear you play the shamisen someday."
+            show musician shy
+            musician "...Maybe someday."
+            $ add_point("musician")
+    hide musician
+    hide pudding
+    with dissolve
+    return
+
+label musician_5:
+    stop music fadeout 3.0
+    show fans_less
+    $ encounters["musician"] += 1
+    naomi happy "Pudding from the Cafe Diamond! It's Hideo's favorite pudding."
+    fan "The pudding! I want one."
+    naomi happy "Here you go! Come visit our cafe in Asakusa!"
+    fan "I visited, but Hideo wasn't there."
+    fan "Is this really Hideo's favorite pudding?"
+    naomi troubled "(People are doubting.)"
+    naomi thinking "(I need to create an opportunity for them to see Hideo at the cafe...)"
+    play music "<from 135 to 155>cello.mp3"
+    fan "Hush! Hideo is playing."
+    naomi thinking "..."
+    naomi surprised "(This music!)"
+    show bg imperial theatre as theatre_copy at atl_dizzy
+    if persistent.haptics_enabled:
+        $ renpy.vibrate(0.5)
+    naomi pain "(It makes me feel...)" with vpunch
+    naomi troubled "(What was that?)"
+    naomi troubled "..."
+    naomi surprised "(Around me, people are stopping to listen.)"
+    naomi happy "That's it!"
+    naomi happy "If I can get Hideo to play at the cafe, people will come."
+    naomi thinking "Now I need to convince Hideo to help."
+    return
+
+
+label musician_6:
+    show cafetableright zorder 3.0
+    show musician shy with dissolve:
+        xalign 0.5
+    naomi happy "Welcome back!"
+    show musician shy2
+    musician "Thanks. The usual, please."
+    naomi happy "Coming right up!"
+    window hide
+    show pudding zorder 3.0:
+        xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
+        easein 1.0 ypos 0.7 zpos 0
+    pause
+    naomi relieved "Here you go!"
+    show musician happy
+    naomi thinking "(I need his help for the cafe.)"
+    menu:
+        naomi thinking "(How should I ask him?)"
+        "It would help the cafe":
+            naomi troubled "Actually, I wanted to ask you something."
+            naomi troubled "Would you consider playing here sometime? It would really bring in customers."
+            show musician surprised
+            musician "...Here?"
+            naomi relieved "Just once, even. The theatre crowd already knows your name."
+            show musician thinking
+            musician "..."
+            musician "The cello doesn't work well on its own."
+            musician "It needs an orchestra to be complete."
+        "Your music moved me":
+            $ add_point("musician")
+            naomi troubled "Actually, I wanted to ask you something."
+            naomi troubled "I was listening to your music at rehearsal."
+            naomi relieved "And it moved me, somehow."
+            naomi happy "Would you play something like that here? Just for us?"
+            show musician surprised
+            musician "...Here?"
+            naomi happy "It wouldn't have to be anything big."
+            show musician thinking
+            musician "..."
+            musician "The cello doesn't work well on its own."
+            musician "It needs an orchestra to be complete."
+            show musician troubled
+            musician "...Sorry."
+    naomi thinking "(He didn't say no, but he seems reluctant.)"
+    show musician shy2
+    musician "I should head back."
+    naomi happy "Thanks for stopping by."
+    hide musician
+    hide pudding
+    with dissolve
+    naomi thinking "I don't want to be pushy, but I do hope he can help."
+    return
+
+label musician_7:
+    show fans_less
+    $ encounters["musician"] += 1
+    naomi happy "Pudding from the Cafe Diamond!"
+    fan "I'll have a pudding, please."
+    naomi happy "Here you go! Come visit our cafe!"
+    stop music fadeout 3.0
+    hide fans_less with dissolve
+    naomi troubled "(There's pudding left over this time.)"
+    naomi troubled "(I've got to think of something else to get people to come.)"
+    show musician shy:
+        xalign 0.5
+    with dissolve
+    pause
+    musician "You're here again."
+    naomi happy "There's pudding left over this time."
+    show musician happy
+    musician "Just what I need right now."
+    naomi happy "How is your rehearsal going?"
+    show musician shy
+    musician "Still some parts I'm not happy with..."
+    musician "How is the cafe's business?"
+    naomi troubled "Better than before, but I need to keep the momentum going."
+    show musician thinking
+    musician "Huh."
+    naomi smirk "Some music might be nice."
+    show musician shy2
+    musician "Not the cello."
+    menu:
+        naomi thinking "(How should I convince him?)"
         "Just a fan meet then?":
             naomi happy "What if it's just a fan meet then?"
             show musician thinking
@@ -464,7 +524,7 @@ label musician_2:
             musician "I don't think anyone will come."
             naomi thinking "Really?"
             naomi thinking "I overheard your fans."
-            naomi smirk "They were talking about tracking you down in Asakusa."
+            naomi smirk "They went to the cafe looking for you."
             show musician troubled
             musician "That's..."
             naomi relieved "You don't have to decide now."
@@ -481,107 +541,35 @@ label musician_2:
             naomi troubled "You're always carrying it around, so I thought..."
             show musician shy2
             musician "No, it's fine."
-            musician "...I'm just used to having it with me."
             musician "Now that I perform the cello, I don't play it so much."
-            naomi thinking "(It means enough to him that he carries it with him.)" 
-            naomi relieved "(Even now, when he plays the cello.)"
-            naomi relieved "I'd love to hear you play the shamisen someday."
-            show musician happy
-            musician "...Maybe someday."
-        # "Your music moved me":
-        #     $ add_point("musician")
-        #     naomi thinking "You know, when I heard your cello earlier."
-        #     show musician troubled
-        #     naomi happy "I couldn't help but stop to listen."
-        #     show musician shy
-        #     musician "I haven't gotten it right yet."
-        #     musician "It's still raw, with errors and mistakes-"
-        #     naomi relieved "I was moved by it."
-        #     show musician surprised
-        #     naomi happy "It wasn't perfect, but it made me feel something."
-        #     naomi thinking "I think other people would, too."
-        #     show musician shy2
-        #     musician "You think so?"
-        #     naomi happy "I stopped, didn't I?"
-        #     show musician shy
-        #     musician "...I'll think about it."
-    show musician shy2
-    musician "I've got to get back to practice now."
-    naomi blush "Sorry for disturbing you!"
-    show musician shy2
-    musician "I'll see you around, then?"
-    if get_stage("musician") >= 1:
-        show musician happy
-    naomi blush "Yes, see you!"
-    hide musician with moveoutleft
-    play music "<from 246>cello.mp3"
-    naomi troubled "I don't know if I managed to convince him."
-    naomi thinking "I'll just have to keep trying."
-    $ encounters["musician"] += 1
-    return            
-
-# label musician_3:
-#     stop music fadeout 3.0
-#     $ guy_display = True
-#     show musician shy2:
-#         xalign 0.5
-#     naomi surprised "(It's Hideo!)"
-#     show musician shy
-#     musician "Hey, Naomi."
-#     naomi blush "Hi! I was hoping to run into you, actually."
-#     naomi happy "I haven't thanked you for helping me to get this job."
-#     show musician shy2
-#     musician "It's no trouble at all."
-#     naomi relieved "Even so, I'm grateful!"
-#     naomi happy "Are you heading for rehearsal?"
-#     show musician thinking
-#     musician "Yeah, I've got to put in extra cello practice."
-#     naomi surprised "You play the cello?"
-#     show musician shy2
-#     musician "Yeah."
-#     menu:
-#         naomi thinking "(He plays the cello but he's always carrying around a shamisen.)"
-#         "Ask about shamisen":
-#             naomi troubled "Why do you always carry around a shamisen then?"
-#             show musician shy
-#             musician "..."
-#             show musician shy2
-#             musician "It's my grandfather's. He taught me to play."
-#             naomi relieved "That's lovely. Why the cello, then?"
-#             show musician troubled
-#             musician "..."
-#             musician "The cello... I can join an orchestra."
-#             musician "But the shamisen..."
-#             naomi thinking "But you still carry it with you."
-#             $ musician_courage += 1
-#             show musician shy
-#             musician "I..."
-#             show musician shy2
-#             musician "I guess I'm just used to having it with me."
-#             naomi troubled "I see..."
-#             naomi relieved "I'd love to hear you play the shamisen someday."
-#             musician "Yeah, someday."
-#         "Comment on cello":
-#             naomi happy "I think it's cool you play the cello."
-#             show musician shy
-#             musician "Thanks."
-#     musician "I've got to head to practice now."
-#     naomi happy "See you!"
-#     $ guy_display = False
-#     hide musician with moveoutleft
-#     return
-
-label musician_3:
-    stop music fadeout 3.0
-    naomi troubled "(I hope I can catch Hideo again.)"
-    naomi troubled "(Did he already leave?)"
-    show musician shy2:
-        xalign 0.5
-    naomi surprised "Hideo!"
-    naomi relieved "Thank goodness, I thought you already left."
+    naomi relieved "You don't have to decide now."
+    naomi happy "Just think about it."
     show musician shy
-    musician "I'm still around."
-    naomi thinking "(He looks down.)"
+    musician "...Alright."    
+    musician "I've got to head back."
+    naomi happy "See you at the cafe."
+    hide musician with dissolve
+    play music "<from 246>cello.mp3"
+    naomi troubled "I hope I wasn't too pushy."
+    return
+
+label musician_8:
+    show fans_less
+    naomi happy "Pudding from the Cafe Diamond!"
+    fan "I'll pass, thanks."
+    fan "Maybe next time."
+    stop music fadeout 3.0
+    hide fans_less with dissolve
+    naomi troubled "(More pudding left over this time.)"
+    show musician shy:
+        xalign 0.5
+    with dissolve
+    pause
+    naomi surprised "Hideo!"
+    naomi relieved "Good news, there's extra pudding."
+    show musician shy
+    musician "...I'm not hungry right now."
+    naomi angry "(He doesn't want pudding?)"
     naomi troubled "Is something wrong?"
     show musician shy2
     musician "No, I'm just."
@@ -596,22 +584,6 @@ label musician_3:
             naomi happy "Don't worry, you sound so good during rehearsal. You'll be great."
             show musician shy2
             musician "Thanks."
-        # "Encourage him":
-        #     naomi happy "You know, from the ticket booth, I can hear you guys rehearsing."
-        #     naomi happy "The music gets better every day."
-        #     show musician happy
-        #     musician "Thank you, I'm glad to hear that."
-        # "Ask what's wrong":
-            # naomi troubled "Is something wrong?"
-            # $ musician_courage += 1
-            # show musician shy2
-            # musician "...I'm just."
-            # show musician troubled
-            # musician "What if I mess up?"
-            # naomi surprised "But you've been rehearsing so many times."
-            # show musician thinking
-            # musician "Yes, but with everyone watching... It's different."
-            # naomi troubled "I see..."
         "Focus on the music":
             $ add_point("musician")
             naomi thinking "When I overheard your music, I was so absorbed I didn't notice you approach."
@@ -657,7 +629,7 @@ label musician_3:
     naomi thinking "(I came to persuade him to play at the cafe.)"
     naomi relieved "(But, I think I'll leave that to after his performance.)"
     $ encounters["musician"] += 1
-    $ set_flag("musician_3_seen")
+    $ set_flag("musician_6_seen")
     return
 
 label musician_show:
@@ -818,6 +790,37 @@ label musician_show:
     hide bg dancehall
     show bg cafeleft
     with fade
+    if flag("pre_musician_event_1"):
+        show musician shy2:
+            xalign 0.5
+        show table_left:
+            xalign 1.0 yalign 1.0 zoom 0.5
+        naomi troubled "(He was quiet on the way back, like his mind was elsewhere.)"
+        naomi troubled "...Hideo?"
+        show musician troubled
+        musician "..."
+        show musician shy
+        musician "...Thanks again for coming to the show."
+        menu:
+            naomi thinking "(Should I probe?)"
+            "Leave it":
+                naomi happy "Come by for celebratory pudding!"
+                show musician happy
+                musician "Yeah. I will."
+            "Ask him":
+                $ add_point("musician")
+                naomi troubled "You seem distracted. Is something bothering you?"
+                show musician shy2
+                musician "...Just thinking."
+                naomi surprised "About the show?"
+                show musician shy
+                musician "Not really."
+                musician "..."
+                naomi relieved "It's alright, you don't have to say it now."
+                naomi happy "If you need someone to talk to, you know where to find me."
+                show musician happy
+                musician "Thanks."
+    hide musician with dissolve
     show cat neutral with moveinbottom
     cat "How was the show?"
     naomi blush "Great."
@@ -834,27 +837,22 @@ label musician_show:
         naomi sleepy "It's been a long day. I'll head to bed."
         jump evening_time
 
-label musician_5:
+label musician_9:
     $ set_flag("musician_5_seen")
-    $ story_flags["musician_5_day"] = totaldays
+    $ story_flags["musician_9_day"] = totaldays
     show cafetableright zorder 3.0
-    show musician shy with moveinleft:
+    show musician shy with dissolve:
         xalign 0.5
     musician "...Puddin-."
-    show musician surprised
-    musician "Naomi."
     naomi relieved "One Pudding à la Mode, yes?"
     show pudding zorder 3.0:
         xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
         easein 1.0 ypos 0.7 zpos 0
     pause
     naomi relieved "Here you go!"
-    show musician happy
+    show musician shy2
     musician "Thanks."
-    show musician thinking
-    musician "You're not at the theatre...?"
-    naomi relieved "It's been a while since I saw you there."
-    naomi happy "Thought I might run into you here..."
+    naomi relieved "It's been a while since I ran into you at the theatre."
     naomi troubled "Is everything okay?"
     show musician shy
     musician "Yeah, I've been..."
@@ -875,7 +873,7 @@ label musician_5:
             naomi thinking "It's not about the instrument, is it?"
             show musician surprised
             naomi relieved "You're choosing to be yourself."
-            show musician happy
+            show musician shy
             musician "I guess you can say that."
             show musician surprised
             naomi thinking "You're really brave to make this choice."
@@ -922,11 +920,10 @@ label musician_5:
     musician "Thanks. I'll see you there."
     hide musician
     hide pudding
-    with moveoutleft
-    $ encounters["musician"] += 1
+    with dissolve
     return
 
-label musician_6a:
+label musician_9a:
     show musician surprised:
         xalign 0.5
     musician "You came."
@@ -981,22 +978,114 @@ label musician_6a:
     musician "...Thank you."
     naomi surprised "I didn't do anything."
     musician "You were there."
-    show musician shy2
+    naomi blush "..."
+    show musician shy2 zorder 2
     musician "Naomi, I..."
-    ticketer "Naomi! Are you coming?"
+    show fans_less with dissolve
+    fan "Hideo's here!"
+    show fans with dissolve
+    fan "Hideo-sama! We love you!"
     show musician shy
-    naomi surprised "Yeah!"
-    naomi blush "I've got to go."
-    naomi happy "Guess I'll be seeing you around here?"
-    show musician happy
-    musician "Yeah, I'll be here still."
-    musician "See you."
-    hide musician with moveoutleft
+    musician "...It's getting crowded here."
+    naomi pain "(Is he not aware of his own popularity?)"
+    naomi thinking "Let's head back to the cafe first."
     $ encounters["musician"] += 1
     $ set_flag("pre_musician_event_2")
+    scene bg caferight
+    show musician shy:
+        xalign 0.5
+    show cafetableright zorder 3.0
+    with dissolve
+    naomi happy "First, pudding to celebrate!"
+    show pudding zorder 3.0:
+        xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
+        easein 1.0 ypos 0.7 zpos 0
+    show musician happy
+    musician "Somehow the pudding tastes better than usual."
+    naomi happy "(Good, he looks like the weight lifted off him.)"
+    show musician shy
+    musician "...I've been thinking."
+    musician "This might be a good place for me to start."
+    naomi troubled "Start?"
+    show musician troubled
+    musician "With the shamisen."
+    musician "Perform some nights, here in the cafe."
+    naomi surprised "Performing in the cafe?"
+    show musician shy
+    musician "If the owner allows, of course."
+    naomi happy "Finally!"
+    naomi relieved "All this time I've just been waiting for you to be ready."
+    image musician glitched3:
+        glitch("musician shy2")
+        pause 0.1
+        glitch("musician shy2",offset=60,randomKey=None)
+        pause 0.1
+        glitch("musician shy2")
+        pause 0.1
+        "musician shy2"
+    show musician glitched3
+    musician "Thank you, for waiting for me."
+    show bg caferight as cutscene_copy at atl_dizzy
+    if persistent.haptics_enabled:
+        $ renpy.vibrate(0.5)
+    naomi pain "Ah!" with vpunch
+    show musician troubled
+    musician "Are you alright?"
+    naomi troubled "...I think so."
+    show musician thinking
+    musician "You'd better rest, or see the doctor."
+    naomi relieved "I'll be fine after some rest."
+    naomi happy "More importantly, let's set a date for your first performance."
+    show musician shy
+    musician "...I'm still working on a song."
+    naomi surprised "An original?"
+    show musician shy2
+    musician "...Yes."
+    naomi happy "That's amazing."
+    show musician happy
+    musician "You'll have to wait a little more."
+    naomi happy "I'm sure it's worth the wait."
+    hide musician
+    hide pudding
+    with dissolve
+    show kirako happy with dissolve
+    kirako "Thank you for your help Naomi!"
+    show kirako pout
+    kirako "Is it just me or business has dipped again?"
+    naomi troubled "It has."
+    naomi thinking "But, I have an idea."
+    naomi happy "Music some nights, a different crowd. What do you think?"
+    kirako "Oh darling. That sounds lovely!"
+    show kirako happy
+    kirako "You're still young, do what makes you happy!"
+    naomi thinking "(I'll take that as a yes.)"
+    $ tips = renpy.random.randint(10, 15)
+    $ money += tips
+    show kirako happy
+    kirako "Here you go, [tips] yen in tips today."
+    $ story_flags["musician_8_day"] = totaldays
+    
+    # Deduct timeslot and check if morning or afternoon
+    $ timeslot -= 1
+    if timeslot == 1:
+        naomi happy "Thank you!"
+        hide kirako with dissolve
+        scene bg cafeleft with pushright
+        menu:
+            naomi thinking "What should I do this afternoon?"
+            "Work in cafe":
+                jump work_cafe
+            "Go out":
+                stop music fadeout 3
+                jump asakusa_small
+    if timeslot < 1:
+        kirako "Have a good rest, dear."
+        naomi happy "You too, good night!"
+        stop music fadeout 3
+        jump evening_time
     return
 
-label musician_6b:
+label musician_9b:
     ticketer "Your cellist friend is back rehearsing with the orchestra."
     naomi troubled "He is?"
     naomi troubled "(Didn't he want to play the shamisen instead?)"
@@ -1004,16 +1093,17 @@ label musician_6b:
     $ encounters["musician"] += 1
     return
 
-label musician_8:
-    stop music fadeout 3.0
-    $ guy_display = True
+label musician_11:    
     show musician shy2:
         xalign 0.5
-    naomi surprised "You're still here?"
-    show musician shy
-    musician "Yeah..."
+    show cafetableright zorder 3.0
+    with dissolve
+    naomi happy "How's the song coming along?"
+    show musician thinking
+    musician "Not progressing."
+    naomi surprised "Eh?"
     show musician troubled
-    musician "Been working on a song, but I can't seem to get it right."
+    musician "There's a part I can't seem to get right."
     naomi troubled "Hmm..."
     naomi thinking "Maybe you need a change of pace?"
     naomi happy "Get a different perspective."
@@ -1033,9 +1123,8 @@ label musician_8:
     naomi blush "Alright."
     musician "See you then."
     $ guy_display = False
-    hide musician with moveoutleft
+    hide musician with dissolve
     $ musician_event = 3
-    $ encounters["musician"] += 1
     return
 
 label musician_tower:
@@ -1229,7 +1318,7 @@ label musician_tower:
     $ musician_event = False
     call screen bedroom
 
-label musician_10:
+label musician_12:
     $ set_flag("musician_cafe_show_seen")
     $ story_flags["musician_cafe_show_day"] = totaldays
     show musician shy2:
@@ -1278,15 +1367,7 @@ label musician_10:
     if relationship_points["musician"] >= 4:
         jump musician_ending_irl
     else:
-        show musician shy2:
-            xalign 0.5 zoom 1.0 yalign 0.5
-            linear 0.5 xalign 0.9 zoom 1.0 yalign 0.5
-        show kirako happy with moveinleft:
-            xalign 0.2
-        kirako "Well! I don't know what that was, but I liked it."
-        kirako "We should have you back."
-        show musician shy2
-        musician "...Maybe."
+        jump musician_ending
     return
 
 label musician_ending_irl:
@@ -1304,7 +1385,7 @@ label musician_ending_irl:
     naomi thinking "This sound..."
     naomi surprised "It's from my dream!"
     show bg caferight as bg_copy at atl_dizzy
-    image musician glitched3:
+    image musician glitched4:
         glitch("musician troubled")
         pause 0.1
         glitch("musician troubled",offset=60,randomKey=None)
@@ -1312,7 +1393,7 @@ label musician_ending_irl:
         glitch("musician troubled")
         pause 0.1
         "musician troubled"
-    show musician glitched3
+    show musician glitched4
     naomi pain "Ngh!" with vpunch
     musician "Come back, Naomi."
     hide cafetableright
@@ -1459,12 +1540,31 @@ label musician_ending_irl:
     $ renpy.full_restart()
 
 
-label theatre_ending:
-    play music "<from 135 to 155>cello.mp3"
+label musician_ending:
+    show musician shy2:
+        xalign 0.5 zoom 1.0 yalign 0.5
+        linear 0.5 xalign 0.9 zoom 1.0 yalign 0.5
+    show kirako happy with moveinleft:
+        xalign 0.2
+    kirako "Well! I don't know what that was, but I liked it."
+    kirako "We should have you back."
+    show musician shy2
+    musician "...Maybe."
+    kirako "And since we'll still be in business."
+    show kirako pout
+    kirako "Naomi dear, stay with us please!"
+    naomi happy "I'll be happy to."
+    show kirako happy
+    kirako "Lovely!"
+    show kirako wink
+    kirako "The night is still young, darlings!"
+    hide kirako with moveoutleft
+    show musician shy:
+        xalign 0.9 zoom 1.0 yalign 0.5
+        linear 0.5 xalign 0.5 zoom 1.0 yalign 0.5
     naomi happy "I guess this is where I'll be working from now on."
     naomi thinking "I achieved my goal of finding a job within these two weeks."
     naomi troubled "Why does it feel like I'm missing something important?"
-    stop music fadeout 3
     $ day_display = False
     show black1:
         xalign 0.5 yalign 1.0 #full close
