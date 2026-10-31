@@ -1,18 +1,18 @@
-2026-08-17 02:38:52 UTC
+2026-10-24 08:42:46 UTC
 macOS-15.6.1-arm64-arm-64bit
 Ren'Py 8.5.0.25111603
 
 Early init took 29 ms
 Loading error handling took 14 ms
-Loading script took 268 ms
-Loading save slot metadata took 25 ms
+Loading script took 115 ms
+Loading save slot metadata took 26 ms
 Loading persistent took 0 ms
-Running init code took 24 ms
-Loading analysis data took 7 ms
+Running init code took 23 ms
+Loading analysis data took 6 ms
 Analyze and compile ATL took 8 ms
 Reloading save slot metadata took 5 ms
 Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
-Dump and make backups took 25 ms
+Dump and make backups took 20 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
 Initial gc took 18 ms
@@ -21,12 +21,12 @@ Creating interface object took 0 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
 Load screen analysis took 0 ms
-Analyze screens took 5 ms
-Save screen analysis took 8 ms
-Save pyanalysis took 6 ms
-Save bytecode took 15 ms
+Analyze screens took 6 ms
+Save screen analysis took 9 ms
+Save pyanalysis took 7 ms
+Save bytecode took 16 ms
 Running _start took 0 ms
-Interface start took 2645 ms
+Interface start took 241 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1470, 956)
@@ -39,49 +39,12 @@ Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 25
 Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 7 ms
-Loading error handling took 14 ms
-Loading script took 248 ms
-Loading save slot metadata took 19 ms
+Early init took 8 ms
+Loading error handling took 13 ms
+Loading script took 134 ms
+Loading save slot metadata took 21 ms
 Loading persistent took 0 ms
-Running init code took 16 ms
-Loading analysis data took 7 ms
-Analyze and compile ATL took 8 ms
-Reloading save slot metadata took 4 ms
-Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
-Dump and make backups took 20 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 26 ms
-DPI scale factor: 1.000000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 0 ms
-Analyze screens took 5 ms
-Save screen analysis took 8 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 165 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1470, 956)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'Apple'
-Renderer: 'Apple M3'
-Version: '2.1 Metal - 89.4'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 7 ms
-Loading error handling took 7 ms
-Loading script took 129 ms
-Loading save slot metadata took 22 ms
-Loading persistent took 0 ms
-Running init code took 18 ms
+Running init code took 20 ms
 Loading analysis data took 6 ms
 Analyze and compile ATL took 9 ms
 Reloading save slot metadata took 5 ms
@@ -89,114 +52,7 @@ Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
 Dump and make backups took 20 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 30 ms
-DPI scale factor: 1.000000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 0 ms
-Analyze screens took 6 ms
-Save screen analysis took 9 ms
-Save pyanalysis took 7 ms
-Save bytecode took 1 ms
-Running _start took 0 ms
-Interface start took 173 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1470, 956)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'Apple'
-Renderer: 'Apple M3'
-Version: '2.1 Metal - 89.4'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 10 ms
-Loading error handling took 7 ms
-Loading script took 125 ms
-Loading save slot metadata took 22 ms
-Loading persistent took 0 ms
-Running init code took 18 ms
-Loading analysis data took 7 ms
-Analyze and compile ATL took 8 ms
-Reloading save slot metadata took 5 ms
-Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
-Dump and make backups took 20 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 39 ms
-DPI scale factor: 1.000000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 0 ms
-Load screen analysis took 0 ms
-Analyze screens took 6 ms
-Save screen analysis took 9 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 0 ms
-Interface start took 179 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1470, 956)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'Apple'
-Renderer: 'Apple M3'
-Version: '2.1 Metal - 89.4'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script_03_cafe.rpy", line 149, in script call
-    call check_cafe_visits
-  File "game/script_03_cafe.rpy", line 132, in script call
-    call expression "casual_" + char2
-  File "game/script_03_cafe.rpy", line 229, in script
-    if encounters["musician"] == 10 and days_since_9 <= 2:
-  File "renpy/ast.py", line 2079, in execute
-    if renpy.python.py_eval(condition):
-       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^ 
-  File "renpy/python.py", line 1305, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1298, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script_03_cafe.rpy", line 229, in <module>
-    if encounters["musician"] == 10 and days_since_9 <= 2:
-                                        ^^^^^^^^^^^^      
-NameError: name 'days_since_9' is not defined. Did you mean: 'days_since_show'?
-
-While running game code:
-  File "game/script_03_cafe.rpy", line 149, in script call
-    call check_cafe_visits
-  File "game/script_03_cafe.rpy", line 132, in script call
-    call expression "casual_" + char2
-  File "game/script_03_cafe.rpy", line 229, in script
-    if encounters["musician"] == 10 and days_since_9 <= 2:
-  File "game/script_03_cafe.rpy", line 229, in <module>
-    if encounters["musician"] == 10 and days_since_9 <= 2:
-                                        ^^^^^^^^^^^^      
-NameError: name 'days_since_9' is not defined. Did you mean: 'days_since_show'?
-Resetting cache.
-Early init took 13 ms
-Loading error handling took 7 ms
-Loading script took 118 ms
-Loading save slot metadata took 22 ms
-Loading persistent took 0 ms
-Running init code took 17 ms
-Loading analysis data took 6 ms
-Analyze and compile ATL took 8 ms
-Reloading save slot metadata took 5 ms
-Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
-Dump and make backups took 19 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 32 ms
+Initial gc took 26 ms
 DPI scale factor: 1.000000
 Creating interface object took 0 ms
 Init translation took 0 ms
@@ -220,20 +76,20 @@ Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 25
 Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 8 ms
+Early init took 4 ms
 Loading error handling took 7 ms
-Loading script took 229 ms
+Loading script took 119 ms
 Loading save slot metadata took 19 ms
 Loading persistent took 0 ms
-Running init code took 20 ms
+Running init code took 19 ms
 Loading analysis data took 6 ms
-Analyze and compile ATL took 10 ms
+Analyze and compile ATL took 9 ms
 Reloading save slot metadata took 5 ms
 Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
 Dump and make backups took 20 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 38 ms
+Initial gc took 29 ms
 DPI scale factor: 1.000000
 Creating interface object took 0 ms
 Init translation took 0 ms
@@ -241,10 +97,70 @@ Cleaning stores took 0 ms
 Load screen analysis took 0 ms
 Analyze screens took 6 ms
 Save screen analysis took 8 ms
-Save pyanalysis took 7 ms
-Save bytecode took 1 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
 Running _start took 0 ms
-Interface start took 174 ms
+Interface start took 150 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 6 ms
+Loading script took 109 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 18 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 5 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 19 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 30 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 6 ms
+Save screen analysis took 9 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 160 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 6 ms
+Loading script took 68 ms
+Loading save slot metadata took 16 ms
+Loading persistent took 0 ms
+
+File "game/script_02_day_choices.rpy", line 330: expected 'simple_expression' not found.
+    xalign
+          ^
+DPI scale factor: 1.000000
+Interface start took 62 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1470, 956)
@@ -259,14 +175,124 @@ Maximum texture size: 4096x4096
 Resetting cache.
 Early init took 3 ms
 Loading error handling took 5 ms
-Loading script took 55 ms
+Loading script took 93 ms
 Loading save slot metadata took 15 ms
 Loading persistent took 0 ms
-Running init code took 16 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 8 ms
+Running init code took 31 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 10 ms
 Reloading save slot metadata took 2 ms
-Dump and make backups took 18 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 21 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 26 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 6 ms
+Save screen analysis took 9 ms
+Save pyanalysis took 7 ms
+Save bytecode took 1 ms
+Running _start took 0 ms
+Interface start took 149 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 5 ms
+Loading script took 57 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 18 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 4 ms
+Dump and make backups took 20 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 29 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 13 ms
+Analyze screens took 1 ms
+Save screen analysis took 0 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 150 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 6 ms
+Loading script took 98 ms
+Loading save slot metadata took 21 ms
+Loading persistent took 0 ms
+Running init code took 16 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 10 ms
+Reloading save slot metadata took 4 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 20 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 31 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 6 ms
+Save screen analysis took 8 ms
+Save pyanalysis took 7 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 154 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 5 ms
+Loading script took 61 ms
+Loading save slot metadata took 16 ms
+Loading persistent took 0 ms
+Running init code took 19 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 2 ms
+Dump and make backups took 20 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
 Initial gc took 33 ms
@@ -274,13 +300,159 @@ DPI scale factor: 1.000000
 Creating interface object took 0 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
-Load screen analysis took 12 ms
+Load screen analysis took 15 ms
 Analyze screens took 1 ms
 Save screen analysis took 0 ms
 Save pyanalysis took 0 ms
 Save bytecode took 0 ms
 Running _start took 0 ms
-Interface start took 145 ms
+Interface start took 156 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 5 ms
+Loading script took 101 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 19 ms
+Loading analysis data took 7 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 4 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 20 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 29 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 6 ms
+Save screen analysis took 9 ms
+Save pyanalysis took 7 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 155 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 6 ms
+Loading script took 61 ms
+Loading save slot metadata took 16 ms
+Loading persistent took 0 ms
+Running init code took 19 ms
+Loading analysis data took 7 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 2 ms
+Dump and make backups took 19 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 33 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 13 ms
+Analyze screens took 1 ms
+Save screen analysis took 0 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 159 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 6 ms
+Loading script took 82 ms
+Loading save slot metadata took 21 ms
+Loading persistent took 0 ms
+Running init code took 19 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 5 ms
+Dump and make backups took 19 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 36 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 13 ms
+Analyze screens took 1 ms
+Save screen analysis took 0 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 154 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 7 ms
+Loading script took 109 ms
+Loading save slot metadata took 21 ms
+Loading persistent took 0 ms
+Running init code took 20 ms
+Loading analysis data took 7 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 5 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 21 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 34 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 6 ms
+Save screen analysis took 9 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 158 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1470, 956)
@@ -294,30 +466,30 @@ Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
 Resetting cache.
 Early init took 3 ms
-Loading error handling took 7 ms
-Loading script took 214 ms
-Loading save slot metadata took 19 ms
+Loading error handling took 6 ms
+Loading script took 111 ms
+Loading save slot metadata took 21 ms
 Loading persistent took 0 ms
-Running init code took 17 ms
+Running init code took 22 ms
 Loading analysis data took 6 ms
-Analyze and compile ATL took 8 ms
+Analyze and compile ATL took 9 ms
 Reloading save slot metadata took 5 ms
 Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
-Dump and make backups took 19 ms
+Dump and make backups took 21 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 31 ms
+Initial gc took 36 ms
 DPI scale factor: 1.000000
 Creating interface object took 0 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
 Load screen analysis took 0 ms
 Analyze screens took 6 ms
-Save screen analysis took 8 ms
+Save screen analysis took 9 ms
 Save pyanalysis took 0 ms
-Save bytecode took 1 ms
+Save bytecode took 0 ms
 Running _start took 0 ms
-Interface start took 170 ms
+Interface start took 155 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1470, 956)
@@ -330,17 +502,17 @@ Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 25
 Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 13 ms
-Loading error handling took 8 ms
-Loading script took 125 ms
-Loading save slot metadata took 21 ms
+Early init took 12 ms
+Loading error handling took 7 ms
+Loading script took 174 ms
+Loading save slot metadata took 20 ms
 Loading persistent took 0 ms
-Running init code took 17 ms
+Running init code took 20 ms
 Loading analysis data took 6 ms
-Analyze and compile ATL took 8 ms
+Analyze and compile ATL took 11 ms
 Reloading save slot metadata took 5 ms
 Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
-Dump and make backups took 19 ms
+Dump and make backups took 20 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
 Initial gc took 32 ms
@@ -351,8 +523,8 @@ Cleaning stores took 0 ms
 Load screen analysis took 0 ms
 Analyze screens took 6 ms
 Save screen analysis took 9 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
+Save pyanalysis took 7 ms
+Save bytecode took 1 ms
 Running _start took 0 ms
 Interface start took 173 ms
 
@@ -368,18 +540,54 @@ Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
 Resetting cache.
 Early init took 3 ms
-Loading error handling took 5 ms
-Loading script took 54 ms
-Loading save slot metadata took 14 ms
+Loading error handling took 7 ms
+Loading script took 79 ms
+Loading save slot metadata took 20 ms
 Loading persistent took 0 ms
-Running init code took 16 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 8 ms
-Reloading save slot metadata took 2 ms
-Dump and make backups took 18 ms
+Running init code took 21 ms
+Loading analysis data took 8 ms
+Analyze and compile ATL took 10 ms
+Reloading save slot metadata took 5 ms
+Dump and make backups took 19 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 35 ms
+Initial gc took 40 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 13 ms
+Analyze screens took 1 ms
+Save screen analysis took 0 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 162 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 6 ms
+Loading script took 57 ms
+Loading save slot metadata took 16 ms
+Loading persistent took 0 ms
+Running init code took 17 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 2 ms
+Dump and make backups took 19 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 31 ms
 DPI scale factor: 1.000000
 Creating interface object took 0 ms
 Init translation took 0 ms
@@ -403,20 +611,20 @@ Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 25
 Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 8 ms
+Early init took 9 ms
 Loading error handling took 7 ms
-Loading script took 224 ms
-Loading save slot metadata took 19 ms
+Loading script took 164 ms
+Loading save slot metadata took 21 ms
 Loading persistent took 0 ms
 Running init code took 19 ms
 Loading analysis data took 6 ms
-Analyze and compile ATL took 8 ms
+Analyze and compile ATL took 11 ms
 Reloading save slot metadata took 5 ms
 Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
-Dump and make backups took 19 ms
+Dump and make backups took 20 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 31 ms
+Initial gc took 29 ms
 DPI scale factor: 1.000000
 Creating interface object took 0 ms
 Init translation took 0 ms
@@ -424,10 +632,10 @@ Cleaning stores took 0 ms
 Load screen analysis took 0 ms
 Analyze screens took 6 ms
 Save screen analysis took 9 ms
-Save pyanalysis took 0 ms
+Save pyanalysis took 7 ms
 Save bytecode took 1 ms
 Running _start took 0 ms
-Interface start took 179 ms
+Interface start took 187 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1470, 956)
@@ -440,28 +648,28 @@ Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 25
 Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 8 ms
-Loading error handling took 7 ms
-Loading script took 217 ms
-Loading save slot metadata took 21 ms
+Early init took 4 ms
+Loading error handling took 6 ms
+Loading script took 162 ms
+Loading save slot metadata took 19 ms
 Loading persistent took 0 ms
-Running init code took 18 ms
-Loading analysis data took 8 ms
-Analyze and compile ATL took 11 ms
+Running init code took 17 ms
+Loading analysis data took 7 ms
+Analyze and compile ATL took 9 ms
 Reloading save slot metadata took 5 ms
 Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
-Dump and make backups took 20 ms
+Dump and make backups took 21 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 31 ms
+Initial gc took 29 ms
 DPI scale factor: 1.000000
 Creating interface object took 0 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
 Load screen analysis took 0 ms
 Analyze screens took 6 ms
-Save screen analysis took 9 ms
-Save pyanalysis took 7 ms
+Save screen analysis took 8 ms
+Save pyanalysis took 0 ms
 Save bytecode took 0 ms
 Running _start took 0 ms
 Interface start took 176 ms
@@ -477,31 +685,31 @@ Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 25
 Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 10 ms
-Loading error handling took 7 ms
-Loading script took 225 ms
+Early init took 8 ms
+Loading error handling took 8 ms
+Loading script took 169 ms
 Loading save slot metadata took 21 ms
 Loading persistent took 0 ms
-Running init code took 18 ms
-Loading analysis data took 7 ms
-Analyze and compile ATL took 8 ms
+Running init code took 22 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 11 ms
 Reloading save slot metadata took 5 ms
 Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
-Dump and make backups took 19 ms
+Dump and make backups took 20 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 33 ms
+Initial gc took 34 ms
 DPI scale factor: 1.000000
 Creating interface object took 0 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
 Load screen analysis took 0 ms
 Analyze screens took 6 ms
-Save screen analysis took 9 ms
+Save screen analysis took 8 ms
 Save pyanalysis took 7 ms
-Save bytecode took 0 ms
+Save bytecode took 1 ms
 Running _start took 0 ms
-Interface start took 185 ms
+Interface start took 180 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1470, 956)
@@ -513,15 +721,261 @@ Version: '2.1 Metal - 89.4'
 Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
 Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(697, 392)
-Maximum texture size: 4096x4096
-Resize event: <Event(65533-VIDEORESIZE h=392, mod=0, size=(697, 392), w=697)>
+Resetting cache.
+Early init took 3 ms
+Loading error handling took 6 ms
+Loading script took 146 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 16 ms
+Loading analysis data took 7 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 5 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 21 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 34 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 6 ms
+Save screen analysis took 8 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 163 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
 Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
-Resize event: <Event(65533-VIDEORESIZE h=392, mod=0, size=(697, 392), w=697)>
-Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(697, 392)
-Maximum texture size: 4096x4096
-Resize event: <Event(65533-VIDEORESIZE h=392, mod=0, size=(697, 392), w=697)>
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 7 ms
+Loading script took 166 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 19 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 12 ms
+Reloading save slot metadata took 5 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 20 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 38 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 7 ms
+Save screen analysis took 8 ms
+Save pyanalysis took 7 ms
+Save bytecode took 1 ms
+Running _start took 0 ms
+Interface start took 189 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
 Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
 Maximum texture size: 4096x4096
-Resize event: <Event(65533-VIDEORESIZE h=392, mod=0, size=(697, 392), w=697)>
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 6 ms
+Loading script took 163 ms
+Loading save slot metadata took 19 ms
+Loading persistent took 0 ms
+Running init code took 19 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 11 ms
+Reloading save slot metadata took 5 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 19 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 33 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 5 ms
+Save screen analysis took 8 ms
+Save pyanalysis took 7 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 182 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 7 ms
+Loading script took 176 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 20 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 11 ms
+Reloading save slot metadata took 5 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 20 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 40 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 6 ms
+Save screen analysis took 9 ms
+Save pyanalysis took 8 ms
+Save bytecode took 1 ms
+Running _start took 0 ms
+Interface start took 194 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 7 ms
+Loading script took 183 ms
+Loading save slot metadata took 22 ms
+Loading persistent took 0 ms
+Running init code took 24 ms
+Loading analysis data took 7 ms
+Analyze and compile ATL took 12 ms
+Reloading save slot metadata took 5 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 21 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 45 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 7 ms
+Save screen analysis took 10 ms
+Save pyanalysis took 8 ms
+Save bytecode took 1 ms
+Running _start took 1 ms
+Interface start took 203 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 3 ms
+Loading error handling took 6 ms
+Loading script took 172 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 21 ms
+Loading analysis data took 7 ms
+Analyze and compile ATL took 12 ms
+Reloading save slot metadata took 5 ms
+Backing up script files to '/Users/jacquelyntan/Library/RenPy/backups/Rekioto':
+Dump and make backups took 20 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 39 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 6 ms
+Save screen analysis took 9 ms
+Save pyanalysis took 7 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 201 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 4 ms
+Loading error handling took 6 ms
+Loading script took 62 ms
+Loading save slot metadata took 16 ms
+Loading persistent took 0 ms
+Running init code took 20 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 2 ms
+Dump and make backups took 20 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 36 ms
+DPI scale factor: 1.000000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 13 ms
+Analyze screens took 1 ms
+Save screen analysis took 0 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 0 ms
+Interface start took 176 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1470, 956)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M3'
+Version: '2.1 Metal - 89.4'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1470, 'current_h': 956, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(697, 392) drawable=(1394, 784)
+Maximum texture size: 4096x4096

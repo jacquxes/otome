@@ -112,65 +112,67 @@ label next_morning:
     if musician_dream == True:
         $ musician_dream = False
         show cat eyeroll
-        naomi sleepy "I dreamt of a song."
+        naomi sleepy "Good morning."
+        naomi sleepy "I had a dream..."
         show cat neutral
-        cat "A song?"
-        naomi troubled "Like a song that I've forgotten."
+        cat "..."
+        naomi troubled "A song that I've forgotten."
         naomi pain "Such a lonesome tune..."
         naomi thinking "(That music...)"
         naomi blush "Hideo..."
         show cat happy
-        cat "Have him play it for you."
-        cat "Maybe you might recall something."
+        cat "Meow."
         hide cat with moveoutbottom
-        naomi troubled "Maybe..."
-        #naomi pain "Anyway..."
     if totaldays == 0:
+        if encounters["musician"] > 10:
+            naomi thinking "We need to get ready for Hideo's performance tonight."
+            naomi happy "It'll be a full house, I'm sure."
+            jump musician_12
         show kirako pout with moveinright        
         show table_left:
             xalign 1.0 yalign 1.0 zoom 0.5
         kirako "Oh Naomi, how time flies!" 
-        kirako "I can't believe it's been two weeks already."
+        kirako "I can't believe it's been a month already."
         naomi relieved "It feels like yesterday that I arrived."
-        kirako "Have you found a place to take you in?"
-        menu:
-            naomi happy "Yes, I'll work at..."
-            "The Imperial Theatre" if musician_job >=7:
-                naomi happy "The Imperial Theatre."
-                show kirako happy
-                kirako "A lovely place."
-                show kirako wink
-                kirako "I'll find you when I need to get my hands on those sold-out shows!"
-                naomi happy "Most certainly!"
-                naomi happy "Thank you letting me stay here. I will head over now."
-                show kirako pout
-                kirako "Goodbye dear!"
-                jump imperial_theatre
-            "The hospital" if doctor_job >=7:
-                naomi happy "The hospital."
-                show kirako happy
-                kirako "A place for healing."
-                show kirako wink
-                kirako "I'll know who to look for when I'm sick."
-                naomi happy "Most certainly!"
-                naomi happy "Thank you letting me stay here. I will head over now."
-                show kirako pout
-                kirako "Goodbye dear!"
-                jump hospital
-            "The office" if merchant_job >=7:
-                naomi happy "The office."
-                show kirako happy
-                kirako "A good choice."
-                show kirako wink
-                kirako "I heard they pay well!"
-                naomi blush "It's alright I guess."
-                naomi happy "Thank you letting me stay here. I will head over now."
-                show kirako pout
-                kirako "Goodbye dear!"
-                jump office_bldg
-        naomi troubled "No..."
-        kirako "Oh dear. Will you be heading back home then?"
-        naomi happy "Yes, I'll come by again when I can."
+        # kirako "Have you found a place to take you in?"
+        # menu:
+        #     naomi happy "Yes, I'll work at..."
+        #     "The Imperial Theatre" if musician_job >=7:
+        #         naomi happy "The Imperial Theatre."
+        #         show kirako happy
+        #         kirako "A lovely place."
+        #         show kirako wink
+        #         kirako "I'll find you when I need to get my hands on those sold-out shows!"
+        #         naomi happy "Most certainly!"
+        #         naomi happy "Thank you letting me stay here. I will head over now."
+        #         show kirako pout
+        #         kirako "Goodbye dear!"
+        #         jump imperial_theatre
+        #     "The hospital" if doctor_job >=7:
+        #         naomi happy "The hospital."
+        #         show kirako happy
+        #         kirako "A place for healing."
+        #         show kirako wink
+        #         kirako "I'll know who to look for when I'm sick."
+        #         naomi happy "Most certainly!"
+        #         naomi happy "Thank you letting me stay here. I will head over now."
+        #         show kirako pout
+        #         kirako "Goodbye dear!"
+        #         jump hospital
+        #     "The office" if merchant_job >=7:
+        #         naomi happy "The office."
+        #         show kirako happy
+        #         kirako "A good choice."
+        #         show kirako wink
+        #         kirako "I heard they pay well!"
+        #         naomi blush "It's alright I guess."
+        #         naomi happy "Thank you letting me stay here. I will head over now."
+        #         show kirako pout
+        #         kirako "Goodbye dear!"
+        #         jump office_bldg
+        # naomi troubled "No..."
+        # kirako "Oh dear. Will you be heading back home then?"
+        # naomi happy "Yes, I'll come by again when I can."
         show kirako happy
         kirako "You're always welcome here, remember that."
         naomi happy "Thank you, I'll be back!"
@@ -200,7 +202,7 @@ label weekend_saturday:
     scene bg cafeleft with fade
     play music "<from 1 to 79.5>spring.mp3" loop if_changed
     naomi sleepy "It's Saturday."
-    if musician_event == 1 and totaldays <= 16:
+    if musician_show_today():
         naomi thinking "The cello performance is this afternoon."
     if merchant_event == True:
         naomi thinking "I have to go with Yujiro to the dance hall tonight."
@@ -219,7 +221,7 @@ label weekend_saturday:
         "Work at the cafe":
             call work_cafe
     scene bg cafeleft with fade
-    if musician_event == 1 and totaldays <= 16:
+    if musician_show_today():
         jump musician_show
     menu:
         naomi thinking "What should I do this afternoon?"
@@ -317,14 +319,15 @@ label re_evening_time:
     hide kirako with moveoutleft
     show cat eyeroll:
         xpos -0.5 ypos 0.2 zoom 2.5 blur 10.0
-        easein 3.0 xalign 0.7 yalign 0.5 zoom 1.0 blur 0.0
+        easein 3.0 xalign 0.7 yalign 0.0 zoom 1.0 blur 0.0
     cat "Meow."
     naomi happy "Aww hello! It's you again."
     show cat huff:
-        xalign 0.7 yalign 0.5 zoom 1.0 blur 0.0
+        xalign 0.7 yalign 0.0 zoom 1.0 blur 0.0
     cat "Meow."
     naomi troubled "You know, I just can't recall anything."
-    show cat neutral
+    show cat neutral:
+        xalign 0.7
     naomi relieved "But since I'm here, I'll do what I can to help Kirako."
     cat "Meow."
     naomi thinking "Hopefully along the way, I'll remember something."

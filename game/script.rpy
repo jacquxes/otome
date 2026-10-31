@@ -197,7 +197,7 @@ layeredimage side naomi:
 # Declare other characters used by this game. The color argument colorizes the
 # name of the character.
 define cat = Character("[cat_name]", color="#000000")
-define config.tag_transform["cat"] = Transform(xalign=0.85)
+define config.tag_transform["cat"] = Transform(zoom=0.6, xalign=0.85)
 define kirako = Character("[kirako_name]",image="kirako", color="#8f3d65")
 define config.tag_transform["kirako"] = Transform(zoom=0.5, xalign=0.5)
 
@@ -423,8 +423,12 @@ init python:
     def musician_8_ready():
         return relationship_points["musician"] >= 3 and not flag("musician_show_seen")
 
+    def musician_show_today():
+        return dayofweeknumber == 6 and musician_event == 1 and totaldays <= 16
+
     def musician_casual_paused():
-        return flag("musician_show_seen") and encounters["musician"] < 10
+        show_window = (flag("musician_show_seen") or musician_show_today()) and encounters["musician"] < 10
+        return show_window or musician_tower_today()
 
     def musician_9_condition():
         return flag("musician_ticketer_talk_seen")
@@ -437,7 +441,10 @@ init python:
         return "musician_9a" if days_since_9 <= 2 else "musician_9b"
 
     def musician_11_condition():
-        return dayofweeknumber == 5
+        return totaldays >= 3
+
+    def musician_tower_today():
+        return dayofweeknumber == 7 and musician_event == 3
 
     musician_encounter_table = {
         1: {"label": "musician_1"},
@@ -514,7 +521,8 @@ image ticket_front_new = Transform("images/inventory/ticket_front_new.png",zoom=
 image ticket_front_used = Transform("images/inventory/ticket_front_used.png",zoom=0.2)
 
 # Define and resize bg images
-image bg opening = Transform("images/bg opening.png",zoom=1.5)
+image bg opening 1 = Transform("images/bg opening 1.png",zoom=0.5)
+image bg opening 2 = Transform("images/bg opening 2.png",zoom=0.5)
 image bg cafeleft = im.Scale("images/cafe/cafeleft.png", 1920, 1080)
 image bg caferight = im.Scale("images/cafe/caferight.png", 1920, 1080)
 image bg dept = im.Scale("images/bg dept.png", 1920, 1080)

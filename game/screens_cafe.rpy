@@ -1,24 +1,120 @@
 ## Drag and Drop screen  ###############################################################
 ## This screen is for the drag and drop game
 
-default served_food = 0 
+default served_food = 0
+default shift_tips = 0      # tips earned this shift (added to money in the labels after the game)
+
+# These are re-rolled at the start of every round by setup_cafe_round()
+default customer_table = [0.0, 0.5, 1.0]
+default customer_order = [" please.", ", thank you.", " for me."]
+default order_times = [1, 1, 1]
+
+define TIP_MIN = 4          # smallest tip for serving the right dish
+define TIP_MAX = 6          # biggest tip for serving the right dish
+define TIP_PENALTY = 3      # tip lost for taking a dish to the wrong table
+
+define TABLE_X = [0.22, 0.5, 0.8]   # where the three tables are (same as the drop targets)
+
+define RIGHT_LINES = ["Thank you!", "Looks lovely.", "Just what I wanted."]
+define WRONG_LINES = ["Hm? This isn't mine.", "I didn't order this...", "Wrong table, I think."]
+
+define ORDER_COLOR = "#3b2a1a"     # dark brown for customer orders
+
+transform order_pop(delay):
+    # Same rise-and-fade as the feedback, but waits 'delay' seconds first
+    alpha 0.0 yoffset 20
+    pause delay
+    easein 0.4 alpha 1.0 yoffset 0
+    pause 1.6
+    easeout 1.0 alpha 0.0 yoffset -20
+
+transform feedback_pop:
+    alpha 0.0 yoffset 20
+    easein 0.2 alpha 1.0 yoffset 0
+    pause 0.9
+    easeout 0.4 alpha 0.0 yoffset -20
 
 init python:
-        
-    def food_served(dropped_on, dragged_food):
-        global served_food
-        
-        if dragged_food[0].drag_name == dropped_on.drag_name:
-            dragged_food[0].snap(dropped_on.x,dropped_on.y)
-            dragged_food[0].draggable = False
-            dragged_food[0].set_child(im.FactorScale(dragged_food[0].child,0.2,0.2))
+
+    def setup_cafe_round():
+        # Call this ONCE, right before the cafe_game screen is shown.
+        global customer_table, customer_order, order_times, served_food, shift_tips
+
+        customer_table = [0.0, 0.5, 1.0]
+        customer_order = [" please.", ", thank you.", " for me."]
+        renpy.random.shuffle(customer_table)
+        renpy.random.shuffle(customer_order)
+
+        if tutorial_mode:
+            # Kirako leaves at about 4.5s, so start after that and space them out.
+            # Shuffled, so who orders first is still random.
+            order_times = [5.0, 6.5, 8.0]
+            renpy.random.shuffle(order_times)
+        else:
+            order_times = [renpy.random.randint(1, 3) for i in range(3)]
+
+        served_food = 0
+        shift_tips = 0
+
+    def send_dish_home(dish):
+        # Slide a dish back to where it started at the bottom of the screen.
+        i = cafe_menu.index(dish.drag_name)
+        home_x = int(customer_table[i] * (1920 - 640))
+        home_y = 1080 - 315
+        dish.snap(home_x, home_y, 0.2)
+
+    def show_feedback(table, line, tip_text, color):
+        tag = "cafe_feedback_" + str(table)
+        renpy.show_screen("cafe_feedback", line, tip_text, color, TABLE_X[table], tag, _tag=tag)
+
+    def dish_dropped(drags, drop):
+        global served_food, shift_tips
+        dish = drags[0]
+
+        # Let go over empty space: send it back, no penalty
+        if drop is None:
+            send_dish_home(dish)
+            return
+
+        table = cafe_menu.index(drop.drag_name)
+
+        if dish.drag_name == drop.drag_name:
+            # Right table
+            dish.snap(drop.x, drop.y)
+            dish.draggable = False
+            dish.set_child(im.FactorScale(dish.child, 0.2, 0.2))
             served_food += 1
-            if served_food == 3 and tutorial_mode == True:
-                served_food = 0
-                renpy.jump("re_explain_cafegame")
-            elif served_food == 3:
-                served_food = 0
-                renpy.jump("after_work_cafe")
+            tip = renpy.random.randint(TIP_MIN, TIP_MAX)
+            shift_tips += tip
+            show_feedback(table, renpy.random.choice(RIGHT_LINES), "+" + str(tip), "#2e7d32")
+
+            # Shift finished: tips can't end below zero, so money never goes down
+            if served_food == 3:
+                shift_tips = max(0, shift_tips)
+
+        else:
+            # Wrong table
+            send_dish_home(dish)
+            shift_tips -= TIP_PENALTY
+            show_feedback(table, renpy.random.choice(WRONG_LINES), "-" + str(TIP_PENALTY), "#990000")
+
+        # Redraw the screen so the tip counter and end-of-round timer update
+        renpy.restart_interaction()
+
+screen cafe_feedback(line, tip_text, color, x, tag):
+
+    zorder 3
+
+    vbox:
+        at feedback_pop
+        xalign x
+        yalign 0.40
+        spacing 4
+        text line size 40 color color xalign 0.5 outlines [(3, "#ffffff", 0, 0)]
+        if tip_text:
+            text tip_text size 52 color color xalign 0.5 bold True outlines [(3, "#ffffff", 0, 0)]
+
+    timer 1.5 action Hide(tag)
 
 screen cafe_menu:
 
@@ -87,28 +183,12 @@ screen cafe_game:
 
     zorder 2
     modal True
-    
-    default customer_table = [0.0,0.5,1.0]
-    default customer_order = [" please.",", thank you."," for me."]
-    
-    python:
-        renpy.random.shuffle(customer_table)
-        renpy.random.shuffle(customer_order)
-
-        order0_time = renpy.random.randint(1,3)
-        order1_time = renpy.random.randint(1,3)
-        order2_time = renpy.random.randint(1,3)
 
     # Render background
     image im.Scale("images/cafe/caferight.png", 1920, 1080)
 
     if tutorial_mode == True:
 
-        python:
-            order0_time = renpy.random.randint(4,5)
-            order1_time = renpy.random.randint(4,5)
-            order2_time = renpy.random.randint(4,5)
-        
         # Kirako appears
         image "images/kirako/kirako happy.png" at transform:
             xpos -0.05 ypos 0.0 zoom 0.5
@@ -136,6 +216,9 @@ screen cafe_game:
                 alpha 1.0
                 pause 3.5
                 alpha 0.0
+
+    # Tip counter
+    text "Tips: [shift_tips]" xalign 0.97 yalign 0.03 size 56 font "Staatliches-Regular.ttf" outlines [(3, "#ffffff", 0, 0)] color "#000000"
     
     # Display dishes randomly
     draggroup:
@@ -145,11 +228,12 @@ screen cafe_game:
             drag_name cafe_menu[0]
             image im.Scale("images/cafe/"+cafe_menu[0]+".png",640,315)
             drag_raise True
+            droppable False
+            dragged dish_dropped
         drag:
             drag_name cafe_menu[0]
             draggable False
             droppable True
-            dropped food_served
             align (0.22,0.55)
             image "images/cafe/"+cafe_menu[0]+".png" xzoom 0.1 yzoom 0.1 alpha 0.0
         # Middle dish
@@ -157,12 +241,13 @@ screen cafe_game:
             align(customer_table[1], 1.0)
             drag_name cafe_menu[1]
             drag_raise True
+            droppable False
+            dragged dish_dropped
             image im.Scale("images/cafe/"+cafe_menu[1]+".png",640,315)
         drag:
             drag_name cafe_menu[1]
             draggable False
             droppable True
-            dropped food_served
             align (0.5,0.55) 
             image "images/cafe/"+cafe_menu[1]+".png" xzoom 0.1 yzoom 0.1 alpha 0.0
         # Right dish
@@ -170,61 +255,33 @@ screen cafe_game:
             align(customer_table[2], 1.0)
             drag_name cafe_menu[2]
             drag_raise True
+            droppable False
+            dragged dish_dropped
             image im.Scale("images/cafe/"+cafe_menu[2]+".png",640,315)
         drag:
             drag_name cafe_menu[2]
             draggable False
             droppable True
-            dropped food_served
             align (0.8,0.55)
             image "images/cafe/"+cafe_menu[2]+".png" xzoom 0.1 yzoom 0.1 alpha 0.0
 
-    # Customer speech bubbles
+    # Customer orders (same text style as the feedback, staggered by order_times)
     # Left customer
-    image "images/speech.png" xalign 0.24 yalign 0.24 zoom 0.5 at transform:
-        alpha 0.0 xzoom -1.0
-        pause order0_time
-        easein 2.0 alpha 1.0
-        easeout 1.0 alpha 0.0
-    hbox:
-        xalign 0.25
-        yalign 0.25
-        box_wrap True
-        xmaximum 350
-        text cafe_menu[0] + customer_order[0] textalign 0.5 yalign 0.5 size 40 at transform:
-            alpha 0.0 
-            pause order0_time
-            easein 2.0 alpha 1.0
-            easeout 1.0 alpha 0.0
+    text cafe_menu[0] + customer_order[0]:
+        at order_pop(order_times[0])
+        xalign 0.25 yalign 0.25 xmaximum 350
+        textalign 0.5 size 40 color ORDER_COLOR outlines [(3, "#ffffff", 0, 0)]
     # Middle customer
-    image "images/speech.png" xalign 0.55 yalign 0.24 zoom 0.5 at transform:
-            alpha 0.0 xzoom -1.0
-            pause order1_time
-            easein 2.0 alpha 1.0
-            easeout 1.0 alpha 0.0
-    hbox:
-        xalign 0.55
-        yalign 0.26
-        box_wrap True
-        xmaximum 350
-        text cafe_menu[1] + customer_order[1] textalign 0.5 yalign 0.5 size 40 at transform:
-            alpha 0.0
-            pause order1_time
-            easein 2.0 alpha 1.0
-            easeout 1.0 alpha 0.0
+    text cafe_menu[1] + customer_order[1]:
+        at order_pop(order_times[1])
+        xalign 0.55 yalign 0.25 xmaximum 350
+        textalign 0.5 size 40 color ORDER_COLOR outlines [(3, "#ffffff", 0, 0)]
     # Right customer
-    image "images/speech.png" xalign 0.80 yalign 0.24 zoom 0.5 at transform:
-            alpha 0.0 
-            pause order2_time
-            easein 2.0 alpha 1.0
-            easeout 1.0 alpha 0.0
-    hbox:
-        xalign 0.785
-        yalign 0.265
-        box_wrap True
-        xmaximum 350
-        text cafe_menu[2] + customer_order[2] textalign 0.5 yalign 0.5 size 40 at transform:
-            alpha 0.0
-            pause order2_time
-            easein 2.0 alpha 1.0
-            easeout 1.0 alpha 0.0
+    text cafe_menu[2] + customer_order[2]:
+        at order_pop(order_times[2])
+        xalign 0.785 yalign 0.25 xmaximum 350
+        textalign 0.5 size 40 color ORDER_COLOR outlines [(3, "#ffffff", 0, 0)]
+
+    # All three served: wait a moment so the last "Thank you!" is visible, then move on
+    if served_food == 3:
+        timer 1.5 action Jump("re_explain_cafegame" if tutorial_mode else "after_work_cafe")
