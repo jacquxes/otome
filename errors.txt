@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script_04_musician.rpy", line 1019: expected statement.
-    naomi
-         ^
+File "game/script_02_day_choices.rpy", line 330: expected 'simple_expression' not found.
+    xalign
+          ^
 
 Ren'Py Version: Ren'Py 8.5.0.25111603
-Sun Aug 16 21:54:35 2026
+Sat Oct 24 16:49:49 2026

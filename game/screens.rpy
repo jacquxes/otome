@@ -245,12 +245,12 @@ screen dev_overlay():
         vbox:
             spacing 6
             text "total days: [totaldays] days left"
-            text "musician pts: [relationship_points['musician']]"
-            text "musician stage: [get_stage('musician')]"
-            text "café visits: [total_visits['musician']]"
-            text "visited today: [visited_today['musician']]"
-            text "encounters: [encounters['musician']]"
-            text "theatre visits: [location_visits['theatre']]"
+            text "merchant pts: [relationship_points['merchant']]"
+            text "merchant stage: [get_stage('merchant')]"
+            text "café visits: [total_visits['merchant']]"
+            text "visited today: [visited_today['merchant']]"
+            text "encounters: [encounters['merchant']]"
+            text "office visits: [location_visits['office']]"
 
 init python:
     config.overlay_screens.append("dev_overlay")

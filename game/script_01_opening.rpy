@@ -2,16 +2,43 @@
 
 label opening_sequence:
 
-    scene bg opening
-
-    show text "{color=#ffffff}I'm chasing a cat. It's getting away from me.{/color}":
-        xalign 0.5 yalign 0.5
+    show bg opening 1:
+        zoom 1.5 xalign 0.5 yalign 0.0
+    pause
+    show bg opening 2:
+        zoom 1.5 xalign 0.5 yalign 1.0
+    show text "{color=#ffffff}I'm chasing a cat.{/color}":
+        xalign 0.5 yalign 0.9
+    pause
+    show bg opening 1:
+        zoom 1.0
+    hide text
+    show text "{color=#ffffff}It's getting away from me.{/color}":
+        xalign 0.5 yalign 0.9
+    pause
+    show bg opening 2:
+        zoom 1.0
+    hide text
+    show text "{color=#ffffff}My lungs burn.{/color}":
+        xalign 0.5 yalign 0.9
+    pause
+    show bg opening 1:
+        zoom 1.0
+    hide text
+    show text "{color=#ffffff}My feet pound against the ground.{/color}":
+        xalign 0.5 yalign 0.9
+    pause
+    show bg opening 2:
+        zoom 1.5 xalign 0.5 yalign 1.0
+    hide text
+    show text "{color=#ffffff}I reach out and lunge forward in one last desperate grab—{/color}":
+        xalign 0.5 yalign 0.9
     pause
     hide text
-    show text "{color=#ffffff}My lungs burn. My feet pound against the ground. I reach out and lunge forward in one last desperate grab—{/color}":
-        xalign 0.5 yalign 0.5
-    pause
-    hide text
+    show black1:
+        xalign 0.5 yalign 1.0 #full close
+    show black2:
+        xalign 0.5 yalign 0.0 #full close
     show text "{color=#ffffff}Then there is nothing.{/color}":
         xalign 0.5 yalign 0.5
     pause
@@ -89,7 +116,9 @@ label opening_sequence:
     ## Kirako enters and Maachan moves right
     show table_left zorder 2.0:
         xalign 1.0 yalign 1.0 zoom 0.5
-    show cat eyeroll at right zorder 3.0
+    show cat eyeroll zorder 3.0:
+        zoom 1.0
+        linear 1.0 xalign 1.0
     show kirako angry:
         xalign 0.3
     with moveinleft
@@ -163,13 +192,13 @@ label re_explain_cafegame:
     scene bg caferight
     
     # Recreate ending scene
-    image order0 = "images/[cafe_menu[0]].png"
+    image order0 = "images/cafe/[cafe_menu[0]].png"
     show order0:
         xalign 0.22 yalign 0.55 xzoom 0.10 yzoom 0.1
-    image order1 = "images/[cafe_menu[1]].png"
+    image order1 = "images/cafe/[cafe_menu[1]].png"
     show order1:
         xalign 0.5 yalign 0.55 xzoom 0.10 yzoom 0.1
-    image order2 = "images/[cafe_menu[2]].png"
+    image order2 = "images/cafe/[cafe_menu[2]].png"
     show order2:
         xalign 0.8 yalign 0.55 xzoom 0.10 yzoom 0.1
 
@@ -180,9 +209,9 @@ label re_explain_cafegame:
     naomi relieved "All done."
     show kirako happy with moveinleft
     kirako "Thank you for your help Naomi!"
-    $ tips = renpy.random.randint(10, 15)
-    $ money += tips
-    kirako "Here you go, [tips] yen in tips today."
+    # $ tips = renpy.random.randint(10, 15)
+    $ money += shift_tips
+    kirako "Here you go, [shift_tips] yen in tips today."
     show kirako wink
     kirako "Very decent for your first day!"
     naomi happy "Thank you!"
