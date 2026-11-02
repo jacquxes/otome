@@ -11,7 +11,7 @@ label office_bldg:
     if totaldays == 0:
         jump office_ending
 
-    if encounters["merchant"] == 2:
+    if encounters["merchant"] == 4:
         call merchant_3
     elif merchant_job == 2:
         call merchant_4
@@ -288,234 +288,87 @@ label merchant_1:
     show merchant frown
     merchant "Thanks for the coffee."
     hide merchant with dissolve
-    naomi troubled "Was I rude?"
+    naomi troubled "Was that rude of me?"
     naomi angry "But he was rude first."
     naomi thinking "He wasn't wrong, though."
     naomi troubled "This cafe needs something different to stand out."
     return
 
-# # Courage +1 if chose to confront over incident
-# label merchant_1:
-#     show cafetableright zorder 3.0
-#     $ guy_display = True
-#     $ encounters["merchant"] += 1
-#     if merchant_choice == 0:        
-#         show merchant frownside with dissolve:
-#             xalign 0.5
-#         merchant "A coffee please."
-#         naomi happy "One coffee. Please wait a mo-"
-#         naomi angry "(It's the department store guy!)"
-#         show merchant frown
-#         menu:
-#             merchant "...Something the matter?"
-#             "It's nothing":
-#                 naomi thinking "It's nothing, please excuse me."
-#                 merchant "Hm."
-#                 naomi troubled "Here's your coffee."
-#                 window hide
-#                 image coffee = "images/cafe/Coffee.png"
-#                 show coffee zorder 3.0:
-#                     xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
-#                     easein 1.0 ypos 0.7 zpos 0
-#                 pause
-#                 show kirako happy with moveinleft:
-#                     xalign 0.2
-#                 show merchant surprised:
-#                     xalign 0.5 zoom 1.0
-#                     easein 0.5 xalign 0.8 zoom 1.0
-#                 kirako "Yujiro, darling! How's your father doing?"
-#                 show merchant frownside
-#                 merchant "He's fine."
-#                 kirako "Naomi, this is Yujiro. His father runs the department store down at Ginza."
-#                 show kirako pout
-#                 show merchant frown
-#                 kirako "Yujiro dear, Naomi here is looking for work in the city."
-#                 show kirako happy
-#                 kirako "Be a dear and give her something to do, won't you?"
-#                 show kirako pout
-#                 kirako "Ah, is that the kettle boiling?"
-#                 hide kirako with moveoutleft
-#                 $ merchant_name = "Yujiro"
-#                 show merchant frown:
-#                     zoom 1.0
-#                     easein 1.0 xalign 0.5
-#                 merchant "..."
-#                 show merchant frown
-#                 merchant "Here."
-#                 window hide
-#                 show merchant_namecard zorder 3.0:
-#                     xalign 0.5 yalign 0.5 zpos 0 zoom 0.2
-#                     easein 1.0 yalign 0.6 zpos 800
-#                 pause
-#                 show merchant_namecard_front zorder 3.0:
-#                     xalign 0.5 yalign 0.5
-#                 pause
-#                 hide merchant_namecard_front
-#                 hide merchant_namecard with moveoutbottom
-#                 show merchant frownside
-#                 merchant "Come by my office if you need work."
-#                 hide merchant_namecard with moveoutbottom
-#                 $ inventory.update({"namecard":["Fujiya Yujiro's namecard."]})
-#                 show merchant frownside:
-#                     xzoom -1.0 zoom 1.0
-#                 merchant "Can't promise I'll hire you, though."
-#                 show merchant frown
-#                 naomi thinking "(Would I want to work for this guy?)"
-#                 naomi troubled "(Guess I could check it out first.)"
-#                 naomi troubled "Thank you."
-#                 hide merchant with moveoutleft
-#                 $ guy_display = False
-#             "Actually...":
-#                 naomi troubled "Actually... I saw you talking to your staff at the department store."
-#                 show merchant surprised
-#                 naomi troubled "I couldn't help but think you were being pretty harsh to her..."
-#                 show merchant thinkingside
-#                 merchant "That incident."
-#                 show merchant resigned
-#                 merchant "I told her before not to carry too many things down the stairs!"
-#                 show merchant scowlside
-#                 merchant "She could have tripped and injured herself!"
-#                 naomi surprised "(So he was worried for her!)"
-#                 naomi thinking "Still, did you really need to make her cry?"
-#                 show merchant surprised
-#                 merchant "..."
-#                 $ merchant_courage += 1
-#                 show merchant thinkingside
-#                 merchant "You're right, I could have handled it better."
-#                 show merchant thinking
-#                 merchant "..."
-#                 show merchant resigned
-#                 merchant "I will talk to her about it."
-#                 naomi happy "Glad to hear that!"
-#                 show merchant thinkingside
-#                 merchant "Hm."
-#                 show merchant thinking
-#                 merchant "What's your name?"
-#                 naomi surprised "Eh? Uh... Naomi?"
-#                 show merchant frown
-#                 merchant "Here."
-#                 window hide
-#                 show merchant_namecard zorder 3.0:
-#                     xalign 0.5 yalign 0.5 zpos 0 zoom 0.2
-#                     easein 1.0 yalign 0.6 zpos 800
-#                 pause
-#                 show merchant_namecard_front zorder 3.0:
-#                     xalign 0.5 yalign 0.5
-#                 pause
-#                 hide merchant_namecard_front
-#                 naomi blush "Mr Fujiya Yujiro..."
-#                 hide merchant_namecard with moveoutbottom
-#                 $ inventory.update({"namecard":["Fujiya Yujiro's namecard."]})
-#                 $ merchant_name = "Yujiro"
-#                 show merchant frown
-#                 merchant "Just Yujiro will do."
-#                 merchant "Come to my office."
-#                 naomi surprised "Huh?"
-#                 show merchant thinkingside
-#                 merchant "You came from the countryside to find a job, didn't you?"
-#                 naomi surprised "How did you know?"
-#                 show merchant thinking
-#                 merchant "It's not difficult to guess."
-#                 show merchant happy
-#                 merchant "You'll earn more working for me."
-#                 merchant "I'll be expecting you."
-#                 show merchant frownside:
-#                     xzoom -1.0 zoom 1.0
-#                 hide merchant with moveoutleft
-#                 $ guy_display = False
-#                 naomi thinking "(What was that about?)"
-#                 naomi surprised "Oh no, his coffee!"
-#                 show kirako happy with moveinleft
-#                 kirako "Was that Yujiro?"
-#                 naomi surprised "You know him?"
-#                 kirako "Oh yes, his father runs the department store at Ginza."
-#                 show kirako pout
-#                 kirako "If he hadn't rushed off, I could have introduced you!"
-#                 naomi sleepy "It's fine, really."
-#                 naomi thinking "(I guess I can visit his office and see how it goes...)"
-#     elif merchant_choice == 1:
-#         show merchant frown with dissolve:
-#             xalign 0.5
-#         merchant "A coffee please."
-#         show merchant frownside
-#         naomi happy "One coffee. Please wait a mo-"
-#         show merchant frown
-#         naomi angry "You're the department store guy!"
-#         show merchant thinking
-#         merchant "Oh it's you. The meddlesome girl."
-#         naomi troubled "Sorry, I shouldn't have jumped to conclusions back there."
-#         show merchant thinkingside
-#         merchant "..."
-#         $ merchant_courage += 1
-#         show merchant frownside
-#         merchant "No, you were right. I shouldn't have lashed out at my staff."
-#         show merchant frownside
-#         naomi troubled "..."
-#         show merchant frown
-#         naomi troubled "What was that all about, anyway?"
-#         show merchant resigned
-#         merchant "She was carrying too many things down the stairs." 
-#         show merchant scowlside
-#         merchant "She could have tripped and injured herself!"
-#         naomi surprised "(So he was worried for her!)"
-#         naomi troubled "Still, you didn't need to be so harsh."
-#         show merchant frown
-#         merchant "..."
-#         show merchant resigned
-#         merchant "I had apologised to her for my conduct."
-#         show merchant scowlside
-#         merchant "Consider your meddling appreciated."
-#         show merchant frownside
-#         naomi thinking "(...is that his way of saying thanks?)"
-#         show merchant frown
-#         merchant "Hm."
-#         show merchant thinking
-#         merchant "What's your name?"
-#         naomi troubled "Eh? Uh... Naomi?"
-#         show merchant frownside
-#         merchant "Here."
-#         window hide
-#         show merchant_namecard zorder 3.0:
-#             xalign 0.5 yalign 0.5 zpos 0 zoom 0.2
-#             easein 1.0 yalign 0.6 zpos 800
-#         pause
-#         show merchant_namecard_front zorder 3.0:
-#             xalign 0.5 yalign 0.5
-#         pause
-#         hide merchant_namecard_front
-#         naomi blush "Mr Fujiya Yujiro..."
-#         hide merchant_namecard with moveoutbottom
-#         $ inventory.update({"namecard":["Fujiya Yujiro's namecard."]})
-#         $ merchant_name = "Yujiro"
-#         show merchant frown
-#         merchant "Just Yujiro will do."
-#         merchant "Come to my office."
-#         naomi surprised "Huh?"
-#         show merchant thinkingside
-#         merchant "You came from the countryside to find a job, didn't you?"
-#         naomi surprised "How did you know?"
-#         show merchant thinking
-#         merchant "It's not difficult to guess."
-#         show merchant frownside
-#         merchant "Well, you'll earn more working for me."
-#         show merchant frown
-#         merchant "I'll be expecting you."
-#         show merchant frownside:
-#             xzoom -1.0 zoom 1.0
-#         hide merchant with moveoutleft
-#         $ guy_display = False
-#         naomi troubled "(What was that about?)"
-#         naomi surprised "Oh no, his coffee!"
-#         show kirako happy with moveinleft
-#         kirako "Was that Yujiro?"
-#         naomi surprised "You know him?"
-#         kirako "Oh yes, his father runs the department store at Ginza."
-#         show kirako pout
-#         kirako "If he hadn't rushed off, I could have introduced you!"
-#         naomi sleepy "It's fine, really."
-#         naomi thinking "(I guess I can visit his office and find out more...)"
-#     $ unlock_off_bldg = True
-#     return
+# Second visit to cafe
+label merchant_2:
+    $ encounters["merchant"] += 1
+    show merchant frown with dissolve:
+        xalign 0.5
+    merchant "A coffee."
+    naomi surprised "You're back."
+    show merchant scowlside
+    merchant "...Just happened to be in the area."
+    window hide
+    show coffee zorder 3.0:
+        xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
+        easein 1.0 ypos 0.7 zpos 0
+    pause
+    naomi relieved "Here you go!"
+    show merchant frownside
+    merchant "..."
+    show merchant resigned
+    merchant "You were right."
+    naomi thinking "What about?"
+    show merchant frown
+    merchant "About the customers."
+    merchant "I stood at the entrance for an afternoon."
+    show merchant scowlside
+    merchant "Most shoppers leave within an hour."
+    naomi troubled "..."
+    show merchant frown
+    naomi pain "You were right too, about the menu."
+    naomi troubled "We need something different to stand out among the other cafes here."
+    show merchant thinking
+    merchant "Hmm."
+    merchant "What's your name?"
+    naomi troubled "Eh? Uh... Naomi?"
+    show merchant happy
+    merchant "Naomi, I have a proposal for you."
+    naomi surprised "A proposal?"
+    show merchant frownside
+    merchant "But not here."
+    show merchant frown
+    merchant "Here."
+    window hide
+    show merchant_namecard zorder 3.0:
+        xalign 0.5 yalign 0.5 zpos 0 zoom 0.2
+        easein 1.0 yalign 0.6 zpos 800
+    pause
+    show merchant_namecard_front zorder 3.0:
+        xalign 0.5 yalign 0.5
+    pause
+    hide merchant_namecard_front
+    naomi thinking "Mr Fujiya Yujiro..."
+    hide merchant_namecard with moveoutbottom
+    $ inventory.update({"namecard":["Fujiya Yujiro's namecard."]})
+    $ merchant_name = "Yujiro"
+    $ unlock_off_bldg = True
+    show merchant frownside
+    merchant "Just Yujiro will do."
+    image merchant glitched0:
+        glitch("merchant frownside")
+        pause 0.1
+        glitch("merchant frownside",offset=60,randomkey=None)
+        pause 0.1
+        glitch("merchant frownside")
+        pause 0.1
+        "merchant frownside"
+    show merchant glitched0
+    merchant "Come by my office and we'll discuss it."
+    hide merchant with dissolve
+    naomi troubled "..."
+    show kirako pout
+    kirako "Did I hear someone say proposal?"
+    naomi blush "Not that kind of proposal!"
+    show kirako angry
+    kirako "Who's harassing you? I'll give them a piece of my mind!"
+    naomi pain "..."
+    return
 
 # First visit to office, courage 0-1
 label merchant_3:
@@ -530,7 +383,7 @@ label merchant_3:
     naomi thinking "(Fujiya... This should be it.)"
     merchant "This is not good enough to be shown to the company president."
     naomi troubled "(Is he being harsh on his staff again?)"
-    if merchant_courage < 1:
+    if relationship_points["merchant"] < 1:
         merchant "There is no mention about what we plan to have."
         merchant "Did we not discuss this in detail?"
         show merchant frownside:
@@ -579,74 +432,141 @@ label merchant_3:
         linear 2.0 xalign 0.5 yalign 0.5 zoom 1.0
     naomi surprised "Um."
     $ guy_display = True
-    show merchant scowlside
     merchant "The company president wants to build a new store in Asakusa."
+    naomi surprised "In Asakusa?"
     show merchant thinkingside
-    merchant "I need someone to work with me with the project."
+    merchant "My father."
+    merchant "He's left the project to me."
+    naomi thinking "That's a big responsibility."
+    show merchant resigned
+    merchant "..."
+    show merchant frown
+    merchant "It's expected."
+    show merchant thinkingside
+    merchant "But Ginza and Asakusa are different."
+    merchant "In Ginza, people come to look."
+    show merchant scowlside
+    merchant "In Asakusa, I can't tell what they come for."
+    naomi happy "They come to have fun."
+    show merchant surprised
+    merchant "..."
+    naomi thinking "They watch a show, they eat, they walk around."
+    naomi relieved "Nobody comes to Asakusa to be quiet."
     show merchant thinking
-    merchant "Can you do it?"
-    naomi thinking "(I want this job.)"
+    merchant "Hm."
+    merchant "So here's my proposal."
+    show merchant frown
+    merchant "I want the Cafe Diamond in the store."
+    naomi surprised "Cafe Diamond? In a department store?"
+    show merchant scowlside
+    merchant "In exchange, I want you to give me information about the neighbourhood."
+    merchant "What people want. What they do. What they pay for."
+    naomi troubled "But, why me?"
+    show merchant frown
+    merchant "You know the neighbourhood."
+    show merchant frownside
+    merchant "...And you're not afraid to tell me when I'm wrong."
+    naomi blush "..."
+    show merchant frown
+    merchant "Well? Can you do it?"
+    naomi thinking "(If the cafe moves into the store... It would save the cafe.)"
     naomi troubled "(But I'm worried he'll be harsh with me.)"
     menu:
-        naomi thinking "(What should I do?)"
-        "Accept the job":
-            naomi happy "I'll do it."
-        "Voice concerns":
-            naomi thinking "I want this job, but."
+        naomi thinking "(What should I say?)"
+        "Agree":
+            naomi happy "Alright. I'll help."
+        "Set a condition":
+            $ relationship_points["musician"] += 1
+            naomi thinking "On one condition."
             show merchant surprised
             naomi troubled "From what I've observed, you're pretty harsh on your staff."
             naomi thinking "I know you care a lot."
             naomi troubled "But if you could be more gentle..."
             show merchant thinking
             merchant "..."
-            $ merchant_courage += 1
             show merchant resigned
             merchant "I see."
             show merchant thinkingside
             merchant "You're right, I can be pretty harsh."
-            show merchant scowlfront
-            merchant "I'll prove to you I can do better, so."
-            show merchant frown
-            merchant "Will you give this a chance??"
-            naomi relieved "I'll do it."
-    show merchant happy
-    merchant "Good."
-    show merchant thinkingside
-    merchant "You can come to the office anytime between Mondays and Fridays."
+            show merchant resigned
+            merchant "I'll do my best."
+            naomi relieved "Alright. I'll help."
     show merchant thinking
-    merchant "I'll pay you for the day's work."
-    show merchant thinkingside
-    merchant "At the end of the month, if your performance was good, I'll give you a job."
-    naomi relieved "Fair enough."
-    window hide
-    show paperstack zorder 4.0:
-        xpos 0.4 ypos 0.5 zpos 0 zoom 0.5
-        easein 1.0 xpos 0.4 ypos 0.55 zpos 800
+    merchant "One more thing."
     show merchant frown
-    merchant "You can start by filling in these forms."
-    image merchant glitched1:
-        glitch("merchant frown")
-        pause 0.1
-        glitch("merchant frown",offset=60,randomkey=None)
-        pause 0.1
-        glitch("merchant frown")
-        pause 0.1
-        "merchant frown"
-    show merchant glitched1
-    naomi troubled "Filling in forms...?" 
+    merchant "The cafe needs to serve something more that no one else has."
+    naomi troubled "Something no one else has..."
     show merchant happy
-    merchant "Call me when you're done."
-    show merchant frown:
-        xzoom 1.0 xalign 0.5 yalign 0.0 zoom 1.0
-    hide merchant with moveoutright
-    naomi surprised "Eh?"
-    $ guy_display = False
-    naomi angry "What a bossy guy."
-    naomi sleepy "Guess I'll just get started on this."
-    hide paperstack with moveoutbottom
-    hide office_table
-    show bg office:
-        linear 2.0 xalign 0.8 yalign 0.0 zoom 1.0
+    merchant "Put a new dish on the menu. Then we have a deal."
+    naomi happy "Challenge accepted."
+    return
+
+    # show merchant thinkingside
+    # merchant "I need someone to work with me with the project."
+    # show merchant thinking
+    # merchant "Can you do it?"
+    # naomi thinking "(I want this job.)"
+    # naomi troubled "(But I'm worried he'll be harsh with me.)"
+    # menu:
+    #     naomi thinking "(What should I do?)"
+    #     "Accept the job":
+    #         naomi happy "I'll do it."
+    #     "Voice concerns":
+    #         naomi thinking "I want this job, but."
+    #         show merchant surprised
+    #         naomi troubled "From what I've observed, you're pretty harsh on your staff."
+    #         naomi thinking "I know you care a lot."
+    #         naomi troubled "But if you could be more gentle..."
+    #         show merchant thinking
+    #         merchant "..."
+    #         $ merchant_courage += 1
+    #         show merchant resigned
+    #         merchant "I see."
+    #         show merchant thinkingside
+    #         merchant "You're right, I can be pretty harsh."
+    #         show merchant scowlfront
+    #         merchant "I'll prove to you I can do better, so."
+    #         show merchant frown
+    #         merchant "Will you give this a chance??"
+    #         naomi relieved "I'll do it."
+    # show merchant happy
+    # merchant "Good."
+    # show merchant thinkingside
+    # merchant "You can come to the office anytime between Mondays and Fridays."
+    # show merchant thinking
+    # merchant "I'll pay you for the day's work."
+    # show merchant thinkingside
+    # merchant "At the end of the month, if your performance was good, I'll give you a job."
+    # naomi relieved "Fair enough."
+    # window hide
+    # show paperstack zorder 4.0:
+    #     xpos 0.4 ypos 0.5 zpos 0 zoom 0.5
+    #     easein 1.0 xpos 0.4 ypos 0.55 zpos 800
+    # show merchant frown
+    # merchant "You can start by filling in these forms."
+    # image merchant glitched1:
+    #     glitch("merchant frown")
+    #     pause 0.1
+    #     glitch("merchant frown",offset=60,randomkey=None)
+    #     pause 0.1
+    #     glitch("merchant frown")
+    #     pause 0.1
+    #     "merchant frown"
+    # show merchant glitched1
+    # naomi troubled "Filling in forms...?" 
+    # show merchant happy
+    # merchant "Call me when you're done."
+    # show merchant frown:
+    #     xzoom 1.0 xalign 0.5 yalign 0.0 zoom 1.0
+    # hide merchant with moveoutright
+    # naomi surprised "Eh?"
+    # $ guy_display = False
+    # naomi angry "What a bossy guy."
+    # naomi sleepy "Guess I'll just get started on this."
+    # hide paperstack with moveoutbottom
+    # hide office_table
+    # show bg office:
+    #     linear 2.0 xalign 0.8 yalign 0.0 zoom 1.0
     return
 
 #Third visit to office, courage 0-1

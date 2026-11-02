@@ -259,7 +259,39 @@ label casual_doctor:
     return
 
 label casual_merchant:
-    "Yujiro happened to be in the area."
+    show cafetableright zorder 3.0
+    if encounters["merchant"] == 3:
+        call merchant_2
+    else:
+        show merchant frownside with dissolve:
+            xalign 0.5
+        merchant "A coffee."
+        naomi happy "Coming right up."
+        window hide
+        show coffee zorder 3.0:
+            xalign 0.5 ypos 0.9 zpos 400 zoom 0.5
+            easein 1.0 ypos 0.7 zpos 0
+        pause
+        if get_stage("merchant") <= 1:
+            naomi thinking "In the area again?"
+            show merchant frown
+            merchant "I had business nearby."
+            show merchant frownside
+            hide merchant with dissolve
+        elif get_stage("merchant") <= 3:
+            naomi smirk "Business nearby again?"
+            show merchant frownside
+            merchant "...Yes."
+            hide merchant with dissolve
+        else:
+            naomi smirk "Let me guess. Business nearby?"
+            show merchant frown
+            merchant "..."
+            show merchant happy
+            merchant "Something like that."
+            naomi blush "..."
+            show merchant frownside
+            hide merchant with moveoutleft
     return
 
 
