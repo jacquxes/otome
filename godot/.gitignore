@@ -1,0 +1,3 @@
+.godot/
+# Copies of game/ art, made by tools/rpy_to_json.py. Re-create them by running it.
+assets/game/

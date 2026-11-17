@@ -1,0 +1,2016 @@
+{
+ "source": "script_03_cafe.rpy",
+ "labels": {
+  "cafe_game": 0,
+  "work_cafe": 3,
+  "check_cafe_visits": 8,
+  "after_work_cafe": 34,
+  "casual_musician": 66,
+  "casual_doctor": 138,
+  "casual_merchant": 140,
+  "doctor_0": 174,
+  "soldier_2": 247,
+  "fighter_2": 253
+ },
+ "ops": [
+  {
+   "t": "eval",
+   "code": "setup_cafe_round()",
+   "line": 3
+  },
+  {
+   "t": "screen",
+   "name": "cafe_game",
+   "line": 4
+  },
+  {
+   "t": "return",
+   "line": 5
+  },
+  {
+   "t": "scene",
+   "image": "bg cafeleft",
+   "line": 8
+  },
+  {
+   "t": "play",
+   "channel": "music",
+   "file": "spring.mp3",
+   "from": 1.0,
+   "to": 79.5,
+   "fadein": 0.0,
+   "if_changed": true,
+   "loop": true,
+   "line": 9
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll work a shift at the cafe!",
+   "line": 10
+  },
+  {
+   "t": "set",
+   "var": "cafe_menu",
+   "keys": [],
+   "op": "=",
+   "value": "[]",
+   "line": 13
+  },
+  {
+   "t": "screen",
+   "name": "cafe_menu",
+   "line": 14
+  },
+  {
+   "t": "python",
+   "func": "py_check_cafe_visits_1",
+   "code": "eligible = []\nalready_picked = set()\nfixed_chars_today = []\nforced_char = None\nfor char, triggers in cafe_encounter_triggers.items():\n    if char not in unlocked_chars or visited_today[char]:\n        continue\n    trigger = triggers.get(encounters[char])\n    if trigger:\n        item_match = trigger[\"item\"] in cafe_menu\n        cond_match = trigger[\"condition\"]() if trigger[\"condition\"] else True\n        if item_match and cond_match:\n            forced_char = char\n            break\nif forced_char:\n    already_picked.add(forced_char)\n    fixed_chars_today.append(forced_char)\nfor item in cafe_menu:\n    mapping = item_to_character.get(item)\n    if mapping is None or isinstance(mapping, list):\n        continue\n    if mapping == \"musician\" and musician_casual_paused():\n        continue\n    if mapping in unlocked_chars and not visited_today[mapping] and mapping not in already_picked:\n        eligible.append(mapping)\n        already_picked.add(mapping)\n        fixed_chars_today.append(mapping)\nfor item in cafe_menu:\n    mapping = item_to_character.get(item)\n    if mapping is None or not isinstance(mapping, list):\n        continue\n    candidates = [ c for c in mapping if c in unlocked_chars and not visited_today[c] and c not in already_picked and not (c == \"musician\" and musician_casual_paused()) ]\n    if candidates:\n        if renpy.random.random() < CATCHUP_CHANCE:\n            candidates_sorted = sorted(candidates, key=lambda c: total_visits[c])\n        else:\n            candidates_sorted = sorted(candidates, key=lambda c: encounters[c], reverse=True)\n        chosen = candidates_sorted[0]\n        eligible.append(chosen)\n        already_picked.add(chosen)\nvisiting_chars = []\nif forced_char:\n    visiting_chars.append(forced_char)\n    if eligible:\n        renpy.random.shuffle(eligible)\n        visiting_chars.append(eligible[0])\nelif eligible:\n    renpy.random.shuffle(eligible)\n    pool = fixed_chars_today if fixed_chars_today else eligible\n    if renpy.random.random() < CATCHUP_CHANCE:\n        visiting_chars.append(sorted(pool, key=lambda c: total_visits[c])[0])\n    else:\n        visiting_chars.append(sorted(pool, key=lambda c: encounters[c], reverse=True)[0])\n    remaining = [c for c in eligible if c not in visiting_chars]\n    if remaining:\n        visiting_chars.append(renpy.random.choice(remaining))",
+   "line": 21
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(visiting_chars.size() >= 1)",
+   "to": 21,
+   "line": 93
+  },
+  {
+   "t": "set",
+   "var": "char1",
+   "keys": [],
+   "op": "=",
+   "value": "visiting_chars[0]",
+   "line": 94
+  },
+  {
+   "t": "set",
+   "var": "visited_today",
+   "keys": [
+    "char1"
+   ],
+   "op": "=",
+   "value": "true",
+   "line": 95
+  },
+  {
+   "t": "set",
+   "var": "total_visits",
+   "keys": [
+    "char1"
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 96
+  },
+  {
+   "t": "python",
+   "func": "py_check_cafe_visits_2",
+   "code": "override1 = None\nnum1 = encounters[char1]\ntrigger = cafe_encounter_triggers.get(char1, {}).get(num1)\nif trigger:\n    item_match = trigger[\"item\"] in cafe_menu\n    cond_match = trigger[\"condition\"]() if trigger[\"condition\"] else True\n    if item_match and cond_match:\n        override1 = char1 + \"_\" + str(num1)",
+   "line": 98
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "override1",
+   "to": 18,
+   "line": 108
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "char1"
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 109
+  },
+  {
+   "t": "call_expr",
+   "code": "override1",
+   "line": 110
+  },
+  {
+   "t": "goto",
+   "to": 20
+  },
+  {
+   "t": "call_expr",
+   "code": "(\"casual_\" + char1)",
+   "line": 112
+  },
+  {
+   "t": "goto",
+   "to": 20
+  },
+  {
+   "t": "goto",
+   "to": 21
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((visiting_chars.size() >= 2) and (not override1))",
+   "to": 33,
+   "line": 115
+  },
+  {
+   "t": "set",
+   "var": "char2",
+   "keys": [],
+   "op": "=",
+   "value": "visiting_chars[1]",
+   "line": 116
+  },
+  {
+   "t": "set",
+   "var": "visited_today",
+   "keys": [
+    "char2"
+   ],
+   "op": "=",
+   "value": "true",
+   "line": 117
+  },
+  {
+   "t": "set",
+   "var": "total_visits",
+   "keys": [
+    "char2"
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 118
+  },
+  {
+   "t": "python",
+   "func": "py_check_cafe_visits_3",
+   "code": "override2 = None\nnum2 = encounters[char2]\ntrigger = cafe_encounter_triggers.get(char2, {}).get(num2)\nif trigger:\n    item_match = trigger[\"item\"] in cafe_menu\n    cond_match = trigger[\"condition\"]() if trigger[\"condition\"] else True\n    if item_match and cond_match:\n        override2 = char2 + \"_\" + str(num2)",
+   "line": 120
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "override2",
+   "to": 30,
+   "line": 130
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "char2"
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 131
+  },
+  {
+   "t": "call_expr",
+   "code": "override2",
+   "line": 132
+  },
+  {
+   "t": "goto",
+   "to": 32
+  },
+  {
+   "t": "call_expr",
+   "code": "(\"casual_\" + char2)",
+   "line": 134
+  },
+  {
+   "t": "goto",
+   "to": 32
+  },
+  {
+   "t": "goto",
+   "to": 33
+  },
+  {
+   "t": "return",
+   "line": 136
+  },
+  {
+   "t": "scene",
+   "image": "bg caferight",
+   "line": 139
+  },
+  {
+   "t": "show",
+   "image": "order0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.22,
+      "yalign": 0.55,
+      "xzoom": 0.1,
+      "yzoom": 0.1
+     }
+    }
+   ],
+   "line": 142
+  },
+  {
+   "t": "show",
+   "image": "order1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.55,
+      "xzoom": 0.1,
+      "yzoom": 0.1
+     }
+    }
+   ],
+   "line": 145
+  },
+  {
+   "t": "show",
+   "image": "order2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.55,
+      "xzoom": 0.1,
+      "yzoom": 0.1
+     }
+    }
+   ],
+   "line": 148
+  },
+  {
+   "t": "call",
+   "label": "check_cafe_visits",
+   "line": 151
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 153
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "kirako happy",
+   "line": 154
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Thank you for your help Naomi!",
+   "line": 155
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "+=",
+   "value": "shift_tips",
+   "line": 157
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Here you go, [shift_tips] yen in tips today.",
+   "line": 158
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 161
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(dayofweeknumber > 5)",
+   "to": 48,
+   "line": 162
+  },
+  {
+   "t": "return",
+   "line": 163
+  },
+  {
+   "t": "goto",
+   "to": 66
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 59,
+   "line": 165
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thank you!",
+   "line": 166
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "kirako",
+   "line": 167
+  },
+  {
+   "t": "scene",
+   "with": "pushright",
+   "image": "bg cafeleft",
+   "line": 168
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "What should I do this afternoon?"
+   },
+   "choices": [
+    {
+     "text": "Work in cafe",
+     "cond": null,
+     "to": 53
+    },
+    {
+     "text": "Go out",
+     "cond": null,
+     "to": 55
+    }
+   ],
+   "line": 169
+  },
+  {
+   "t": "jump",
+   "label": "work_cafe",
+   "line": 172
+  },
+  {
+   "t": "goto",
+   "to": 58
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 174
+  },
+  {
+   "t": "jump",
+   "label": "asakusa_small",
+   "line": 175
+  },
+  {
+   "t": "goto",
+   "to": 58
+  },
+  {
+   "t": "goto",
+   "to": 59
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 65,
+   "line": 176
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Have a good rest, dear.",
+   "line": 177
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "You too, good night!",
+   "line": 178
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 179
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 180
+  },
+  {
+   "t": "goto",
+   "to": 65
+  },
+  {
+   "t": "goto",
+   "to": 66
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 188
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"musician\"] == 2)",
+   "to": 70,
+   "line": 189
+  },
+  {
+   "t": "call",
+   "label": "musician_2",
+   "line": 190
+  },
+  {
+   "t": "goto",
+   "to": 85
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((4 <= encounters[\"musician\"]) and (encounters[\"musician\"] <= 6))",
+   "to": 73,
+   "line": 192
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 193
+  },
+  {
+   "t": "goto",
+   "to": 73
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 194
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Craving something sweet today?",
+   "line": 196
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 197
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yeah, pudding please.",
+   "line": 198
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Coming right up!",
+   "line": 199
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 200
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "pudding",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 201
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 204
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Here you go!",
+   "line": 205
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 206
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks.",
+   "line": 207
+  },
+  {
+   "t": "goto",
+   "to": 85
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((4 <= encounters[\"musician\"]) and (encounters[\"musician\"] <= 6))",
+   "to": 97,
+   "line": 208
+  },
+  {
+   "t": "say",
+   "who": "customer",
+   "attrs": [],
+   "text": "Pudding, please!",
+   "line": 209
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Right up!",
+   "line": 210
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 211
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "There's been more customers lately.",
+   "line": 212
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "Yeah, the pudding's been selling out lately.",
+   "line": 213
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 214
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Selling out?",
+   "line": 215
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "Don't worry, we keep one just for you.",
+   "line": 216
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 217
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks.",
+   "line": 218
+  },
+  {
+   "t": "goto",
+   "to": 97
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"musician\"] == 9)",
+   "to": 110,
+   "line": 219
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "How was rehearsal today?",
+   "line": 220
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 221
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Fine.",
+   "line": 222
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 223
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 224
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It really was. I've been...",
+   "line": 225
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 226
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Back to my usual.",
+   "line": 227
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Alright.",
+   "line": 228
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 229
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Thanks for asking.",
+   "line": 230
+  },
+  {
+   "t": "goto",
+   "to": 110
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"musician\"] == 10)",
+   "to": 115,
+   "line": 231
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 232
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...I'll be at the theatre then.",
+   "line": 233
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "See you there!",
+   "line": 234
+  },
+  {
+   "t": "goto",
+   "to": 115
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"musician\"] == 11)",
+   "to": 123,
+   "line": 235
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "How's the song coming along?",
+   "line": 236
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 237
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...It's coming along.",
+   "line": 238
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Coming along, huh.",
+   "line": 239
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 240
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'll keep working at it.",
+   "line": 241
+  },
+  {
+   "t": "goto",
+   "to": 123
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"musician\"] == 12)",
+   "to": 133,
+   "line": 242
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "How's the song coming along?",
+   "line": 243
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 244
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Could use some inspiration.",
+   "line": 245
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 246
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Don't forget about this Sunday.",
+   "line": 247
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I won't.",
+   "line": 248
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 249
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Good.",
+   "line": 250
+  },
+  {
+   "t": "goto",
+   "to": 133
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 251
+  },
+  {
+   "t": "hide",
+   "image": "pudding",
+   "line": 252
+  },
+  {
+   "t": "hide",
+   "image": "fans_less",
+   "line": 253
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 254
+  },
+  {
+   "t": "return",
+   "line": 255
+  },
+  {
+   "t": "say",
+   "who": null,
+   "attrs": [],
+   "text": "Dr. Yumoto drops in on his way from the hospital.",
+   "line": 258
+  },
+  {
+   "t": "return",
+   "line": 259
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 262
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"merchant\"] == 3)",
+   "to": 144,
+   "line": 263
+  },
+  {
+   "t": "call",
+   "label": "merchant_2",
+   "line": 264
+  },
+  {
+   "t": "goto",
+   "to": 173
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 266
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "A coffee.",
+   "line": 268
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Coming right up.",
+   "line": 269
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 270
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "coffee",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 271
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 274
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(get_stage(\"merchant\") <= 1)",
+   "to": 157,
+   "line": 275
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "In the area again?",
+   "line": 276
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 277
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I had business nearby.",
+   "line": 278
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 279
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "merchant",
+   "line": 280
+  },
+  {
+   "t": "goto",
+   "to": 172
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(get_stage(\"merchant\") <= 3)",
+   "to": 163,
+   "line": 281
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "Business nearby again?",
+   "line": 282
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 283
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...Yes.",
+   "line": 284
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "merchant",
+   "line": 285
+  },
+  {
+   "t": "goto",
+   "to": 172
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "Let me guess. Business nearby?",
+   "line": 287
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 288
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 289
+  },
+  {
+   "t": "show",
+   "image": "merchant happy",
+   "line": 290
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Something like that.",
+   "line": 291
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 292
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 293
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "merchant",
+   "line": 294
+  },
+  {
+   "t": "goto",
+   "to": 172
+  },
+  {
+   "t": "goto",
+   "to": 173
+  },
+  {
+   "t": "return",
+   "line": 295
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 397
+  },
+  {
+   "t": "show",
+   "with": "moveinright",
+   "zorder": 4,
+   "image": "cat neutral",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 1.0
+     }
+    }
+   ],
+   "line": 398
+  },
+  {
+   "t": "set",
+   "var": "doctor_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"???\"",
+   "line": 400
+  },
+  {
+   "t": "show",
+   "with": "moveinleft",
+   "image": "doctor indifferent",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 401
+  },
+  {
+   "t": "show",
+   "image": "doctor glitched",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 411
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Maachan.",
+   "line": 413
+  },
+  {
+   "t": "show",
+   "image": "cat scared",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 1.0
+     }
+    }
+   ],
+   "line": 414
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "cat_yowl.mp3",
+   "from": 1.0,
+   "to": 2.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 416
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Mew!",
+   "line": 417
+  },
+  {
+   "t": "show",
+   "image": "cat scared",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 0.5,
+     "props": {
+      "xpos": 2.5,
+      "ypos": 0.5,
+      "zoom": 2.5
+     }
+    }
+   ],
+   "line": 418
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 421
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "...",
+   "line": 422
+  },
+  {
+   "t": "hide",
+   "image": "cat",
+   "line": 423
+  },
+  {
+   "t": "todo",
+   "code": "show bg caferight as bg_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 424
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "persistent.haptics_enabled",
+   "to": 191,
+   "line": 425
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.vibrate(0.5)",
+   "why": "Python: renpy.vibrate",
+   "line": 426
+  },
+  {
+   "t": "goto",
+   "to": 191
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Unngh!",
+   "line": 427
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 428
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Are you alright?",
+   "line": 429
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "...I felt dizzy suddenly.",
+   "line": 430
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "But I'm fine now.",
+   "line": 431
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.5,
+     "props": {
+      "yalign": 0.3,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 432
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "You look a little pale.",
+   "line": 435
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I feel fine!",
+   "line": 436
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.3
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.5,
+     "props": {
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 437
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "You look flushed. Are you feverish?",
+   "line": 440
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 441
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "xzoom": 1.0
+     }
+    }
+   ],
+   "line": 442
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Please come by the hospital for a check-up.",
+   "line": 444
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Hospital?",
+   "line": 445
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 446
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Yes. Near Ginza.",
+   "line": 447
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 448
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Just tell the nurse you're here to see Dr Yumoto.",
+   "line": 449
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...Dr Yumoto.",
+   "line": 450
+  },
+  {
+   "t": "set",
+   "var": "doctor_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"Dr Yumoto\"",
+   "line": 451
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Are you a regular customer?",
+   "line": 452
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "You knew Maachan...",
+   "line": 453
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "line": 454
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Yes, I come here often.",
+   "line": 455
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 456
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "But I've yet to befriend Maachan...",
+   "line": 457
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 458
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Are you new here?",
+   "line": 459
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Yes.",
+   "line": 460
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Please be patient with me.",
+   "line": 461
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 462
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Likewise.",
+   "line": 463
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Oh!",
+   "line": 464
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I completely forgot to take your order.",
+   "line": 465
+  },
+  {
+   "t": "show",
+   "image": "doctor blush",
+   "line": 466
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I forgot, too.",
+   "line": 467
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "line": 468
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'll have a cake, please.",
+   "line": 469
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Right away.",
+   "line": 470
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 471
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cake",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 473
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 476
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Thank you.",
+   "line": 477
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 478
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Remember to come by the hospital after your shift.",
+   "line": 479
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "line": 480
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thank you!",
+   "line": 481
+  },
+  {
+   "t": "set",
+   "var": "unlock_hosp",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 482
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"doctor\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 483
+  },
+  {
+   "t": "hide",
+   "image": "doctor",
+   "line": 484
+  },
+  {
+   "t": "hide",
+   "image": "cake",
+   "line": 485
+  },
+  {
+   "t": "with",
+   "name": "moveoutleft",
+   "line": 486
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I do feel a little warm, now.",
+   "line": 487
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "That dizzy spell came out of nowhere, too.",
+   "line": 488
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I should pay him a visit.",
+   "line": 489
+  },
+  {
+   "t": "return",
+   "line": 490
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 493
+  },
+  {
+   "t": "show",
+   "with": "moveinleft",
+   "image": "soldier happy",
+   "line": 494
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 495
+  },
+  {
+   "t": "hide",
+   "image": "soldier",
+   "line": 496
+  },
+  {
+   "t": "with",
+   "name": "moveoutleft",
+   "line": 497
+  },
+  {
+   "t": "return",
+   "line": 498
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 501
+  },
+  {
+   "t": "set",
+   "var": "fighter_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"???\"",
+   "line": 502
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 503
+  },
+  {
+   "t": "show",
+   "with": "moveinleft",
+   "image": "fighter angry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 504
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "That bastard! I shall beat him once I've had my katsudon!",
+   "line": 506
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "!!!",
+   "line": 507
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "You're the guy from the shrine!",
+   "line": 508
+  },
+  {
+   "t": "show",
+   "image": "fighter surprised",
+   "line": 509
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "!!!",
+   "line": 510
+  },
+  {
+   "t": "show",
+   "image": "fighter grin",
+   "line": 511
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "I knew we'd meet again.",
+   "line": 512
+  },
+  {
+   "t": "show",
+   "image": "fighter determined",
+   "line": 513
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 514
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Here is your katsudon!",
+   "line": 544
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 545
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "katsudon",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 547
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 550
+  },
+  {
+   "t": "set",
+   "var": "unlock_dojo",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 551
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 552
+  },
+  {
+   "t": "hide",
+   "image": "fighter",
+   "line": 553
+  },
+  {
+   "t": "with",
+   "name": "moveoutleft",
+   "line": 554
+  },
+  {
+   "t": "return",
+   "line": 555
+  }
+ ]
+}

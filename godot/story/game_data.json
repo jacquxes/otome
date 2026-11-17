@@ -1,0 +1,1562 @@
+{
+ "characters": {
+  "cat": {
+   "bubble": false,
+   "color": "#000000",
+   "image": null,
+   "name": "[cat_name]"
+  },
+  "customer": {
+   "bubble": false,
+   "color": "#000000",
+   "image": null,
+   "name": "Customer"
+  },
+  "doctor": {
+   "bubble": false,
+   "color": "#006337",
+   "image": "doctor",
+   "name": "[doctor_name]"
+  },
+  "fan": {
+   "bubble": false,
+   "color": "#000000",
+   "image": null,
+   "name": "Fan"
+  },
+  "fighter": {
+   "bubble": false,
+   "color": null,
+   "image": "fighter",
+   "name": "[fighter_name]"
+  },
+  "kirako": {
+   "bubble": false,
+   "color": "#8f3d65",
+   "image": "kirako",
+   "name": "[kirako_name]"
+  },
+  "merchant": {
+   "bubble": false,
+   "color": "#151224",
+   "image": "merchant",
+   "name": "[merchant_name]"
+  },
+  "miko": {
+   "bubble": false,
+   "color": "#000000",
+   "image": "miko",
+   "name": "Shrine Maiden"
+  },
+  "miko_bubble": {
+   "bubble": true,
+   "color": null,
+   "image": "miko",
+   "name": null
+  },
+  "mother": {
+   "bubble": false,
+   "color": "#000000",
+   "image": null,
+   "name": "Mother"
+  },
+  "musician": {
+   "bubble": false,
+   "color": "#4a5764",
+   "image": "musician",
+   "name": "[musician_name]"
+  },
+  "naomi": {
+   "bubble": false,
+   "color": "#702b00",
+   "image": "naomi",
+   "name": "Naomi"
+  },
+  "nurse": {
+   "bubble": false,
+   "color": "#000000",
+   "image": "nurse",
+   "name": "Nurse"
+  },
+  "soldier": {
+   "bubble": false,
+   "color": null,
+   "image": "soldier",
+   "name": "[soldier_name]"
+  },
+  "staff": {
+   "bubble": false,
+   "color": "#000000",
+   "image": "staff",
+   "name": "[dept_name]"
+  },
+  "staff_bubble": {
+   "bubble": true,
+   "color": null,
+   "image": "staff",
+   "name": null
+  },
+  "stranger": {
+   "bubble": false,
+   "color": null,
+   "image": "stranger",
+   "name": "Stranger"
+  },
+  "ticketer": {
+   "bubble": false,
+   "color": "#000000",
+   "image": null,
+   "name": "Ticket Staff"
+  }
+ },
+ "defaults": {
+  "CATCHUP_CHANCE": "0.25",
+  "MUSICIAN_INTRO_GAP": "1",
+  "ORDER_COLOR": "\"#3b2a1a\"",
+  "RIGHT_LINES": "[\"Thank you!\", \"Looks lovely.\", \"Just what I wanted.\"]",
+  "TABLE_X": "[0.22, 0.5, 0.8]",
+  "TIP_MAX": "6",
+  "TIP_MIN": "4",
+  "TIP_PENALTY": "3",
+  "WRONG_LINES": "[\"Hm? This isn't mine.\", \"I didn't order this...\", \"Wrong table, I think.\"]",
+  "accessories": "[\"hair_band\", \"hair_hat\", \"hair_flower\", \"hair_ribbon\", \"hair_bow\", \"hand_round\", \"hand_evening\", \"hand_straw\", \"hand_parasol\", \"shoes_koppori\", \"shoes_zori\", \"shoes_heels\", \"shoes_pumps\", \"shoes_boots\"]",
+  "accessories2": "{\"hair_band\": [1584, 440], \"hair_hat\": [1565, 335], \"hair_flower\": [1484, 620], \"hair_ribbon\": [1342, 484], \"hair_bow\": [1608, 700]}",
+  "all_menu": "{\"Pudding\": true, \"Coffee\": true, \"Cake\": true, \"Katsudon\": false, \"Omurice\": false, \"Curry\": false, \"Steak\": false}",
+  "cafe_menu": "[]",
+  "characters": "{\"musician\": {\"name\": \"Saito Hideo\", \"bio\": \"He’s shy and comes off as aloof, but his gentle nature is evident in his kind words and delicate sensibility for music.\", \"bio2\": \"When playing, he reveals a different side to him.\", \"bio2_width\": 460, \"favorite\": \"Pudding\", \"occupation\": \"Musician\", \"height\": \"178 cm\", \"quote\": \"\\\"...It's fine. The pudding's the same either way.\\\"\", \"image\": \"images/musician/musician thinking.png\", \"cutscenes\": [\"musician_1\", \"musician_2\"], \"cutscene_previews\": [\"images/musician/musician_cutscene_11.png\", \"images/musician/musician_cutscene_2.png\"]}, \"merchant\": {\"name\": \"Fujiya Yujiro\", \"bio\": \"Due to his father’s stern upbringing as heir, he appears cold and overbearing.\", \"bio2\": \"A kind heart who cares deeply about people.\", \"bio2_width\": 400, \"favorite\": \"Steak\", \"occupation\": \"Merchant\", \"height\": \"182 cm\", \"quote\": \"\\\"You'll earn more working for me. I'll be expecting you.\\\"\", \"image\": \"images/merchant/merchant happy.png\", \"cutscenes\": [\"merchant_1\", \"merchant_2\"], \"cutscene_previews\": [\"images/merchant/merchant_cutscene_1.png\", \"images/merchant/merchant_cutscene_2.png\"]}}",
+  "charisma": "0",
+  "cheek_color_b": "1.5",
+  "cheek_color_g": "1.5",
+  "cheek_color_r": "1.5",
+  "clothes": "[\"dress_cute\", \"dress_hakama\", \"dress_modern\", \"dress_flapper\", \"dress_prim\"]",
+  "cosmetics": "[\"shadow_blue\", \"shadow_brown\", \"shadow_pink\", \"shadow_orange\", \"blush_pink\", \"blush_orange\", \"stick_pink\", \"stick_orange\", \"stick_red\", \"stick_peach\"]",
+  "current_char": "\"musician\"",
+  "customer_order": "[\" please.\", \", thank you.\", \" for me.\"]",
+  "customer_table": "[0.0, 0.5, 1.0]",
+  "day_display": "true",
+  "dayofweek": "\"Monday\"",
+  "dayofweeknumber": "1",
+  "doctor_affection": "0",
+  "doctor_choice": "0",
+  "doctor_courage": "0",
+  "doctor_dream": "false",
+  "doctor_ending": "false",
+  "doctor_event": "false",
+  "doctor_job": "0",
+  "enable_doctor_event_1": "false",
+  "enable_merchant_event_1": "false",
+  "encounters": "{\"musician\": 0, \"merchant\": 0, \"doctor\": 0, \"fighter\": 0, \"soldier\": 0}",
+  "eye_color_b": "1.2",
+  "eye_color_g": "1.2",
+  "eye_color_r": "1.15",
+  "fighter_affection": "0",
+  "guy_display": "false",
+  "init_accessoriesxpos": "{}",
+  "init_cheekxpos": "{}",
+  "init_dressxpos": "{}",
+  "init_dressypos": "{}",
+  "init_eyexpos": "{}",
+  "init_hatxpos": "{}",
+  "init_hatypos": "{}",
+  "init_lipxpos": "{}",
+  "init_shoexpos": "{}",
+  "init_shoeypos": "{}",
+  "inventory": "{}",
+  "item1": "false",
+  "item_to_character": "{\"Pudding\": \"musician\", \"Cake\": \"doctor\", \"Steak\": \"merchant\", \"Katsudon\": \"fighter\", \"Omurice\": \"soldier\", \"Coffee\": [\"musician\", \"doctor\", \"merchant\", \"fighter\", \"soldier\"], \"Curry\": [\"soldier\", \"merchant\", \"fighter\"]}",
+  "jp_lang": "false",
+  "lip_color_h": "14",
+  "lip_color_s": "0.85",
+  "lip_color_v": "0.15",
+  "location_visits": "{\"theatre\": 0, \"hospital\": 0, \"office\": 0, \"dojo\": 0, \"station\": 0}",
+  "merchant_affection": "0",
+  "merchant_choice": "0",
+  "merchant_courage": "0",
+  "merchant_dream": "false",
+  "merchant_ending": "false",
+  "merchant_event": "false",
+  "merchant_job": "0",
+  "money": "0",
+  "musician_5_seen": "false",
+  "musician_affection": "0",
+  "musician_choice": "0",
+  "musician_courage": "0",
+  "musician_dream": "false",
+  "musician_ending": "false",
+  "musician_event": "0",
+  "musician_job": "0",
+  "musician_show_seen": "false",
+  "musician_ticketer_talk_seen": "false",
+  "naomi_accessories_left": "\"\"",
+  "naomi_accessories_right": "\"\"",
+  "naomi_cheek": "\"\"",
+  "naomi_cheek_rgb": "{\"blush_pink\": [1.7, 1.0, 1.7], \"blush_orange\": [1.0, 1.0, 1.0]}",
+  "naomi_dress": "\"dress_waitress\"",
+  "naomi_eye": "\"\"",
+  "naomi_eye_rgb": "{\"shadow_blue\": [0.6, 0.8, 1.0], \"shadow_brown\": [1.0, 0.8, 0.9], \"shadow_orange\": [1.1, 1.1, 1.0], \"shadow_pink\": [1.2, 0.9, 1.3]}",
+  "naomi_hair": "\"hair_base\"",
+  "naomi_lip": "\"\"",
+  "naomi_lip_hsv": "{\"stick_pink\": [(-12), 0.75, 0.11], \"stick_red\": [(-4), 1.25, (-0.3)], \"stick_orange\": [0, 1.0, 0], \"stick_peach\": [(-2), 0.8, 0.1]}",
+  "naomi_shoes": "\"shoes_geta\"",
+  "o_charisma": "1",
+  "o_intelligence": "1",
+  "o_job": "1",
+  "o_love": "1",
+  "o_money": "1",
+  "o_strength": "1",
+  "omamori": "[]",
+  "order_times": "[1, 1, 1]",
+  "pre_musician_event_1": "false",
+  "pre_musician_event_2": "false",
+  "quick_menu": "true",
+  "relationship_points": "{\"musician\": 0, \"doctor\": 0, \"merchant\": 0, \"fighter\": 0, \"soldier\": 0}",
+  "served_food": "0",
+  "shift_tips": "0",
+  "stationery": "[\"pen\", \"notebook\"]",
+  "story_flags": "{}",
+  "strength": "0",
+  "timeofday": "\"Morning\"",
+  "timeslot": "2",
+  "total_visits": "{\"musician\": 0, \"merchant\": 0, \"doctor\": 0, \"fighter\": 0, \"soldier\": 0}",
+  "totaldays": "28",
+  "tutorial_mode": "true",
+  "unlock_dojo": "false",
+  "unlock_hosp": "false",
+  "unlock_imp_th": "false",
+  "unlock_movie_th": "false",
+  "unlock_off_bldg": "false",
+  "unlocked_chars": "[\"musician\", \"doctor\"]",
+  "unlocked_menu": "[\"Pudding\", \"Coffee\", \"Cake\"]",
+  "visited_today": "{\"musician\": false, \"merchant\": false, \"doctor\": false, \"fighter\": false, \"soldier\": false}",
+  "wardrobe_accessories": "[]",
+  "wardrobe_cheek": "[]",
+  "wardrobe_dress": "[\"dress_waitress\"]",
+  "wardrobe_eye": "[]",
+  "wardrobe_hair": "{}",
+  "wardrobe_lip": "[]",
+  "wardrobe_parasol": "[]",
+  "wardrobe_shoes": "[\"shoes_geta\"]"
+ },
+ "gallery": [
+  {
+   "conditions": [
+    "persistent.merchant_cutscene_1_unlocked"
+   ],
+   "images": [
+    "merchant_cutscene_1"
+   ],
+   "name": "merchant_1"
+  },
+  {
+   "conditions": [
+    "persistent.merchant_cutscene_2_unlocked"
+   ],
+   "images": [
+    "merchant_cutscene_2"
+   ],
+   "name": "merchant_2"
+  },
+  {
+   "conditions": [],
+   "images": [
+    "musician_cutscene_11",
+    "musician_cutscene_12"
+   ],
+   "name": "musician_1"
+  },
+  {
+   "conditions": [],
+   "images": [
+    "musician_cutscene_2"
+   ],
+   "name": "musician_2"
+  }
+ ],
+ "game": {
+  "name": "Naomi in Romanceland",
+  "version": "1.0"
+ },
+ "images": {
+  "accessories": {
+   "path": "images/dept/accessories.png"
+  },
+  "afternoon": {
+   "path": "images/menu/afternoon.png"
+  },
+  "back": {
+   "path": "images/back.png"
+  },
+  "base": {
+   "path": "images/naomi/base.png"
+  },
+  "base_feet": {
+   "path": "images/naomi/base_feet.png"
+  },
+  "base_torso": {
+   "path": "images/naomi/base_torso.png"
+  },
+  "bedroom_bed": {
+   "path": "images/bedroom/bedroom_bed.png"
+  },
+  "bedroom_dresser": {
+   "path": "images/bedroom/bedroom_dresser.png"
+  },
+  "bg bedroom": {
+   "path": "images/bg bedroom.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg cafeleft": {
+   "path": "images/cafe/cafeleft.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg caferight": {
+   "path": "images/cafe/caferight.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg dancehall 1": {
+   "path": "images/bg dancehall 1.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg dancehall 2": {
+   "path": "images/bg dancehall 2.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg dept": {
+   "path": "images/bg dept.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg dojo": {
+   "path": "images/bg dojo.jpg"
+  },
+  "bg hospital": {
+   "path": "images/bg hospital.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg imperial theatre": {
+   "path": "images/bg imperial theatre.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg irl": {
+   "path": "images/bg irl.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg makeup": {
+   "path": "images/wardrobe/bg makeup.png"
+  },
+  "bg movie": {
+   "path": "images/bg movie.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg movie theatre": {
+   "path": "images/bg movie theatre.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg office": {
+   "path": "images/bg office.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "bg opening": {
+   "path": "images/bg opening.png"
+  },
+  "bg opening 1": {
+   "path": "images/bg opening 1.png",
+   "zoom": 0.5
+  },
+  "bg opening 2": {
+   "path": "images/bg opening 2.png",
+   "zoom": 0.5
+  },
+  "bg ryounkaku": {
+   "path": "images/bg ryounkaku.png",
+   "zoom": 0.5
+  },
+  "bg shrine": {
+   "path": "images/bg shrine.png"
+  },
+  "bg station": {
+   "path": "images/bg station.jpg"
+  },
+  "bg wardrobe": {
+   "path": "images/bg wardrobe.png"
+  },
+  "black1": {
+   "path": "images/black_1.png"
+  },
+  "black2": {
+   "path": "images/black_2.png"
+  },
+  "black_1": {
+   "path": "images/black_1.png"
+  },
+  "black_2": {
+   "path": "images/black_2.png"
+  },
+  "cafeleft": {
+   "path": "images/cafe/cafeleft.png"
+  },
+  "cafemenu": {
+   "path": "images/cafe/cafemenu.png"
+  },
+  "caferight": {
+   "path": "images/cafe/caferight.png"
+  },
+  "cafetableright": {
+   "path": "images/cafe/table_right.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "cake": {
+   "path": "images/cafe/Cake.png"
+  },
+  "cat eyeroll": {
+   "path": "images/cat/cat eyeroll.png"
+  },
+  "cat happy": {
+   "path": "images/cat/cat happy.png"
+  },
+  "cat huff": {
+   "path": "images/cat/cat huff.png"
+  },
+  "cat neutral": {
+   "path": "images/cat/cat neutral.png"
+  },
+  "cat scared": {
+   "path": "images/cat/cat scared.png"
+  },
+  "clinic": {
+   "path": "images/doctor/clinic.png",
+   "zoom": 0.5
+  },
+  "clothes": {
+   "path": "images/menu/clothes.png"
+  },
+  "coffee": {
+   "path": "images/cafe/Coffee.png"
+  },
+  "cosmetics": {
+   "path": "images/dept/cosmetics.png"
+  },
+  "counter": {
+   "path": "images/dept/counter.png"
+  },
+  "counter_bg": {
+   "path": "images/dept/counter_bg.png"
+  },
+  "counter_money": {
+   "path": "images/dept/counter_money.png"
+  },
+  "counter_sign": {
+   "path": "images/dept/counter_sign.png"
+  },
+  "counter_stand": {
+   "path": "images/dept/counter_stand.png"
+  },
+  "curry": {
+   "path": "images/cafe/Curry.png"
+  },
+  "dept_clothes": {
+   "path": "images/dept/dept_clothes.png"
+  },
+  "doctor blush": {
+   "path": "images/doctor/doctor blush.png"
+  },
+  "doctor bummed": {
+   "path": "images/doctor/doctor bummed.png"
+  },
+  "doctor concerned": {
+   "path": "images/doctor/doctor concerned.png"
+  },
+  "doctor happy": {
+   "path": "images/doctor/doctor happy.png"
+  },
+  "doctor happyside": {
+   "path": "images/doctor/doctor happyside.png"
+  },
+  "doctor indifferent": {
+   "path": "images/doctor/doctor indifferent.png"
+  },
+  "doctor thinking": {
+   "path": "images/doctor/doctor thinking.png"
+  },
+  "doctor_cutscene_1": {
+   "path": "images/doctor/doctor_cutscene_1.png"
+  },
+  "doctor_cutscene_2": {
+   "path": "images/doctor/doctor_cutscene_2.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "doctor_cutscene_3": {
+   "path": "images/doctor/doctor_cutscene_3.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "dress_cute": {
+   "path": "images/item/dress_cute.png"
+  },
+  "dress_flapper": {
+   "path": "images/item/dress_flapper.png"
+  },
+  "dress_hakama": {
+   "path": "images/item/dress_hakama.png"
+  },
+  "dress_modern": {
+   "path": "images/item/dress_modern.png"
+  },
+  "dress_prim": {
+   "path": "images/item/dress_prim.png"
+  },
+  "dress_waitress": {
+   "path": "images/item/dress_waitress.png"
+  },
+  "dresser": {
+   "path": "images/wardrobe/dresser.png"
+  },
+  "evening": {
+   "path": "images/menu/evening.png"
+  },
+  "exit": {
+   "path": "images/dept/exit.png"
+  },
+  "fans": {
+   "path": "images/musician/fans.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "fans_less": {
+   "path": "images/musician/fans_less.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "fighter angry": {
+   "path": "images/fighter/fighter angry.png"
+  },
+  "fighter blush": {
+   "path": "images/fighter/fighter blush.png"
+  },
+  "fighter bummed": {
+   "path": "images/fighter/fighter bummed.png"
+  },
+  "fighter determined": {
+   "path": "images/fighter/fighter determined.png"
+  },
+  "fighter grin": {
+   "path": "images/fighter/fighter grin.png"
+  },
+  "fighter happy": {
+   "path": "images/fighter/fighter happy.png"
+  },
+  "fighter surprised": {
+   "path": "images/fighter/fighter surprised.png"
+  },
+  "fighter wink": {
+   "path": "images/fighter/fighter wink.png"
+  },
+  "hair_band": {
+   "path": "images/item/hair_band.png"
+  },
+  "hair_base": {
+   "path": "images/naomi/hair_base.png"
+  },
+  "hair_bow": {
+   "path": "images/item/hair_bow.png"
+  },
+  "hair_flower": {
+   "path": "images/item/hair_flower.png"
+  },
+  "hair_hat": {
+   "path": "images/item/hair_hat.png"
+  },
+  "hair_ribbon": {
+   "path": "images/item/hair_ribbon.png"
+  },
+  "hand_evening": {
+   "path": "images/item/hand_evening.png"
+  },
+  "hand_parasol": {
+   "path": "images/item/hand_parasol.png"
+  },
+  "hand_round": {
+   "path": "images/item/hand_round.png"
+  },
+  "hand_straw": {
+   "path": "images/item/hand_straw.png"
+  },
+  "inventory": {
+   "path": "images/menu/inventory.png"
+  },
+  "katsudon": {
+   "path": "images/cafe/Katsudon.png"
+  },
+  "kirako angry": {
+   "path": "images/kirako/kirako angry.png"
+  },
+  "kirako happy": {
+   "path": "images/kirako/kirako happy.png"
+  },
+  "kirako pout": {
+   "path": "images/kirako/kirako pout.png"
+  },
+  "kirako wink": {
+   "path": "images/kirako/kirako wink.png"
+  },
+  "locked": {
+   "path": "images/locked.png"
+  },
+  "makeup": {
+   "path": "images/wardrobe/makeup.png"
+  },
+  "makeup_cheek": {
+   "path": "images/naomi/makeup_cheek.png"
+  },
+  "makeup_cheekblush_orange": {
+   "path": "images/item/makeup_cheekblush_orange.png"
+  },
+  "makeup_cheekblush_pink": {
+   "path": "images/item/makeup_cheekblush_pink.png"
+  },
+  "makeup_eye": {
+   "path": "images/naomi/makeup_eye.png"
+  },
+  "makeup_eyeshadow_blue": {
+   "path": "images/item/makeup_eyeshadow_blue.png"
+  },
+  "makeup_eyeshadow_brown": {
+   "path": "images/item/makeup_eyeshadow_brown.png"
+  },
+  "makeup_eyeshadow_orange": {
+   "path": "images/item/makeup_eyeshadow_orange.png"
+  },
+  "makeup_eyeshadow_pink": {
+   "path": "images/item/makeup_eyeshadow_pink.png"
+  },
+  "makeup_lip": {
+   "path": "images/naomi/makeup_lip.png"
+  },
+  "makeup_lipstick_orange": {
+   "path": "images/item/makeup_lipstick_orange.png"
+  },
+  "makeup_lipstick_peach": {
+   "path": "images/item/makeup_lipstick_peach.png"
+  },
+  "makeup_lipstick_pink": {
+   "path": "images/item/makeup_lipstick_pink.png"
+  },
+  "makeup_lipstick_red": {
+   "path": "images/item/makeup_lipstick_red.png"
+  },
+  "makeup_remover": {
+   "path": "images/wardrobe/makeup_remover.png"
+  },
+  "map": {
+   "path": "images/cafe/map.png"
+  },
+  "menu_close": {
+   "path": "images/menu/menu_close.png"
+  },
+  "menu_open": {
+   "path": "images/menu/menu_open.png"
+  },
+  "merchant frown": {
+   "path": "images/merchant/merchant frown.png"
+  },
+  "merchant frown_suit": {
+   "path": "images/merchant/merchant frown_suit.png"
+  },
+  "merchant frownside": {
+   "path": "images/merchant/merchant frownside.png"
+  },
+  "merchant frownside_suit": {
+   "path": "images/merchant/merchant frownside_suit.png"
+  },
+  "merchant happy": {
+   "path": "images/merchant/merchant happy.png"
+  },
+  "merchant happy_suit": {
+   "path": "images/merchant/merchant happy_suit.png"
+  },
+  "merchant resigned": {
+   "path": "images/merchant/merchant resigned.png"
+  },
+  "merchant resigned_suit": {
+   "path": "images/merchant/merchant resigned_suit.png"
+  },
+  "merchant scowlfront": {
+   "path": "images/merchant/merchant scowlfront.png"
+  },
+  "merchant scowlfront_suit": {
+   "path": "images/merchant/merchant scowlfront_suit.png"
+  },
+  "merchant scowlside": {
+   "path": "images/merchant/merchant scowlside.png"
+  },
+  "merchant scowlside_suit": {
+   "path": "images/merchant/merchant scowlside_suit.png"
+  },
+  "merchant smile": {
+   "path": "images/merchant/merchant smile.png"
+  },
+  "merchant smile_suit": {
+   "path": "images/merchant/merchant smile_suit.png"
+  },
+  "merchant surprised": {
+   "path": "images/merchant/merchant surprised.png"
+  },
+  "merchant surprised_suit": {
+   "path": "images/merchant/merchant surprised_suit.png"
+  },
+  "merchant thinking": {
+   "path": "images/merchant/merchant thinking.png"
+  },
+  "merchant thinkingside": {
+   "path": "images/merchant/merchant thinkingside.png"
+  },
+  "merchant_cutscene_1": {
+   "path": "images/merchant/merchant_cutscene_1.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "merchant_cutscene_2": {
+   "path": "images/merchant/merchant_cutscene_2.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "merchant_cutscene_3": {
+   "path": "images/merchant/merchant_cutscene_3.png"
+  },
+  "merchant_namecard": {
+   "path": "images/merchant/namecard_flat.png"
+  },
+  "merchant_namecard_front": {
+   "path": "images/inventory/namecard.png"
+  },
+  "miko happy": {
+   "path": "images/shrine/miko happy.png"
+  },
+  "morning": {
+   "path": "images/menu/morning.png"
+  },
+  "musician blush": {
+   "path": "images/musician/musician blush.png"
+  },
+  "musician happy": {
+   "path": "images/musician/musician happy.png"
+  },
+  "musician shy": {
+   "path": "images/musician/musician shy.png"
+  },
+  "musician shy2": {
+   "path": "images/musician/musician shy2.png"
+  },
+  "musician surprised": {
+   "path": "images/musician/musician surprised.png"
+  },
+  "musician thinking": {
+   "path": "images/musician/musician thinking.png"
+  },
+  "musician troubled": {
+   "path": "images/musician/musician troubled.png"
+  },
+  "musician_cutscene_11": {
+   "path": "images/musician/musician_cutscene_11.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "musician_cutscene_12": {
+   "path": "images/musician/musician_cutscene_12.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "musician_cutscene_2": {
+   "path": "images/musician/musician_cutscene_2.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "musician_cutscene_3": {
+   "path": "images/musician/musician_cutscene_3.png",
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "namecard": {
+   "path": "images/merchant/namecard.png"
+  },
+  "namecard_flat": {
+   "path": "images/merchant/namecard_flat.png"
+  },
+  "notebook": {
+   "path": "images/item/notebook.jpg"
+  },
+  "nurse angry": {
+   "path": "images/doctor/nurse angry.png"
+  },
+  "nurse happy": {
+   "path": "images/doctor/nurse happy.png"
+  },
+  "nurse relieved": {
+   "path": "images/doctor/nurse relieved.png"
+  },
+  "nurse sigh": {
+   "path": "images/doctor/nurse sigh.png"
+  },
+  "office_table": {
+   "path": "images/merchant/office_table.png"
+  },
+  "omamori": {
+   "path": "images/inventory/omamori.png"
+  },
+  "omamori_charisma": {
+   "path": "images/inventory/omamori_charisma.png",
+   "zoom": 0.1
+  },
+  "omamori_intelligence": {
+   "path": "images/inventory/omamori_intelligence.png",
+   "zoom": 0.1
+  },
+  "omamori_job": {
+   "path": "images/inventory/omamori_job.png",
+   "zoom": 0.1
+  },
+  "omamori_love": {
+   "path": "images/inventory/omamori_love.png",
+   "zoom": 0.1
+  },
+  "omamori_money": {
+   "path": "images/inventory/omamori_money.png",
+   "zoom": 0.1
+  },
+  "omamori_strength": {
+   "path": "images/inventory/omamori_strength.png",
+   "zoom": 0.1
+  },
+  "omikuji_0": {
+   "path": "images/shrine/omikuji_0.png"
+  },
+  "omikuji_1": {
+   "path": "images/shrine/omikuji_1.png"
+  },
+  "omikuji_daikichi": {
+   "path": "images/inventory/omikuji_daikichi.png"
+  },
+  "omikuji_daikichi_half": {
+   "path": "images/inventory/omikuji_daikichi_half.png"
+  },
+  "omikuji_daikichi_half2": {
+   "path": "images/shrine/omikuji_daikichi_half2.png"
+  },
+  "omikuji_daikichi_tear": {
+   "path": "images/shrine/omikuji_daikichi_tear.png"
+  },
+  "omikuji_kyo": {
+   "path": "images/shrine/omikuji_kyo.png"
+  },
+  "omurice": {
+   "path": "images/cafe/Omurice.png"
+  },
+  "order0": {
+   "dynamic": true,
+   "path": "images/cafe/[cafe_menu[0]].png"
+  },
+  "order1": {
+   "dynamic": true,
+   "path": "images/cafe/[cafe_menu[1]].png"
+  },
+  "order2": {
+   "dynamic": true,
+   "path": "images/cafe/[cafe_menu[2]].png"
+  },
+  "paperstack": {
+   "path": "images/merchant/paperstack.png"
+  },
+  "pen": {
+   "path": "images/item/pen.jpg"
+  },
+  "pudding": {
+   "path": "images/cafe/Pudding.png"
+  },
+  "pudding_cherry": {
+   "path": "images/cafe/pudding_cherry.png"
+  },
+  "pudding_no": {
+   "path": "images/cafe/pudding_no.png"
+  },
+  "save": {
+   "path": "images/menu/save.png"
+  },
+  "settings": {
+   "path": "images/menu/settings.png"
+  },
+  "shoes_boots": {
+   "path": "images/item/shoes_boots.png"
+  },
+  "shoes_geta": {
+   "path": "images/item/shoes_geta.png"
+  },
+  "shoes_heels": {
+   "path": "images/item/shoes_heels.png"
+  },
+  "shoes_koppori": {
+   "path": "images/item/shoes_koppori.png"
+  },
+  "shoes_pumps": {
+   "path": "images/item/shoes_pumps.png"
+  },
+  "shoes_zori": {
+   "path": "images/item/shoes_zori.png"
+  },
+  "shrine_counter": {
+   "path": "images/shrine/shrine_counter.png"
+  },
+  "side_naomi_": {
+   "path": "images/side/side_naomi_.png"
+  },
+  "side_naomi__happy": {
+   "path": "images/side/side_naomi__happy.png"
+  },
+  "side_naomi_base_angry": {
+   "path": "images/side/side_naomi_base_angry.png"
+  },
+  "side_naomi_base_blush": {
+   "path": "images/side/side_naomi_base_blush.png"
+  },
+  "side_naomi_base_happy": {
+   "path": "images/side/side_naomi_base_happy.png"
+  },
+  "side_naomi_base_pain": {
+   "path": "images/side/side_naomi_base_pain.png"
+  },
+  "side_naomi_base_relieved": {
+   "path": "images/side/side_naomi_base_relieved.png"
+  },
+  "side_naomi_base_sleepy": {
+   "path": "images/side/side_naomi_base_sleepy.png"
+  },
+  "side_naomi_base_smirk": {
+   "path": "images/side/side_naomi_base_smirk.png"
+  },
+  "side_naomi_base_surprised": {
+   "path": "images/side/side_naomi_base_surprised.png"
+  },
+  "side_naomi_base_thinking": {
+   "path": "images/side/side_naomi_base_thinking.png"
+  },
+  "side_naomi_base_troubled": {
+   "path": "images/side/side_naomi_base_troubled.png"
+  },
+  "side_naomi_blush_angry": {
+   "path": "images/side/side_naomi_blush_angry.png"
+  },
+  "side_naomi_blush_blush": {
+   "path": "images/side/side_naomi_blush_blush.png"
+  },
+  "side_naomi_blush_happy": {
+   "path": "images/side/side_naomi_blush_happy.png"
+  },
+  "side_naomi_blush_pain": {
+   "path": "images/side/side_naomi_blush_pain.png"
+  },
+  "side_naomi_blush_relieved": {
+   "path": "images/side/side_naomi_blush_relieved.png"
+  },
+  "side_naomi_blush_sleepy": {
+   "path": "images/side/side_naomi_blush_sleepy.png"
+  },
+  "side_naomi_blush_smirk": {
+   "path": "images/side/side_naomi_blush_smirk.png"
+  },
+  "side_naomi_blush_surprised": {
+   "path": "images/side/side_naomi_blush_surprised.png"
+  },
+  "side_naomi_blush_thinking": {
+   "path": "images/side/side_naomi_blush_thinking.png"
+  },
+  "side_naomi_blush_troubled": {
+   "path": "images/side/side_naomi_blush_troubled.png"
+  },
+  "side_naomi_dress_cute": {
+   "path": "images/side/side_naomi_dress_cute.png"
+  },
+  "side_naomi_dress_flapper": {
+   "path": "images/side/side_naomi_dress_flapper.png"
+  },
+  "side_naomi_dress_hakama": {
+   "path": "images/side/side_naomi_dress_hakama.png"
+  },
+  "side_naomi_dress_modern": {
+   "path": "images/side/side_naomi_dress_modern.png"
+  },
+  "side_naomi_dress_prim": {
+   "path": "images/side/side_naomi_dress_prim.png"
+  },
+  "side_naomi_dress_waitress": {
+   "path": "images/side/side_naomi_dress_waitress.png"
+  },
+  "side_naomi_eye_angry": {
+   "path": "images/side/side_naomi_eye_angry.png"
+  },
+  "side_naomi_eye_blush": {
+   "path": "images/side/side_naomi_eye_blush.png"
+  },
+  "side_naomi_eye_happy": {
+   "path": "images/side/side_naomi_eye_happy.png"
+  },
+  "side_naomi_eye_pain": {
+   "path": "images/side/side_naomi_eye_pain.png"
+  },
+  "side_naomi_eye_relieved": {
+   "path": "images/side/side_naomi_eye_relieved.png"
+  },
+  "side_naomi_eye_sleepy": {
+   "path": "images/side/side_naomi_eye_sleepy.png"
+  },
+  "side_naomi_eye_smirk": {
+   "path": "images/side/side_naomi_eye_smirk.png"
+  },
+  "side_naomi_eye_surprised": {
+   "path": "images/side/side_naomi_eye_surprised.png"
+  },
+  "side_naomi_eye_thinking": {
+   "path": "images/side/side_naomi_eye_thinking.png"
+  },
+  "side_naomi_eye_troubled": {
+   "path": "images/side/side_naomi_eye_troubled.png"
+  },
+  "side_naomi_hair_band": {
+   "path": "images/side/side_naomi_hair_band.png"
+  },
+  "side_naomi_hair_base": {
+   "path": "images/side/side_naomi_hair_base.png"
+  },
+  "side_naomi_hair_bow": {
+   "path": "images/side/side_naomi_hair_bow.png"
+  },
+  "side_naomi_hair_flower": {
+   "path": "images/side/side_naomi_hair_flower.png"
+  },
+  "side_naomi_hair_hat": {
+   "path": "images/side/side_naomi_hair_hat.png"
+  },
+  "side_naomi_hair_ribbon": {
+   "path": "images/side/side_naomi_hair_ribbon.png"
+  },
+  "side_naomi_lip_angry": {
+   "path": "images/side/side_naomi_lip_angry.png"
+  },
+  "side_naomi_lip_blush": {
+   "path": "images/side/side_naomi_lip_blush.png"
+  },
+  "side_naomi_lip_happy": {
+   "path": "images/side/side_naomi_lip_happy.png"
+  },
+  "side_naomi_lip_pain": {
+   "path": "images/side/side_naomi_lip_pain.png"
+  },
+  "side_naomi_lip_relieved": {
+   "path": "images/side/side_naomi_lip_relieved.png"
+  },
+  "side_naomi_lip_sleepy": {
+   "path": "images/side/side_naomi_lip_sleepy.png"
+  },
+  "side_naomi_lip_smirk": {
+   "path": "images/side/side_naomi_lip_smirk.png"
+  },
+  "side_naomi_lip_surprised": {
+   "path": "images/side/side_naomi_lip_surprised.png"
+  },
+  "side_naomi_lip_thinking": {
+   "path": "images/side/side_naomi_lip_thinking.png"
+  },
+  "side_naomi_lip_troubled": {
+   "path": "images/side/side_naomi_lip_troubled.png"
+  },
+  "soldier happy": {
+   "path": "images/soldier/soldier happy.png"
+  },
+  "soldout": {
+   "path": "images/dept/soldout.png"
+  },
+  "speech": {
+   "path": "images/speech.png"
+  },
+  "staff cry": {
+   "path": "images/dept/staff cry.png"
+  },
+  "staff happy": {
+   "path": "images/dept/staff happy.png"
+  },
+  "staff show": {
+   "path": "images/dept/staff show.png"
+  },
+  "stationery": {
+   "path": "images/dept/stationery.png"
+  },
+  "steak": {
+   "path": "images/cafe/Steak.png"
+  },
+  "stranger": {
+   "path": "images/merchant/stranger.png"
+  },
+  "suitcase": {
+   "path": "images/menu/suitcase.png"
+  },
+  "table_left": {
+   "path": "images/cafe/table_left.png"
+  },
+  "table_right": {
+   "path": "images/cafe/table_right.png"
+  },
+  "tea": {
+   "path": "images/cafe/Tea.png"
+  },
+  "ticket reference image": {
+   "path": "images/inventory/ticket reference image.jpg"
+  },
+  "ticket_back_new": {
+   "path": "images/inventory/ticket_back_new.png",
+   "zoom": 0.2
+  },
+  "ticket_back_used": {
+   "path": "images/inventory/ticket_back_used.png",
+   "zoom": 0.2
+  },
+  "ticket_front_new": {
+   "path": "images/inventory/ticket_front_new.png",
+   "zoom": 0.2
+  },
+  "ticket_front_used": {
+   "path": "images/inventory/ticket_front_used.png",
+   "zoom": 0.2
+  },
+  "time": {
+   "path": "images/time.png"
+  }
+ },
+ "persistent": {
+  "haptics_enabled": "true",
+  "merchant_cutscene_1_unlocked": "false",
+  "merchant_cutscene_2_unlocked": "false",
+  "musician_cutscene_1_unlocked": "false",
+  "musician_cutscene_2_unlocked": "false"
+ },
+ "renamed": {
+  "gui/map/ginza_ground.png": "gui/map/ginza_ground.jpg"
+ },
+ "screens": {
+  "DayDisplay": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "ExpandMenu": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "GuyDisplay": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "about": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "accessories_counter": {
+   "file": "screens_dept.rpy",
+   "jumps": [
+    "dept_only",
+    "purchase_hair_bow",
+    "purchase_hair_hat",
+    "purchase_hair_band",
+    "purchase_hair_ribbon",
+    "purchase_hair_flower",
+    "purchase_hand_round",
+    "purchase_hand_evening",
+    "purchase_hand_straw",
+    "purchase_hand_parasol",
+    "purchase_shoes_koppori",
+    "purchase_shoes_zori",
+    "purchase_shoes_heels",
+    "purchase_shoes_pumps",
+    "purchase_shoes_boots"
+   ],
+   "returns": false
+  },
+  "asakusa_large": {
+   "file": "screens_maps.rpy",
+   "jumps": [
+    "work_cafe",
+    "doctor_movie",
+    "dojo",
+    "shrine",
+    "ginza_large",
+    "asakusa_small"
+   ],
+   "returns": false
+  },
+  "asakusa_shrine": {
+   "file": "screens_shrine.rpy",
+   "jumps": [
+    "shrine",
+    "omamori_strength",
+    "omamori_money",
+    "omamori_love",
+    "omamori_charisma",
+    "omamori_intelligence",
+    "omamori_job"
+   ],
+   "returns": false
+  },
+  "asakusa_small": {
+   "file": "screens_maps.rpy",
+   "jumps": [
+    "work_cafe",
+    "doctor_movie",
+    "dojo",
+    "shrine",
+    "ginza_small",
+    "asakusa_large"
+   ],
+   "returns": false
+  },
+  "bedroom": {
+   "file": "screens.rpy",
+   "jumps": [
+    "end_day"
+   ],
+   "returns": false
+  },
+  "bubble": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "cafe_feedback": {
+   "file": "screens_cafe.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "cafe_game": {
+   "file": "screens_cafe.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "cafe_menu": {
+   "file": "screens_cafe.rpy",
+   "jumps": [
+    "cafe_game"
+   ],
+   "returns": false
+  },
+  "choice": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "clothes_counter": {
+   "file": "screens_dept.rpy",
+   "jumps": [
+    "dept_only",
+    "purchase_dress_cute",
+    "purchase_dress_hakama",
+    "purchase_dress_modern",
+    "purchase_dress_flapper",
+    "purchase_dress_prim"
+   ],
+   "returns": false
+  },
+  "confirm": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "cosmetics_counter": {
+   "file": "screens_dept.rpy",
+   "jumps": [
+    "dept_only",
+    "purchase_shadow_blue",
+    "purchase_shadow_brown",
+    "purchase_shadow_orange",
+    "purchase_shadow_pink",
+    "purchase_stick_orange",
+    "purchase_stick_peach",
+    "purchase_stick_pink",
+    "purchase_stick_red",
+    "purchase_blush_orange",
+    "purchase_blush_pink"
+   ],
+   "returns": false
+  },
+  "dept_store": {
+   "file": "screens_dept.rpy",
+   "jumps": [
+    "accessories_section",
+    "clothes_section",
+    "dept_exit",
+    "stationery_section",
+    "cosmetics_section"
+   ],
+   "returns": false
+  },
+  "dev_overlay": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "file_slots": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "gallery": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": true
+  },
+  "game_menu": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": true
+  },
+  "gamepad_help": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "ginza_large": {
+   "file": "screens_maps.rpy",
+   "jumps": [
+    "dept_store",
+    "imperial_theatre",
+    "office_bldg",
+    "hospital",
+    "asakusa_large",
+    "ginza_small"
+   ],
+   "returns": false
+  },
+  "ginza_small": {
+   "file": "screens_maps.rpy",
+   "jumps": [
+    "dept_store",
+    "imperial_theatre",
+    "office_bldg",
+    "hospital",
+    "asakusa_small",
+    "ginza_large"
+   ],
+   "returns": false
+  },
+  "help": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "history": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "input": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "inventory": {
+   "file": "screens_inventory.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "keyboard_help": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "load": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "main_menu": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "map_tutorial": {
+   "file": "screens_maps.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "mouse_help": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "navigation": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "notify": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "nvl": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "nvl_dialogue": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "preferences": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "quick_menu": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "save": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "say": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "skip_indicator": {
+   "file": "screens.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "stationery_counter": {
+   "file": "screens_dept.rpy",
+   "jumps": [
+    "dept_only",
+    "purchase_pen",
+    "purchase_notebook"
+   ],
+   "returns": false
+  },
+  "wardrobe": {
+   "file": "screens_wardrobe.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "wardrobe_face": {
+   "file": "screens_wardrobe.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "wardrobe_makeup": {
+   "file": "screens_wardrobe.rpy",
+   "jumps": [],
+   "returns": false
+  },
+  "wardrobe_zoom": {
+   "file": "screens_wardrobe.rpy",
+   "jumps": [],
+   "returns": false
+  }
+ },
+ "tag_transforms": {
+  "cat": {
+   "xalign": 0.85,
+   "zoom": 0.6
+  },
+  "doctor": {
+   "zoom": 0.5
+  },
+  "fighter": {
+   "zoom": 0.5
+  },
+  "kirako": {
+   "xalign": 0.5,
+   "zoom": 0.5
+  },
+  "merchant": {
+   "zoom": 0.55
+  },
+  "musician": {
+   "zoom": 0.5
+  },
+  "naomi": {
+   "zoom": 0.5
+  },
+  "nurse": {
+   "zoom": 0.6
+  },
+  "staff": {
+   "zoom": 0.5
+  },
+  "stranger": {
+   "zoom": 0.5
+  }
+ }
+}

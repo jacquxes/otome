@@ -1,0 +1,6510 @@
+{
+ "source": "script_04_merchant.rpy",
+ "labels": {
+  "office_bldg": 0,
+  "merchant_0": 66,
+  "merchant_1": 143,
+  "merchant_2": 245,
+  "merchant_3": 304,
+  "merchant_4": 410,
+  "merchant_5": 495,
+  "merchant_6": 603,
+  "merchant_7": 725,
+  "office_ending": 749
+ },
+ "ops": [
+  {
+   "t": "scene",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 3
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_ending == true)",
+   "to": 8,
+   "line": 6
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_courage > 2)",
+   "to": 5,
+   "line": 7
+  },
+  {
+   "t": "jump",
+   "label": "merchant_final_irl",
+   "line": 8
+  },
+  {
+   "t": "goto",
+   "to": 7
+  },
+  {
+   "t": "jump",
+   "label": "merchant_final_not",
+   "line": 10
+  },
+  {
+   "t": "goto",
+   "to": 7
+  },
+  {
+   "t": "goto",
+   "to": 8
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(totaldays == 0)",
+   "to": 11,
+   "line": 11
+  },
+  {
+   "t": "jump",
+   "label": "office_ending",
+   "line": 12
+  },
+  {
+   "t": "goto",
+   "to": 11
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"merchant\"] == 4)",
+   "to": 14,
+   "line": 14
+  },
+  {
+   "t": "call",
+   "label": "merchant_3",
+   "line": 15
+  },
+  {
+   "t": "goto",
+   "to": 27
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_job == 2)",
+   "to": 17,
+   "line": 16
+  },
+  {
+   "t": "call",
+   "label": "merchant_4",
+   "line": 17
+  },
+  {
+   "t": "goto",
+   "to": 27
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((merchant_job == 4) and (enable_merchant_event_1 == true))",
+   "to": 20,
+   "line": 18
+  },
+  {
+   "t": "call",
+   "label": "merchant_6",
+   "line": 19
+  },
+  {
+   "t": "goto",
+   "to": 27
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlfront",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 21
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Here, work on this.",
+   "line": 23
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 24
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 27
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I'll come back later.",
+   "line": 28
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "merchant",
+   "line": 29
+  },
+  {
+   "t": "goto",
+   "to": 27
+  },
+  {
+   "t": "show",
+   "image": "time",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": -45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 0.0
+     }
+    }
+   ],
+   "line": 31
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 36
+  },
+  {
+   "t": "hide",
+   "image": "time",
+   "line": 37
+  },
+  {
+   "t": "hide",
+   "image": "paperstack",
+   "line": 38
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 39
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "I'm finally done.",
+   "line": 40
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((merchant_job == 3) and (totaldays > 6))",
+   "to": 37,
+   "line": 41
+  },
+  {
+   "t": "set",
+   "var": "enable_merchant_event_1",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 42
+  },
+  {
+   "t": "jump",
+   "label": "merchant_5",
+   "line": 43
+  },
+  {
+   "t": "goto",
+   "to": 37
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 44
+  },
+  {
+   "t": "with",
+   "name": "moveinleft",
+   "line": 46
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Done?",
+   "line": 47
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Yes! Here you go.",
+   "line": 48
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.3,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.6,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 49
+  },
+  {
+   "t": "set",
+   "var": "salary",
+   "keys": [],
+   "op": "=",
+   "value": "randi_range(20, 25)",
+   "line": 52
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "+=",
+   "value": "salary",
+   "line": 53
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 54
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Thanks. Here's [salary] yen for today's work.",
+   "line": 55
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thanks!",
+   "line": 56
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((merchant_job == 7) and (totaldays > 2))",
+   "to": 50,
+   "line": 57
+  },
+  {
+   "t": "call",
+   "label": "merchant_7",
+   "line": 58
+  },
+  {
+   "t": "goto",
+   "to": 50
+  },
+  {
+   "t": "set",
+   "var": "merchant_job",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 59
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 61,
+   "line": 60
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "merchant",
+    "attrs": [],
+    "text": "Do you want to work the afternoon too?"
+   },
+   "choices": [
+    {
+     "text": "Work the afternoon",
+     "cond": null,
+     "to": 53
+    },
+    {
+     "text": "Go out",
+     "cond": null,
+     "to": 56
+    }
+   ],
+   "line": 61
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure, I'll stay for the afternoon.",
+   "line": 64
+  },
+  {
+   "t": "jump",
+   "label": "office_bldg",
+   "line": 65
+  },
+  {
+   "t": "goto",
+   "to": 60
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "No, I'll head off now.",
+   "line": 67
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Bye.",
+   "line": 68
+  },
+  {
+   "t": "jump",
+   "label": "ginza_small",
+   "line": 69
+  },
+  {
+   "t": "goto",
+   "to": 60
+  },
+  {
+   "t": "goto",
+   "to": 61
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 66,
+   "line": 70
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I'll head home now.",
+   "line": 71
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Bye.",
+   "line": 72
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 73
+  },
+  {
+   "t": "goto",
+   "to": 66
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"merchant\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 76
+  },
+  {
+   "t": "eval",
+   "code": "unlocked_chars.append(\"merchant\")",
+   "line": 77
+  },
+  {
+   "t": "scene",
+   "image": "bg dept",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zoom": 1.5
+     }
+    }
+   ],
+   "line": 78
+  },
+  {
+   "t": "set",
+   "var": "dept_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"Staff\"",
+   "line": 80
+  },
+  {
+   "t": "set",
+   "var": "merchant_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"???\"",
+   "line": 81
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.55,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 82
+  },
+  {
+   "t": "show",
+   "image": "staff cry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 1.1,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 84
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Make sure this doesn't happen again!",
+   "line": 86
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.55,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 87
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "I understand, sir. I apologise for troubling you.",
+   "line": 89
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.55,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 90
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You- (inaudible)",
+   "line": 92
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.55,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 93
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "*sniff* I- (inaudible)",
+   "line": 95
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "He's making her cry...",
+   "line": 96
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Intervene",
+     "cond": null,
+     "to": 82
+    },
+    {
+     "text": "Observe",
+     "cond": null,
+     "to": 125
+    }
+   ],
+   "line": 97
+  },
+  {
+   "t": "show",
+   "image": "bg dept",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zoom": 1.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.6,
+      "yalign": 0.75,
+      "zoom": 3.0
+     }
+    }
+   ],
+   "line": 99
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.55,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0,
+      "ypos": 1.1
+     }
+    }
+   ],
+   "line": 102
+  },
+  {
+   "t": "show",
+   "image": "staff cry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 1.1,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 1.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 105
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 108
+  },
+  {
+   "t": "set",
+   "var": "merchant_choice",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 109
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "Mister, please stop. You're making her cry.",
+   "line": 110
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0,
+      "ypos": 1.1
+     }
+    }
+   ],
+   "line": 111
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 113
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 1.3
+     }
+    }
+   ],
+   "line": 114
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Don't worry about me, miss.",
+   "line": 116
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "Just because you're a customer doesn't give you the right to treat her like this!",
+   "line": 117
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0,
+      "ypos": 1.1
+     }
+    }
+   ],
+   "line": 118
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 120
+  },
+  {
+   "t": "show",
+   "image": "staff cry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 1.3
+     }
+    }
+   ],
+   "line": 121
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "I'm afraid there's a misunderstanding, miss.",
+   "line": 123
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "You should be ashamed of yourself!",
+   "line": 124
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0,
+      "ypos": 1.1
+     }
+    }
+   ],
+   "line": 125
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...We'll discuss this later.",
+   "line": 127
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    },
+    {
+     "warp": "easeout",
+     "time": 3.0,
+     "props": {
+      "xpos": -1.0,
+      "ypos": 2.0,
+      "zoom": 3.0
+     }
+    }
+   ],
+   "line": 128
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Director!",
+   "line": 131
+  },
+  {
+   "t": "set",
+   "var": "merchant_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"Director\"",
+   "line": 132
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Director?)",
+   "line": 133
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 134
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Thank you for your concern, miss.",
+   "line": 136
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Our director is stern, but he means well.",
+   "line": 137
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "If he means well, he shouldn't be so harsh!",
+   "line": 138
+  },
+  {
+   "t": "show",
+   "image": "staff cry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 139
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "It was my fault for making him worry.",
+   "line": 141
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "I hope you will forgive him.",
+   "line": 142
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 143
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 144
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "I appreciate your kindness in speaking up for me.",
+   "line": 146
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Please enjoy the rest of your visit.",
+   "line": 147
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 148
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Now if you would excuse me...",
+   "line": 152
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "staff",
+   "line": 153
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I guess it was the right thing to do? Oh well.)",
+   "line": 154
+  },
+  {
+   "t": "hide",
+   "image": "staff",
+   "line": 155
+  },
+  {
+   "t": "hide",
+   "image": "naomi",
+   "line": 157
+  },
+  {
+   "t": "show",
+   "image": "bg dept",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 158
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 160
+  },
+  {
+   "t": "jump",
+   "label": "dept_only",
+   "line": 161
+  },
+  {
+   "t": "goto",
+   "to": 143
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "I'm sorry I made you worry, director.",
+   "line": 163
+  },
+  {
+   "t": "set",
+   "var": "merchant_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"Director\"",
+   "line": 164
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.55,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 165
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...Be more careful next time.",
+   "line": 167
+  },
+  {
+   "t": "show",
+   "image": "staff cry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 1.1,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    },
+    {
+     "warp": "easeout",
+     "time": 5.0,
+     "props": {
+      "xpos": 2.0
+     }
+    }
+   ],
+   "line": 168
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.55,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    },
+    {
+     "warp": "easeout",
+     "time": 5.0,
+     "props": {
+      "xpos": -0.8,
+      "ypos": 2.0,
+      "zoom": 3.0
+     }
+    }
+   ],
+   "line": 172
+  },
+  {
+   "t": "show",
+   "image": "dept_clothes",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.4,
+      "yalign": 2.0,
+      "zoom": 0.755,
+      "alpha": 0.75
+     }
+    }
+   ],
+   "line": 176
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 178
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(I thought he was a customer.)",
+   "line": 179
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Still, he shouldn't be so harsh with his staff...)",
+   "line": 180
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 181
+  },
+  {
+   "t": "hide",
+   "image": "dept_clothes",
+   "line": 182
+  },
+  {
+   "t": "hide",
+   "image": "merchant",
+   "line": 183
+  },
+  {
+   "t": "hide",
+   "image": "staff",
+   "line": 184
+  },
+  {
+   "t": "show",
+   "image": "bg dept",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 185
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 187
+  },
+  {
+   "t": "jump",
+   "label": "dept_only",
+   "line": 188
+  },
+  {
+   "t": "goto",
+   "to": 143
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 191
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 192
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"merchant\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 193
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 194
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Hm, same menu.",
+   "line": 196
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Same..?)",
+   "line": 197
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 198
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "A coffee please.",
+   "line": 199
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "One coffee. Please wait a mo-",
+   "line": 200
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_choice == 0)",
+   "to": 186,
+   "line": 201
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "(It's the department store guy!)",
+   "line": 202
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 203
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "merchant",
+    "attrs": [],
+    "text": "...Something the matter?"
+   },
+   "choices": [
+    {
+     "text": "It's nothing",
+     "cond": null,
+     "to": 156
+    },
+    {
+     "text": "Actually...",
+     "cond": null,
+     "to": 160
+    }
+   ],
+   "line": 204
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "It's nothing, please excuse me.",
+   "line": 207
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Hm.",
+   "line": 208
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Here's your coffee.",
+   "line": 209
+  },
+  {
+   "t": "goto",
+   "to": 185
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Actually... I saw you talking to your staff at the department store.",
+   "line": 211
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 212
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I couldn't help but think you were being pretty harsh to her...",
+   "line": 213
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 214
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "That incident.",
+   "line": 215
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 216
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I told her before not to carry too many things down the stairs!",
+   "line": 217
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 218
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "She could have tripped and injured herself!",
+   "line": 219
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(So he was worried for her!)",
+   "line": 220
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Still, did you really need to make her cry?",
+   "line": 221
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 222
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 223
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"merchant\")",
+   "line": 224
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 225
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I could have handled it better.",
+   "line": 226
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 227
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 228
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 229
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I will talk to her about it.",
+   "line": 230
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Glad to hear that!",
+   "line": 231
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 232
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Hm.",
+   "line": 233
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Here's your coffee.",
+   "line": 234
+  },
+  {
+   "t": "goto",
+   "to": 185
+  },
+  {
+   "t": "goto",
+   "to": 216
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_choice == 1)",
+   "to": 216,
+   "line": 235
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Oh it's you. The meddlesome girl.",
+   "line": 236
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Sorry, I shouldn't have jumped to conclusions back there.",
+   "line": 237
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 238
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 239
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"merchant\")",
+   "line": 240
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 241
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "No, you were right. I shouldn't have lashed out at my staff.",
+   "line": 242
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 243
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 244
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 245
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "What was that all about, anyway?",
+   "line": 246
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 247
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "She was carrying too many things down the stairs.",
+   "line": 248
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 249
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "She could have tripped and injured herself!",
+   "line": 250
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(So he was worried for her!)",
+   "line": 251
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Still, you didn't need to be so harsh.",
+   "line": 252
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 253
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 254
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 255
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I had apologised to her for my conduct.",
+   "line": 256
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 257
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Consider your meddling appreciated.",
+   "line": 258
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 259
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(...is that his way of saying thanks?)",
+   "line": 260
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 261
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Hm.",
+   "line": 262
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Here's your coffee.",
+   "line": 263
+  },
+  {
+   "t": "goto",
+   "to": 216
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 264
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "coffee",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 266
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 269
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Hm. Tastes the same too.",
+   "line": 270
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "What do you mean?",
+   "line": 271
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 272
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Oops, I said that out loud.)",
+   "line": 273
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 274
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 275
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 276
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Coffee, tea, a few cakes. Every cafe on this street has the same menu.",
+   "line": 277
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 278
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "All vying for the same customers too.",
+   "line": 279
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 280
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Same could be said of department stores too.",
+   "line": 281
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 282
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "What do you mean?",
+   "line": 283
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 284
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "It's just shopping. There isn't much else to stay for.",
+   "line": 285
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 286
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Hm.",
+   "line": 287
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 288
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Thanks for the coffee.",
+   "line": 289
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "merchant",
+   "line": 290
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Was that rude of me?",
+   "line": 291
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "But he was rude first.",
+   "line": 292
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "He wasn't wrong, though.",
+   "line": 293
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "This cafe needs something different to stand out.",
+   "line": 294
+  },
+  {
+   "t": "return",
+   "line": 295
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"merchant\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 299
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 300
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "A coffee.",
+   "line": 302
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "You're back.",
+   "line": 303
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 304
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...Just happened to be in the area.",
+   "line": 305
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 306
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "coffee",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 307
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 310
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Here you go!",
+   "line": 311
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 312
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 313
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 314
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You were right.",
+   "line": 315
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "What about?",
+   "line": 316
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 317
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "About the customers.",
+   "line": 318
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I stood at the entrance for an afternoon.",
+   "line": 319
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 320
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Most shoppers leave within an hour.",
+   "line": 321
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 322
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 323
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "You were right too, about the menu.",
+   "line": 324
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "We need something different to stand out among the other cafes here.",
+   "line": 325
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 326
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Hmm.",
+   "line": 327
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "What's your name?",
+   "line": 328
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Eh? Uh... Naomi?",
+   "line": 329
+  },
+  {
+   "t": "show",
+   "image": "merchant happy",
+   "line": 330
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Naomi, I have a proposal for you.",
+   "line": 331
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "A proposal?",
+   "line": 332
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 333
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "But not here.",
+   "line": 334
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 335
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Here.",
+   "line": 336
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 337
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "merchant_namecard",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.2
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "yalign": 0.6,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 338
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 341
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "merchant_namecard_front",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 342
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 344
+  },
+  {
+   "t": "hide",
+   "image": "merchant_namecard_front",
+   "line": 345
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Mr Fujiya Yujiro...",
+   "line": 346
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "merchant_namecard",
+   "line": 347
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"namecard\": [\"Fujiya Yujiro's namecard.\"]}, true)",
+   "line": 348
+  },
+  {
+   "t": "set",
+   "var": "merchant_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"Yujiro\"",
+   "line": 349
+  },
+  {
+   "t": "set",
+   "var": "unlock_off_bldg",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 350
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 351
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Just Yujiro will do.",
+   "line": 352
+  },
+  {
+   "t": "show",
+   "image": "merchant glitched0",
+   "line": 361
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Come by my office and we'll discuss it.",
+   "line": 362
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "merchant",
+   "line": 363
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 364
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "line": 365
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Did I hear someone say proposal?",
+   "line": 366
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Not that kind of proposal!",
+   "line": 367
+  },
+  {
+   "t": "show",
+   "image": "kirako angry",
+   "line": 368
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Who's harassing you? I'll give them a piece of my mind!",
+   "line": 369
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "...",
+   "line": 370
+  },
+  {
+   "t": "return",
+   "line": 371
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"merchant\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 375
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 376
+  },
+  {
+   "t": "show",
+   "image": "staff cry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.28,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 378
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 381
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Fujiya... This should be it.)",
+   "line": 383
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "This is not good enough to be shown to the company president.",
+   "line": 384
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(Is he being harsh on his staff again?)",
+   "line": 385
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(relationship_points[\"merchant\"] < 1)",
+   "to": 320,
+   "line": 386
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "There is no mention about what we plan to have.",
+   "line": 387
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Did we not discuss this in detail?",
+   "line": 388
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 389
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "I apologise for my oversight. I will add it in.",
+   "line": 391
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 392
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Please do.",
+   "line": 394
+  },
+  {
+   "t": "show",
+   "image": "staff cry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 0.75,
+     "props": {
+      "xalign": 0.85
+     }
+    },
+    {
+     "warp": "easeout",
+     "time": 2.0,
+     "props": {
+      "xpos": 1.3,
+      "ypos": 0.2,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 395
+  },
+  {
+   "t": "goto",
+   "to": 333
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "There is no-",
+   "line": 400
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlfront",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 401
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 403
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 404
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Sorry.",
+   "line": 406
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 407
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I meant to say, the structure is good but it needs more detail.",
+   "line": 409
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 410
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Please adjust it.",
+   "line": 412
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.28,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 413
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Yes, sir. Right away!",
+   "line": 415
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 0.75,
+     "props": {
+      "xalign": 0.85
+     }
+    },
+    {
+     "warp": "easeout",
+     "time": 2.0,
+     "props": {
+      "xpos": 1.3,
+      "ypos": 0.2,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 416
+  },
+  {
+   "t": "goto",
+   "to": 333
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 420
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlfront",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 422
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You came.",
+   "line": 424
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": 1.0
+     }
+    }
+   ],
+   "line": 425
+  },
+  {
+   "t": "show",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.0,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 427
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 2.1,
+      "zoom": 1.1
+     }
+    }
+   ],
+   "line": 429
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 431
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Um.",
+   "line": 433
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 434
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "The company president wants to build a new store in Asakusa.",
+   "line": 435
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "In Asakusa?",
+   "line": 436
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 437
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "My father.",
+   "line": 438
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "He's left the project to me.",
+   "line": 439
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "That's a big responsibility.",
+   "line": 440
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 441
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 442
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 443
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "It's expected.",
+   "line": 444
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 445
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "But Ginza and Asakusa are different.",
+   "line": 446
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "In Ginza, people come to look.",
+   "line": 447
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 448
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "In Asakusa, I can't tell what they come for.",
+   "line": 449
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "They come to have fun.",
+   "line": 450
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 451
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 452
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "They watch a show, they eat, they walk around.",
+   "line": 453
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Nobody comes to Asakusa to be quiet.",
+   "line": 454
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 455
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Hm.",
+   "line": 456
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "So here's my proposal.",
+   "line": 457
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 458
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I want the Cafe Diamond in the store.",
+   "line": 459
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Cafe Diamond? In a department store?",
+   "line": 460
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 461
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "In exchange, I want you to give me information about the neighbourhood.",
+   "line": 462
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "What people want. What they do. What they pay for.",
+   "line": 463
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "But, why me?",
+   "line": 464
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 465
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You know the neighbourhood.",
+   "line": 466
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 467
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...And you're not afraid to tell me when I'm wrong.",
+   "line": 468
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 469
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 470
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Well? Can you do it?",
+   "line": 471
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(If the cafe moves into the store... It would save the cafe.)",
+   "line": 472
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(But I'm worried he'll be harsh with me.)",
+   "line": 473
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "(What should I say?)"
+   },
+   "choices": [
+    {
+     "text": "Agree",
+     "cond": null,
+     "to": 382
+    },
+    {
+     "text": "Set a condition",
+     "cond": null,
+     "to": 384
+    }
+   ],
+   "line": 474
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Alright. I'll help.",
+   "line": 477
+  },
+  {
+   "t": "goto",
+   "to": 400
+  },
+  {
+   "t": "set",
+   "var": "relationship_points",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 479
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "On one condition.",
+   "line": 480
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 481
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "From what I've observed, you're pretty harsh on your staff.",
+   "line": 482
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I know you care a lot.",
+   "line": 483
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "But if you could be more gentle...",
+   "line": 484
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 485
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 486
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 487
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I see.",
+   "line": 488
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 489
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You're right, I can be pretty harsh.",
+   "line": 490
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 491
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I'll do my best.",
+   "line": 492
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Alright. I'll help.",
+   "line": 493
+  },
+  {
+   "t": "goto",
+   "to": 400
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 494
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "One more thing.",
+   "line": 495
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 496
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "The cafe needs to serve something more that no one else has.",
+   "line": 497
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Something no one else has...",
+   "line": 498
+  },
+  {
+   "t": "show",
+   "image": "merchant happy",
+   "line": 499
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Put a new dish on the menu. Then we have a deal.",
+   "line": 500
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Challenge accepted.",
+   "line": 501
+  },
+  {
+   "t": "return",
+   "line": 502
+  },
+  {
+   "t": "return",
+   "line": 570
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"merchant\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 574
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 575
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.28,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 577
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 580
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "-by today.",
+   "line": 582
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 583
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 585
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 586
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "That's all.",
+   "line": 588
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.28,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 589
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "I'll work on this right away!",
+   "line": 591
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 0.75,
+     "props": {
+      "xalign": 0.85
+     }
+    },
+    {
+     "warp": "easeout",
+     "time": 2.0,
+     "props": {
+      "xpos": 1.3,
+      "ypos": 0.2,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 592
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 596
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlfront",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 598
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Naomi, come here for a minute.",
+   "line": 600
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": 1.0
+     }
+    }
+   ],
+   "line": 601
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Uh, okay.",
+   "line": 603
+  },
+  {
+   "t": "show",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.0,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 604
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 2.1,
+      "zoom": 1.1
+     }
+    }
+   ],
+   "line": 606
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlfront",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 608
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 610
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I want to discuss plans for the new department store in Asakusa.",
+   "line": 611
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Do you remember places that your parents brought you to when you were a child?",
+   "line": 612
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 613
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Eh?",
+   "line": 614
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(How is this related to the department store?)",
+   "line": 615
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Uh... I guess so.",
+   "line": 616
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "When they were free they would take us to the park to play...",
+   "line": 617
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Oh! And once in a while we'd get to go to the amusement park as a treat.",
+   "line": 618
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 619
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Amusement park.",
+   "line": 620
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 621
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Tell me more about this amusement park.",
+   "line": 622
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Has he not been before?)",
+   "line": 623
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I wonder what kind of childhood he had.)",
+   "line": 624
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Probe more",
+     "cond": null,
+     "to": 446
+    },
+    {
+     "text": "Leave it",
+     "cond": null,
+     "to": 467
+    }
+   ],
+   "line": 625
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Did your parents not bring you as a child?",
+   "line": 627
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 628
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 629
+  },
+  {
+   "t": "set",
+   "var": "merchant_courage",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 630
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Sorry, I shouldn't have asked something so personal!",
+   "line": 631
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 632
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "No, it's fine.",
+   "line": 633
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I was the one who asked about your childhood first.",
+   "line": 634
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 635
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Well, to answer your question.",
+   "line": 636
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 637
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Taking over the business was the priority for my father.",
+   "line": 638
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I rarely went out to play like other children.",
+   "line": 639
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 640
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 641
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 642
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "It's fine.",
+   "line": 643
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 644
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Tell me about the amusement park.",
+   "line": 645
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Sure!",
+   "line": 646
+  },
+  {
+   "t": "goto",
+   "to": 469
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure!",
+   "line": 648
+  },
+  {
+   "t": "goto",
+   "to": 469
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "You can get on a ride, and it will take you high into the sky, round and round, or back and forth.",
+   "line": 649
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I rode the Ferris Wheel with my mother and she was too scared to look down from the top!",
+   "line": 650
+  },
+  {
+   "t": "show",
+   "image": "merchant happy",
+   "line": 651
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Perfect.",
+   "line": 652
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 653
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I shall propose to have an amusement park in the department store.",
+   "line": 654
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Eh? How?",
+   "line": 655
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 656
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "We'll use the roof.",
+   "line": 657
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 658
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Thanks for the idea.",
+   "line": 659
+  },
+  {
+   "t": "show",
+   "image": "merchant glitched3",
+   "line": 668
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "You're welcome...",
+   "line": 669
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 670
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 673
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "We have to get started on the proposal.",
+   "line": 674
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 675
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Call me when you're done.",
+   "line": 676
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": 1.0,
+      "xalign": 0.5,
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 677
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "merchant",
+   "line": 679
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 680
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(I'll just get started on this first.)",
+   "line": 681
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "paperstack",
+   "line": 682
+  },
+  {
+   "t": "hide",
+   "image": "office_table",
+   "line": 683
+  },
+  {
+   "t": "show",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 684
+  },
+  {
+   "t": "return",
+   "line": 686
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 690
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 693
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "(Where's Yujiro...?)",
+   "line": 695
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Ah.)",
+   "line": 696
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(He looks troubled.)",
+   "line": 697
+  },
+  {
+   "t": "show",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.0,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 698
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 2.1,
+      "zoom": 1.1
+     }
+    }
+   ],
+   "line": 700
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlfront",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.3
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 702
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Did something happen?",
+   "line": 705
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 706
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 707
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 708
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "The old man wants the department store to be accessible by train.",
+   "line": 709
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 710
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "We have to rework the proposal.",
+   "line": 711
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Eh?! But isn't the meeting tomorrow?",
+   "line": 712
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I don't think we can finish all that today.",
+   "line": 713
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 714
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "It's fine.",
+   "line": 715
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I'll continue working on it tonight.",
+   "line": 716
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "troubled"
+    ],
+    "text": "(He's planning to work on it alone?)"
+   },
+   "choices": [
+    {
+     "text": "Trust him to finish",
+     "cond": null,
+     "to": 516
+    },
+    {
+     "text": "Insist on helping",
+     "cond": null,
+     "to": 553
+    }
+   ],
+   "line": 717
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Alright, I trust you'll be able to finish it.",
+   "line": 720
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 721
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Of course, I'll get it done.",
+   "line": 722
+  },
+  {
+   "t": "set",
+   "var": "salary",
+   "keys": [],
+   "op": "=",
+   "value": "randi_range(20, 25)",
+   "line": 723
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "+=",
+   "value": "salary",
+   "line": 724
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 725
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Here's [salary] yen for today's work.",
+   "line": 726
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thanks!",
+   "line": 727
+  },
+  {
+   "t": "set",
+   "var": "merchant_job",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 728
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 547,
+   "line": 729
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "merchant",
+    "attrs": [],
+    "text": "Do you want to work the afternoon too?"
+   },
+   "choices": [
+    {
+     "text": "Work the afternoon",
+     "cond": null,
+     "to": 527
+    },
+    {
+     "text": "Go out",
+     "cond": null,
+     "to": 542
+    }
+   ],
+   "line": 730
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure, I'll stay for the afternoon.",
+   "line": 733
+  },
+  {
+   "t": "set",
+   "var": "merchant_job",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 734
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlfront",
+   "line": 735
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Here, work on this.",
+   "line": 736
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 737
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 740
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I'll come back later.",
+   "line": 741
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "merchant",
+   "line": 742
+  },
+  {
+   "t": "show",
+   "image": "time",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": -45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 0.0
+     }
+    }
+   ],
+   "line": 743
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 748
+  },
+  {
+   "t": "hide",
+   "image": "time",
+   "line": 749
+  },
+  {
+   "t": "hide",
+   "image": "paperstack",
+   "line": 750
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "I'm finally done.",
+   "line": 751
+  },
+  {
+   "t": "return",
+   "line": 752
+  },
+  {
+   "t": "goto",
+   "to": 546
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "No, I'll head off now.",
+   "line": 754
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Bye.",
+   "line": 755
+  },
+  {
+   "t": "jump",
+   "label": "ginza_small",
+   "line": 756
+  },
+  {
+   "t": "goto",
+   "to": 546
+  },
+  {
+   "t": "goto",
+   "to": 547
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 552,
+   "line": 757
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I'll head home first.",
+   "line": 758
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Bye.",
+   "line": 759
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 760
+  },
+  {
+   "t": "goto",
+   "to": 552
+  },
+  {
+   "t": "goto",
+   "to": 603
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I'll stay back to work on it with you.",
+   "line": 762
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "It's alright, I can manage.",
+   "line": 763
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 764
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "But I'm helping you on this project.",
+   "line": 765
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 766
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I can't let you work on it alone.",
+   "line": 767
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "We'll finish sooner if we work on it together.",
+   "line": 768
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 769
+  },
+  {
+   "t": "set",
+   "var": "merchant_job",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 770
+  },
+  {
+   "t": "set",
+   "var": "merchant_courage",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 771
+  },
+  {
+   "t": "set",
+   "var": "merchant_choice",
+   "keys": [],
+   "op": "=",
+   "value": "1",
+   "line": 772
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 773
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Alright, I got it.",
+   "line": 774
+  },
+  {
+   "t": "show",
+   "image": "merchant happy",
+   "line": 775
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Let's get started.",
+   "line": 776
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 777
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 780
+  },
+  {
+   "t": "show",
+   "image": "time",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": -45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 0.0
+     }
+    }
+   ],
+   "line": 781
+  },
+  {
+   "t": "show",
+   "image": "merchant discussing",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "easeout",
+     "time": 3.0,
+     "props": {}
+    }
+   ],
+   "line": 806
+  },
+  {
+   "t": "show",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {}
+    },
+    {
+     "warp": "easeout",
+     "time": 3.0,
+     "props": {}
+    }
+   ],
+   "line": 809
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {}
+    },
+    {
+     "warp": "easeout",
+     "time": 3.0,
+     "props": {}
+    }
+   ],
+   "line": 812
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 815
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 816
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot > 0)",
+   "to": 582,
+   "line": 817
+  },
+  {
+   "t": "show",
+   "image": "time",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": -45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 0.0
+     }
+    }
+   ],
+   "line": 818
+  },
+  {
+   "t": "show",
+   "image": "merchant discussing",
+   "line": 823
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "...",
+   "line": 824
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 825
+  },
+  {
+   "t": "goto",
+   "to": 582
+  },
+  {
+   "t": "hide",
+   "image": "time",
+   "line": 826
+  },
+  {
+   "t": "hide",
+   "image": "paperstack",
+   "line": 827
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 828
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Let's take a break.",
+   "line": 829
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Alright.",
+   "line": 830
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 831
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Wait here, I'll get some coffee.",
+   "line": 832
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "merchant",
+   "line": 833
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "(It's getting harder to keep my eyes open...)",
+   "line": 834
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "(I'll just rest my eyes for a while...)",
+   "line": 835
+  },
+  {
+   "t": "scene",
+   "with": "Fade(2.0,0.5,2.0)",
+   "image": "merchant_cutscene_1",
+   "line": 836
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 837
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You'll catch a cold.",
+   "line": 838
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "(This scent... Cedarwood...)",
+   "line": 839
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 840
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 841
+  },
+  {
+   "t": "set",
+   "var": "totaldays",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 842
+  },
+  {
+   "t": "set",
+   "var": "dayofweeknumber",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 843
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "=",
+   "value": "2",
+   "line": 844
+  },
+  {
+   "t": "jump",
+   "label": "office_bldg",
+   "line": 845
+  },
+  {
+   "t": "goto",
+   "to": 603
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_choice == 0)",
+   "to": 626,
+   "line": 849
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 850
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 853
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(I wonder how the meeting went.)",
+   "line": 855
+  },
+  {
+   "t": "show",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.0,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 856
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 2.0,
+      "zoom": 1.1
+     }
+    }
+   ],
+   "line": 858
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.3
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 860
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "How did the meeting go?",
+   "line": 863
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 864
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "The proposal was approved.",
+   "line": 865
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "That's great!",
+   "line": 866
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 867
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "But some parts still need work.",
+   "line": 868
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 869
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Here.",
+   "line": 870
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 871
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 874
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Work on this first.",
+   "line": 875
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 876
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I'll come back later.",
+   "line": 877
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "merchant",
+   "line": 878
+  },
+  {
+   "t": "return",
+   "line": 879
+  },
+  {
+   "t": "goto",
+   "to": 626
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_choice == 1)",
+   "to": 725,
+   "line": 880
+  },
+  {
+   "t": "scene",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 881
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6,
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 883
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,2.0)",
+   "line": 885
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Good morning.",
+   "line": 886
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "Good morning...",
+   "line": 887
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "I'm in office?",
+   "line": 888
+  },
+  {
+   "t": "show",
+   "image": "staff show",
+   "atl": [
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.4,
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 889
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "You fell asleep here last night.",
+   "line": 891
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I see...",
+   "line": 892
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I smell cedarwood...)",
+   "line": 893
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(This coat.)",
+   "line": 894
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Yujiro?",
+   "line": 895
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.6,
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 896
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "The director is in a meeting now.",
+   "line": 898
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I see.",
+   "line": 899
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "(I'm glad we made it in time.)",
+   "line": 900
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.6,
+      "zoom": 2.0,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 901
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Were you working late last night? He asked us not to wake you.",
+   "line": 903
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Yes... But I must have fallen asleep at some point.",
+   "line": 904
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "Ah, it looks like the meeting has ended.",
+   "line": 905
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.23,
+      "zoom": 0.3
+     }
+    }
+   ],
+   "line": 906
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 909
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6,
+      "zoom": 2.0,
+      "yalign": 0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 911
+  },
+  {
+   "t": "say",
+   "who": "staff",
+   "attrs": [],
+   "text": "I'll go back to my desk.",
+   "line": 913
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "staff",
+   "line": 914
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Naomi.",
+   "line": 915
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "!",
+   "line": 916
+  },
+  {
+   "t": "show",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.0,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 917
+  },
+  {
+   "t": "show",
+   "image": "office_table",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 2.1,
+      "zoom": 1.1
+     }
+    }
+   ],
+   "line": 919
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 921
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Are you alright? You were really tired.",
+   "line": 923
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I'm sorry I fell asleep!",
+   "line": 924
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 925
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I shouldn't have let you work late.",
+   "line": 926
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "You could have just woke me up...",
+   "line": 927
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 928
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You were sleeping so soundly, I-",
+   "line": 929
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "H-here, your coat!",
+   "line": 930
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 931
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 932
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 933
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Thanks.",
+   "line": 934
+  },
+  {
+   "t": "show",
+   "image": "merchant happy",
+   "line": 935
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "The old man was pleased with the proposal.",
+   "line": 936
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "That's great!",
+   "line": 937
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 938
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Naomi, I.",
+   "line": 939
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 940
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Thanks for staying back with me.",
+   "line": 941
+  },
+  {
+   "t": "show",
+   "image": "merchant glitched",
+   "line": 953
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "...",
+   "line": 954
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 955
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "You can rely on me.",
+   "line": 956
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Let's keep working hard together.",
+   "line": 957
+  },
+  {
+   "t": "show",
+   "image": "merchant smile",
+   "line": 958
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Yeah.",
+   "line": 959
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 960
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 961
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 962
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 963
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 964
+  },
+  {
+   "t": "set",
+   "var": "salary",
+   "keys": [],
+   "op": "=",
+   "value": "randi_range(40, 50)",
+   "line": 965
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "+=",
+   "value": "salary",
+   "line": 966
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Here's [salary] yen for yesterday's work.",
+   "line": 967
+  },
+  {
+   "t": "set",
+   "var": "merchant_job",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 968
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 969
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Go home and get some rest.",
+   "line": 970
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(Is he...)",
+   "line": 971
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Embarassed??)",
+   "line": 972
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(It must be my imagination!)",
+   "line": 973
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(dayofweeknumber < 6)",
+   "to": 719,
+   "line": 974
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [],
+    "text": "Where should I go this morning?"
+   },
+   "choices": [
+    {
+     "text": "Stay at office",
+     "cond": null,
+     "to": 699
+    },
+    {
+     "text": "Go elsewhere",
+     "cond": null,
+     "to": 713
+    }
+   ],
+   "line": 975
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I'll stay for the morning.",
+   "line": 978
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 979
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Are you sure? Don't push yourself.",
+   "line": 980
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I'm fine.",
+   "line": 981
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "There's work to do after the meeting.",
+   "line": 982
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...Alright.",
+   "line": 983
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 984
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 987
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I'll come back later.",
+   "line": 988
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "merchant",
+   "line": 989
+  },
+  {
+   "t": "hide",
+   "image": "office_table",
+   "line": 990
+  },
+  {
+   "t": "show",
+   "image": "bg office",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 991
+  },
+  {
+   "t": "return",
+   "line": 993
+  },
+  {
+   "t": "goto",
+   "to": 718
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Um, I'll head off then.",
+   "line": 995
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 996
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Bye.",
+   "line": 997
+  },
+  {
+   "t": "jump",
+   "label": "ginza_small",
+   "line": 998
+  },
+  {
+   "t": "goto",
+   "to": 718
+  },
+  {
+   "t": "goto",
+   "to": 724
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Um, I'll head off then.",
+   "line": 1000
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 1001
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Bye.",
+   "line": 1002
+  },
+  {
+   "t": "jump",
+   "label": "weekend_saturday",
+   "line": 1003
+  },
+  {
+   "t": "goto",
+   "to": 724
+  },
+  {
+   "t": "goto",
+   "to": 725
+  },
+  {
+   "t": "show",
+   "image": "merchant thinking",
+   "line": 1007
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "By the way.",
+   "line": 1008
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Yes?",
+   "line": 1009
+  },
+  {
+   "t": "show",
+   "image": "merchant thinkingside",
+   "line": 1010
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Are you free this Saturday evening?",
+   "line": 1011
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Yes...?",
+   "line": 1012
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(What is this about?)",
+   "line": 1013
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Will you come with me to the dance hall?",
+   "line": 1014
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Dance hall?",
+   "line": 1015
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(It sounds like he's asking me out!)",
+   "line": 1016
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlside",
+   "line": 1017
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "There's an architect I need to talk to, but he's only in town for the dance this weekend.",
+   "line": 1018
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(I see, it's just work.)",
+   "line": 1019
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 1020
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 1021
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 1022
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "It's the rule of the dance hall to bring a partner...",
+   "line": 1023
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Alright, I'll go with you.",
+   "line": 1024
+  },
+  {
+   "t": "set",
+   "var": "merchant_event",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 1025
+  },
+  {
+   "t": "show",
+   "image": "merchant happy",
+   "line": 1026
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I'll pick you up at the cafe.",
+   "line": 1027
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Make sure to wear something appropriate.",
+   "line": 1028
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Got it.",
+   "line": 1029
+  },
+  {
+   "t": "return",
+   "line": 1030
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I guess this is where I'll be working from now on.",
+   "line": 1033
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I achieved my goal of finding a job within these two weeks.",
+   "line": 1034
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Why does it feel like I'm missing something important?",
+   "line": 1035
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 1036
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 1037
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 1039
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Game over.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 1041
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 1043
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1044
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 1045
+  }
+ ]
+}

@@ -1,0 +1,3773 @@
+{
+ "source": "script_03_shrine.rpy",
+ "labels": {
+  "shrine": 0,
+  "fighter_1_daikichi": 202,
+  "fighter_1_kyo": 286,
+  "omamori_strength": 370,
+  "omamori_money": 382,
+  "omamori_love": 394,
+  "omamori_charisma": 406,
+  "omamori_intelligence": 418,
+  "omamori_job": 430
+ },
+ "ops": [
+  {
+   "t": "scene",
+   "image": "bg shrine",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.5,
+      "xalign": 1.0,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 2
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.5,
+      "zoom": 0.35
+     }
+    }
+   ],
+   "line": 4
+  },
+  {
+   "t": "show",
+   "image": "shrine_counter",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 6
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_strength > 0)",
+   "to": 6,
+   "line": 8
+  },
+  {
+   "t": "show",
+   "image": "omamori_strength",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.65,
+      "ypos": 0.59
+     }
+    }
+   ],
+   "line": 9
+  },
+  {
+   "t": "goto",
+   "to": 8
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.65,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 12
+  },
+  {
+   "t": "goto",
+   "to": 8
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_money > 0)",
+   "to": 11,
+   "line": 14
+  },
+  {
+   "t": "show",
+   "image": "omamori_money",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.7,
+      "ypos": 0.59
+     }
+    }
+   ],
+   "line": 15
+  },
+  {
+   "t": "goto",
+   "to": 13
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.7,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 18
+  },
+  {
+   "t": "goto",
+   "to": 13
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_love > 0)",
+   "to": 16,
+   "line": 20
+  },
+  {
+   "t": "show",
+   "image": "omamori_love",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.75,
+      "ypos": 0.59
+     }
+    }
+   ],
+   "line": 21
+  },
+  {
+   "t": "goto",
+   "to": 18
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.75,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 24
+  },
+  {
+   "t": "goto",
+   "to": 18
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_charisma > 0)",
+   "to": 21,
+   "line": 26
+  },
+  {
+   "t": "show",
+   "image": "omamori_charisma",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.8,
+      "ypos": 0.59
+     }
+    }
+   ],
+   "line": 27
+  },
+  {
+   "t": "goto",
+   "to": 23
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.8,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 30
+  },
+  {
+   "t": "goto",
+   "to": 23
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_charisma > 0)",
+   "to": 26,
+   "line": 32
+  },
+  {
+   "t": "show",
+   "image": "omamori_intelligence",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.85,
+      "ypos": 0.59
+     }
+    }
+   ],
+   "line": 33
+  },
+  {
+   "t": "goto",
+   "to": 28
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.85,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 36
+  },
+  {
+   "t": "goto",
+   "to": 28
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_job > 0)",
+   "to": 31,
+   "line": 38
+  },
+  {
+   "t": "show",
+   "image": "omamori_job",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.9,
+      "ypos": 0.59
+     }
+    }
+   ],
+   "line": 39
+  },
+  {
+   "t": "goto",
+   "to": 33
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.9,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 42
+  },
+  {
+   "t": "goto",
+   "to": 33
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 44
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 46
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Welcome to Asakusa Shrine.",
+   "line": 47
+  },
+  {
+   "t": "show",
+   "image": "bg shrine",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 0.5,
+      "zoom": 0.65
+     }
+    }
+   ],
+   "line": 48
+  },
+  {
+   "t": "show",
+   "image": "miko",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.63,
+      "yalign": 0.6,
+      "zoom": 0.6
+     }
+    }
+   ],
+   "line": 50
+  },
+  {
+   "t": "todo",
+   "code": "show shrine_counter:\n    anchor (1.0,1.0)\n    linear 3.0 xalign 1.0 ypos 1.28 zoom 0.8",
+   "why": "ATL: property 'anchor'",
+   "line": 52
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_strength > 0)",
+   "to": 42,
+   "line": 55
+  },
+  {
+   "t": "show",
+   "image": "omamori_strength",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.44,
+      "ypos": 0.61,
+      "zoom": 1.8
+     }
+    }
+   ],
+   "line": 56
+  },
+  {
+   "t": "goto",
+   "to": 44
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.44,
+      "ypos": 0.61,
+      "zoom": 0.234
+     }
+    }
+   ],
+   "line": 59
+  },
+  {
+   "t": "goto",
+   "to": 44
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_money > 0)",
+   "to": 47,
+   "line": 61
+  },
+  {
+   "t": "show",
+   "image": "omamori_money",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.53,
+      "ypos": 0.61,
+      "zoom": 1.8
+     }
+    }
+   ],
+   "line": 62
+  },
+  {
+   "t": "goto",
+   "to": 49
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.53,
+      "ypos": 0.61,
+      "zoom": 0.234
+     }
+    }
+   ],
+   "line": 65
+  },
+  {
+   "t": "goto",
+   "to": 49
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_love > 0)",
+   "to": 52,
+   "line": 67
+  },
+  {
+   "t": "show",
+   "image": "omamori_love",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.61,
+      "ypos": 0.61,
+      "zoom": 1.8
+     }
+    }
+   ],
+   "line": 68
+  },
+  {
+   "t": "goto",
+   "to": 54
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.61,
+      "ypos": 0.61,
+      "zoom": 0.234
+     }
+    }
+   ],
+   "line": 71
+  },
+  {
+   "t": "goto",
+   "to": 54
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_charisma > 0)",
+   "to": 57,
+   "line": 73
+  },
+  {
+   "t": "show",
+   "image": "omamori_charisma",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.7,
+      "ypos": 0.61,
+      "zoom": 1.8
+     }
+    }
+   ],
+   "line": 74
+  },
+  {
+   "t": "goto",
+   "to": 59
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.7,
+      "ypos": 0.61,
+      "zoom": 0.234
+     }
+    }
+   ],
+   "line": 77
+  },
+  {
+   "t": "goto",
+   "to": 59
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_intelligence > 0)",
+   "to": 62,
+   "line": 79
+  },
+  {
+   "t": "show",
+   "image": "omamori_intelligence",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.78,
+      "ypos": 0.61,
+      "zoom": 1.8
+     }
+    }
+   ],
+   "line": 80
+  },
+  {
+   "t": "goto",
+   "to": 64
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.78,
+      "ypos": 0.61,
+      "zoom": 0.234
+     }
+    }
+   ],
+   "line": 83
+  },
+  {
+   "t": "goto",
+   "to": 64
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_job > 0)",
+   "to": 67,
+   "line": 85
+  },
+  {
+   "t": "show",
+   "image": "omamori_job",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.86,
+      "ypos": 0.61,
+      "zoom": 1.8
+     }
+    }
+   ],
+   "line": 86
+  },
+  {
+   "t": "goto",
+   "to": 69
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.86,
+      "ypos": 0.61,
+      "zoom": 0.234
+     }
+    }
+   ],
+   "line": 89
+  },
+  {
+   "t": "goto",
+   "to": 69
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.11,
+      "yalign": 0.66,
+      "zoom": 0.8
+     }
+    }
+   ],
+   "line": 91
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"fighter\"] == 0)",
+   "to": 110,
+   "line": 93
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Would you like to draw your fortune for 5 yen?",
+   "line": 94
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Yes (5 yen)",
+     "cond": "(money >= 5)",
+     "to": 73
+    },
+    {
+     "text": "No",
+     "cond": null,
+     "to": 107
+    }
+   ],
+   "line": 95
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 97
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"fighter\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 98
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll give it a go.",
+   "line": 99
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.5
+     }
+    }
+   ],
+   "line": 100
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Here, go ahead and shake it.",
+   "line": 102
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 103
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "rotate": 45.0
+     }
+    }
+   ],
+   "line": 104
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 106
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "rotate": -45.0
+     }
+    }
+   ],
+   "line": 107
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 109
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_0",
+   "line": 110
+  },
+  {
+   "t": "show",
+   "image": "omikuji_1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.5,
+      "rotate": 40.0
+     }
+    }
+   ],
+   "line": 111
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 113
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_1",
+   "line": 114
+  },
+  {
+   "t": "set",
+   "var": "omikuji",
+   "keys": [],
+   "op": "=",
+   "value": "[\"omikuji_daikichi\", \"omikuji_kyo\"].pick_random()",
+   "line": 115
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(omikuji == \"omikuji_daikichi\")",
+   "to": 97,
+   "line": 116
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi",
+   "line": 117
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I got a good fortune!",
+   "line": 118
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_daikichi",
+   "line": 119
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "line": 120
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Be sure to keep your good fortune close to you.",
+   "line": 121
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "See you again!",
+   "line": 122
+  },
+  {
+   "t": "call",
+   "label": "fighter_1_daikichi",
+   "line": 123
+  },
+  {
+   "t": "goto",
+   "to": 97
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(omikuji == \"omikuji_kyo\")",
+   "to": 106,
+   "line": 124
+  },
+  {
+   "t": "show",
+   "image": "omikuji_kyo",
+   "line": 125
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I got a bad one...",
+   "line": 126
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_kyo",
+   "line": 127
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "line": 128
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Tie your fortune to the tree before you leave.",
+   "line": 129
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Take care!",
+   "line": 130
+  },
+  {
+   "t": "call",
+   "label": "fighter_1_kyo",
+   "line": 131
+  },
+  {
+   "t": "goto",
+   "to": 106
+  },
+  {
+   "t": "goto",
+   "to": 109
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Not this time, thank you!",
+   "line": 133
+  },
+  {
+   "t": "goto",
+   "to": 109
+  },
+  {
+   "t": "goto",
+   "to": 153
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "How can I help you?",
+   "line": 135
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Buy a charm",
+     "cond": null,
+     "to": 112
+    },
+    {
+     "text": "Draw fortune (5 yen)",
+     "cond": "(money >= 5)",
+     "to": 116
+    },
+    {
+     "text": "Nothing",
+     "cond": null,
+     "to": 150
+    }
+   ],
+   "line": 136
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I would like to buy a charm.",
+   "line": 138
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 139
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 140
+  },
+  {
+   "t": "goto",
+   "to": 152
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 142
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I would like to draw my fortune.",
+   "line": 143
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.5
+     }
+    }
+   ],
+   "line": 144
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Here, go ahead and shake it.",
+   "line": 146
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 147
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "rotate": 45.0
+     }
+    }
+   ],
+   "line": 148
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 150
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "rotate": -45.0
+     }
+    }
+   ],
+   "line": 151
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 153
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_0",
+   "line": 154
+  },
+  {
+   "t": "show",
+   "image": "omikuji_1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.5,
+      "rotate": 40.0
+     }
+    }
+   ],
+   "line": 155
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 157
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_1",
+   "line": 158
+  },
+  {
+   "t": "set",
+   "var": "omikuji",
+   "keys": [],
+   "op": "=",
+   "value": "[\"omikuji_daikichi\", \"omikuji_kyo\"].pick_random()",
+   "line": 159
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(omikuji == \"omikuji_daikichi\")",
+   "to": 141,
+   "line": 160
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi",
+   "line": 161
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I got a good fortune!",
+   "line": 162
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_daikichi",
+   "line": 163
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "line": 164
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Be sure to keep your good fortune close to you.",
+   "line": 165
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "See you again!",
+   "line": 166
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(not (\"omikuji_daikichi\" in inventory))",
+   "to": 140,
+   "line": 167
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omikuji_daikichi\": [\"A slip of paper predicting good fortune.\"]}, true)",
+   "line": 168
+  },
+  {
+   "t": "goto",
+   "to": 140
+  },
+  {
+   "t": "goto",
+   "to": 141
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(omikuji == \"omikuji_kyo\")",
+   "to": 149,
+   "line": 169
+  },
+  {
+   "t": "show",
+   "image": "omikuji_kyo",
+   "line": 170
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I got a bad one...",
+   "line": 171
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_kyo",
+   "line": 172
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "line": 173
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Tie your fortune to the tree before you leave.",
+   "line": 174
+  },
+  {
+   "t": "say",
+   "who": "miko",
+   "attrs": [],
+   "text": "Take care!",
+   "line": 175
+  },
+  {
+   "t": "goto",
+   "to": 149
+  },
+  {
+   "t": "goto",
+   "to": 152
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "It's alright, thanks!",
+   "line": 177
+  },
+  {
+   "t": "goto",
+   "to": 152
+  },
+  {
+   "t": "goto",
+   "to": 153
+  },
+  {
+   "t": "show",
+   "image": "bg shrine",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "zoom": 0.5,
+      "xalign": 1.0,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 179
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.5,
+      "zoom": 0.35
+     }
+    }
+   ],
+   "line": 181
+  },
+  {
+   "t": "show",
+   "image": "shrine_counter",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 183
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_strength > 0)",
+   "to": 159,
+   "line": 185
+  },
+  {
+   "t": "show",
+   "image": "omamori_strength",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.65,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 186
+  },
+  {
+   "t": "goto",
+   "to": 161
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.65,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 189
+  },
+  {
+   "t": "goto",
+   "to": 161
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_money > 0)",
+   "to": 164,
+   "line": 191
+  },
+  {
+   "t": "show",
+   "image": "omamori_money",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.7,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 192
+  },
+  {
+   "t": "goto",
+   "to": 166
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.7,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 195
+  },
+  {
+   "t": "goto",
+   "to": 166
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_love > 0)",
+   "to": 169,
+   "line": 197
+  },
+  {
+   "t": "show",
+   "image": "omamori_love",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.75,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 198
+  },
+  {
+   "t": "goto",
+   "to": 171
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.75,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 201
+  },
+  {
+   "t": "goto",
+   "to": 171
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_charisma > 0)",
+   "to": 174,
+   "line": 203
+  },
+  {
+   "t": "show",
+   "image": "omamori_charisma",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.8,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 204
+  },
+  {
+   "t": "goto",
+   "to": 176
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.8,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 207
+  },
+  {
+   "t": "goto",
+   "to": 176
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_intelligence > 0)",
+   "to": 179,
+   "line": 209
+  },
+  {
+   "t": "show",
+   "image": "omamori_intelligence",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.85,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 210
+  },
+  {
+   "t": "goto",
+   "to": 181
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.8,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 213
+  },
+  {
+   "t": "goto",
+   "to": 181
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_job > 0)",
+   "to": 184,
+   "line": 215
+  },
+  {
+   "t": "show",
+   "image": "omamori_job",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.9,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 216
+  },
+  {
+   "t": "goto",
+   "to": 186
+  },
+  {
+   "t": "show",
+   "image": "soldout",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.9,
+      "ypos": 0.59,
+      "zoom": 0.13
+     }
+    }
+   ],
+   "line": 219
+  },
+  {
+   "t": "goto",
+   "to": 186
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 221
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Leave",
+     "cond": null,
+     "to": 188
+    },
+    {
+     "text": "Stay",
+     "cond": null,
+     "to": 200
+    }
+   ],
+   "line": 223
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 225
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(dayofweeknumber > 5)",
+   "to": 192,
+   "line": 226
+  },
+  {
+   "t": "return",
+   "line": 227
+  },
+  {
+   "t": "goto",
+   "to": 199
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 195,
+   "line": 229
+  },
+  {
+   "t": "jump",
+   "label": "asakusa_small",
+   "line": 230
+  },
+  {
+   "t": "goto",
+   "to": 195
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 198,
+   "line": 231
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 232
+  },
+  {
+   "t": "goto",
+   "to": 198
+  },
+  {
+   "t": "goto",
+   "to": 199
+  },
+  {
+   "t": "goto",
+   "to": 202
+  },
+  {
+   "t": "jump",
+   "label": "shrine",
+   "line": 234
+  },
+  {
+   "t": "goto",
+   "to": 202
+  },
+  {
+   "t": "set",
+   "var": "fighter_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"???\"",
+   "line": 237
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 238
+  },
+  {
+   "t": "show",
+   "image": "bg shrine",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "zoom": 0.5,
+      "xalign": 1.0,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 239
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.5,
+      "zoom": 0.35
+     }
+    }
+   ],
+   "line": 241
+  },
+  {
+   "t": "show",
+   "image": "shrine_counter",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 243
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_strength > 0)",
+   "to": 210,
+   "line": 245
+  },
+  {
+   "t": "show",
+   "image": "omamori_strength",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.65,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 246
+  },
+  {
+   "t": "goto",
+   "to": 210
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_money > 0)",
+   "to": 213,
+   "line": 248
+  },
+  {
+   "t": "show",
+   "image": "omamori_money",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.7,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 249
+  },
+  {
+   "t": "goto",
+   "to": 213
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_love > 0)",
+   "to": 216,
+   "line": 251
+  },
+  {
+   "t": "show",
+   "image": "omamori_love",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.75,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 252
+  },
+  {
+   "t": "goto",
+   "to": 216
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_charisma > 0)",
+   "to": 219,
+   "line": 254
+  },
+  {
+   "t": "show",
+   "image": "omamori_charisma",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.8,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 255
+  },
+  {
+   "t": "goto",
+   "to": 219
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_intelligence > 0)",
+   "to": 222,
+   "line": 257
+  },
+  {
+   "t": "show",
+   "image": "omamori_intelligence",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.85,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 258
+  },
+  {
+   "t": "goto",
+   "to": 222
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_job > 0)",
+   "to": 225,
+   "line": 260
+  },
+  {
+   "t": "show",
+   "image": "omamori_job",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.9,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 261
+  },
+  {
+   "t": "goto",
+   "to": 225
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.11,
+      "yalign": 0.66,
+      "zoom": 0.8
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 263
+  },
+  {
+   "t": "show",
+   "image": "fighter bummed",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": -0.7,
+      "yalign": 0.5,
+      "zoom": 1.75
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.4,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 266
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 269
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Ah, crap! I got a bad one.",
+   "line": 270
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Offer yours",
+     "cond": null,
+     "to": 230
+    },
+    {
+     "text": "Show sympathy",
+     "cond": null,
+     "to": 268
+    }
+   ],
+   "line": 271
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Here, you can have mine instead.",
+   "line": 273
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 274
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.5,
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 275
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 277
+  },
+  {
+   "t": "show",
+   "image": "fighter surprised",
+   "line": 278
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Eh? Are you serious?",
+   "line": 279
+  },
+  {
+   "t": "show",
+   "image": "fighter blush",
+   "line": 280
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "A pretty girl is offering me her good fortune?",
+   "line": 281
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 282
+  },
+  {
+   "t": "show",
+   "image": "fighter happy",
+   "line": 283
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Thank you for the kind offer. But I can't possibly take your good fortune.",
+   "line": 284
+  },
+  {
+   "t": "show",
+   "image": "fighter grin",
+   "line": 285
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "I'll be fine, don't worry about me!",
+   "line": 286
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "How about this?",
+   "line": 287
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 288
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_daikichi",
+   "line": 289
+  },
+  {
+   "t": "show",
+   "image": "fighter surprised",
+   "line": 290
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi_tear",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.5,
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 291
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 293
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_daikichi_tear",
+   "line": 294
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi_half",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.8,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 295
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi_half2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "yalign": 0.8,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 297
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Here, we can share it.",
+   "line": 299
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "omikuji_daikichi_half",
+   "line": 300
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Take this half.",
+   "line": 301
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omikuji_daikichi_half\": [\"Half of an omikuji.\"]}, true)",
+   "line": 302
+  },
+  {
+   "t": "show",
+   "image": "fighter blush",
+   "line": 303
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 304
+  },
+  {
+   "t": "show",
+   "image": "fighter determined",
+   "line": 305
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "I'm glad! Thank you!",
+   "line": 306
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_daikichi_half2",
+   "line": 307
+  },
+  {
+   "t": "show",
+   "image": "fighter wink",
+   "line": 308
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Hopefully, the good fortune will let us meet again.",
+   "line": 309
+  },
+  {
+   "t": "show",
+   "image": "fighter happy",
+   "line": 310
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 311
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "See you around!",
+   "line": 312
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "fighter",
+   "line": 313
+  },
+  {
+   "t": "goto",
+   "to": 285
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omikuji_daikichi\": [\"A slip of paper predicting good fortune.\"]}, true)",
+   "line": 315
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "That's too bad.",
+   "line": 316
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Is there anything I can do for you?",
+   "line": 317
+  },
+  {
+   "t": "show",
+   "image": "fighter grin",
+   "line": 318
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Just one of those days!",
+   "line": 319
+  },
+  {
+   "t": "show",
+   "image": "fighter happy",
+   "line": 320
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "My fortune can't be that bad, to have a pretty girl talk to me.",
+   "line": 321
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 322
+  },
+  {
+   "t": "show",
+   "image": "fighter angry",
+   "line": 323
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "What?! Damn bird just crapped on me!",
+   "line": 324
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "What?! Are you alright?",
+   "line": 325
+  },
+  {
+   "t": "show",
+   "image": "fighter wink",
+   "line": 326
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Yeah don't worry about it, I'm fine!",
+   "line": 327
+  },
+  {
+   "t": "show",
+   "image": "fighter happy",
+   "line": 328
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "See you around!",
+   "line": 329
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "fighter",
+   "line": 330
+  },
+  {
+   "t": "goto",
+   "to": 285
+  },
+  {
+   "t": "return",
+   "line": 331
+  },
+  {
+   "t": "set",
+   "var": "fighter_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"???\"",
+   "line": 334
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 335
+  },
+  {
+   "t": "show",
+   "image": "bg shrine",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "zoom": 0.5,
+      "xalign": 1.0,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 336
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.5,
+      "zoom": 0.35
+     }
+    }
+   ],
+   "line": 338
+  },
+  {
+   "t": "show",
+   "image": "shrine_counter",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 340
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_strength > 0)",
+   "to": 294,
+   "line": 342
+  },
+  {
+   "t": "show",
+   "image": "omamori_strength",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.65,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 343
+  },
+  {
+   "t": "goto",
+   "to": 294
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_money > 0)",
+   "to": 297,
+   "line": 345
+  },
+  {
+   "t": "show",
+   "image": "omamori_money",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.7,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 346
+  },
+  {
+   "t": "goto",
+   "to": 297
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_love > 0)",
+   "to": 300,
+   "line": 348
+  },
+  {
+   "t": "show",
+   "image": "omamori_love",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.75,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 349
+  },
+  {
+   "t": "goto",
+   "to": 300
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_charisma > 0)",
+   "to": 303,
+   "line": 351
+  },
+  {
+   "t": "show",
+   "image": "omamori_charisma",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.8,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 352
+  },
+  {
+   "t": "goto",
+   "to": 303
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_intelligence > 0)",
+   "to": 306,
+   "line": 354
+  },
+  {
+   "t": "show",
+   "image": "omamori_intelligence",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.85,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 355
+  },
+  {
+   "t": "goto",
+   "to": 306
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(o_job > 0)",
+   "to": 309,
+   "line": 357
+  },
+  {
+   "t": "show",
+   "image": "omamori_job",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xpos": 0.9,
+      "ypos": 0.59,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 358
+  },
+  {
+   "t": "goto",
+   "to": 309
+  },
+  {
+   "t": "show",
+   "image": "omikuji_0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.11,
+      "yalign": 0.66,
+      "zoom": 0.8
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 360
+  },
+  {
+   "t": "show",
+   "image": "fighter determined",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": -0.7,
+      "yalign": 0.5,
+      "zoom": 1.75
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 363
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 366
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Hey, pretty girl.",
+   "line": 367
+  },
+  {
+   "t": "show",
+   "image": "fighter grin",
+   "line": 368
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Here, take mine.",
+   "line": 369
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.5,
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 370
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Eh? But...",
+   "line": 372
+  },
+  {
+   "t": "show",
+   "image": "fighter wink",
+   "line": 373
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "And I'll take yours.",
+   "line": 374
+  },
+  {
+   "t": "show",
+   "image": "omikuji_kyo",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "zoom": 0.2,
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 375
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 378
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 379
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_kyo",
+   "line": 380
+  },
+  {
+   "t": "show",
+   "image": "fighter grin",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.1,
+      "xalign": 0.35,
+      "yalign": 0.6,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 381
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 383
+  },
+  {
+   "t": "show",
+   "image": "fighter happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "xzoom": 1.0,
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 384
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "...and there. Tied it to the tree.",
+   "line": 386
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Accept with thanks",
+     "cond": null,
+     "to": 328
+    },
+    {
+     "text": "Offer half",
+     "cond": null,
+     "to": 344
+    }
+   ],
+   "line": 387
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Thank you...",
+   "line": 389
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "omikuji_daikichi",
+   "line": 390
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omikuji_daikichi\": [\"A slip of paper predicting good fortune.\"]}, true)",
+   "line": 391
+  },
+  {
+   "t": "show",
+   "image": "fighter angry",
+   "line": 392
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "What?! Damn bird just crapped on me!",
+   "line": 393
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "What?! Are you alright?",
+   "line": 394
+  },
+  {
+   "t": "show",
+   "image": "fighter grin",
+   "line": 395
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Yeah don't worry about it, I'm fine!",
+   "line": 396
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "If we meet again, please let me return the favor.",
+   "line": 397
+  },
+  {
+   "t": "show",
+   "image": "fighter wink",
+   "line": 398
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "I'll remember that!",
+   "line": 399
+  },
+  {
+   "t": "show",
+   "image": "fighter happy",
+   "line": 400
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "See you around!",
+   "line": 401
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "fighter",
+   "line": 402
+  },
+  {
+   "t": "return",
+   "line": 403
+  },
+  {
+   "t": "goto",
+   "to": 370
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I have an idea...",
+   "line": 405
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 406
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_daikichi",
+   "line": 407
+  },
+  {
+   "t": "show",
+   "image": "fighter surprised",
+   "line": 408
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi_tear",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.5,
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 409
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 411
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_daikichi_tear",
+   "line": 412
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi_half",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.8,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 413
+  },
+  {
+   "t": "show",
+   "image": "omikuji_daikichi_half2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "yalign": 0.8,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 415
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Here, take half.",
+   "line": 417
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "omikuji_daikichi_half",
+   "line": 418
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omikuji_daikichi_half\": [\"Half of an omikuji.\"]}, true)",
+   "line": 419
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "We can share the good fortune.",
+   "line": 420
+  },
+  {
+   "t": "show",
+   "image": "fighter blush",
+   "line": 421
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "...",
+   "line": 422
+  },
+  {
+   "t": "show",
+   "image": "fighter determined",
+   "line": 423
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "I'm glad! Thank you!",
+   "line": 424
+  },
+  {
+   "t": "hide",
+   "image": "omikuji_daikichi_half2",
+   "line": 425
+  },
+  {
+   "t": "show",
+   "image": "fighter wink",
+   "line": 426
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "Hopefully, the good fortune will let us meet again.",
+   "line": 427
+  },
+  {
+   "t": "show",
+   "image": "fighter happy",
+   "line": 428
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 429
+  },
+  {
+   "t": "say",
+   "who": "fighter",
+   "attrs": [],
+   "text": "See you around!",
+   "line": 430
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "fighter",
+   "line": 431
+  },
+  {
+   "t": "return",
+   "line": 432
+  },
+  {
+   "t": "goto",
+   "to": 370
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9
+     }
+    }
+   ],
+   "line": 435
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "miko_bubble",
+    "attrs": [],
+    "text": "A charm that will increase your strength, for 15 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 15)",
+     "to": 372
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 380
+    }
+   ],
+   "line": 437
+  },
+  {
+   "t": "show",
+   "image": "omamori_strength",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zpos": 0.0,
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zpos": 900.0
+     }
+    }
+   ],
+   "line": 440
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 443
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "omamori_strength",
+   "line": 444
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "15",
+   "line": 445
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omamori_strength\": [\"A charm that will increase strength.\"]}, true)",
+   "line": 446
+  },
+  {
+   "t": "set",
+   "var": "o_strength",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 447
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 448
+  },
+  {
+   "t": "goto",
+   "to": 382
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 450
+  },
+  {
+   "t": "goto",
+   "to": 382
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9
+     }
+    }
+   ],
+   "line": 453
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "miko_bubble",
+    "attrs": [],
+    "text": "A charm that will increase your luck for wealth, for 15 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 15)",
+     "to": 384
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 392
+    }
+   ],
+   "line": 455
+  },
+  {
+   "t": "show",
+   "image": "omamori_money",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zpos": 0.0,
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zpos": 900.0
+     }
+    }
+   ],
+   "line": 458
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 461
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "omamori_money",
+   "line": 462
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "15",
+   "line": 463
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omamori_money\": [\"A charm that will increase luck for wealth.\"]}, true)",
+   "line": 464
+  },
+  {
+   "t": "set",
+   "var": "o_money",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 465
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 466
+  },
+  {
+   "t": "goto",
+   "to": 394
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 468
+  },
+  {
+   "t": "goto",
+   "to": 394
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9
+     }
+    }
+   ],
+   "line": 471
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "miko_bubble",
+    "attrs": [],
+    "text": "A charm that will increase your luck in love, for 15 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 15)",
+     "to": 396
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 404
+    }
+   ],
+   "line": 473
+  },
+  {
+   "t": "show",
+   "image": "omamori_love",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zpos": 0.0,
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zpos": 900.0
+     }
+    }
+   ],
+   "line": 476
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 479
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "omamori_love",
+   "line": 480
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "15",
+   "line": 481
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omamori_love\": [\"A charm that will increase luck in love.\"]}, true)",
+   "line": 482
+  },
+  {
+   "t": "set",
+   "var": "o_love",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 483
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 484
+  },
+  {
+   "t": "goto",
+   "to": 406
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 486
+  },
+  {
+   "t": "goto",
+   "to": 406
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9
+     }
+    }
+   ],
+   "line": 489
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "miko_bubble",
+    "attrs": [],
+    "text": "A charm that will increase your charisma, for 15 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 15)",
+     "to": 408
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 416
+    }
+   ],
+   "line": 491
+  },
+  {
+   "t": "show",
+   "image": "omamori_charisma",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zpos": 0.0,
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zpos": 900.0
+     }
+    }
+   ],
+   "line": 494
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 497
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "omamori_charisma",
+   "line": 498
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "15",
+   "line": 499
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omamori_charisma\": [\"A charm that will increase charisma.\"]}, true)",
+   "line": 500
+  },
+  {
+   "t": "set",
+   "var": "o_charisma",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 501
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 502
+  },
+  {
+   "t": "goto",
+   "to": 418
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 504
+  },
+  {
+   "t": "goto",
+   "to": 418
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9
+     }
+    }
+   ],
+   "line": 507
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "miko_bubble",
+    "attrs": [],
+    "text": "A charm that will increase your intelligence, for 15 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 15)",
+     "to": 420
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 428
+    }
+   ],
+   "line": 509
+  },
+  {
+   "t": "show",
+   "image": "omamori_intelligence",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zpos": 0.0,
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zpos": 900.0
+     }
+    }
+   ],
+   "line": 512
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 515
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "omamori_intelligence",
+   "line": 516
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "15",
+   "line": 517
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omamori_intelligence\": [\"A charm that will increase intelligence.\"]}, true)",
+   "line": 518
+  },
+  {
+   "t": "set",
+   "var": "o_intelligence",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 519
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 520
+  },
+  {
+   "t": "goto",
+   "to": 430
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 522
+  },
+  {
+   "t": "goto",
+   "to": 430
+  },
+  {
+   "t": "show",
+   "image": "miko happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9
+     }
+    }
+   ],
+   "line": 525
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "miko_bubble",
+    "attrs": [],
+    "text": "A charm that will increase your job performance, for 15 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 15)",
+     "to": 432
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 440
+    }
+   ],
+   "line": 527
+  },
+  {
+   "t": "show",
+   "image": "omamori_job",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zpos": 0.0,
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.6,
+      "zpos": 900.0
+     }
+    }
+   ],
+   "line": 530
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 533
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "omamori_job",
+   "line": 534
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "15",
+   "line": 535
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"omamori_job\": [\"A charm that will increase job performance.\"]}, true)",
+   "line": 536
+  },
+  {
+   "t": "set",
+   "var": "o_job",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 537
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 538
+  },
+  {
+   "t": "goto",
+   "to": 442
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_shrine",
+   "line": 540
+  },
+  {
+   "t": "goto",
+   "to": 442
+  }
+ ]
+}

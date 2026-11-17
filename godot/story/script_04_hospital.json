@@ -1,0 +1,3666 @@
+{
+ "source": "script_04_hospital.rpy",
+ "labels": {
+  "hospital": 0,
+  "doctor_2": 98,
+  "doctor_3": 220,
+  "doctor_4": 273,
+  "doctor_5": 303,
+  "doctor_6": 381,
+  "doctor_7": 443,
+  "hospital_ending": 467
+ },
+ "ops": [
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"doctor\"] == 1)",
+   "to": 3,
+   "line": 4
+  },
+  {
+   "t": "call",
+   "label": "doctor_2",
+   "line": 5
+  },
+  {
+   "t": "goto",
+   "to": 3
+  },
+  {
+   "t": "scene",
+   "image": "clinic",
+   "line": 9
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_ending == true)",
+   "to": 11,
+   "line": 11
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_courage > 2)",
+   "to": 8,
+   "line": 12
+  },
+  {
+   "t": "jump",
+   "label": "doctor_final_irl",
+   "line": 13
+  },
+  {
+   "t": "goto",
+   "to": 10
+  },
+  {
+   "t": "jump",
+   "label": "doctor_final_not",
+   "line": 15
+  },
+  {
+   "t": "goto",
+   "to": 10
+  },
+  {
+   "t": "goto",
+   "to": 11
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(totaldays == 0)",
+   "to": 14,
+   "line": 16
+  },
+  {
+   "t": "jump",
+   "label": "hospital_ending",
+   "line": 17
+  },
+  {
+   "t": "goto",
+   "to": 14
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_job == 3)",
+   "to": 17,
+   "line": 20
+  },
+  {
+   "t": "call",
+   "label": "doctor_4",
+   "line": 21
+  },
+  {
+   "t": "goto",
+   "to": 17
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_job == 6)",
+   "to": 20,
+   "line": 23
+  },
+  {
+   "t": "call",
+   "label": "doctor_6",
+   "line": 24
+  },
+  {
+   "t": "goto",
+   "to": 20
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((doctor_job == 8) and (totaldays > 3))",
+   "to": 23,
+   "line": 26
+  },
+  {
+   "t": "call",
+   "label": "doctor_7",
+   "line": 27
+  },
+  {
+   "t": "goto",
+   "to": 23
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 29
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Here are the patient notes.",
+   "line": 31
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "If you can't read my handwriting, look for me.",
+   "line": 32
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 33
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Alright!",
+   "line": 36
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_job == 4)",
+   "to": 31,
+   "line": 38
+  },
+  {
+   "t": "call",
+   "label": "doctor_5",
+   "line": 39
+  },
+  {
+   "t": "goto",
+   "to": 31
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 41
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "See you later.",
+   "line": 43
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "doctor",
+   "line": 44
+  },
+  {
+   "t": "show",
+   "image": "clinic",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 5.0,
+     "props": {
+      "xalign": 0.28,
+      "yalign": 0.58,
+      "zoom": 4.0
+     }
+    }
+   ],
+   "line": 45
+  },
+  {
+   "t": "show",
+   "image": "time",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": -45.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "rotate": 0.0
+     }
+    }
+   ],
+   "line": 47
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 52
+  },
+  {
+   "t": "hide",
+   "image": "time",
+   "line": 53
+  },
+  {
+   "t": "hide",
+   "image": "paperstack",
+   "line": 54
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "Somehow managed to decipher his handwriting.",
+   "line": 55
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll go find nurse and give her this.",
+   "line": 56
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "bg clinic",
+   "line": 57
+  },
+  {
+   "t": "show",
+   "image": "bg hospital",
+   "line": 58
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 59
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_job == 2)",
+   "to": 47,
+   "line": 60
+  },
+  {
+   "t": "call",
+   "label": "doctor_3",
+   "line": 61
+  },
+  {
+   "t": "goto",
+   "to": 47
+  },
+  {
+   "t": "show",
+   "image": "nurse relieved",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 62
+  },
+  {
+   "t": "with",
+   "name": "moveinleft",
+   "line": 64
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Done?",
+   "line": 65
+  },
+  {
+   "t": "show",
+   "image": "nurse sigh",
+   "line": 66
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Yes! Here you go.",
+   "line": 67
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.3,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.7,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 68
+  },
+  {
+   "t": "set",
+   "var": "salary",
+   "keys": [],
+   "op": "=",
+   "value": "randi_range(10, 20)",
+   "line": 71
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "+=",
+   "value": "salary",
+   "line": 72
+  },
+  {
+   "t": "show",
+   "image": "nurse relieved",
+   "line": 73
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Here's [salary] yen for today's work.",
+   "line": 74
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_job == 4)",
+   "to": 69,
+   "line": 76
+  },
+  {
+   "t": "show",
+   "image": "nurse happy",
+   "line": 77
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "I'm grateful for your help, Naomi.",
+   "line": 78
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Since you've been doing the paperwork, I've been less tired.",
+   "line": 79
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Glad to be of help.",
+   "line": 80
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_courage > 1)",
+   "to": 68,
+   "line": 81
+  },
+  {
+   "t": "show",
+   "image": "nurse relieved",
+   "line": 82
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Hmm, I haven't had to console Dr Yumoto's patients lately too.",
+   "line": 83
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "How strange.",
+   "line": 84
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Ahaha.",
+   "line": 85
+  },
+  {
+   "t": "goto",
+   "to": 68
+  },
+  {
+   "t": "goto",
+   "to": 69
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 88
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 90,
+   "line": 89
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Do you want to work the afternoon too?",
+   "line": 90
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Work the afternoon",
+     "cond": null,
+     "to": 73
+    },
+    {
+     "text": "Go out",
+     "cond": null,
+     "to": 81
+    }
+   ],
+   "line": 91
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure, I'll stay for the afternoon.",
+   "line": 93
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Go get the notes then.",
+   "line": 94
+  },
+  {
+   "t": "hide",
+   "image": "nurse",
+   "line": 95
+  },
+  {
+   "t": "hide",
+   "image": "paperstack",
+   "line": 96
+  },
+  {
+   "t": "with",
+   "name": "moveoutright",
+   "line": 97
+  },
+  {
+   "t": "set",
+   "var": "doctor_job",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 98
+  },
+  {
+   "t": "jump",
+   "label": "hospital",
+   "line": 99
+  },
+  {
+   "t": "goto",
+   "to": 89
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "No, I'll head off now.",
+   "line": 101
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Off you go then!",
+   "line": 102
+  },
+  {
+   "t": "hide",
+   "image": "nurse",
+   "line": 103
+  },
+  {
+   "t": "hide",
+   "image": "paperstack",
+   "line": 104
+  },
+  {
+   "t": "with",
+   "name": "moveoutright",
+   "line": 105
+  },
+  {
+   "t": "set",
+   "var": "doctor_job",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 106
+  },
+  {
+   "t": "jump",
+   "label": "ginza_small",
+   "line": 107
+  },
+  {
+   "t": "goto",
+   "to": 89
+  },
+  {
+   "t": "goto",
+   "to": 90
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 98,
+   "line": 108
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Off you go now!",
+   "line": 109
+  },
+  {
+   "t": "hide",
+   "image": "nurse",
+   "line": 110
+  },
+  {
+   "t": "hide",
+   "image": "paperstack",
+   "line": 111
+  },
+  {
+   "t": "with",
+   "name": "moveoutright",
+   "line": 112
+  },
+  {
+   "t": "set",
+   "var": "doctor_job",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 113
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 114
+  },
+  {
+   "t": "goto",
+   "to": 98
+  },
+  {
+   "t": "scene",
+   "image": "bg hospital",
+   "line": 118
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"doctor\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 119
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 120
+  },
+  {
+   "t": "show",
+   "image": "nurse angry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.2,
+      "xzoom": -1.0,
+      "ypos": 0.1
+     }
+    }
+   ],
+   "line": 122
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Dr Yumoto, you can't say that to his mother!",
+   "line": 124
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "...But it's true.",
+   "line": 125
+  },
+  {
+   "t": "show",
+   "image": "nurse sigh",
+   "line": 126
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "We're already shorthanded, I don't have time for this!",
+   "line": 127
+  },
+  {
+   "t": "show",
+   "image": "nurse angry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.2,
+      "ypos": 0.1,
+      "xzoom": 1.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 128
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Please reflect on what you have done!",
+   "line": 130
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "nurse",
+   "line": 131
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 132
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "...",
+   "line": 133
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(Maybe I should come back another time..?)",
+   "line": 134
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 135
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Oh, hey! You're--",
+   "line": 136
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 137
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Err..",
+   "line": 138
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 139
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Sorry, I don't know your name.",
+   "line": 140
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "It's Naomi.",
+   "line": 141
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 142
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Right, Naomi!",
+   "line": 143
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 144
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Let's go to my clinic. This way.",
+   "line": 146
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "doctor",
+   "line": 147
+  },
+  {
+   "t": "show",
+   "image": "clinic",
+   "line": 148
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 149
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 150
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Did you experience a dizzy spell again?",
+   "line": 152
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "No...",
+   "line": 153
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 154
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I see.",
+   "line": 155
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "yalign": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 2.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.7
+     }
+    }
+   ],
+   "line": 156
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Let me check your heartbeat first.",
+   "line": 159
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.7
+     }
+    }
+   ],
+   "line": 160
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 162
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Hm. A little fast.",
+   "line": 163
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "atl": [
+    {
+     "warp": "easeout",
+     "time": 1.5,
+     "props": {
+      "zoom": 3.0,
+      "ypos": 1.2,
+      "xpos": 1.1
+     }
+    }
+   ],
+   "line": 164
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Checking the ears.",
+   "line": 166
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(He's so close.)",
+   "line": 167
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 2.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.7,
+      "xalign": 0.0
+     }
+    }
+   ],
+   "line": 168
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Looks alright.",
+   "line": 170
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0,
+      "zoom": 2.0,
+      "yalign": 0.7,
+      "xalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 2.0,
+     "props": {
+      "zoom": 3.0,
+      "ypos": 1.2,
+      "xpos": -0.7
+     }
+    }
+   ],
+   "line": 171
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Now this side.",
+   "line": 174
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(I can feel his body heat.)",
+   "line": 175
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 3.0,
+      "ypos": 1.2,
+      "xpos": -0.7
+     }
+    },
+    {
+     "warp": "easeout",
+     "time": 2.0,
+     "props": {
+      "zoom": 1.0,
+      "yalign": 0.0,
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 176
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Nothing unusual.",
+   "line": 179
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "(Phew, it's over.)",
+   "line": 180
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "yalign": 0.0,
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 181
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Keep monitoring and tell me if it happens again.",
+   "line": 183
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Got it!",
+   "line": 184
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 185
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "doctor",
+    "attrs": [],
+    "text": "Any questions for me?"
+   },
+   "choices": [
+    {
+     "text": "What happened earlier?",
+     "cond": null,
+     "to": 152
+    },
+    {
+     "text": "Shorthanded?",
+     "cond": null,
+     "to": 175
+    }
+   ],
+   "line": 186
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "What happened earlier?",
+   "line": 189
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "With the mother?",
+   "line": 190
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 191
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I don't know.",
+   "line": 192
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 193
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "She asked if there's a chance her son might die.",
+   "line": 194
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 195
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I said yes.",
+   "line": 196
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 197
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "She started crying...",
+   "line": 198
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Her son might die?!",
+   "line": 199
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 200
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "For a young person appendicitis is usually not fatal.",
+   "line": 201
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 202
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "But I can't discount the slight risk of complications in surgery.",
+   "line": 203
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(That's too blunt!)",
+   "line": 206
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Now I understand why the nurse was upset.)",
+   "line": 207
+  },
+  {
+   "t": "set",
+   "var": "doctor_courage",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 220
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 221
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Is there anything I can help you with?",
+   "line": 222
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Umm... ",
+   "line": 223
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I overheard the nurse saying they were shorthanded...",
+   "line": 224
+  },
+  {
+   "t": "goto",
+   "to": 177
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I overheard the nurse saying they were shorthanded...",
+   "line": 237
+  },
+  {
+   "t": "goto",
+   "to": 177
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 238
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Indeed. With all the paperwork, we barely have time to look after patients.",
+   "line": 239
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I see.",
+   "line": 240
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 241
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Umm well, I'm actually looking for a job in the city.",
+   "line": 242
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "If the hospital is hiring...",
+   "line": 243
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "line": 244
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "What luck!",
+   "line": 245
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 246
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "We're looking for someone to help with paperwork.",
+   "line": 247
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "That's perfect.",
+   "line": 248
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 249
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Let's go talk to nurse.",
+   "line": 251
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 252
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"doctor\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 253
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "doctor",
+   "line": 254
+  },
+  {
+   "t": "hide",
+   "image": "clinic",
+   "line": 255
+  },
+  {
+   "t": "show",
+   "image": "bg hospital",
+   "line": 256
+  },
+  {
+   "t": "show",
+   "image": "nurse relieved",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.2,
+      "ypos": 0.1
+     }
+    }
+   ],
+   "line": 257
+  },
+  {
+   "t": "show",
+   "with": "moveinright",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8
+     }
+    }
+   ],
+   "line": 259
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "This young lady is willing to help with the paperwork.",
+   "line": 261
+  },
+  {
+   "t": "show",
+   "image": "nurse sigh",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.2,
+      "xzoom": -1.0,
+      "ypos": 0.1
+     }
+    }
+   ],
+   "line": 262
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "I do hope she can read your handwriting.",
+   "line": 264
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0,
+      "zoom": 1.0,
+      "xalign": 0.8
+     }
+    }
+   ],
+   "line": 265
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Nurse will explain to you.",
+   "line": 267
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'll be in my clinic.",
+   "line": 268
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Thank you!",
+   "line": 269
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "doctor",
+   "line": 270
+  },
+  {
+   "t": "show",
+   "image": "nurse relieved",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.2,
+      "zoom": 1.0,
+      "ypos": 0.1
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 271
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "You'll need to refer to the doctor's notes and fill out the requests for medication and such.",
+   "line": 274
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "You can come to the hospital between Mondays and Fridays.",
+   "line": 275
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "You'll be paid for the day's work.",
+   "line": 276
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "At the end of the month, if your performance was good, you can become a full-time employee.",
+   "line": 277
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Can you start now?",
+   "line": 278
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Uh, sure?",
+   "line": 279
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(They must be really short-handed!)",
+   "line": 280
+  },
+  {
+   "t": "show",
+   "image": "nurse sigh",
+   "line": 281
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Good.",
+   "line": 282
+  },
+  {
+   "t": "show",
+   "image": "nurse relieved",
+   "line": 283
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Now go look for Dr Yumoto and get the notes from him.",
+   "line": 284
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Yes, ma'am.",
+   "line": 285
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "nurse",
+   "line": 286
+  },
+  {
+   "t": "return",
+   "line": 287
+  },
+  {
+   "t": "scene",
+   "image": "bg hospital",
+   "line": 290
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.2,
+      "yalign": 1.0,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 291
+  },
+  {
+   "t": "show",
+   "image": "nurse sigh",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 0.1
+     }
+    }
+   ],
+   "line": 293
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Dr Yumoto, what you said to the patient just now-",
+   "line": 295
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.2,
+      "yalign": 1.0,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 296
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Did I say something wrong?",
+   "line": 298
+  },
+  {
+   "t": "show",
+   "image": "nurse angry",
+   "line": 299
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "He was very distraught.",
+   "line": 300
+  },
+  {
+   "t": "show",
+   "image": "nurse angry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "ypos": 0.1,
+      "xzoom": -1.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 301
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Please be more gentle next time.",
+   "line": 303
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "nurse",
+   "line": 304
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 305
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "...",
+   "line": 306
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 307
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Oh, Naomi.",
+   "line": 308
+  },
+  {
+   "t": "show",
+   "image": "doctor blush",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 309
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Sorry you had to see that.",
+   "line": 311
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Ask what happened",
+     "cond": null,
+     "to": 238
+    },
+    {
+     "text": "Brush it off",
+     "cond": null,
+     "to": 264
+    }
+   ],
+   "line": 312
+  },
+  {
+   "t": "set",
+   "var": "doctor_courage",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 314
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "What happened?",
+   "line": 315
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 316
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "A patient asked about his prognosis. I told him full recovery is unlikely.",
+   "line": 317
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "How did he react?",
+   "line": 318
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 319
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "He was shocked.",
+   "line": 320
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 321
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I don't understand. He wanted the truth, so I was honest with him.",
+   "line": 322
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "He asked for the truth, but maybe he wasn't ready for it.",
+   "line": 323
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 324
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Should I have lied?",
+   "line": 325
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Not lie...",
+   "line": 326
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Maybe he just needed to be guided to the truth slower.",
+   "line": 327
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 328
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I see...",
+   "line": 329
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 330
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Thank you for explaining it to me.",
+   "line": 331
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'll try to be more aware next time.",
+   "line": 332
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I'm sure your patients will appreciate it.",
+   "line": 333
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Dr Yumoto!",
+   "line": 334
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 335
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I need to go. See you.",
+   "line": 337
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "doctor",
+   "line": 338
+  },
+  {
+   "t": "return",
+   "line": 339
+  },
+  {
+   "t": "goto",
+   "to": 273
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "It's fine, workplace troubles.",
+   "line": 341
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 342
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "You're too kind.",
+   "line": 343
+  },
+  {
+   "t": "say",
+   "who": "nurse",
+   "attrs": [],
+   "text": "Dr Yumoto!",
+   "line": 344
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 345
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I need to go. See you.",
+   "line": 347
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "doctor",
+   "line": 348
+  },
+  {
+   "t": "return",
+   "line": 349
+  },
+  {
+   "t": "goto",
+   "to": 273
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 352
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Naomi.",
+   "line": 354
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 355
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I need your help.",
+   "line": 356
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I have bad news to deliver to a patient.",
+   "line": 357
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "What bad news?",
+   "line": 358
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "He has typhoid.",
+   "line": 359
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 360
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "There's little I can do except to treat his symptoms.",
+   "line": 361
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 362
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "doctor",
+    "attrs": [],
+    "text": "Should I be honest with him? Or be vague about it?"
+   },
+   "choices": [
+    {
+     "text": "Be vague",
+     "cond": null,
+     "to": 284
+    },
+    {
+     "text": "Be honest",
+     "cond": null,
+     "to": 289
+    }
+   ],
+   "line": 363
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I think it is better to be indirect.",
+   "line": 366
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Tell him you'll do your best to keep him comfortable.",
+   "line": 367
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Isn't that avoiding reality?",
+   "line": 368
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Being too direct might do more harm than good, if he's very sick.",
+   "line": 369
+  },
+  {
+   "t": "goto",
+   "to": 298
+  },
+  {
+   "t": "set",
+   "var": "doctor_choice",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 371
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(totaldays > 8)",
+   "to": 293,
+   "line": 372
+  },
+  {
+   "t": "set",
+   "var": "enable_doctor_event_1",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 373
+  },
+  {
+   "t": "goto",
+   "to": 293
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Just be honest with him.",
+   "line": 374
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Won't that be too harsh?",
+   "line": 375
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "It doesn't have to be harsh. You can be clear and still compassionate.",
+   "line": 376
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Tell him you can't cure the illness, but you'll do your best to keep him comfortable.",
+   "line": 377
+  },
+  {
+   "t": "goto",
+   "to": 298
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 378
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I see.",
+   "line": 379
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 380
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Thank you for your advice, Naomi.",
+   "line": 381
+  },
+  {
+   "t": "return",
+   "line": 382
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 385
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "By the way...",
+   "line": 386
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 387
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Yes?",
+   "line": 388
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "How did it go with the patient?",
+   "line": 389
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_choice == 0)",
+   "to": 323,
+   "line": 390
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 391
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "The patient?",
+   "line": 392
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 393
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Ah!",
+   "line": 394
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 395
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "It didn't go as planned...",
+   "line": 396
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 397
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "He got frustrated, and I ended up blurting out that he's incurable.",
+   "line": 398
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Oh no.",
+   "line": 399
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Well, you did what you could.",
+   "line": 400
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 401
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Yeah.",
+   "line": 402
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 403
+  },
+  {
+   "t": "goto",
+   "to": 323
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_choice == 1)",
+   "to": 380,
+   "line": 404
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 405
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Ah...",
+   "line": 406
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 407
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I told him the truth.",
+   "line": 408
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 409
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "He didn't say much.",
+   "line": 410
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 411
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I think he had guessed it himself.",
+   "line": 412
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 413
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "He thanked me and left.",
+   "line": 414
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "line": 415
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "It was right to tell him the truth gently.",
+   "line": 416
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Good that it went alright.",
+   "line": 417
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 418
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Thanks for your advice.",
+   "line": 419
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(enable_doctor_event_1 == true)",
+   "to": 379,
+   "line": 420
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Naomi, I'm glad I met you.",
+   "line": 421
+  },
+  {
+   "t": "show",
+   "image": "doctor glitched",
+   "line": 430
+  },
+  {
+   "t": "todo",
+   "code": "show clinic as clinic_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 431
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Unngh!",
+   "line": 432
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 433
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Naomi!",
+   "line": 434
+  },
+  {
+   "t": "scene",
+   "with": "Fade(0.2,0.5,2.0)",
+   "image": "clinic",
+   "line": 436
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 437
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "(So warm...)",
+   "line": 438
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 439
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 440
+  },
+  {
+   "t": "show",
+   "image": "clinic",
+   "line": 441
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.4,
+      "zoom": 4.0
+     }
+    }
+   ],
+   "line": 442
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,2.0)",
+   "line": 444
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Are you alright?",
+   "line": 445
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 446
+  },
+  {
+   "t": "show",
+   "image": "doctor blush",
+   "atl": [
+    {
+     "warp": "ease",
+     "time": 0.5,
+     "props": {
+      "yalign": 0.2,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 447
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Sorry!",
+   "line": 449
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Sorry, I blacked out for a moment.",
+   "line": 450
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "yalign": 0.2,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 451
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'm not sure why I'm apologising.",
+   "line": 453
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "yalign": 0.2,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 454
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Here, sit down.",
+   "line": 456
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'm feeling fine now!",
+   "line": 457
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thank you for your concern.",
+   "line": 458
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 459
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Have you been sleeping well?",
+   "line": 461
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...I've been having strange dreams.",
+   "line": 462
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Maybe I've been working too hard.",
+   "line": 463
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'll prescribe you medication to help sleep better.",
+   "line": 464
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thanks, doctor!",
+   "line": 465
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 466
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "...",
+   "line": 467
+  },
+  {
+   "t": "show",
+   "image": "doctor blush",
+   "line": 468
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Shiro.",
+   "line": 469
+  },
+  {
+   "t": "set",
+   "var": "doctor_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"Shiro\"",
+   "line": 470
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Shiro.",
+   "line": 471
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Thank you, Shiro!",
+   "line": 472
+  },
+  {
+   "t": "goto",
+   "to": 379
+  },
+  {
+   "t": "goto",
+   "to": 380
+  },
+  {
+   "t": "return",
+   "line": 473
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(He's not here.)",
+   "line": 476
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(Maybe he's at the wards.)",
+   "line": 477
+  },
+  {
+   "t": "hide",
+   "image": "bg clinic",
+   "line": 478
+  },
+  {
+   "t": "show",
+   "image": "bg hospital",
+   "line": 479
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 480
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Madam, I can't promise your son will wake up...",
+   "line": 481
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(Oh no! Is he going to say something blunt again?)",
+   "line": 482
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_courage > 1)",
+   "to": 394,
+   "line": 484
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "...but we have observed more movement.",
+   "line": 485
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "It's a good sign. Don't give up, keep talking to him!",
+   "line": 486
+  },
+  {
+   "t": "say",
+   "who": "mother",
+   "attrs": [],
+   "text": "Thank you so much, doctor!",
+   "line": 487
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "(Phew.)",
+   "line": 488
+  },
+  {
+   "t": "goto",
+   "to": 399
+  },
+  {
+   "t": "say",
+   "who": "mother",
+   "attrs": [],
+   "text": "Is there nothing I can do?",
+   "line": 490
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Hope for the best, be prepared for the worst.",
+   "line": 491
+  },
+  {
+   "t": "say",
+   "who": "mother",
+   "attrs": [],
+   "text": "...",
+   "line": 492
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "...",
+   "line": 493
+  },
+  {
+   "t": "goto",
+   "to": 399
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "(I'll wait for him at his office.)",
+   "line": 494
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "bg hospital",
+   "line": 495
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "clinic",
+   "line": 496
+  },
+  {
+   "t": "show",
+   "with": "moveinright",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 497
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Hey.",
+   "line": 499
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Hey.",
+   "line": 500
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "I overheard.",
+     "cond": null,
+     "to": 406
+    },
+    {
+     "text": "Nothing.",
+     "cond": null,
+     "to": 440
+    }
+   ],
+   "line": 501
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_courage > 1)",
+   "to": 423,
+   "line": 503
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I overheard you talking to the patient's mother.",
+   "line": 504
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 505
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Do you think it went alright?",
+   "line": 506
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 507
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I thought very hard and this was the best I could come up with...",
+   "line": 508
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 509
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Yes! I think you managed to assure her.",
+   "line": 510
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 511
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'm so glad.",
+   "line": 512
+  },
+  {
+   "t": "show",
+   "image": "doctor blush",
+   "line": 513
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "It's because of you...",
+   "line": 514
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Me?",
+   "line": 515
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "line": 516
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Nothing.",
+   "line": 517
+  },
+  {
+   "t": "set",
+   "var": "doctor_courage",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 518
+  },
+  {
+   "t": "goto",
+   "to": 439
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I overheard you talking to the patient's mother.",
+   "line": 520
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 521
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Oh?",
+   "line": 522
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I think you could have been more tactful.",
+   "line": 523
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "line": 524
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "How so?",
+   "line": 525
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "The mother was feeling helpless.",
+   "line": 526
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "You could have encouraged her not to give up.",
+   "line": 527
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 528
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I see...",
+   "line": 529
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 530
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'll go talk to her again.",
+   "line": 531
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "line": 532
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Thank you for pointing that out to me.",
+   "line": 533
+  },
+  {
+   "t": "set",
+   "var": "doctor_courage",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 534
+  },
+  {
+   "t": "goto",
+   "to": 439
+  },
+  {
+   "t": "goto",
+   "to": 442
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Can I have the notes?",
+   "line": 536
+  },
+  {
+   "t": "goto",
+   "to": 442
+  },
+  {
+   "t": "return",
+   "line": 537
+  },
+  {
+   "t": "show",
+   "with": "moveinright",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 540
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Hey.",
+   "line": 542
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 543
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I... Uh.",
+   "line": 544
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Yes?",
+   "line": 545
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 546
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "A patient gave me a pair of tickets to the movie this Sunday afternoon.",
+   "line": 547
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 548
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 549
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "If you're not busy that day, I thought perhaps...",
+   "line": 550
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_courage > 2)",
+   "to": 456,
+   "line": 551
+  },
+  {
+   "t": "show",
+   "image": "doctor blush",
+   "line": 552
+  },
+  {
+   "t": "goto",
+   "to": 456
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Would you come with me?",
+   "line": 553
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Yes!",
+   "line": 554
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I mean...",
+   "line": 555
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'd love to go with you.",
+   "line": 556
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 557
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Great!",
+   "line": 558
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "line": 559
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'll meet you there then.",
+   "line": 560
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure!",
+   "line": 561
+  },
+  {
+   "t": "set",
+   "var": "doctor_event",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 562
+  },
+  {
+   "t": "return",
+   "line": 563
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I guess this is where I'll be working from now on.",
+   "line": 566
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I achieved my goal of finding a job within these two weeks.",
+   "line": 567
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Why does it feel like I'm missing something important?",
+   "line": 568
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 569
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 570
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 572
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Game over.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 574
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 576
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 577
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 578
+  }
+ ]
+}

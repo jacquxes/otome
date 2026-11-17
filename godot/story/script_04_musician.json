@@ -1,0 +1,10965 @@
+{
+ "source": "script_04_musician.rpy",
+ "labels": {
+  "imperial_theatre": 0,
+  "musician_0": 90,
+  "musician_1": 171,
+  "musician_2": 218,
+  "musician_3": 247,
+  "musician_4": 335,
+  "musician_5": 374,
+  "musician_6": 400,
+  "musician_7": 447,
+  "musician_8": 509,
+  "musician_show": 588,
+  "musician_9": 773,
+  "musician_9a": 850,
+  "musician_9b": 997,
+  "musician_11": 1003,
+  "musician_tower": 1035,
+  "musician_12": 1222,
+  "musician_ending_irl": 1269,
+  "musician_ending": 1375
+ },
+ "ops": [
+  {
+   "t": "scene",
+   "image": "bg imperial theatre",
+   "line": 3
+  },
+  {
+   "t": "play",
+   "channel": "music",
+   "file": "cello.mp3",
+   "from": 246.0,
+   "fadein": 3.0,
+   "if_changed": true,
+   "loop": true,
+   "line": 4
+  },
+  {
+   "t": "set",
+   "var": "location_visits",
+   "keys": [
+    "\"theatre\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 6
+  },
+  {
+   "t": "set",
+   "var": "days_since_show",
+   "keys": [],
+   "op": "=",
+   "value": "(story_flags.get(\"musician_show_day\", (-9999)) - totaldays)",
+   "line": 9
+  },
+  {
+   "t": "set",
+   "var": "musician_next",
+   "keys": [],
+   "op": "=",
+   "value": "get_musician_action()",
+   "line": 11
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "musician_next",
+   "to": 8,
+   "line": 12
+  },
+  {
+   "t": "call_expr",
+   "code": "musician_next",
+   "line": 13
+  },
+  {
+   "t": "goto",
+   "to": 79
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((days_since_show >= 4) and (not flag(\"musician_ticketer_talk_seen\")))",
+   "to": 18,
+   "line": 15
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(Barely any fans waiting around for Hideo today...)",
+   "line": 16
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "Are you the girl from the cellist's cafe?",
+   "line": 17
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "I heard he's been skipping rehearsals.",
+   "line": 18
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "You mean Hideo?",
+   "line": 19
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "Yes. If you see him, tell him the orchestra is waiting for him.",
+   "line": 20
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure, I'll pass on the message.",
+   "line": 21
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(Perhaps he will drop by the cafe instead.)",
+   "line": 22
+  },
+  {
+   "t": "eval",
+   "code": "set_flag(\"musician_ticketer_talk_seen\")",
+   "line": 23
+  },
+  {
+   "t": "goto",
+   "to": 78
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((0 < days_since_show) and (days_since_show < 4))",
+   "to": 30,
+   "line": 24
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 25
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Pudding from the Cafe Diamond! It's Hideo's favorite pudding.",
+   "line": 26
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll have one!",
+   "line": 27
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll pass this time.",
+   "line": 28
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Sales were a little less today.)",
+   "line": 29
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "The orchestra came out during their break, but I didn't see Hideo.",
+   "line": 30
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I waited since early this morning, but he didn't appear either.",
+   "line": 31
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(I wonder where Hideo's been. It looks like his fans haven't spotted him lately.)",
+   "line": 32
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(He hasn't been coming to the cafe, either.)",
+   "line": 33
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 34
+  },
+  {
+   "t": "goto",
+   "to": 78
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"musician\"] <= 2)",
+   "to": 41,
+   "line": 36
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 37
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Hideo's fans are staking out for him again.)",
+   "line": 38
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I heard the tickets for Saturday's performance are all sold out.",
+   "line": 39
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "As expected of Hideo-sama.",
+   "line": 40
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I can't wait to hear his cello solo.",
+   "line": 41
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(So he plays the cello.)",
+   "line": 42
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(But, what's that instrument he's always carrying around?)",
+   "line": 43
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 44
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Nothing left for me to do here.)",
+   "line": 45
+  },
+  {
+   "t": "goto",
+   "to": 41
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((3 < encounters[\"musician\"]) and (encounters[\"musician\"] <= 4))",
+   "to": 58,
+   "line": 46
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 47
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Someone said she saw Hideo leave the building.",
+   "line": 48
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Looks like I missed him this time.)",
+   "line": 49
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Hideo's favourite pudding, come get yours!",
+   "line": 50
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Is this from the rumoured cafe?",
+   "line": 51
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Yes, Hideo's a regular at the Cafe Diamond in Asakusa!",
+   "line": 52
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "This is his favourite pudding.",
+   "line": 53
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll have one pudding, please!",
+   "line": 54
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(The pudding is popular, and Hideo even more so!)",
+   "line": 55
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Oh, the same flavor as Hideo-sama!",
+   "line": 56
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll have a pudding too, please!",
+   "line": 57
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I'm sorry, we are out of pudding.",
+   "line": 58
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "But you can visit us in Asakusa. You might run into Hideo himself!",
+   "line": 59
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "A chance to run into Hideo? Let's visit that cafe!",
+   "line": 60
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "(Good. More business for the cafe.)",
+   "line": 61
+  },
+  {
+   "t": "goto",
+   "to": 58
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((4 < encounters[\"musician\"]) and (encounters[\"musician\"] <= 10))",
+   "to": 66,
+   "line": 62
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 63
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Pudding from the Cafe Diamond! It's Hideo's favorite pudding.",
+   "line": 64
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll have one!",
+   "line": 65
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll pass this time.",
+   "line": 66
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 67
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Sales were a little less today.)",
+   "line": 68
+  },
+  {
+   "t": "goto",
+   "to": 66
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"musician\"] > 10)",
+   "to": 77,
+   "line": 69
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 70
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Pudding from the Cafe Diamond! It's Hideo's favorite pudding.",
+   "line": 71
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Did you hear? Hideo-sama will be playing at the Cafe Diamond.",
+   "line": 72
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Really? When?",
+   "line": 73
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "It'll be in [totaldays] days.",
+   "line": 74
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Let's go and watch him play!",
+   "line": 75
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I can't wait!",
+   "line": 76
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 77
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Sales were decent today.)",
+   "line": 78
+  },
+  {
+   "t": "goto",
+   "to": 77
+  },
+  {
+   "t": "goto",
+   "to": 78
+  },
+  {
+   "t": "goto",
+   "to": 79
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 80
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 85,
+   "line": 83
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Where should I go next?)",
+   "line": 84
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 5.0,
+   "line": 85
+  },
+  {
+   "t": "jump",
+   "label": "ginza_small",
+   "line": 86
+  },
+  {
+   "t": "goto",
+   "to": 85
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 90,
+   "line": 87
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I'll head home now.",
+   "line": 88
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 5.0,
+   "line": 89
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 90
+  },
+  {
+   "t": "goto",
+   "to": 90
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 93
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 94
+  },
+  {
+   "t": "set",
+   "var": "musician_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"???\"",
+   "line": 96
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 97
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 98
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Oh! A customer.)",
+   "line": 99
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Hi! What can I get for you?",
+   "line": 100
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 101
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Pudding, please.",
+   "line": 102
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "One Pudding à la Mode, coming right up!",
+   "line": 103
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 104
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 105
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "pudding",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 0.1,
+     "props": {
+      "xzoom": 1.0,
+      "yzoom": 0.9,
+      "ypos": 0.7
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 0.1,
+     "props": {
+      "xzoom": 1.0,
+      "yzoom": 1.0,
+      "ypos": 0.7
+     }
+    }
+   ],
+   "line": 107
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 112
+  },
+  {
+   "t": "hide",
+   "image": "pudding",
+   "line": 113
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "pudding_no",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.7,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 116
+  },
+  {
+   "t": "todo",
+   "code": "show pudding_cherry zorder 4.0:\n    xalign 0.46 ypos 0.75 zoom 0.5\n    easeout_circ 0.8 align (0.4, 0.85) knot (0.41, 0.83) zpos 150 zoom 0.6\n    ease 0.6 align (0.35, 0.85) knot (0.37, 0.82)",
+   "why": "ATL: property 'easeout_circ'",
+   "line": 118
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 122
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 123
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "...",
+   "line": 124
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I'm so sorry! The cherry—",
+   "line": 125
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 126
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...It's fine.",
+   "line": 127
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "The pudding's the same either way.",
+   "line": 128
+  },
+  {
+   "t": "show",
+   "image": "musician glitched",
+   "line": 138
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(He's... not angry.)",
+   "line": 139
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "(He's nicer than he looks.)",
+   "line": 140
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 141
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You're new here.",
+   "line": 142
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Yes, just started actually.",
+   "line": 143
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(He knows I'm new.)",
+   "line": 144
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Have you been coming often?",
+   "line": 145
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 146
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Just every now and then.",
+   "line": 147
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 148
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "When I feel like having pudding.",
+   "line": 149
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "(He must like the pudding here.)",
+   "line": 150
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 151
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...But it's been quieter lately.",
+   "line": 152
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Is that so?",
+   "line": 153
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yeah, well.",
+   "line": 154
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It's how things are.",
+   "line": 155
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 156
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "A new cafe opens, some customers go there.",
+   "line": 157
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(So there's been competition from other cafes.)",
+   "line": 158
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "You're still here, though.",
+   "line": 159
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 160
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...The pudding's better here.",
+   "line": 161
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "(He really likes the pudding.)",
+   "line": 162
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Any ideas how we could get more customers in?",
+   "line": 163
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 164
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 165
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "More customers.. It's tough.",
+   "line": 166
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "It's fine, you don't have t-",
+   "line": 167
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 168
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Well, there's the theatre crowd.",
+   "line": 169
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Theatre crowd?",
+   "line": 170
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 171
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "After a show, people look for somewhere to go.",
+   "line": 172
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 173
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...I perform at the Imperial Theatre. In Ginza.",
+   "line": 174
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Ginza is a little far. But if he came here just for pudding...)",
+   "line": 175
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "(It's worth looking into.)",
+   "line": 176
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thank you for the suggestion, I'll talk to the owner.",
+   "line": 177
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I should get his name at least.)",
+   "line": 178
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "By the way, I'm Naomi. You are...?",
+   "line": 179
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 180
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Hideo.",
+   "line": 181
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Nice to meet you, Hideo.",
+   "line": 182
+  },
+  {
+   "t": "set",
+   "var": "musician_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"Hideo\"",
+   "line": 183
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 184
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Nice meeting you too, Naomi.",
+   "line": 185
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 186
+  },
+  {
+   "t": "hide",
+   "image": "pudding_no",
+   "line": 187
+  },
+  {
+   "t": "hide",
+   "image": "pudding_cherry",
+   "line": 188
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 189
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(The Imperial Theatre.)",
+   "line": 190
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I should go and have a look.)",
+   "line": 191
+  },
+  {
+   "t": "set",
+   "var": "story_flags",
+   "keys": [
+    "\"musician_0_day\""
+   ],
+   "op": "=",
+   "value": "totaldays",
+   "line": 192
+  },
+  {
+   "t": "set",
+   "var": "unlock_imp_th",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 193
+  },
+  {
+   "t": "return",
+   "line": 194
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 197
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "So this is the Imperial Theatre... It's grand!",
+   "line": 198
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I hear music from behind the doors.",
+   "line": 199
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Such a lovely music.",
+   "line": 200
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I wonder what upcoming performances there are.",
+   "line": 201
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 0.5,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 202
+  },
+  {
+   "t": "show",
+   "image": "bg imperial theatre",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 0.5,
+      "zoom": 2.0
+     }
+    }
+   ],
+   "line": 204
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 206
+  },
+  {
+   "t": "say",
+   "who": "customer",
+   "attrs": [],
+   "text": "Front row tickets for the Saturday afternoon performance.",
+   "line": 207
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "I only have seats at the back.",
+   "line": 208
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(This performance seems quite popular.)",
+   "line": 209
+  },
+  {
+   "t": "say",
+   "who": "customer",
+   "attrs": [],
+   "text": "But I won't be able to see the handsome cellist.",
+   "line": 210
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "...",
+   "line": 211
+  },
+  {
+   "t": "say",
+   "who": "customer",
+   "attrs": [],
+   "text": "Better than nothing. I'll take it then.",
+   "line": 212
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Handsome cellist? I should check this out.)",
+   "line": 213
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "Next please.",
+   "line": 214
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Uh...",
+   "line": 215
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "Saturday afternoon performance?",
+   "line": 216
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "ticketer",
+    "attrs": [],
+    "text": "There are only a few seats at the last row, one ticket will be 10 yen."
+   },
+   "choices": [
+    {
+     "text": "I'll take it",
+     "cond": "(money >= 10)",
+     "to": 190
+    },
+    {
+     "text": "I'll pass",
+     "cond": null,
+     "to": 201
+    }
+   ],
+   "line": 217
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "10",
+   "line": 220
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll take it.",
+   "line": 221
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "Here you go then.",
+   "line": 222
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 223
+  },
+  {
+   "t": "show",
+   "image": "ticket_back_new",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.4,
+      "yalign": 0.6,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.7,
+      "zpos": 400.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 224
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 227
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "ticket_back_new",
+   "line": 228
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"ticket_back_new\": [\"Ticket for a seat in the last row.\"]}, true)",
+   "line": 229
+  },
+  {
+   "t": "set",
+   "var": "musician_choice",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 230
+  },
+  {
+   "t": "set",
+   "var": "musician_event",
+   "keys": [],
+   "op": "=",
+   "value": "1",
+   "line": 231
+  },
+  {
+   "t": "goto",
+   "to": 204
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I'll pass. Maybe next time.",
+   "line": 233
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "Alright.",
+   "line": 234
+  },
+  {
+   "t": "goto",
+   "to": 204
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 235
+  },
+  {
+   "t": "show",
+   "image": "bg imperial theatre",
+   "atl": [
+    {
+     "warp": "linear",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 237
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 239
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Did you hear? Hideo was spotted at a cafe in Asakusa.",
+   "line": 240
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Eh? Hideo's fan?)",
+   "line": 241
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Really? Which one?",
+   "line": 242
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I don't know, but I'd go just to see him!",
+   "line": 243
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Hideo's fans follow him outside the theatre.)",
+   "line": 244
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(If they knew about Cafe Diamond...)",
+   "line": 245
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "That's it.",
+   "line": 246
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I need a plan to get these fans to our cafe.",
+   "line": 247
+  },
+  {
+   "t": "set",
+   "var": "story_flags",
+   "keys": [
+    "\"musician_1_day\""
+   ],
+   "op": "=",
+   "value": "totaldays",
+   "line": 248
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 249
+  },
+  {
+   "t": "return",
+   "line": 250
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 253
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 254
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 256
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(How do I get Hideo's fans to Cafe Diamond?)",
+   "line": 257
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 258
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Oh, sorry!",
+   "line": 259
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Pudding, yes?",
+   "line": 260
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 261
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "pudding",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 262
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 265
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 266
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You're distracted.",
+   "line": 267
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...I was just thinking about how to bring the theatre crowd to the cafe.",
+   "line": 268
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Hm.",
+   "line": 269
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "How about if you brought the cafe to the theatre?",
+   "line": 270
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Cafe to the theatre?",
+   "line": 271
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 272
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yeah...",
+   "line": 273
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 274
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Some pudding during breaks would be nice.",
+   "line": 275
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "You just want to eat pudding, don't you?",
+   "line": 276
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 277
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You caught me.",
+   "line": 278
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 279
+  },
+  {
+   "t": "hide",
+   "image": "pudding",
+   "line": 280
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 281
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(But still, it's an idea.)",
+   "line": 282
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I'll bring some pudding when I visit the theatre.)",
+   "line": 283
+  },
+  {
+   "t": "return",
+   "line": 284
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 287
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 288
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Hideo's fans are here as usual.)",
+   "line": 289
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I've brought the puddings from the cafe.)",
+   "line": 290
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Hello! Would you like to give Hideo's favourite pudding a try?",
+   "line": 291
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo's favourite pudding?",
+   "line": 292
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Yes, Hideo's a regular at the Cafe Diamond in Asakusa!",
+   "line": 293
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "This is his favourite pudding.",
+   "line": 294
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Tasting the same flavor as Hideo-sama? Give me one!",
+   "line": 295
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "A pudding, please!",
+   "line": 296
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll have a pudding too, please!",
+   "line": 297
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I'm sorry, we are out of pudding.",
+   "line": 298
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "But you can visit us in Asakusa. You might run into Hideo himself!",
+   "line": 299
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "A chance to run into Hideo? Let's visit that cafe!",
+   "line": 300
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "He might have gone there. Let's go now!",
+   "line": 301
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "(Good. More business for the cafe.)",
+   "line": 302
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "(I should guide these customers to the cafe, but this music...)"
+   },
+   "choices": [
+    {
+     "text": "Guide the customers",
+     "cond": null,
+     "to": 264
+    },
+    {
+     "text": "Listen to music",
+     "cond": null,
+     "to": 308
+    }
+   ],
+   "line": 303
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Please follow me, I will bring you to the cafe.",
+   "line": 306
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Lead the way!",
+   "line": 307
+  },
+  {
+   "t": "scene",
+   "image": "bg caferight",
+   "line": 308
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 309
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 310
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 311
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Pudding, please!",
+   "line": 312
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Coming right up!",
+   "line": 313
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "pudding",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 314
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "The food is delicious!",
+   "line": 317
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll come again to see if I can catch Hideo.",
+   "line": 318
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Good, my strategy is working out.)",
+   "line": 319
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I'll visit the theatre again to get more fans here.)",
+   "line": 320
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thank you for your patronage!",
+   "line": 321
+  },
+  {
+   "t": "hide",
+   "image": "fans_less",
+   "line": 322
+  },
+  {
+   "t": "hide",
+   "image": "pudding",
+   "line": 323
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 324
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "kirako happy",
+   "line": 325
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Thank you for your help Naomi!",
+   "line": 326
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "line": 327
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Is it just me, or was the cafe busier today?",
+   "line": 328
+  },
+  {
+   "t": "set",
+   "var": "tips",
+   "keys": [],
+   "op": "=",
+   "value": "randi_range(10, 15)",
+   "line": 329
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "+=",
+   "value": "tips",
+   "line": 330
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 331
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Here you go, [tips] yen in tips today.",
+   "line": 332
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 335
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 301,
+   "line": 336
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thank you!",
+   "line": 337
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "kirako",
+   "line": 338
+  },
+  {
+   "t": "scene",
+   "with": "pushright",
+   "image": "bg cafeleft",
+   "line": 339
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "What should I do this afternoon?"
+   },
+   "choices": [
+    {
+     "text": "Work in cafe",
+     "cond": null,
+     "to": 295
+    },
+    {
+     "text": "Go out",
+     "cond": null,
+     "to": 297
+    }
+   ],
+   "line": 340
+  },
+  {
+   "t": "jump",
+   "label": "work_cafe",
+   "line": 343
+  },
+  {
+   "t": "goto",
+   "to": 300
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 345
+  },
+  {
+   "t": "jump",
+   "label": "asakusa_small",
+   "line": 346
+  },
+  {
+   "t": "goto",
+   "to": 300
+  },
+  {
+   "t": "goto",
+   "to": 301
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 307,
+   "line": 347
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Have a good rest, dear.",
+   "line": 348
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "You too, good night!",
+   "line": 349
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 350
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 351
+  },
+  {
+   "t": "goto",
+   "to": 307
+  },
+  {
+   "t": "goto",
+   "to": 335
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 353
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "(I'll just listen for a while.)",
+   "line": 354
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 355
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 356
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 357
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 359
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 360
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Naomi?",
+   "line": 361
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Hideo?",
+   "line": 362
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "What are you doing here?",
+   "line": 363
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I came to promote the cafe, like you suggested.",
+   "line": 364
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 365
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I see. How did it go?",
+   "line": 366
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I think it worked! People are heading to the cafe.",
+   "line": 367
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I brought your favourite pudding, and it was a hit.",
+   "line": 368
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "It sold out within minutes... Sorry.",
+   "line": 369
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 370
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It's alright, I'm glad for the cafe.",
+   "line": 371
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I've got to get back to practice now.",
+   "line": 372
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Bring extra for me next time.",
+   "line": 373
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "musician",
+   "line": 374
+  },
+  {
+   "t": "play",
+   "channel": "music",
+   "file": "cello.mp3",
+   "from": 246.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": true,
+   "line": 375
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "We're off to a promising start.",
+   "line": 376
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I'll just have to keep coming with the puddings.",
+   "line": 377
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"musician\")",
+   "line": 378
+  },
+  {
+   "t": "return",
+   "line": 379
+  },
+  {
+   "t": "goto",
+   "to": 335
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 383
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 384
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Hi! The usual?",
+   "line": 386
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yes, please.",
+   "line": 387
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 388
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "pudding",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 389
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 392
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I've been meaning to ask, what's that you're always carrying?",
+   "line": 393
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 394
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...This?",
+   "line": 395
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 396
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "A shamisen.",
+   "line": 397
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Do you play that in the orchestra?",
+   "line": 398
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Nah, it doesn't fit in an orchestra.",
+   "line": 399
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I play the cello now.",
+   "line": 400
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Ask about cello",
+     "cond": null,
+     "to": 351
+    },
+    {
+     "text": "Ask about shamisen",
+     "cond": null,
+     "to": 360
+    }
+   ],
+   "line": 401
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I see.",
+   "line": 403
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "When did you pick up the cello?",
+   "line": 404
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Just about half a year back.",
+   "line": 405
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Half a year?",
+   "line": 406
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Unthinkable given his level of mastery.)",
+   "line": 407
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "You must have worked very hard at it.",
+   "line": 408
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 409
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yeah, it was difficult.",
+   "line": 410
+  },
+  {
+   "t": "goto",
+   "to": 370
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Why do you carry it around then?",
+   "line": 412
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 413
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...I'm just used to having it with me.",
+   "line": 414
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(It means enough to him that he carries it with him.)",
+   "line": 415
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 416
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I'd love to hear you play the shamisen someday.",
+   "line": 417
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 418
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Maybe someday.",
+   "line": 419
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"musician\")",
+   "line": 420
+  },
+  {
+   "t": "goto",
+   "to": 370
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 421
+  },
+  {
+   "t": "hide",
+   "image": "pudding",
+   "line": 422
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 423
+  },
+  {
+   "t": "return",
+   "line": 424
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 427
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 428
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 429
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Pudding from the Cafe Diamond! It's Hideo's favorite pudding.",
+   "line": 430
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "The pudding! I want one.",
+   "line": 431
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Here you go! Come visit our cafe in Asakusa!",
+   "line": 432
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I visited, but Hideo wasn't there.",
+   "line": 433
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Is this really Hideo's favorite pudding?",
+   "line": 434
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(People are doubting.)",
+   "line": 435
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I need to create an opportunity for them to see Hideo at the cafe...)",
+   "line": 436
+  },
+  {
+   "t": "play",
+   "channel": "music",
+   "file": "cello.mp3",
+   "from": 135.0,
+   "to": 155.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": true,
+   "line": 437
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hush! Hideo is playing.",
+   "line": 438
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 439
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(This music!)",
+   "line": 440
+  },
+  {
+   "t": "todo",
+   "code": "show bg imperial theatre as theatre_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 441
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "persistent.haptics_enabled",
+   "to": 392,
+   "line": 442
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.vibrate(0.5)",
+   "why": "Python: renpy.vibrate",
+   "line": 443
+  },
+  {
+   "t": "goto",
+   "to": 392
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "(It makes me feel...)",
+   "line": 444
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(What was that?)",
+   "line": 445
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 446
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Around me, people are stopping to listen.)",
+   "line": 447
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "That's it!",
+   "line": 448
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "If I can get Hideo to play at the cafe, people will come.",
+   "line": 449
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Now I need to convince Hideo to help.",
+   "line": 450
+  },
+  {
+   "t": "return",
+   "line": 451
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 455
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 456
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Welcome back!",
+   "line": 458
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 459
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks. The usual, please.",
+   "line": 460
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Coming right up!",
+   "line": 461
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 462
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "pudding",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 463
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 466
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Here you go!",
+   "line": 467
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 468
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I need his help for the cafe.)",
+   "line": 469
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "(How should I ask him?)"
+   },
+   "choices": [
+    {
+     "text": "It would help the cafe",
+     "cond": null,
+     "to": 413
+    },
+    {
+     "text": "Your music moved me",
+     "cond": null,
+     "to": 423
+    }
+   ],
+   "line": 470
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Actually, I wanted to ask you something.",
+   "line": 473
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Would you consider playing here sometime? It would really bring in customers.",
+   "line": 474
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 475
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Here?",
+   "line": 476
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Just once, even. The theatre crowd already knows your name.",
+   "line": 477
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 478
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 479
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "The cello doesn't work well on its own.",
+   "line": 480
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It needs an orchestra to be complete.",
+   "line": 481
+  },
+  {
+   "t": "goto",
+   "to": 438
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"musician\")",
+   "line": 483
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Actually, I wanted to ask you something.",
+   "line": 484
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I was listening to your music at rehearsal.",
+   "line": 485
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "And it moved me, somehow.",
+   "line": 486
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Would you play something like that here? Just for us?",
+   "line": 487
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 488
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Here?",
+   "line": 489
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "It wouldn't have to be anything big.",
+   "line": 490
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 491
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 492
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "The cello doesn't work well on its own.",
+   "line": 493
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It needs an orchestra to be complete.",
+   "line": 494
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 495
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Sorry.",
+   "line": 496
+  },
+  {
+   "t": "goto",
+   "to": 438
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(He didn't say no, but he seems reluctant.)",
+   "line": 497
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 498
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I should head back.",
+   "line": 499
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thanks for stopping by.",
+   "line": 500
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 501
+  },
+  {
+   "t": "hide",
+   "image": "pudding",
+   "line": 502
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 503
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I don't want to be pushy, but I do hope he can help.",
+   "line": 504
+  },
+  {
+   "t": "return",
+   "line": 505
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 508
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 509
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Pudding from the Cafe Diamond!",
+   "line": 510
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll have a pudding, please.",
+   "line": 511
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Here you go! Come visit our cafe!",
+   "line": 512
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 513
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 514
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(There's pudding left over this time.)",
+   "line": 515
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(I've got to think of something else to get people to come.)",
+   "line": 516
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 517
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 519
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 520
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You're here again.",
+   "line": 521
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "There's pudding left over this time.",
+   "line": 522
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 523
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Just what I need right now.",
+   "line": 524
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "How is your rehearsal going?",
+   "line": 525
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 526
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Still some parts I'm not happy with...",
+   "line": 527
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "How is the cafe's business?",
+   "line": 528
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Better than before, but I need to keep the momentum going.",
+   "line": 529
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 530
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Huh.",
+   "line": 531
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "Some music might be nice.",
+   "line": 532
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 533
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Not the cello.",
+   "line": 534
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "(How should I convince him?)"
+   },
+   "choices": [
+    {
+     "text": "Just a fan meet then?",
+     "cond": null,
+     "to": 474
+    },
+    {
+     "text": "How about shamisen?",
+     "cond": null,
+     "to": 488
+    }
+   ],
+   "line": 535
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "What if it's just a fan meet then?",
+   "line": 538
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 539
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 540
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I don't think anyone will come.",
+   "line": 541
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Really?",
+   "line": 542
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I overheard your fans.",
+   "line": 543
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "They went to the cafe looking for you.",
+   "line": 544
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 545
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "That's...",
+   "line": 546
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "You don't have to decide now.",
+   "line": 547
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Just think about it.",
+   "line": 548
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 549
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Alright.",
+   "line": 550
+  },
+  {
+   "t": "goto",
+   "to": 499
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"musician\")",
+   "line": 552
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "How about the shamisen then?",
+   "line": 553
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 554
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 555
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Did I assume too much? Just because he carries it...)",
+   "line": 556
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "I'm sorry!",
+   "line": 557
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "You're always carrying it around, so I thought...",
+   "line": 558
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 559
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "No, it's fine.",
+   "line": 560
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Now that I perform the cello, I don't play it so much.",
+   "line": 561
+  },
+  {
+   "t": "goto",
+   "to": 499
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "You don't have to decide now.",
+   "line": 562
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Just think about it.",
+   "line": 563
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 564
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Alright.",
+   "line": 565
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I've got to head back.",
+   "line": 566
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "See you at the cafe.",
+   "line": 567
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "musician",
+   "line": 568
+  },
+  {
+   "t": "play",
+   "channel": "music",
+   "file": "cello.mp3",
+   "from": 246.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": true,
+   "line": 569
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I hope I wasn't too pushy.",
+   "line": 570
+  },
+  {
+   "t": "return",
+   "line": 571
+  },
+  {
+   "t": "show",
+   "image": "fans_less",
+   "line": 574
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Pudding from the Cafe Diamond!",
+   "line": 575
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I'll pass, thanks.",
+   "line": 576
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Maybe next time.",
+   "line": 577
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 578
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 579
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(More pudding left over this time.)",
+   "line": 580
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 581
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 583
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 584
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Hideo!",
+   "line": 585
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Good news, there's extra pudding.",
+   "line": 586
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 587
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...I'm not hungry right now.",
+   "line": 588
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "(He doesn't want pudding?)",
+   "line": 589
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Is something wrong?",
+   "line": 590
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 591
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "No, I'm just.",
+   "line": 592
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 593
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 594
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I hope I won't mess up.",
+   "line": 595
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Is he nervous?)",
+   "line": 596
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(It doesn't show on him at all.)",
+   "line": 597
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "You've been rehearsing so many times.",
+   "line": 598
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 599
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yes, but with everyone watching... It's different.",
+   "line": 600
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(How should I encourage him?)",
+   "line": 601
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "You got this",
+     "cond": null,
+     "to": 537
+    },
+    {
+     "text": "Focus on the music",
+     "cond": null,
+     "to": 541
+    },
+    {
+     "text": "Play for one person",
+     "cond": null,
+     "to": 549
+    }
+   ],
+   "line": 602
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I believe you can pull it off. You'll be great.",
+   "line": 604
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 605
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Thanks.",
+   "line": 606
+  },
+  {
+   "t": "goto",
+   "to": 559
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"musician\")",
+   "line": 608
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "When I overheard your music, I was so absorbed I didn't notice you approach.",
+   "line": 609
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Once you focus on your music, the crowd will fade away too.",
+   "line": 610
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Focus on my music.",
+   "line": 611
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 612
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I guess I can do that.",
+   "line": 613
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "(He just needed to change his perspective. Good.)",
+   "line": 614
+  },
+  {
+   "t": "goto",
+   "to": 559
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"musician\")",
+   "line": 616
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "What if you don't play for everyone?",
+   "line": 617
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 618
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Just one person.",
+   "line": 619
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Imagine you're playing for that person.",
+   "line": 620
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 621
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "That... could work.",
+   "line": 622
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "(He just needed to change his perspective. Good.)",
+   "line": 623
+  },
+  {
+   "t": "eval",
+   "code": "set_flag(\"pre_musician_event_1\")",
+   "line": 624
+  },
+  {
+   "t": "goto",
+   "to": 559
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 625
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Umm...",
+   "line": 626
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 627
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Will you come this Saturday?",
+   "line": 628
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(musician_choice == 1)",
+   "to": 570,
+   "line": 629
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Yes, of course!",
+   "line": 630
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 631
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "It was selling out fast, but I managed to get a seat in the back.",
+   "line": 632
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll be cheering you on from behind!",
+   "line": 633
+  },
+  {
+   "t": "set",
+   "var": "musician_event",
+   "keys": [],
+   "op": "=",
+   "value": "1",
+   "line": 634
+  },
+  {
+   "t": "goto",
+   "to": 579
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I would have, but the tickets were selling out...",
+   "line": 636
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 637
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I see.",
+   "line": 638
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I'm sorry, I...",
+   "line": 639
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 640
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It can't be helped, don't worry about it.",
+   "line": 641
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "You'll do great, you've been practicing so much.",
+   "line": 642
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll be cheering you on in spirit.",
+   "line": 643
+  },
+  {
+   "t": "goto",
+   "to": 579
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 644
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks. I'll do my best.",
+   "line": 645
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'll head back to practice now.",
+   "line": 646
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "See you!",
+   "line": 647
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "musician",
+   "line": 648
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "(Good. He looks less tense now.)",
+   "line": 649
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 650
+  },
+  {
+   "t": "eval",
+   "code": "set_flag(\"musician_6_seen\")",
+   "line": 651
+  },
+  {
+   "t": "return",
+   "line": 652
+  },
+  {
+   "t": "eval",
+   "code": "set_flag(\"musician_show_seen\")",
+   "line": 655
+  },
+  {
+   "t": "set",
+   "var": "story_flags",
+   "keys": [
+    "\"musician_show_day\""
+   ],
+   "op": "=",
+   "value": "totaldays",
+   "line": 656
+  },
+  {
+   "t": "scene",
+   "with": "dissolve",
+   "image": "bg cafeleft",
+   "line": 657
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I'll head to the theatre now for the performance.",
+   "line": 658
+  },
+  {
+   "t": "hide",
+   "image": "cafetableright",
+   "line": 660
+  },
+  {
+   "t": "hide",
+   "image": "bg caferight",
+   "line": 661
+  },
+  {
+   "t": "show",
+   "image": "bg imperial theatre",
+   "line": 662
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "fans",
+   "line": 663
+  },
+  {
+   "t": "with",
+   "name": "fade",
+   "line": 664
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 665
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "It's still early but there are so many people...",
+   "line": 666
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "flag(\"pre_musician_event_1\")",
+   "to": 643,
+   "line": 667
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "fangirl.mp3",
+   "from": 1.0,
+   "to": 6.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 668
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "zorder": 1,
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 0.6,
+      "zoom": 0.4
+     }
+    }
+   ],
+   "line": 669
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "He's here!",
+   "line": 671
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "What's happening?",
+   "line": 672
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "fangirl.mp3",
+   "from": 1.0,
+   "to": 6.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 673
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "zorder": 3,
+   "image": "musician surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 1.0,
+      "zoom": 0.9
+     }
+    }
+   ],
+   "line": 674
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo, we love you!!",
+   "line": 676
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "zorder": 3,
+   "image": "musician surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5,
+      "zoom": 1.5
+     }
+    }
+   ],
+   "line": 677
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Naomi!",
+   "line": 679
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Hideo?",
+   "line": 680
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 681
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 683
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Wha- Shouldn't you be-",
+   "line": 684
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 685
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I, uh... I saved this seat for you.",
+   "line": 687
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 688
+  },
+  {
+   "t": "show",
+   "zorder": 4,
+   "image": "ticket_front_new",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6,
+      "yalign": 0.6,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.7,
+      "zpos": 400.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 689
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 692
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I already have a-",
+   "line": 693
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 694
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I want you to sit here.",
+   "line": 696
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Um, sure! I- I can sit here instead.",
+   "line": 697
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(This seat is right in the centre!)",
+   "line": 698
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "ticket_front_new",
+   "line": 699
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"ticket_front_new\": [\"Ticket for a seat in the front.\"]}, true)",
+   "line": 700
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 701
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "fangirl.mp3",
+   "from": 1.0,
+   "to": 6.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 703
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo!!!",
+   "line": 704
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Who's that girl?",
+   "line": 705
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 706
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I've got to be backstage now.",
+   "line": 708
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I'll be cheering you on!",
+   "line": 709
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 710
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks.",
+   "line": 712
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "fangirl.mp3",
+   "from": 1.0,
+   "to": 6.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 713
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "zorder": 1,
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 0.6,
+      "zoom": 0.4
+     }
+    }
+   ],
+   "line": 714
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo! We love you!",
+   "line": 716
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "musician",
+   "line": 717
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(Did he come out just to pass me this?)",
+   "line": 718
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo? Where did he go??",
+   "line": 719
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Who's that girl he was talking to?",
+   "line": 720
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Uh oh, I'd better go look for my seat.)",
+   "line": 721
+  },
+  {
+   "t": "goto",
+   "to": 643
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 723
+  },
+  {
+   "t": "hide",
+   "image": "fans",
+   "line": 724
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "flag(\"pre_musician_event_1\")",
+   "to": 651,
+   "line": 725
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"ticket_front_used\": [\"A used ticket for a seat in the front row.\"]}, true)",
+   "line": 726
+  },
+  {
+   "t": "todo",
+   "code": "$ del inventory[\"ticket_front_new\"]",
+   "why": "Python: Delete",
+   "line": 727
+  },
+  {
+   "t": "show",
+   "with": "Fade(2.0,0.5,0.5)",
+   "image": "musician_cutscene_11",
+   "line": 728
+  },
+  {
+   "t": "set",
+   "var": "persistent",
+   "keys": [
+    "\"musician_cutscene_1_unlocked\""
+   ],
+   "op": "=",
+   "value": "true",
+   "line": 729
+  },
+  {
+   "t": "goto",
+   "to": 658
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"ticket_back_used\": [\"A used ticket for a seat in the back row.\"]}, true)",
+   "line": 731
+  },
+  {
+   "t": "todo",
+   "code": "$ del inventory[\"ticket_back_new\"]",
+   "why": "Python: Delete",
+   "line": 732
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 733
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 735
+  },
+  {
+   "t": "show",
+   "image": "musician_cutscene_11",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.4,
+      "xalign": 0.6,
+      "yalign": 0.7
+     }
+    }
+   ],
+   "line": 737
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 739
+  },
+  {
+   "t": "goto",
+   "to": 658
+  },
+  {
+   "t": "play",
+   "channel": "music",
+   "file": "cello.mp3",
+   "from": 0.0,
+   "to": 43.5,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": true,
+   "line": 740
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 741
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Hideo?)",
+   "line": 742
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(He's usually quiet, but this music.)",
+   "line": 743
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I hear his resolve, his passion.)",
+   "line": 744
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "flag(\"pre_musician_event_1\")",
+   "to": 674,
+   "line": 745
+  },
+  {
+   "t": "show",
+   "image": "musician_cutscene_12",
+   "line": 746
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 747
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 748
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(Is he looking at me?)",
+   "line": 749
+  },
+  {
+   "t": "todo",
+   "code": "show musician_cutscene_12 as cutscene_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 750
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "(Ah!)",
+   "line": 751
+  },
+  {
+   "t": "hide",
+   "image": "musician_cutscene_12",
+   "line": 752
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(Was it just my imagination?)",
+   "line": 753
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 754
+  },
+  {
+   "t": "goto",
+   "to": 677
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 756
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 757
+  },
+  {
+   "t": "goto",
+   "to": 677
+  },
+  {
+   "t": "show",
+   "image": "bg theatre",
+   "line": 758
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "fans",
+   "line": 759
+  },
+  {
+   "t": "hide",
+   "image": "musician_cutscene_11",
+   "line": 760
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,2.0)",
+   "line": 761
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 5.0,
+   "line": 762
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 763
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "That was intense.",
+   "line": 764
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I think I can understand now why he has so many fans.",
+   "line": 765
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "His face when he's engrossed in his music...",
+   "line": 766
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "flag(\"pre_musician_event_1\")",
+   "to": 719,
+   "line": 767
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "fangirl.mp3",
+   "from": 1.0,
+   "to": 6.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 768
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "zorder": 1,
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 0.6,
+      "zoom": 0.4
+     }
+    }
+   ],
+   "line": 769
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "He's here!!",
+   "line": 771
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "zorder": 3,
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 1.0,
+      "zoom": 0.9
+     }
+    }
+   ],
+   "line": 772
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "fangirl.mp3",
+   "from": 1.0,
+   "to": 6.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 774
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo, we love you!!",
+   "line": 775
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "yalign": 0.5,
+      "xalign": 0.5,
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 776
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks for coming.",
+   "line": 778
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Hideo! You did great.",
+   "line": 779
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 780
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I was less nervous than I thought.",
+   "line": 782
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 783
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Thanks to you.",
+   "line": 785
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Me?",
+   "line": 786
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 787
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yeah, I...",
+   "line": 789
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I was playing just for you.",
+   "line": 790
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(Just for me?)",
+   "line": 791
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "fangirl.mp3",
+   "from": 1.0,
+   "to": 6.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 792
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo!! We love you!",
+   "line": 793
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 794
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Let's get out of here, I'll walk you back.",
+   "line": 796
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Can you meet me at the back of the theatre?",
+   "line": 797
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Sure!",
+   "line": 798
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "zorder": 3,
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 1.0,
+      "zoom": 0.9
+     }
+    }
+   ],
+   "line": 799
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'll find you later.",
+   "line": 801
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "zorder": 1,
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 0.6,
+      "zoom": 0.4
+     }
+    }
+   ],
+   "line": 802
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "fangirl.mp3",
+   "from": 1.0,
+   "to": 6.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 804
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo!!",
+   "line": 805
+  },
+  {
+   "t": "stop",
+   "channel": "sound",
+   "fadeout": 1.0,
+   "line": 806
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 807
+  },
+  {
+   "t": "goto",
+   "to": 722
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "His fans are all waiting for him to come out.",
+   "line": 809
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I should head off quickly.",
+   "line": 810
+  },
+  {
+   "t": "goto",
+   "to": 722
+  },
+  {
+   "t": "hide",
+   "image": "fans",
+   "line": 812
+  },
+  {
+   "t": "hide",
+   "image": "bg dancehall",
+   "line": 813
+  },
+  {
+   "t": "show",
+   "image": "bg cafeleft",
+   "line": 814
+  },
+  {
+   "t": "with",
+   "name": "fade",
+   "line": 815
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "flag(\"pre_musician_event_1\")",
+   "to": 755,
+   "line": 816
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 817
+  },
+  {
+   "t": "show",
+   "image": "table_left",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 819
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 821
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(He was quiet on the way back, like his mind was elsewhere.)",
+   "line": 822
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...Hideo?",
+   "line": 823
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 824
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 825
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 826
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Thanks again for coming to the show.",
+   "line": 827
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "(Should I probe?)"
+   },
+   "choices": [
+    {
+     "text": "Leave it",
+     "cond": null,
+     "to": 737
+    },
+    {
+     "text": "Ask him",
+     "cond": null,
+     "to": 741
+    }
+   ],
+   "line": 828
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Come by for celebratory pudding!",
+   "line": 831
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 832
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yeah. I will.",
+   "line": 833
+  },
+  {
+   "t": "goto",
+   "to": 754
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"musician\")",
+   "line": 835
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "You seem distracted. Is something bothering you?",
+   "line": 836
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 837
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Just thinking.",
+   "line": 838
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "About the show?",
+   "line": 839
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 840
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Not really.",
+   "line": 841
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 842
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "It's alright, you don't have to say it now.",
+   "line": 843
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "If you need someone to talk to, you know where to find me.",
+   "line": 844
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 845
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks.",
+   "line": 846
+  },
+  {
+   "t": "goto",
+   "to": 754
+  },
+  {
+   "t": "goto",
+   "to": 755
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "musician",
+   "line": 847
+  },
+  {
+   "t": "show",
+   "with": "moveinbottom",
+   "image": "cat neutral",
+   "line": 848
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "How was the show?",
+   "line": 849
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Great.",
+   "line": 850
+  },
+  {
+   "t": "show",
+   "image": "cat eyeroll",
+   "line": 851
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "You're besotted.",
+   "line": 852
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "cat",
+   "line": 853
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "flag(\"pre_musician_event_1\")",
+   "to": 765,
+   "line": 854
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(...He played just for me.)",
+   "line": 855
+  },
+  {
+   "t": "goto",
+   "to": 765
+  },
+  {
+   "t": "set",
+   "var": "musician_event",
+   "keys": [],
+   "op": "=",
+   "value": "2",
+   "line": 856
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_event == true)",
+   "to": 769,
+   "line": 857
+  },
+  {
+   "t": "jump",
+   "label": "merchant_dance",
+   "line": 858
+  },
+  {
+   "t": "goto",
+   "to": 773
+  },
+  {
+   "t": "scene",
+   "with": "fade",
+   "image": "bg cafeleft",
+   "line": 860
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "It's been a long day. I'll head to bed.",
+   "line": 861
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 862
+  },
+  {
+   "t": "goto",
+   "to": 773
+  },
+  {
+   "t": "eval",
+   "code": "set_flag(\"musician_5_seen\")",
+   "line": 865
+  },
+  {
+   "t": "set",
+   "var": "story_flags",
+   "keys": [
+    "\"musician_9_day\""
+   ],
+   "op": "=",
+   "value": "totaldays",
+   "line": 866
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 867
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 868
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Puddin-.",
+   "line": 870
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "One Pudding à la Mode, yes?",
+   "line": 871
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "pudding",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 872
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 875
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Here you go!",
+   "line": 876
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 877
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks.",
+   "line": 878
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "It's been a while since I ran into you at the theatre.",
+   "line": 879
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Is everything okay?",
+   "line": 880
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 881
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yeah, I've been...",
+   "line": 882
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Working on something.",
+   "line": 883
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Something?",
+   "line": 884
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 885
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 886
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "musician",
+    "attrs": [],
+    "text": "I think... I want to focus on the shamisen."
+   },
+   "choices": [
+    {
+     "text": "What about the cello?",
+     "cond": null,
+     "to": 793
+    },
+    {
+     "text": "That's cool",
+     "cond": null,
+     "to": 824
+    }
+   ],
+   "line": 887
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "What about the cello?",
+   "line": 890
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "After you put in all that effort to master it.",
+   "line": 891
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 892
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I know it doesn't make sense.",
+   "line": 893
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "But I just feel...",
+   "line": 894
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(get_stage(\"musician\") >= 2)",
+   "to": 805,
+   "line": 895
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Many people watched me perform, but it wasn't the real me.",
+   "line": 896
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 897
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "But you were there, and.",
+   "line": 898
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I wanted you to see me.",
+   "line": 899
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 900
+  },
+  {
+   "t": "goto",
+   "to": 805
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 901
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "The shamisen. It's who I am.",
+   "line": 902
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I see.",
+   "line": 903
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "It's not about the instrument, is it?",
+   "line": 904
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 905
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "You're choosing to be yourself.",
+   "line": 906
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 907
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I guess you can say that.",
+   "line": 908
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 909
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "You're really brave to make this choice.",
+   "line": 910
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll be rooting for you.",
+   "line": 911
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 912
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks. I...",
+   "line": 913
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 914
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "That really means a lot to me.",
+   "line": 915
+  },
+  {
+   "t": "show",
+   "image": "musician glitched2",
+   "line": 927
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "...",
+   "line": 928
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"musician\")",
+   "line": 929
+  },
+  {
+   "t": "goto",
+   "to": 831
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "That's cool, I think the shamisen really suits you.",
+   "line": 931
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 932
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Yeah.",
+   "line": 933
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'm sure you'll do great.",
+   "line": 934
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks.",
+   "line": 935
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(Did I say the wrong thing?)",
+   "line": 936
+  },
+  {
+   "t": "goto",
+   "to": 831
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Oh yes, have you told the orchestra about your decision yet?",
+   "line": 937
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "They're still wondering why you're skipping rehearsals.",
+   "line": 938
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 939
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Not yet...",
+   "line": 940
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 941
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "But you're right, I should talk to them.",
+   "line": 942
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I can come with you, if it's any help.",
+   "line": 943
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 944
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You would?",
+   "line": 945
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Of course! You don't have to do everything alone.",
+   "line": 946
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 947
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I need to go now, but.",
+   "line": 948
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll be at the theatre then.",
+   "line": 949
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 950
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks. I'll see you there.",
+   "line": 951
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 952
+  },
+  {
+   "t": "hide",
+   "image": "pudding",
+   "line": 953
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 954
+  },
+  {
+   "t": "return",
+   "line": 955
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 958
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You came.",
+   "line": 960
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I said I would, didn't I?",
+   "line": 961
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 962
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "You ready for this?",
+   "line": 963
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 964
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 965
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 966
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I've been wondering.",
+   "line": 967
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 968
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "To leave the orchestra at this point.",
+   "line": 969
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "After everything they've taught me.",
+   "line": 970
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 971
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "musician",
+    "attrs": [],
+    "text": "Is it really the right thing to do?"
+   },
+   "choices": [
+    {
+     "text": "Yes, you don't owe them.",
+     "cond": null,
+     "to": 864
+    },
+    {
+     "text": "Not right or wrong.",
+     "cond": null,
+     "to": 872
+    }
+   ],
+   "line": 972
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I think you don't have to feel bad for them.",
+   "line": 975
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Look at all the fans you've brought in for them.",
+   "line": 976
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "They couldn't have done it without you.",
+   "line": 977
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 978
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You're right, it wasn't just one-way.",
+   "line": 979
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 980
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thanks for supporting me.",
+   "line": 981
+  },
+  {
+   "t": "goto",
+   "to": 885
+  },
+  {
+   "t": "eval",
+   "code": "add_point(\"musician\")",
+   "line": 983
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I think there's no easy answer to that.",
+   "line": 984
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "The truth is the orchestra will be inconvenienced if you leave.",
+   "line": 985
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "Ticket sales might be affected too.",
+   "line": 986
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "But at the same time, if the orchestra are people who love music as much as you do...",
+   "line": 987
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 988
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I believe they would want to hear your shamisen too.",
+   "line": 989
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 990
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You're right.",
+   "line": 991
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I have to accept that my decision to leave will hurt them.",
+   "line": 992
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 993
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "But at the same time, this is something I must do.",
+   "line": 994
+  },
+  {
+   "t": "goto",
+   "to": 885
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "You ready?",
+   "line": 995
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 996
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Let's go.",
+   "line": 997
+  },
+  {
+   "t": "hide",
+   "image": "bg imperial theatre",
+   "line": 998
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 999
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 1000
+  },
+  {
+   "t": "show",
+   "image": "bg imperial theatre",
+   "line": 1001
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 1002
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,2.0,2.0)",
+   "line": 1004
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "That went better than expected.",
+   "line": 1005
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 1006
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Yeah, I didn't think they'd ask me to play the shamisen with them.",
+   "line": 1007
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1008
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Thank you.",
+   "line": 1009
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "I didn't do anything.",
+   "line": 1010
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You were there.",
+   "line": 1011
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 1012
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "musician shy2",
+   "line": 1013
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Naomi, I...",
+   "line": 1014
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "fans_less",
+   "line": 1015
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo's here!",
+   "line": 1016
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "fans",
+   "line": 1017
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo-sama! You're back!",
+   "line": 1018
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1019
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...It's getting crowded here.",
+   "line": 1020
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Let's head back to the cafe first.",
+   "line": 1021
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 1022
+  },
+  {
+   "t": "eval",
+   "code": "set_flag(\"pre_musician_event_2\")",
+   "line": 1023
+  },
+  {
+   "t": "scene",
+   "image": "bg caferight",
+   "line": 1024
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 1025
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 1027
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,2.0,2.0)",
+   "line": 1028
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "First, pudding to celebrate!",
+   "line": 1029
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "pudding",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "ypos": 0.9,
+      "zpos": 400.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.7,
+      "zpos": 0.0
+     }
+    }
+   ],
+   "line": 1030
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 1033
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "The pudding tastes better than usual.",
+   "line": 1034
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "(Good, he looks like the weight lifted off him.)",
+   "line": 1035
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1036
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...I've been thinking.",
+   "line": 1037
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "This might be a good place for me to start.",
+   "line": 1038
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Start?",
+   "line": 1039
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 1040
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "With the shamisen.",
+   "line": 1041
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Perform some nights, here in the cafe.",
+   "line": 1042
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Performing in the cafe?",
+   "line": 1043
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1044
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "If the owner allows, of course.",
+   "line": 1045
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Finally!",
+   "line": 1046
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "All this time I've just been waiting for you to be ready.",
+   "line": 1047
+  },
+  {
+   "t": "show",
+   "image": "musician glitched",
+   "line": 1048
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thank you, for waiting for me.",
+   "line": 1049
+  },
+  {
+   "t": "todo",
+   "code": "show bg caferight as cutscene_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 1050
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "persistent.haptics_enabled",
+   "to": 940,
+   "line": 1051
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.vibrate(0.5)",
+   "why": "Python: renpy.vibrate",
+   "line": 1052
+  },
+  {
+   "t": "goto",
+   "to": 940
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Ah!",
+   "line": 1053
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 1054
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Are you alright?",
+   "line": 1055
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...I think so.",
+   "line": 1056
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 1057
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You'd better rest, or see the doctor.",
+   "line": 1058
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I'll be fine after some rest.",
+   "line": 1059
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "More importantly, let's set a date for your first performance.",
+   "line": 1060
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1061
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...I'm still working on a song.",
+   "line": 1062
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "An original?",
+   "line": 1063
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 1064
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Yes.",
+   "line": 1065
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "That's amazing.",
+   "line": 1066
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1067
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Let's set it [totaldays] days from now.",
+   "line": 1068
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 1069
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'll be ready then.",
+   "line": 1070
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Alright, I'll be waiting.",
+   "line": 1071
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 1072
+  },
+  {
+   "t": "hide",
+   "image": "pudding",
+   "line": 1073
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1074
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "kirako happy",
+   "line": 1075
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Thank you for your help Naomi!",
+   "line": 1076
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "line": 1077
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Is it just me or business has dipped again?",
+   "line": 1078
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "It has.",
+   "line": 1079
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "But, I have an idea.",
+   "line": 1080
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Music some nights, a different crowd. What do you think?",
+   "line": 1081
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Oh darling. That sounds lovely!",
+   "line": 1082
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 1083
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "You're still young, do what makes you happy!",
+   "line": 1084
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I'll take that as a yes.)",
+   "line": 1085
+  },
+  {
+   "t": "set",
+   "var": "tips",
+   "keys": [],
+   "op": "=",
+   "value": "randi_range(10, 15)",
+   "line": 1086
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "+=",
+   "value": "tips",
+   "line": 1087
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 1088
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Here you go, [tips] yen in tips today.",
+   "line": 1089
+  },
+  {
+   "t": "set",
+   "var": "story_flags",
+   "keys": [
+    "\"musician_8_day\""
+   ],
+   "op": "=",
+   "value": "totaldays",
+   "line": 1090
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 1093
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 990,
+   "line": 1094
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thank you!",
+   "line": 1095
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "kirako",
+   "line": 1096
+  },
+  {
+   "t": "scene",
+   "with": "pushright",
+   "image": "bg cafeleft",
+   "line": 1097
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "What should I do this afternoon?"
+   },
+   "choices": [
+    {
+     "text": "Work in cafe",
+     "cond": null,
+     "to": 984
+    },
+    {
+     "text": "Go out",
+     "cond": null,
+     "to": 986
+    }
+   ],
+   "line": 1098
+  },
+  {
+   "t": "jump",
+   "label": "work_cafe",
+   "line": 1101
+  },
+  {
+   "t": "goto",
+   "to": 989
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 1103
+  },
+  {
+   "t": "jump",
+   "label": "asakusa_small",
+   "line": 1104
+  },
+  {
+   "t": "goto",
+   "to": 989
+  },
+  {
+   "t": "goto",
+   "to": 990
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 996,
+   "line": 1105
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Have a good rest, dear.",
+   "line": 1106
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "You too, good night!",
+   "line": 1107
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 1108
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 1109
+  },
+  {
+   "t": "goto",
+   "to": 996
+  },
+  {
+   "t": "return",
+   "line": 1110
+  },
+  {
+   "t": "say",
+   "who": "ticketer",
+   "attrs": [],
+   "text": "Your cellist friend is back rehearsing with the orchestra.",
+   "line": 1113
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "He is?",
+   "line": 1114
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(Didn't he want to play the shamisen instead?)",
+   "line": 1115
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "(I guess he changed his mind then.)",
+   "line": 1116
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 1117
+  },
+  {
+   "t": "return",
+   "line": 1118
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 1121
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 1123
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1124
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "How's the song coming along?",
+   "line": 1125
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 1126
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Not progressing.",
+   "line": 1127
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Eh?",
+   "line": 1128
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 1129
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "There's a part I can't seem to get right.",
+   "line": 1130
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Hmm...",
+   "line": 1131
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Maybe you need a change of pace?",
+   "line": 1132
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Get a different perspective.",
+   "line": 1133
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 1134
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "A different perspective...",
+   "line": 1135
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 1136
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Are you free this Sunday evening?",
+   "line": 1137
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Uh... I guess?",
+   "line": 1138
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1139
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "There's somewhere I want to go.",
+   "line": 1140
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 1141
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "For a different perspective.",
+   "line": 1142
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Will you come with me?",
+   "line": 1143
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure, I'd love to.",
+   "line": 1144
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'll pick you up at the cafe.",
+   "line": 1145
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(It sounds like he's asking me out on a date!)",
+   "line": 1146
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Alright.",
+   "line": 1147
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "See you then.",
+   "line": 1148
+  },
+  {
+   "t": "set",
+   "var": "guy_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 1149
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "musician",
+   "line": 1150
+  },
+  {
+   "t": "set",
+   "var": "musician_event",
+   "keys": [],
+   "op": "=",
+   "value": "3",
+   "line": 1151
+  },
+  {
+   "t": "set",
+   "var": "encounters",
+   "keys": [
+    "\"musician\""
+   ],
+   "op": "+=",
+   "value": "1",
+   "line": 1152
+  },
+  {
+   "t": "return",
+   "line": 1153
+  },
+  {
+   "t": "set",
+   "var": "story_flags",
+   "keys": [
+    "\"musician_8_day\""
+   ],
+   "op": "=",
+   "value": "totaldays",
+   "line": 1156
+  },
+  {
+   "t": "scene",
+   "with": "dissolve",
+   "image": "bg cafeleft",
+   "line": 1158
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "table_left",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 1159
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "kirako happy",
+   "line": 1161
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Hideo's waiting for you, dear.",
+   "line": 1162
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I- I'll be right there.",
+   "line": 1163
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(naomi_dress == \"dress_modern\")",
+   "to": 1046,
+   "line": 1164
+  },
+  {
+   "t": "show",
+   "image": "kirako wink",
+   "line": 1165
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Perfect dress for an evening date.",
+   "line": 1166
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 1167
+  },
+  {
+   "t": "goto",
+   "to": 1052
+  },
+  {
+   "t": "show",
+   "image": "kirako angry",
+   "line": 1169
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "You're not wearing that to a date, are you? Go change!",
+   "line": 1170
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I'll go change.",
+   "line": 1171
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 1172
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Good girl.",
+   "line": 1173
+  },
+  {
+   "t": "goto",
+   "to": 1052
+  },
+  {
+   "t": "show",
+   "image": "kirako wink",
+   "line": 1174
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "I'll leave you both to it.",
+   "line": 1175
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 1176
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "kirako",
+   "line": 1177
+  },
+  {
+   "t": "hide",
+   "image": "table_left",
+   "line": 1178
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Change clothes",
+     "cond": null,
+     "to": 1058
+    },
+    {
+     "text": "Meet Hideo",
+     "cond": null,
+     "to": 1063
+    }
+   ],
+   "line": 1179
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I'll change clothes quickly.",
+   "line": 1181
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 1182
+  },
+  {
+   "t": "todo",
+   "code": "show screen wardrobe",
+   "why": "show screen - port by hand",
+   "line": 1183
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'm ready.",
+   "line": 1184
+  },
+  {
+   "t": "goto",
+   "to": 1065
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'm ready.",
+   "line": 1186
+  },
+  {
+   "t": "goto",
+   "to": 1065
+  },
+  {
+   "t": "show",
+   "image": "bg caferight",
+   "line": 1187
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 1188
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 1189
+  },
+  {
+   "t": "with",
+   "name": "pushleft",
+   "line": 1191
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Hey...",
+   "line": 1192
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(naomi_dress == \"dress_modern\")",
+   "to": 1090,
+   "line": 1193
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 1194
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 1195
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "What's wrong?",
+   "line": 1196
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 1197
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Your kimono...",
+   "line": 1198
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Should I change? I wasn't sure what to wear since you didn't say-",
+   "line": 1199
+  },
+  {
+   "t": "show",
+   "image": "musician thinking",
+   "line": 1200
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It suits you.",
+   "line": 1201
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Thank you.",
+   "line": 1202
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(get_stage(\"musician\") >= 2)",
+   "to": 1089,
+   "line": 1203
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Actually, the print reminded me of you...",
+   "line": 1204
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 1205
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "Bold and artistic.",
+   "line": 1206
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I...",
+   "line": 1207
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1208
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'm not sure if that's true.",
+   "line": 1209
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "You are.",
+   "line": 1210
+  },
+  {
+   "t": "goto",
+   "to": 1089
+  },
+  {
+   "t": "goto",
+   "to": 1090
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 1211
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Shall we go?",
+   "line": 1212
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Yes, let's go!",
+   "line": 1213
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 1215
+  },
+  {
+   "t": "hide",
+   "image": "cafetableright",
+   "line": 1216
+  },
+  {
+   "t": "hide",
+   "image": "bg caferight",
+   "line": 1217
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 1218
+  },
+  {
+   "t": "show",
+   "image": "bg ryounkaku",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {}
+    }
+   ],
+   "line": 1219
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9
+     }
+    }
+   ],
+   "line": 1221
+  },
+  {
+   "t": "with",
+   "name": "fade",
+   "line": 1223
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1224
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "This view, it's amazing.",
+   "line": 1225
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "From here, it feels like the city stretches out endlessly.",
+   "line": 1226
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 1227
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1228
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I feel free up here.",
+   "line": 1229
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 0.5,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 1230
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Like how I feel when I play.",
+   "line": 1232
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "That sounds incredible.",
+   "line": 1233
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I wonder how that feels like.",
+   "line": 1234
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(naomi_dress == \"dress_modern\")",
+   "to": 1180,
+   "line": 1235
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(get_stage(\"musician\") >= 2)",
+   "to": 1141,
+   "line": 1237
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1238
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 1239
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 1240
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1241
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Hideo...?",
+   "line": 1242
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'm... thinking.",
+   "line": 1243
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "About your song?",
+   "line": 1244
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 1245
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "No, I... I don't know how to say this but.",
+   "line": 1246
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You said I'm bold and artistic, but I'm really not.",
+   "line": 1247
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I tend to hide myself, my music...",
+   "line": 1248
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "But somehow, when I'm with you, I can be myself.",
+   "line": 1249
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 1250
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You give me courage.",
+   "line": 1251
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 1252
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1253
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 1254
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Sorry, I know this came out of nowhere.",
+   "line": 1255
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Just forget I said all this.",
+   "line": 1256
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 1257
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "No!",
+   "line": 1258
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "...I'm glad.",
+   "line": 1259
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I didn't know you felt that way.",
+   "line": 1260
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 1261
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thanks for telling me.",
+   "line": 1262
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'll try to let you know how I feel.",
+   "line": 1263
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 1264
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You asked how it feels like when I play.",
+   "line": 1265
+  },
+  {
+   "t": "goto",
+   "to": 1141
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easeout",
+     "time": 1.5,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 1266
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Here, try it.",
+   "line": 1269
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Me? But I can't... I don't even know how to...",
+   "line": 1270
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Like this.",
+   "line": 1271
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 1272
+  },
+  {
+   "t": "show",
+   "with": "Fade(2.0,0.5,0.5)",
+   "image": "musician_cutscene_2",
+   "line": 1274
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1275
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(He's so close!)",
+   "line": 1276
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Just strum it gently.",
+   "line": 1277
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Like this?",
+   "line": 1278
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You got it.",
+   "line": 1279
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(get_stage(\"musician\") >= 2)",
+   "to": 1170,
+   "line": 1280
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "This sound...",
+   "line": 1281
+  },
+  {
+   "t": "todo",
+   "code": "show musician_cutscene_2 as cutscene_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 1282
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "persistent.haptics_enabled",
+   "to": 1158,
+   "line": 1283
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.vibrate(0.5)",
+   "why": "Python: renpy.vibrate",
+   "line": 1284
+  },
+  {
+   "t": "goto",
+   "to": 1158
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "(Ah!)",
+   "line": 1285
+  },
+  {
+   "t": "set",
+   "var": "musician_dream",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 1286
+  },
+  {
+   "t": "hide",
+   "with": "Dissolve(1.0)",
+   "image": "musician_cutscene_2",
+   "line": 1287
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 1288
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Naomi?",
+   "line": 1290
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 1291
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "I'm fine.",
+   "line": 1293
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(That sound... Where have I heard it before?)",
+   "line": 1294
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.2
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.15
+     }
+    }
+   ],
+   "line": 1295
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You look pale.",
+   "line": 1298
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'll take you home.",
+   "line": 1299
+  },
+  {
+   "t": "goto",
+   "to": 1179
+  },
+  {
+   "t": "hide",
+   "with": "Dissolve(1.0)",
+   "image": "musician_cutscene_2",
+   "line": 1301
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 1302
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I think you have the talent for this.",
+   "line": 1304
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "You're joking.",
+   "line": 1305
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1306
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It's getting dark.",
+   "line": 1307
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 1308
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Let's head back.",
+   "line": 1309
+  },
+  {
+   "t": "goto",
+   "to": 1179
+  },
+  {
+   "t": "goto",
+   "to": 1184
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1311
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It's getting dark.",
+   "line": 1312
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Let's head back.",
+   "line": 1313
+  },
+  {
+   "t": "goto",
+   "to": 1184
+  },
+  {
+   "t": "hide",
+   "image": "bg ryounkaku",
+   "line": 1315
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 1316
+  },
+  {
+   "t": "show",
+   "image": "bg bedroom",
+   "line": 1317
+  },
+  {
+   "t": "with",
+   "name": "fade",
+   "line": 1318
+  },
+  {
+   "t": "show",
+   "with": "moveinbottom",
+   "image": "cat neutral",
+   "line": 1319
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(naomi_dress == \"dress_modern\")",
+   "to": 1210,
+   "line": 1320
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 1321
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(get_stage(\"musician\") >= 2)",
+   "to": 1202,
+   "line": 1322
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Hey there, I'm alright.",
+   "line": 1323
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "I just had a dizzy spell.",
+   "line": 1324
+  },
+  {
+   "t": "show",
+   "image": "cat eyeroll",
+   "line": 1325
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 1326
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Yeah, it's been getting more frequent lately.",
+   "line": 1327
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Along with a nagging feeling that I'm forgetting something...",
+   "line": 1328
+  },
+  {
+   "t": "show",
+   "image": "cat happy",
+   "line": 1329
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 1330
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "But...",
+   "line": 1331
+  },
+  {
+   "t": "goto",
+   "to": 1207
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Hey there, I'm back home.",
+   "line": 1333
+  },
+  {
+   "t": "show",
+   "image": "cat eyeroll",
+   "line": 1334
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 1335
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "It was getting dark.",
+   "line": 1336
+  },
+  {
+   "t": "goto",
+   "to": 1207
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "cat",
+   "line": 1337
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "(He was so close...)",
+   "line": 1338
+  },
+  {
+   "t": "goto",
+   "to": 1219
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 1340
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...I hope Hideo got the inspiration he needed.",
+   "line": 1341
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "...",
+   "line": 1342
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "You think I should have worn something else?",
+   "line": 1343
+  },
+  {
+   "t": "show",
+   "image": "cat huff",
+   "line": 1344
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 1345
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "cat",
+   "line": 1346
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Would it have been different?)",
+   "line": 1347
+  },
+  {
+   "t": "goto",
+   "to": 1219
+  },
+  {
+   "t": "set",
+   "var": "musician_ending",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 1348
+  },
+  {
+   "t": "set",
+   "var": "musician_event",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 1349
+  },
+  {
+   "t": "screen",
+   "name": "bedroom",
+   "line": 1350
+  },
+  {
+   "t": "eval",
+   "code": "set_flag(\"musician_cafe_show_seen\")",
+   "line": 1353
+  },
+  {
+   "t": "set",
+   "var": "story_flags",
+   "keys": [
+    "\"musician_cafe_show_day\""
+   ],
+   "op": "=",
+   "value": "totaldays",
+   "line": 1354
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "zoom": 0.6,
+      "yalign": 0.6
+     }
+    }
+   ],
+   "line": 1355
+  },
+  {
+   "t": "show",
+   "image": "fans",
+   "line": 1357
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "cafetableright",
+   "line": 1358
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 1359
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "One pudding please!",
+   "line": 1360
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Coming right up!",
+   "line": 1361
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(Word got around about tonight's performance.)",
+   "line": 1362
+  },
+  {
+   "t": "show",
+   "with": "dissolve",
+   "image": "kirako happy",
+   "line": 1363
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Is it just me or is the cafe fuller tonight?",
+   "line": 1364
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "One pudding please!",
+   "line": 1365
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Coming right up!",
+   "line": 1366
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "kirako",
+   "line": 1367
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "zoom": 0.6,
+      "yalign": 0.6
+     }
+    }
+   ],
+   "line": 1368
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "This is different from the cello... But I like this better!",
+   "line": 1370
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "I didn't think the shamisen could be this cool.",
+   "line": 1371
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Hideo-sama!",
+   "line": 1372
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(This tune...)",
+   "line": 1373
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "(It's the one he was working on.)",
+   "line": 1374
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(But why do I feel like I have heard this before...?)",
+   "line": 1375
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "zoom": 0.6,
+      "yalign": 0.6
+     }
+    }
+   ],
+   "line": 1376
+  },
+  {
+   "t": "todo",
+   "code": "show bg caferight as cutscene_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 1378
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "persistent.haptics_enabled",
+   "to": 1248,
+   "line": 1379
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.vibrate(0.5)",
+   "why": "Python: renpy.vibrate",
+   "line": 1380
+  },
+  {
+   "t": "goto",
+   "to": 1248
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "(I know this tune!)",
+   "line": 1381
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "zoom": 0.6,
+      "yalign": 0.6
+     }
+    }
+   ],
+   "line": 1382
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Bravo! Hideo-sama!",
+   "line": 1384
+  },
+  {
+   "t": "say",
+   "who": "fan",
+   "attrs": [],
+   "text": "Encore!",
+   "line": 1385
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Bravo, Hideo!",
+   "line": 1386
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "zoom": 0.6,
+      "yalign": 0.6
+     }
+    }
+   ],
+   "line": 1387
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Thank you for listening.",
+   "line": 1389
+  },
+  {
+   "t": "hide",
+   "image": "fans",
+   "line": 1390
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "zoom": 1.0,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 1391
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 1393
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Was it okay?",
+   "line": 1394
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "It was more than okay.",
+   "line": 1395
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "You wrote that yourself, didn't you.",
+   "line": 1396
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1397
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...",
+   "line": 1398
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(relationship_points[\"musician\"] >= 4)",
+   "to": 1266,
+   "line": 1399
+  },
+  {
+   "t": "jump",
+   "label": "musician_ending_irl",
+   "line": 1400
+  },
+  {
+   "t": "goto",
+   "to": 1268
+  },
+  {
+   "t": "jump",
+   "label": "musician_ending",
+   "line": 1402
+  },
+  {
+   "t": "goto",
+   "to": 1268
+  },
+  {
+   "t": "return",
+   "line": 1403
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Hideo?",
+   "line": 1406
+  },
+  {
+   "t": "todo",
+   "code": "show bg cafeleft as cutscene_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 1407
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "persistent.haptics_enabled",
+   "to": 1274,
+   "line": 1408
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.vibrate(0.5)",
+   "why": "Python: renpy.vibrate",
+   "line": 1409
+  },
+  {
+   "t": "goto",
+   "to": 1274
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Ah!",
+   "line": 1410
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 1411
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You helped me to be true to myself.",
+   "line": 1412
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 1413
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It's my turn to help you remember who you are.",
+   "line": 1414
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Who I am?",
+   "line": 1415
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Listen.",
+   "line": 1416
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "This sound...",
+   "line": 1417
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "It's from my dream!",
+   "line": 1418
+  },
+  {
+   "t": "todo",
+   "code": "show bg cafeleft as bg_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 1419
+  },
+  {
+   "t": "show",
+   "image": "musician glitched4",
+   "line": 1428
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Ngh!",
+   "line": 1429
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Come back, Naomi.",
+   "line": 1430
+  },
+  {
+   "t": "hide",
+   "image": "cafetableright",
+   "line": 1431
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 1432
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 1434
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 1436
+  },
+  {
+   "t": "with",
+   "name": "Pixellate(2.0,5)",
+   "line": 1437
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Naomi.'{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1438
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1440
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}This music...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1441
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1443
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "musician shy",
+   "line": 1444
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Hideo.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1445
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1447
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1448
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 1449
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}A classmate who seemed aloof, until one day.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1450
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1452
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1453
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "xalign": 0.8,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.9,
+      "ypos": 0.0,
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 1454
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'The pudding's the same either way.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.1,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 1457
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1459
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1460
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 1461
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I discovered his kindness.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1462
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1464
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1465
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 1466
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I wanted to encourage him too.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1467
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1469
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1470
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "xalign": 0.1,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.1,
+      "ypos": 0.0,
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 1471
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'That really means a lot to me.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 1474
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1476
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1477
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 1478
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}He was often shy to say how he felt, but.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1479
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1481
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1482
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2,
+      "xalign": 0.65,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 2.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 1483
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'You give me courage.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.1,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 1486
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1488
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1489
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 1490
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I was happy when he told me that.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1491
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 1493
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1494
+  },
+  {
+   "t": "show",
+   "image": "bg irl",
+   "line": 1495
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 3.5
+     }
+    }
+   ],
+   "line": 1496
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": -2.5
+     }
+    }
+   ],
+   "line": 1501
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Hideo.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    },
+    {
+     "wait": 3.5
+    },
+    {
+     "warp": "easeout",
+     "time": 3.0,
+     "props": {
+      "alpha": 0.0
+     }
+    }
+   ],
+   "line": 1506
+  },
+  {
+   "t": "show",
+   "zorder": 1,
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.0,
+      "xalign": 0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 1510
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1512
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 1513
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 1514
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 1515
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.0,
+      "xalign": 0.1
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 0.5,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1
+     }
+    }
+   ],
+   "line": 1516
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}'Naomi?'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.8,
+      "alpha": 1.0
+     }
+    }
+   ],
+   "line": 1519
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1521
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1
+     }
+    }
+   ],
+   "line": 1522
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}'You're awake!'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1524
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1526
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}I was asleep?{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1527
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1529
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 1530
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}'You've been unconscious for two days.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1532
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1534
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}Two...{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1535
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1537
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 1538
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}'Rest. I'll go get the doctor.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 1540
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1542
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 3.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 1543
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": -2.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 1548
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1553
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}A few months later, when I had recovered enough...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 1554
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1556
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 1557
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 1558
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 1559
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 1560
+  },
+  {
+   "t": "show",
+   "image": "musician_cutscene_3",
+   "line": 1561
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 1562
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1563
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 1564
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 1566
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Thank you for playing!{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 1568
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 1570
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1571
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 1572
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "zoom": 1.0,
+      "yalign": 0.5
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 0.5,
+     "props": {
+      "xalign": 0.9,
+      "zoom": 1.0,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 1576
+  },
+  {
+   "t": "show",
+   "with": "moveinleft",
+   "image": "kirako happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.2
+     }
+    }
+   ],
+   "line": 1579
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Well! I don't know what that was, but I liked it.",
+   "line": 1581
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "We should have you back.",
+   "line": 1582
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 1583
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "...Maybe.",
+   "line": 1584
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "And since we'll still be in business.",
+   "line": 1585
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "line": 1586
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Naomi dear, do stay with us!",
+   "line": 1587
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll be happy to.",
+   "line": 1588
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 1589
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Lovely!",
+   "line": 1590
+  },
+  {
+   "t": "show",
+   "image": "kirako wink",
+   "line": 1591
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "The night is still young, darlings!",
+   "line": 1592
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "kirako",
+   "line": 1593
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9,
+      "zoom": 1.0,
+      "yalign": 0.5
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 0.5,
+     "props": {
+      "xalign": 0.5,
+      "zoom": 1.0,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 1594
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I guess this is where I'll be working from now on.",
+   "line": 1597
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I achieved my goal of finding a job within these two weeks.",
+   "line": 1598
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Why does it feel like I'm missing something important?",
+   "line": 1599
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 1600
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 1601
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 1603
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Game over.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 1605
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 1607
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 1608
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 1609
+  }
+ ]
+}

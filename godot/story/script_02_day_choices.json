@@ -1,0 +1,2748 @@
+{
+ "source": "script_02_day_choices.rpy",
+ "labels": {
+  "ginza_large": 0,
+  "ginza_small": 2,
+  "asakusa_large": 4,
+  "asakusa_small": 6,
+  "reset_daily_visits": 8,
+  "next_morning": 10,
+  "weekend_saturday": 122,
+  "weekend_sunday": 165,
+  "re_evening_time": 230,
+  "evening_time": 257,
+  "end_day": 263,
+  "movie_theatre": 316,
+  "dojo": 319,
+  "tokyo_station": 337
+ },
+ "ops": [
+  {
+   "t": "screen",
+   "name": "ginza_large",
+   "line": 5
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 6
+  },
+  {
+   "t": "screen",
+   "name": "ginza_small",
+   "line": 10
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 11
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_large",
+   "line": 15
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 16
+  },
+  {
+   "t": "screen",
+   "name": "asakusa_small",
+   "line": 20
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 21
+  },
+  {
+   "t": "python",
+   "func": "py_reset_daily_visits_1",
+   "code": "for c in visited_today:\n    visited_today[c] = False\ncafe_menu = []",
+   "line": 24
+  },
+  {
+   "t": "return",
+   "line": 28
+  },
+  {
+   "t": "call",
+   "label": "reset_daily_visits",
+   "line": 37
+  },
+  {
+   "t": "set",
+   "var": "totaldays",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 40
+  },
+  {
+   "t": "set",
+   "var": "dayofweeknumber",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 41
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "=",
+   "value": "2",
+   "line": 42
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(dayofweeknumber == 8)",
+   "to": 17,
+   "line": 45
+  },
+  {
+   "t": "set",
+   "var": "dayofweeknumber",
+   "keys": [],
+   "op": "=",
+   "value": "1",
+   "line": 46
+  },
+  {
+   "t": "goto",
+   "to": 23
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(dayofweeknumber == 6)",
+   "to": 20,
+   "line": 47
+  },
+  {
+   "t": "jump",
+   "label": "weekend_saturday",
+   "line": 48
+  },
+  {
+   "t": "goto",
+   "to": 23
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(dayofweeknumber == 7)",
+   "to": 23,
+   "line": 49
+  },
+  {
+   "t": "jump",
+   "label": "weekend_sunday",
+   "line": 50
+  },
+  {
+   "t": "goto",
+   "to": 23
+  },
+  {
+   "t": "scene",
+   "with": "fade",
+   "image": "bg cafeleft",
+   "line": 52
+  },
+  {
+   "t": "play",
+   "channel": "music",
+   "file": "spring.mp3",
+   "from": 1.0,
+   "to": 79.5,
+   "fadein": 0.0,
+   "if_changed": true,
+   "loop": true,
+   "line": 53
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(tutorial_mode == true)",
+   "to": 57,
+   "line": 54
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "table_left",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 57
+  },
+  {
+   "t": "show",
+   "with": "moveinright",
+   "image": "kirako pout",
+   "line": 59
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Bless me, I forgot to give you this yesterday.",
+   "line": 60
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "Good morning.",
+   "line": 61
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 62
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Here's a map to help you find your way around the city.",
+   "line": 63
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "map",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.25
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "ypos": 0.6,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 65
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Shall I show you how to use it?",
+   "line": 68
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Yes",
+     "cond": null,
+     "to": 35
+    },
+    {
+     "text": "No",
+     "cond": null,
+     "to": 39
+    }
+   ],
+   "line": 69
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 71
+  },
+  {
+   "t": "todo",
+   "code": "show screen map_tutorial",
+   "why": "show screen - port by hand",
+   "line": 72
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 73
+  },
+  {
+   "t": "goto",
+   "to": 41
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "It's alright, I'll figure it out.",
+   "line": 75
+  },
+  {
+   "t": "goto",
+   "to": 41
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "line": 76
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Going somewhere or working at the cafe will take up half your day, so plan your time wisely!",
+   "line": 77
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll do that! Thank you, Miss Kirako!",
+   "line": 78
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "map",
+   "line": 79
+  },
+  {
+   "t": "eval",
+   "code": "inventory.merge({\"map\": [\"A map of the city.\"]}, true)",
+   "line": 80
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 81
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Have a fun day!",
+   "line": 82
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "kirako",
+   "line": 83
+  },
+  {
+   "t": "set",
+   "var": "tutorial_mode",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 84
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "What shall I do this morning?"
+   },
+   "choices": [
+    {
+     "text": "Work at the cafe",
+     "cond": null,
+     "to": 51
+    },
+    {
+     "text": "Go out",
+     "cond": null,
+     "to": 53
+    }
+   ],
+   "line": 85
+  },
+  {
+   "t": "jump",
+   "label": "work_cafe",
+   "line": 88
+  },
+  {
+   "t": "goto",
+   "to": 56
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 90
+  },
+  {
+   "t": "jump",
+   "label": "asakusa_small",
+   "line": 91
+  },
+  {
+   "t": "goto",
+   "to": 56
+  },
+  {
+   "t": "goto",
+   "to": 57
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_dream == true)",
+   "to": 77,
+   "line": 92
+  },
+  {
+   "t": "set",
+   "var": "doctor_dream",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 93
+  },
+  {
+   "t": "show",
+   "image": "cat eyeroll",
+   "line": 94
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "What a strange dream.",
+   "line": 95
+  },
+  {
+   "t": "show",
+   "image": "cat neutral",
+   "line": 96
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "What dream?",
+   "line": 97
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I felt like I was waking from sleep.",
+   "line": 98
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Someone was holding my hand...",
+   "line": 99
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Who?",
+   "line": 100
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(That warmth...)",
+   "line": 101
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "[doctor_name]...",
+   "line": 102
+  },
+  {
+   "t": "show",
+   "image": "cat happy",
+   "line": 103
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "You could ask him about it.",
+   "line": 104
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "And let him know I was dreaming about him?",
+   "line": 105
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I'll die of embarassment!",
+   "line": 106
+  },
+  {
+   "t": "show",
+   "image": "cat neutral",
+   "line": 107
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "It might change things.",
+   "line": 108
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "cat",
+   "line": 109
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Change things?",
+   "line": 110
+  },
+  {
+   "t": "goto",
+   "to": 77
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(musician_dream == true)",
+   "to": 92,
+   "line": 112
+  },
+  {
+   "t": "set",
+   "var": "musician_dream",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 113
+  },
+  {
+   "t": "show",
+   "image": "cat eyeroll",
+   "line": 114
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "Good morning.",
+   "line": 115
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "I had a dream...",
+   "line": 116
+  },
+  {
+   "t": "show",
+   "image": "cat neutral",
+   "line": 117
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "...",
+   "line": 118
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "A song that I've forgotten.",
+   "line": 119
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Such a lonesome tune...",
+   "line": 120
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(That music...)",
+   "line": 121
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Hideo...",
+   "line": 122
+  },
+  {
+   "t": "show",
+   "image": "cat happy",
+   "line": 123
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 124
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "cat",
+   "line": 125
+  },
+  {
+   "t": "goto",
+   "to": 92
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(totaldays == 0)",
+   "to": 116,
+   "line": 126
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"musician\"] > 10)",
+   "to": 98,
+   "line": 127
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "We need to get ready for Hideo's performance tonight.",
+   "line": 128
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "It'll be a full house, I'm sure.",
+   "line": 129
+  },
+  {
+   "t": "jump",
+   "label": "musician_12",
+   "line": 130
+  },
+  {
+   "t": "goto",
+   "to": 98
+  },
+  {
+   "t": "show",
+   "with": "moveinright",
+   "image": "kirako pout",
+   "line": 131
+  },
+  {
+   "t": "show",
+   "image": "table_left",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 132
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Oh Naomi, how time flies!",
+   "line": 134
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "I can't believe it's been a month already.",
+   "line": 135
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "It feels like yesterday that I arrived.",
+   "line": 136
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 176
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "You're always welcome here, remember that.",
+   "line": 177
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thank you, I'll be back!",
+   "line": 178
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(I wonder what happened to Maachan....)",
+   "line": 179
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 180
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 181
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 182
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 184
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Game over.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 186
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 188
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 189
+  },
+  {
+   "t": "return",
+   "line": 190
+  },
+  {
+   "t": "goto",
+   "to": 116
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "sleepy"
+    ],
+    "text": "It's morning. What shall I do today?"
+   },
+   "choices": [
+    {
+     "text": "Work at the cafe",
+     "cond": null,
+     "to": 117
+    },
+    {
+     "text": "Go out",
+     "cond": null,
+     "to": 119
+    }
+   ],
+   "line": 191
+  },
+  {
+   "t": "jump",
+   "label": "work_cafe",
+   "line": 194
+  },
+  {
+   "t": "goto",
+   "to": 122
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 196
+  },
+  {
+   "t": "jump",
+   "label": "asakusa_small",
+   "line": 197
+  },
+  {
+   "t": "goto",
+   "to": 122
+  },
+  {
+   "t": "scene",
+   "with": "fade",
+   "image": "bg cafeleft",
+   "line": 202
+  },
+  {
+   "t": "play",
+   "channel": "music",
+   "file": "spring.mp3",
+   "from": 1.0,
+   "to": 79.5,
+   "fadein": 0.0,
+   "if_changed": true,
+   "loop": true,
+   "line": 203
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "It's Saturday.",
+   "line": 204
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "musician_show_today()",
+   "to": 128,
+   "line": 205
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "The cello performance is this afternoon.",
+   "line": 206
+  },
+  {
+   "t": "goto",
+   "to": 128
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_event == true)",
+   "to": 136,
+   "line": 207
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I have to go with Yujiro to the dance hall tonight.",
+   "line": 208
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(\"dress_flapper\" in wardrobe_dress)",
+   "to": 133,
+   "line": 209
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I can wear that dress I bought.",
+   "line": 210
+  },
+  {
+   "t": "goto",
+   "to": 135
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I don't have anything appropriate to wear.",
+   "line": 212
+  },
+  {
+   "t": "goto",
+   "to": 135
+  },
+  {
+   "t": "goto",
+   "to": 136
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "What should I do this morning?"
+   },
+   "choices": [
+    {
+     "text": "Visit department store",
+     "cond": null,
+     "to": 137
+    },
+    {
+     "text": "Visit Asakusa Shrine",
+     "cond": null,
+     "to": 140
+    },
+    {
+     "text": "Work at the cafe",
+     "cond": null,
+     "to": 143
+    }
+   ],
+   "line": 213
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 216
+  },
+  {
+   "t": "call",
+   "label": "dept_store",
+   "line": 217
+  },
+  {
+   "t": "goto",
+   "to": 145
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 219
+  },
+  {
+   "t": "call",
+   "label": "shrine",
+   "line": 220
+  },
+  {
+   "t": "goto",
+   "to": 145
+  },
+  {
+   "t": "call",
+   "label": "work_cafe",
+   "line": 222
+  },
+  {
+   "t": "goto",
+   "to": 145
+  },
+  {
+   "t": "scene",
+   "with": "fade",
+   "image": "bg cafeleft",
+   "line": 223
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "musician_show_today()",
+   "to": 149,
+   "line": 224
+  },
+  {
+   "t": "jump",
+   "label": "musician_show",
+   "line": 225
+  },
+  {
+   "t": "goto",
+   "to": 149
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "What should I do this afternoon?"
+   },
+   "choices": [
+    {
+     "text": "Visit department store",
+     "cond": null,
+     "to": 150
+    },
+    {
+     "text": "Visit Asakusa Shrine",
+     "cond": null,
+     "to": 153
+    },
+    {
+     "text": "Work at the cafe",
+     "cond": null,
+     "to": 156
+    }
+   ],
+   "line": 226
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 229
+  },
+  {
+   "t": "call",
+   "label": "dept_store",
+   "line": 230
+  },
+  {
+   "t": "goto",
+   "to": 158
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 232
+  },
+  {
+   "t": "call",
+   "label": "shrine",
+   "line": 233
+  },
+  {
+   "t": "goto",
+   "to": 158
+  },
+  {
+   "t": "call",
+   "label": "work_cafe",
+   "line": 235
+  },
+  {
+   "t": "goto",
+   "to": 158
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_event == true)",
+   "to": 161,
+   "line": 236
+  },
+  {
+   "t": "jump",
+   "label": "merchant_dance",
+   "line": 237
+  },
+  {
+   "t": "goto",
+   "to": 164
+  },
+  {
+   "t": "scene",
+   "with": "fade",
+   "image": "bg cafeleft",
+   "line": 239
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "It's been a long day. I'll head to bed.",
+   "line": 240
+  },
+  {
+   "t": "goto",
+   "to": 164
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 241
+  },
+  {
+   "t": "scene",
+   "with": "fade",
+   "image": "bg cafeleft",
+   "line": 244
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(merchant_dream == true)",
+   "to": 187,
+   "line": 245
+  },
+  {
+   "t": "set",
+   "var": "merchant_dream",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 246
+  },
+  {
+   "t": "show",
+   "image": "cat eyeroll",
+   "line": 247
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "I had a strange dream.",
+   "line": 248
+  },
+  {
+   "t": "show",
+   "image": "cat neutral",
+   "line": 249
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "What dream?",
+   "line": 250
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I felt like I was waking from a long dream.",
+   "line": 251
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Someone was calling my name...",
+   "line": 252
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Who?",
+   "line": 253
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(...Cedarwood scent.)",
+   "line": 254
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Yujiro.",
+   "line": 255
+  },
+  {
+   "t": "show",
+   "image": "cat happy",
+   "line": 256
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Ask him about it.",
+   "line": 257
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "And let him know I was dreaming about him?",
+   "line": 258
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "That's too embarassing!",
+   "line": 259
+  },
+  {
+   "t": "show",
+   "image": "cat neutral",
+   "line": 260
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "You might discover something important.",
+   "line": 261
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "cat",
+   "line": 262
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Important?",
+   "line": 263
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Anyway...",
+   "line": 264
+  },
+  {
+   "t": "goto",
+   "to": 187
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "It's Sunday.",
+   "line": 265
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_event == true)",
+   "to": 196,
+   "line": 266
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I have to meet Shiro for the movie later.",
+   "line": 267
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(\"dress_prim\" in wardrobe_dress)",
+   "to": 193,
+   "line": 268
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I can wear that green dress I bought.",
+   "line": 269
+  },
+  {
+   "t": "goto",
+   "to": 195
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I don't have anything appropriate to wear.",
+   "line": 271
+  },
+  {
+   "t": "goto",
+   "to": 195
+  },
+  {
+   "t": "goto",
+   "to": 196
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(musician_event == 3)",
+   "to": 205,
+   "line": 272
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Oh yes, Hideo's taking me somewhere in the evening.",
+   "line": 273
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "It's a date...?",
+   "line": 274
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(\"dress_modern\" in wardrobe_dress)",
+   "to": 202,
+   "line": 275
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "The kimono with the artistic pattern reminds me of Hideo... I could wear that.",
+   "line": 276
+  },
+  {
+   "t": "goto",
+   "to": 204
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I should wear a nicer kimono... In case it's a date.",
+   "line": 278
+  },
+  {
+   "t": "goto",
+   "to": 204
+  },
+  {
+   "t": "goto",
+   "to": 205
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "Where should I go this morning?"
+   },
+   "choices": [
+    {
+     "text": "Visit department store",
+     "cond": null,
+     "to": 206
+    },
+    {
+     "text": "Visit Asakusa Shrine",
+     "cond": null,
+     "to": 208
+    },
+    {
+     "text": "Work at the cafe",
+     "cond": null,
+     "to": 210
+    }
+   ],
+   "line": 279
+  },
+  {
+   "t": "call",
+   "label": "dept_store",
+   "line": 282
+  },
+  {
+   "t": "goto",
+   "to": 212
+  },
+  {
+   "t": "call",
+   "label": "shrine",
+   "line": 284
+  },
+  {
+   "t": "goto",
+   "to": 212
+  },
+  {
+   "t": "call",
+   "label": "work_cafe",
+   "line": 286
+  },
+  {
+   "t": "goto",
+   "to": 212
+  },
+  {
+   "t": "scene",
+   "with": "fade",
+   "image": "bg cafeleft",
+   "line": 287
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(doctor_event == true)",
+   "to": 216,
+   "line": 288
+  },
+  {
+   "t": "jump",
+   "label": "doctor_movie",
+   "line": 289
+  },
+  {
+   "t": "goto",
+   "to": 224
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "naomi",
+    "attrs": [
+     "thinking"
+    ],
+    "text": "What should I do this afternoon?"
+   },
+   "choices": [
+    {
+     "text": "Visit department store",
+     "cond": null,
+     "to": 217
+    },
+    {
+     "text": "Visit Asakusa Shrine",
+     "cond": null,
+     "to": 219
+    },
+    {
+     "text": "Work at the cafe",
+     "cond": null,
+     "to": 221
+    }
+   ],
+   "line": 291
+  },
+  {
+   "t": "call",
+   "label": "dept_store",
+   "line": 294
+  },
+  {
+   "t": "goto",
+   "to": 223
+  },
+  {
+   "t": "call",
+   "label": "shrine",
+   "line": 296
+  },
+  {
+   "t": "goto",
+   "to": 223
+  },
+  {
+   "t": "call",
+   "label": "work_cafe",
+   "line": 298
+  },
+  {
+   "t": "goto",
+   "to": 223
+  },
+  {
+   "t": "goto",
+   "to": 224
+  },
+  {
+   "t": "scene",
+   "with": "fade",
+   "image": "bg cafeleft",
+   "line": 299
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(musician_event == 3)",
+   "to": 228,
+   "line": 300
+  },
+  {
+   "t": "jump",
+   "label": "musician_tower",
+   "line": 301
+  },
+  {
+   "t": "goto",
+   "to": 228
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "It's been a long day. I'll head to bed.",
+   "line": 302
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 303
+  },
+  {
+   "t": "scene",
+   "with": "dissolve",
+   "image": "bg bedroom",
+   "line": 306
+  },
+  {
+   "t": "show",
+   "with": "moveinleft",
+   "zorder": 3,
+   "image": "kirako happy",
+   "line": 307
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Here's your room.",
+   "line": 308
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "bedroom_dresser",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.5,
+      "xpos_px": 1119.0,
+      "ypos_px": 262.0
+     }
+    }
+   ],
+   "line": 309
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "You can use the dresser to change or put on makeup.",
+   "line": 311
+  },
+  {
+   "t": "hide",
+   "image": "bedroom_dresser",
+   "line": 312
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "bedroom_bed",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 0.5,
+      "xalign": 0.0,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 313
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Just hop into bed when you're ready to end the day!",
+   "line": 315
+  },
+  {
+   "t": "hide",
+   "image": "bedroom_bed",
+   "line": 316
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Got it, thank you!",
+   "line": 317
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Have a good rest.",
+   "line": 318
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "kirako",
+   "line": 319
+  },
+  {
+   "t": "show",
+   "image": "cat eyeroll",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": -0.5,
+      "ypos": 0.2,
+      "zoom": 2.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 320
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 323
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Aww hello! It's you again.",
+   "line": 324
+  },
+  {
+   "t": "show",
+   "image": "cat huff",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 325
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 327
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "You know, I just can't recall anything.",
+   "line": 328
+  },
+  {
+   "t": "show",
+   "image": "cat neutral",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7
+     }
+    }
+   ],
+   "line": 329
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "But since I'm here, I'll do what I can to help Kirako.",
+   "line": 331
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 332
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Hopefully along the way, I'll remember something.",
+   "line": 333
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "But now, it's time for bed.",
+   "line": 334
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 335
+  },
+  {
+   "t": "hide",
+   "with": "moveoutbottom",
+   "image": "cat",
+   "line": 336
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "Goodnight to you too.",
+   "line": 337
+  },
+  {
+   "t": "screen",
+   "name": "bedroom",
+   "line": 346
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((merchant_event == true) and (dayofweeknumber == 6))",
+   "to": 260,
+   "line": 350
+  },
+  {
+   "t": "call",
+   "label": "merchant_dance",
+   "line": 351
+  },
+  {
+   "t": "goto",
+   "to": 263
+  },
+  {
+   "t": "scene",
+   "with": "dissolve",
+   "image": "bg bedroom",
+   "line": 353
+  },
+  {
+   "t": "screen",
+   "name": "bedroom",
+   "line": 354
+  },
+  {
+   "t": "goto",
+   "to": 263
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "End the day",
+     "cond": null,
+     "to": 264
+    },
+    {
+     "text": "Stay up",
+     "cond": null,
+     "to": 314
+    }
+   ],
+   "line": 428
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "It's been a long day. I'll head to bed now.",
+   "line": 430
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((merchant_dream == true) and (merchant_courage > 2))",
+   "to": 280,
+   "line": 431
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 432
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 436
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 438
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Naomi... Naomi...'{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 440
+  },
+  {
+   "t": "with",
+   "name": "fadehold",
+   "line": 442
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 443
+  },
+  {
+   "t": "scene",
+   "image": "bg irl",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 4.8,
+     "props": {}
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "zoom": 0.8
+     }
+    }
+   ],
+   "line": 444
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easein",
+     "time": 2.5,
+     "props": {
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 449
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easein",
+     "time": 2.5,
+     "props": {
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 454
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Cedarwood scent...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 459
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 461
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 462
+  },
+  {
+   "t": "jump",
+   "label": "next_morning",
+   "line": 463
+  },
+  {
+   "t": "goto",
+   "to": 280
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "((doctor_dream == true) and (doctor_courage > 2))",
+   "to": 297,
+   "line": 464
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 465
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 469
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 471
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Naomi, I'm here...'{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 473
+  },
+  {
+   "t": "with",
+   "name": "fadehold",
+   "line": 475
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 476
+  },
+  {
+   "t": "scene",
+   "image": "bg irl",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 4.8,
+     "props": {}
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "zoom": 0.8
+     }
+    }
+   ],
+   "line": 477
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easein",
+     "time": 2.5,
+     "props": {
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 482
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easein",
+     "time": 2.5,
+     "props": {
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 487
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}So warm...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 492
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 494
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}The feeling of someone's hand in mine...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 495
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 497
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 498
+  },
+  {
+   "t": "jump",
+   "label": "next_morning",
+   "line": 499
+  },
+  {
+   "t": "goto",
+   "to": 297
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(musician_dream == true)",
+   "to": 311,
+   "line": 500
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 501
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 505
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 507
+  },
+  {
+   "t": "with",
+   "name": "fadehold",
+   "line": 511
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 512
+  },
+  {
+   "t": "scene",
+   "image": "bg irl",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 4.8,
+     "props": {}
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "zoom": 0.8
+     }
+    }
+   ],
+   "line": 513
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easein",
+     "time": 2.5,
+     "props": {
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 518
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easein",
+     "time": 2.5,
+     "props": {
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 523
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}This music... where have I heard it?{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 528
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 530
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 531
+  },
+  {
+   "t": "jump",
+   "label": "next_morning",
+   "line": 532
+  },
+  {
+   "t": "goto",
+   "to": 313
+  },
+  {
+   "t": "jump",
+   "label": "next_morning",
+   "line": 534
+  },
+  {
+   "t": "goto",
+   "to": 313
+  },
+  {
+   "t": "goto",
+   "to": 316
+  },
+  {
+   "t": "screen",
+   "name": "bedroom",
+   "line": 536
+  },
+  {
+   "t": "goto",
+   "to": 316
+  },
+  {
+   "t": "scene",
+   "image": "bg movie theatre",
+   "line": 540
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 541
+  },
+  {
+   "t": "jump",
+   "label": "asakusa_small",
+   "line": 542
+  },
+  {
+   "t": "scene",
+   "image": "bg dojo",
+   "line": 546
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 547
+  },
+  {
+   "t": "set",
+   "var": "strength",
+   "keys": [],
+   "op": "+=",
+   "value": "1",
+   "line": 548
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(strength >= 3)",
+   "to": 325,
+   "line": 549
+  },
+  {
+   "t": "say",
+   "who": null,
+   "attrs": [],
+   "text": "I encounter a monster",
+   "line": 550
+  },
+  {
+   "t": "goto",
+   "to": 331
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(strength >= 2)",
+   "to": 328,
+   "line": 551
+  },
+  {
+   "t": "say",
+   "who": null,
+   "attrs": [],
+   "text": "I became stronger",
+   "line": 552
+  },
+  {
+   "t": "goto",
+   "to": 331
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(strength >= 1)",
+   "to": 331,
+   "line": 553
+  },
+  {
+   "t": "say",
+   "who": null,
+   "attrs": [],
+   "text": "I died",
+   "line": 554
+  },
+  {
+   "t": "goto",
+   "to": 331
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 334,
+   "line": 555
+  },
+  {
+   "t": "jump",
+   "label": "asakusa_small",
+   "line": 556
+  },
+  {
+   "t": "goto",
+   "to": 334
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 337,
+   "line": 557
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 558
+  },
+  {
+   "t": "goto",
+   "to": 337
+  },
+  {
+   "t": "scene",
+   "image": "bg station",
+   "line": 562
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 563
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 565
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 343,
+   "line": 566
+  },
+  {
+   "t": "jump",
+   "label": "ginza_small",
+   "line": 567
+  },
+  {
+   "t": "goto",
+   "to": 343
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 346,
+   "line": 568
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 569
+  },
+  {
+   "t": "goto",
+   "to": 346
+  }
+ ]
+}

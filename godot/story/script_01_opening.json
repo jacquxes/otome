@@ -1,0 +1,1279 @@
+{
+ "source": "script_01_opening.rpy",
+ "labels": {
+  "opening_sequence": 0,
+  "re_explain_cafegame": 92
+ },
+ "ops": [
+  {
+   "t": "show",
+   "image": "bg opening 1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 5
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 7
+  },
+  {
+   "t": "show",
+   "image": "bg opening 2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 8
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I'm chasing a cat.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.9
+     }
+    }
+   ],
+   "line": 10
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 12
+  },
+  {
+   "t": "show",
+   "image": "bg opening 1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 13
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 15
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}It's getting away from me.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.9
+     }
+    }
+   ],
+   "line": 16
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 18
+  },
+  {
+   "t": "show",
+   "image": "bg opening 2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 19
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 21
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}My lungs burn.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.9
+     }
+    }
+   ],
+   "line": 22
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 24
+  },
+  {
+   "t": "show",
+   "image": "bg opening 1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 25
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 27
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}My feet pound against the ground.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.9
+     }
+    }
+   ],
+   "line": 28
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 30
+  },
+  {
+   "t": "show",
+   "image": "bg opening 2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 31
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 33
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I reach out and lunge forward in one last desperate grab—{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.9
+     }
+    }
+   ],
+   "line": 34
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 36
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 37
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 38
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 40
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Then there is nothing.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 42
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 44
+  },
+  {
+   "t": "scene",
+   "image": "bg cafeleft",
+   "line": 62
+  },
+  {
+   "t": "play",
+   "channel": "music",
+   "file": "spring.mp3",
+   "from": 1.0,
+   "to": 79.5,
+   "fadein": 0.0,
+   "if_changed": true,
+   "loop": true,
+   "line": 63
+  },
+  {
+   "t": "show",
+   "image": "table_left",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 64
+  },
+  {
+   "t": "show",
+   "image": "cat neutral",
+   "line": 66
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 3.5
+     }
+    }
+   ],
+   "line": 67
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": -2.5
+     }
+    }
+   ],
+   "line": 72
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 77
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 78
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 79
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "true",
+   "line": 80
+  },
+  {
+   "t": "set",
+   "var": "cat_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"???\"",
+   "line": 82
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "Nhh...",
+   "line": 94
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 95
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "A cat?",
+   "line": 96
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Where am I?",
+   "line": 97
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "And what was I doing before this...?",
+   "line": 98
+  },
+  {
+   "t": "say",
+   "who": "cat",
+   "attrs": [],
+   "text": "Meow.",
+   "line": 99
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I don't recall anything.",
+   "line": 100
+  },
+  {
+   "t": "set",
+   "var": "kirako_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"???\"",
+   "line": 114
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "table_left",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 1.0,
+      "yalign": 1.0,
+      "zoom": 0.5
+     }
+    }
+   ],
+   "line": 117
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cat eyeroll",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 1.0,
+     "props": {
+      "xalign": 1.0
+     }
+    }
+   ],
+   "line": 119
+  },
+  {
+   "t": "show",
+   "image": "kirako angry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3
+     }
+    }
+   ],
+   "line": 122
+  },
+  {
+   "t": "with",
+   "name": "moveinleft",
+   "line": 124
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Maachan!",
+   "line": 125
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Don't run off on your own!",
+   "line": 126
+  },
+  {
+   "t": "show",
+   "image": "kirako glitched",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3
+     }
+    }
+   ],
+   "line": 135
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "...Maachan?",
+   "line": 137
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 138
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Oh hello! You must be Hana-chan's daughter. Naomi, yes?",
+   "line": 140
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Yes, that's me.",
+   "line": 141
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "I knew it!",
+   "line": 142
+  },
+  {
+   "t": "show",
+   "image": "kirako wink",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 143
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "You look just like your mother.",
+   "line": 145
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 146
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Did she not mention me? We were neighbours before she got married!",
+   "line": 148
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(She looks familiar, now that I think about it...)",
+   "line": 149
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 150
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "I'm Kirako! Welcome to Cafe Diamond.",
+   "line": 152
+  },
+  {
+   "t": "set",
+   "var": "kirako_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"Kirako\"",
+   "line": 153
+  },
+  {
+   "t": "set",
+   "var": "cat_name",
+   "keys": [],
+   "op": "=",
+   "value": "\"Maachan\"",
+   "line": 154
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "It's nice to meet you, Miss Kirako.",
+   "line": 155
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 156
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "I'm so glad you're here!",
+   "line": 158
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 159
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "We might have to close at the end of the month...",
+   "line": 161
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Close?",
+   "line": 162
+  },
+  {
+   "t": "show",
+   "image": "kirako angry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 163
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Customers have been scarce lately.",
+   "line": 165
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 166
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "But what can you do!",
+   "line": 168
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...",
+   "line": 169
+  },
+  {
+   "t": "show",
+   "image": "kirako wink",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 170
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Let's make the most of your stay here.",
+   "line": 172
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 173
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Have fun, meet people, eat cake!",
+   "line": 175
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Ah-",
+   "line": 176
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 177
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Oh my, look at the time! We have to open the cafe!",
+   "line": 179
+  },
+  {
+   "t": "show",
+   "image": "kirako angry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.3,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 180
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Follow me!",
+   "line": 182
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "kirako",
+   "line": 183
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Eh?",
+   "line": 184
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 185
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.random.shuffle(cafe_menu)",
+   "why": "Python: renpy.shuffle",
+   "line": 186
+  },
+  {
+   "t": "screen",
+   "name": "cafe_menu",
+   "line": 187
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 188
+  },
+  {
+   "t": "scene",
+   "image": "bg caferight",
+   "line": 192
+  },
+  {
+   "t": "show",
+   "image": "order0",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.22,
+      "yalign": 0.55,
+      "xzoom": 0.1,
+      "yzoom": 0.1
+     }
+    }
+   ],
+   "line": 196
+  },
+  {
+   "t": "show",
+   "image": "order1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.55,
+      "xzoom": 0.1,
+      "yzoom": 0.1
+     }
+    }
+   ],
+   "line": 199
+  },
+  {
+   "t": "show",
+   "image": "order2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.55,
+      "xzoom": 0.1,
+      "yzoom": 0.1
+     }
+    }
+   ],
+   "line": 202
+  },
+  {
+   "t": "show",
+   "zorder": 3,
+   "image": "cafetableright",
+   "line": 206
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "All done.",
+   "line": 209
+  },
+  {
+   "t": "show",
+   "with": "moveinleft",
+   "image": "kirako happy",
+   "line": 210
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Thank you for your help Naomi!",
+   "line": 211
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "+=",
+   "value": "shift_tips",
+   "line": 213
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Here you go, [shift_tips] yen in tips today.",
+   "line": 214
+  },
+  {
+   "t": "show",
+   "image": "kirako wink",
+   "line": 215
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Very decent for your first day!",
+   "line": 216
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Thank you!",
+   "line": 217
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 218
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Any questions for me?",
+   "line": 219
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Ummm, actually.",
+   "line": 220
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I can't quite remember what was the arrangement for me to be here...",
+   "line": 221
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "(In fact I can't remember anything.)",
+   "line": 222
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Did my mother...?",
+   "line": 223
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "line": 224
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Oh my. I don't remember so well myself, truthfully!",
+   "line": 225
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Something about living away from home, experiencing city life...",
+   "line": 226
+  },
+  {
+   "t": "show",
+   "image": "kirako wink",
+   "line": 227
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "It's alright, you're already here.",
+   "line": 228
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 229
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Just come help out whenever you feel like it.",
+   "line": 230
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "You can spend the rest of your time exploring the city.",
+   "line": 231
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "But the cafe.",
+   "line": 232
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Is there anything I can do to help?",
+   "line": 233
+  },
+  {
+   "t": "show",
+   "image": "kirako pout",
+   "line": 234
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Oh darling, that's so sweet of you!",
+   "line": 235
+  },
+  {
+   "t": "show",
+   "image": "kirako wink",
+   "line": 236
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "You don't have to worry about that.",
+   "line": 237
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 238
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "I'll think of a way to save the cafe.",
+   "line": 239
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "...Alright.",
+   "line": 240
+  },
+  {
+   "t": "show",
+   "image": "kirako happy",
+   "line": 241
+  },
+  {
+   "t": "say",
+   "who": "kirako",
+   "attrs": [],
+   "text": "Come on, you must be tired. I'll bring you up to your room.",
+   "line": 242
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "kirako",
+   "line": 254
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 255
+  },
+  {
+   "t": "stop",
+   "channel": "music",
+   "fadeout": 3.0,
+   "line": 256
+  },
+  {
+   "t": "jump",
+   "label": "re_evening_time",
+   "line": 257
+  }
+ ]
+}

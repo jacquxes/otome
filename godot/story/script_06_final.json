@@ -1,0 +1,5157 @@
+{
+ "source": "script_06_final.rpy",
+ "labels": {
+  "merchant_final_irl": 0,
+  "merchant_final_not": 132,
+  "doctor_final_irl": 180,
+  "doctor_final_not": 319,
+  "musician_final_irl": 369,
+  "musician_final_not": 475
+ },
+ "ops": [
+  {
+   "t": "show",
+   "image": "bg office",
+   "line": 2
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 3
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Finally.",
+   "line": 5
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...Yujiro?",
+   "line": 6
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "zoom": 1.2,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 7
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Since I met you, I've not been myself.",
+   "line": 9
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "What do you mean?",
+   "line": 10
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 11
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Being gentle.",
+   "line": 13
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 14
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Relying on others.",
+   "line": 16
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 17
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Caring...",
+   "line": 19
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 20
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Caring for you.",
+   "line": 22
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 23
+  },
+  {
+   "t": "show",
+   "image": "merchant smile",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.15
+     }
+    }
+   ],
+   "line": 24
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You changed me.",
+   "line": 26
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I did?",
+   "line": 27
+  },
+  {
+   "t": "show",
+   "image": "merchant happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.15
+     }
+    }
+   ],
+   "line": 28
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "With you, I've become a better person.",
+   "line": 30
+  },
+  {
+   "t": "show",
+   "image": "merchant smile",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 31
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Stay by my side.",
+   "line": 33
+  },
+  {
+   "t": "show",
+   "image": "merchant glitched4",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 42
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "sleepy"
+   ],
+   "text": "(This scent...)",
+   "line": 44
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 45
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 46
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 48
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 50
+  },
+  {
+   "t": "with",
+   "name": "Pixellate(2.0,5)",
+   "line": 51
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Cedarwood...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 52
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 54
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.1,
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 55
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Yujiro.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 57
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 59
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 60
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}He's my senior at internship.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 61
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 63
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 64
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 65
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'You can start by filling in these forms.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 67
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 69
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 70
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}He was strict on himself and others.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 71
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 73
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 74
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "merchant scowlside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 75
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Thanks for the idea.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.65,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 77
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 79
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 80
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I respected him for his hard work.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 81
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 83
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 84
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "merchant scowlfront",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 85
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Thanks for staying back with me.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.95,
+      "yalign": 0.4
+     }
+    }
+   ],
+   "line": 87
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 89
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 90
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Eventually, I gained his trust.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 91
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 93
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 94
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "merchant smile_suit",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 95
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'From now on, stay by my side.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.4
+     }
+    }
+   ],
+   "line": 97
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 99
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 100
+  },
+  {
+   "t": "hide",
+   "image": "merchant",
+   "line": 101
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 102
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I want to be by your side.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 103
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 105
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 106
+  },
+  {
+   "t": "hide",
+   "with": "dissolve",
+   "image": "text",
+   "line": 107
+  },
+  {
+   "t": "show",
+   "image": "bg irl",
+   "line": 108
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 3.5
+     }
+    }
+   ],
+   "line": 109
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": -2.5
+     }
+    }
+   ],
+   "line": 114
+  },
+  {
+   "t": "show",
+   "zorder": 1,
+   "image": "merchant frownside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.0,
+      "xalign": 0.1
+     }
+    }
+   ],
+   "line": 119
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Yujiro...{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 121
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 123
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 124
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 125
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 126
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.0,
+      "xalign": 0.1
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 0.5,
+     "props": {
+      "zoom": 3.0,
+      "yalign": 0.05,
+      "xpos": -0.15
+     }
+    }
+   ],
+   "line": 127
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Naomi!'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6,
+      "yalign": 0.8,
+      "alpha": 1.0
+     }
+    }
+   ],
+   "line": 130
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 132
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 3.0,
+      "yalign": 0.05,
+      "xpos": -0.15
+     }
+    }
+   ],
+   "line": 133
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'You're awake.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 135
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 137
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Where...am I?{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 138
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 140
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 3.0,
+      "yalign": 0.05,
+      "xpos": -0.15
+     }
+    }
+   ],
+   "line": 141
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'The hospital.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 143
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 145
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 3.0,
+      "yalign": 0.05,
+      "xpos": -0.15
+     }
+    }
+   ],
+   "line": 146
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'You've been out for two days.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 148
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 150
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Two days...?{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 151
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 153
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}What about...work?{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 154
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 156
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlfront",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 3.0,
+      "yalign": 0.05,
+      "xpos": -0.15
+     }
+    }
+   ],
+   "line": 157
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Work? With you here?'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 159
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 161
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 3.0,
+      "yalign": 0.05,
+      "xpos": -0.15
+     }
+    }
+   ],
+   "line": 162
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'I told you, I need you by my side.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 164
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 166
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Sorry...I left you alone.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 167
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 169
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 170
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 3.0,
+      "yalign": 0.05,
+      "xpos": -0.15
+     }
+    }
+   ],
+   "line": 171
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 173
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 3.0,
+      "yalign": 0.05,
+      "xpos": -0.15
+     }
+    }
+   ],
+   "line": 174
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Always worrying about others.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 176
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 178
+  },
+  {
+   "t": "show",
+   "image": "merchant smile",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 3.0,
+      "yalign": 0.05,
+      "xpos": -0.15
+     }
+    }
+   ],
+   "line": 179
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Rest. I'll call for the doctor.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.75,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 181
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 183
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 3.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 184
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": -2.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 189
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 194
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}A few months later, when I had recovered enough...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 195
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 197
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 198
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 199
+  },
+  {
+   "t": "hide",
+   "image": "merchant",
+   "line": 200
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 201
+  },
+  {
+   "t": "show",
+   "image": "merchant_cutscene_3",
+   "line": 202
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 203
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 204
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 205
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 207
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Thank you for playing!{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 209
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 211
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 212
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 213
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 216
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "There you are.",
+   "line": 218
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Sorry, I'm late! What do you need me to do?",
+   "line": 219
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 220
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I need you to fill in these employment forms.",
+   "line": 221
+  },
+  {
+   "t": "show",
+   "image": "paperstack",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.5,
+      "zpos": 0.0,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "xpos": 0.4,
+      "ypos": 0.55,
+      "zpos": 800.0
+     }
+    }
+   ],
+   "line": 222
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure!",
+   "line": 225
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "(These must be the new employment terms. I'd better take a good look before I sign.)",
+   "line": 226
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "Position title...",
+   "line": 227
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Girlfriend?",
+   "line": 228
+  },
+  {
+   "t": "show",
+   "image": "merchant frownside",
+   "line": 229
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 230
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I want to make this official.",
+   "line": 231
+  },
+  {
+   "t": "show",
+   "image": "merchant scowlfront",
+   "line": 232
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You have a problem with that?",
+   "line": 233
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Uh, I guess not.",
+   "line": 234
+  },
+  {
+   "t": "show",
+   "image": "merchant happy",
+   "line": 235
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "Then sign those forms quickly.",
+   "line": 236
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "What if I want to negotiate?",
+   "line": 237
+  },
+  {
+   "t": "show",
+   "image": "merchant surprised",
+   "line": 238
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "...",
+   "line": 239
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "smirk"
+   ],
+   "text": "Just kidding.",
+   "line": 240
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "You didn't have to go to all this trouble.",
+   "line": 241
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'll be your girlfriend, no conditions needed.",
+   "line": 242
+  },
+  {
+   "t": "show",
+   "image": "merchant resigned",
+   "line": 243
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I didn't know how to put it in words...",
+   "line": 244
+  },
+  {
+   "t": "show",
+   "image": "merchant frown",
+   "line": 245
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "You'll stay here with me from now on?",
+   "line": 246
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I will.",
+   "line": 247
+  },
+  {
+   "t": "show",
+   "image": "merchant smile",
+   "line": 248
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "That's a deal.",
+   "line": 249
+  },
+  {
+   "t": "say",
+   "who": "merchant",
+   "attrs": [],
+   "text": "I'll see you later?",
+   "line": 250
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure!",
+   "line": 251
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "merchant",
+   "line": 252
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I can't believe he asked me to be his girlfriend.",
+   "line": 253
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Everything worked out just right.",
+   "line": 254
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I found a job.",
+   "line": 255
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "And met Yujiro.",
+   "line": 256
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'm so happy, I feel like I'm dreaming right now!",
+   "line": 257
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 258
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "What if it's all just a dream?",
+   "line": 259
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 260
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 261
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 263
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Game over.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 265
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 267
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 268
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 269
+  },
+  {
+   "t": "show",
+   "image": "clinic",
+   "line": 272
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 273
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I've been waiting for you.",
+   "line": 275
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Waiting for me?",
+   "line": 276
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "atl": [
+    {
+     "warp": "ease",
+     "time": 1.0,
+     "props": {
+      "zoom": 1.2,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 277
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "To wake up.",
+   "line": 279
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "You helped me to be a better person.",
+   "line": 280
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I did?",
+   "line": 281
+  },
+  {
+   "t": "todo",
+   "code": "show bg clinic as bg_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 282
+  },
+  {
+   "t": "show",
+   "image": "doctor glitched2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 283
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Ngh!",
+   "line": 285
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "(This pain again!)",
+   "line": 286
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 1.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 287
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "You were brave to tell me your thoughts.",
+   "line": 289
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "I was brave?",
+   "line": 290
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 291
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "It's my turn to be brave for you.",
+   "line": 293
+  },
+  {
+   "t": "todo",
+   "code": "show bg clinic as bg_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 294
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Ahh!",
+   "line": 295
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Hang in there.",
+   "line": 296
+  },
+  {
+   "t": "show",
+   "image": "doctor glitched3",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 305
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "(A warm hand...)",
+   "line": 307
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 308
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 309
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 311
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 313
+  },
+  {
+   "t": "with",
+   "name": "Pixellate(2.0,5)",
+   "line": 314
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Open your eyes, Naomi.'{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 315
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 317
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}This voice...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 318
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 320
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "doctor happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "xalign": 0.65,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 2.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 321
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'I held your hand because...'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.1,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 324
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 326
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 327
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "doctor happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 328
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'I just wanted to.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 330
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 332
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 333
+  },
+  {
+   "t": "hide",
+   "image": "doctor",
+   "line": 334
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}So warm.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 335
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 337
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 338
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "doctor happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.3
+     }
+    }
+   ],
+   "line": 339
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Naomi, I'm glad I met you.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 341
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 343
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 344
+  },
+  {
+   "t": "hide",
+   "image": "doctor",
+   "line": 345
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I'm glad, too.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 346
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 348
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 349
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}How did we meet?{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 350
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 352
+  },
+  {
+   "t": "hide",
+   "image": "doctor",
+   "line": 353
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 354
+  },
+  {
+   "t": "show",
+   "image": "cat neutral",
+   "line": 355
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 356
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Maachan.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.35,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 358
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 360
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 361
+  },
+  {
+   "t": "show",
+   "image": "cat scared",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 1.0,
+      "zoom": 0.7,
+      "ypos": 0.1
+     }
+    }
+   ],
+   "line": 362
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Mew!'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 364
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 366
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 367
+  },
+  {
+   "t": "show",
+   "image": "cat scared",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 0.5,
+     "props": {
+      "xpos": 2.5,
+      "ypos": 0.5,
+      "zoom": 2.5
+     }
+    }
+   ],
+   "line": 368
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 371
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 372
+  },
+  {
+   "t": "hide",
+   "image": "cat",
+   "line": 373
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}That's right, he's Maachan's vet.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 374
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 376
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 377
+  },
+  {
+   "t": "hide",
+   "image": "doctor",
+   "line": 378
+  },
+  {
+   "t": "show",
+   "image": "kirako angry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6
+     }
+    }
+   ],
+   "line": 379
+  },
+  {
+   "t": "show",
+   "image": "cat eyeroll",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 1.1
+     }
+    }
+   ],
+   "line": 381
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Maachan! Don't run off on your own!'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.1,
+      "yalign": 0.36
+     }
+    }
+   ],
+   "line": 383
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 385
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 386
+  },
+  {
+   "t": "hide",
+   "image": "kirako",
+   "line": 387
+  },
+  {
+   "t": "hide",
+   "image": "cat",
+   "line": 388
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 389
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}That day, I helped Kirako bring her cat to see Shiro as usual, but.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 390
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 392
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 393
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 394
+  },
+  {
+   "t": "show",
+   "image": "cat scared",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xpos": 0.7,
+      "zoom": 0.75,
+      "ypos": 0.1
+     }
+    }
+   ],
+   "line": 395
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 397
+  },
+  {
+   "t": "show",
+   "image": "cat scared",
+   "atl": [
+    {
+     "warp": "easein",
+     "time": 0.5,
+     "props": {
+      "xpos": -0.5,
+      "ypos": 0.5,
+      "zoom": 2.5
+     }
+    }
+   ],
+   "line": 398
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Maachan, no!{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 400
+  },
+  {
+   "t": "play",
+   "channel": "sound",
+   "file": "crash.mp3",
+   "from": 0.0,
+   "fadein": 0.0,
+   "if_changed": false,
+   "loop": false,
+   "line": 402
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 403
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'I've got you.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 404
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 406
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 407
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Hang in there.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 408
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 410
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 411
+  },
+  {
+   "t": "show",
+   "image": "bg irl",
+   "line": 412
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 3.5
+     }
+    }
+   ],
+   "line": 413
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": -2.5
+     }
+    }
+   ],
+   "line": 418
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Shiro.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    },
+    {
+     "wait": 3.5
+    },
+    {
+     "warp": "easeout",
+     "time": 3.0,
+     "props": {
+      "alpha": 0.0
+     }
+    }
+   ],
+   "line": 423
+  },
+  {
+   "t": "show",
+   "zorder": 1,
+   "image": "doctor indifferent",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.0,
+      "xalign": 0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 427
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 429
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 430
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 431
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 432
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.0,
+      "xalign": 0.1
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 0.5,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1
+     }
+    }
+   ],
+   "line": 433
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Naomi!'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6,
+      "yalign": 0.8,
+      "alpha": 1.0
+     }
+    }
+   ],
+   "line": 436
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 438
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1
+     }
+    }
+   ],
+   "line": 439
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'You're awake.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 441
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 443
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}...How...long?{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.6,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 444
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 446
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 447
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'You've been out for two days.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 449
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 451
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Two...{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 452
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 454
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 455
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Rest. I'll go get the doctor.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 457
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 459
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 3.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 460
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": -2.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 465
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 470
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}A few months later, when I had recovered enough...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 471
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 473
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 474
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 475
+  },
+  {
+   "t": "hide",
+   "image": "doctor",
+   "line": 476
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 477
+  },
+  {
+   "t": "show",
+   "image": "doctor_cutscene_3",
+   "line": 478
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 479
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 480
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 481
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 483
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Thank you for playing!{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 485
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 487
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 488
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 489
+  },
+  {
+   "t": "show",
+   "image": "doctor concerned",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 492
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I've been waiting for you, Naomi.",
+   "line": 494
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Sorry, I'm late! Where are the patient notes?",
+   "line": 495
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "That can wait.",
+   "line": 496
+  },
+  {
+   "t": "show",
+   "image": "doctor indifferent",
+   "line": 497
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I have something to tell you.",
+   "line": 498
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "...(He looks serious.)",
+   "line": 499
+  },
+  {
+   "t": "show",
+   "image": "doctor thinking",
+   "line": 500
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I've decided that I don't want to be your doctor.",
+   "line": 501
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "(Wait, what? Did I do something wrong?)",
+   "line": 502
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Did I-",
+   "line": 503
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 504
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I want to be your boyfriend instead.",
+   "line": 505
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "!",
+   "line": 506
+  },
+  {
+   "t": "show",
+   "image": "doctor blush",
+   "line": 507
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Will you be my girlfriend?",
+   "line": 508
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "You-",
+   "line": 509
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "You got me there.",
+   "line": 510
+  },
+  {
+   "t": "show",
+   "image": "doctor bummed",
+   "line": 511
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Is that a no?",
+   "line": 512
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "angry"
+   ],
+   "text": "No!",
+   "line": 513
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "No?",
+   "line": 514
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "relieved"
+   ],
+   "text": "What I mean is, yes! I'll be your girlfriend.",
+   "line": 515
+  },
+  {
+   "t": "show",
+   "image": "doctor blush",
+   "line": 516
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "...",
+   "line": 517
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I feel shy suddenly.",
+   "line": 518
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "Now you made me feel shy too.",
+   "line": 519
+  },
+  {
+   "t": "show",
+   "image": "doctor happy",
+   "line": 520
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'm glad.",
+   "line": 521
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "Will you stay here with me from now on?",
+   "line": 522
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I will.",
+   "line": 523
+  },
+  {
+   "t": "show",
+   "image": "doctor happyside",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xzoom": -1.0,
+      "zoom": 1.0
+     }
+    }
+   ],
+   "line": 524
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I need to go now.",
+   "line": 526
+  },
+  {
+   "t": "say",
+   "who": "doctor",
+   "attrs": [],
+   "text": "I'll see you later?",
+   "line": 527
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure!",
+   "line": 528
+  },
+  {
+   "t": "hide",
+   "with": "moveoutright",
+   "image": "doctor",
+   "line": 529
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I can't believe he asked me out.",
+   "line": 530
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Everything worked out just right.",
+   "line": 531
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I found a job.",
+   "line": 532
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "And met [doctor_name].",
+   "line": 533
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'm so happy, I feel like I'm dreaming right now!",
+   "line": 534
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 535
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "What if it's all just a dream?",
+   "line": 536
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 537
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 538
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 540
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Game over.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 542
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 544
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 545
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 546
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 549
+  },
+  {
+   "t": "show",
+   "image": "bg imperial theatre",
+   "line": 550
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 551
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Hideo?",
+   "line": 553
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Don't you have rehearsal?",
+   "line": 554
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "No, I'm here for you.",
+   "line": 555
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Me?",
+   "line": 556
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 557
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You helped me to be true to myself.",
+   "line": 558
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 559
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "It's my turn to help you remember who you are.",
+   "line": 560
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Who I am?",
+   "line": 561
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Listen.",
+   "line": 562
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "This sound...",
+   "line": 563
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "It's from my dream!",
+   "line": 564
+  },
+  {
+   "t": "todo",
+   "code": "show bg imperial theatre as bg_copy at atl_dizzy",
+   "why": "'as' clause",
+   "line": 565
+  },
+  {
+   "t": "show",
+   "image": "musician glitched3",
+   "line": 574
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "pain"
+   ],
+   "text": "Ngh!",
+   "line": 575
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Come back, Naomi.",
+   "line": 576
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 577
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 579
+  },
+  {
+   "t": "hide",
+   "image": "window",
+   "line": 581
+  },
+  {
+   "t": "with",
+   "name": "Pixellate(2.0,5)",
+   "line": 582
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Naomi.'{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 583
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 585
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}This music...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 586
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 588
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "musician shy",
+   "line": 589
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Hideo.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 590
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 592
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 593
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 594
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}A classmate who seemed aloof, until one day.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 595
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 597
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 598
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "xalign": 0.8,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.9,
+      "ypos": 0.0,
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 599
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'Everyone makes mistakes starting out.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.1,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 602
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 604
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 605
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 606
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I discovered his kindness.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 607
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 609
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 610
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 611
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I wanted to encourage him too.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 612
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 614
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 615
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "musician shy2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.0,
+      "xalign": 0.1,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 2.0,
+     "props": {
+      "xalign": 0.1,
+      "ypos": 0.0,
+      "zoom": 1.2
+     }
+    }
+   ],
+   "line": 616
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'That really means a lot to me.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.2
+     }
+    }
+   ],
+   "line": 619
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 621
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 622
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 623
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}He was often shy to say how he felt, but.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 624
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 626
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 627
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 1.2,
+      "xalign": 0.65,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 2.0,
+     "props": {
+      "zoom": 1.5,
+      "yalign": 0.1
+     }
+    }
+   ],
+   "line": 628
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}'You give me courage.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.1,
+      "yalign": 0.25
+     }
+    }
+   ],
+   "line": 631
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 633
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 634
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 635
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}I was happy when he told me that.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 636
+  },
+  {
+   "t": "with",
+   "name": "dissolve",
+   "line": 638
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 639
+  },
+  {
+   "t": "show",
+   "image": "bg irl",
+   "line": 640
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 3.5
+     }
+    }
+   ],
+   "line": 641
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": -2.5
+     }
+    }
+   ],
+   "line": 646
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Hideo.{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.8
+     }
+    },
+    {
+     "wait": 3.5
+    },
+    {
+     "warp": "easeout",
+     "time": 3.0,
+     "props": {
+      "alpha": 0.0
+     }
+    }
+   ],
+   "line": 651
+  },
+  {
+   "t": "show",
+   "zorder": 1,
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.0,
+      "xalign": 0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 655
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 657
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 658
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 659
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 660
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.0,
+      "yalign": 0.0,
+      "xalign": 0.1
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 0.5,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1
+     }
+    }
+   ],
+   "line": 661
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}'Naomi?'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.8,
+      "alpha": 1.0
+     }
+    }
+   ],
+   "line": 664
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 666
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1
+     }
+    }
+   ],
+   "line": 667
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}'You're awake!'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.7,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 669
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 671
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}I was asleep?{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 672
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 674
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 675
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}'You've been unconscious for two days.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.8,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 677
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 679
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}Two...{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.9,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 680
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 682
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "zoom": 2.5,
+      "yalign": 0.05,
+      "xpos": -0.1,
+      "xzoom": -1.0
+     }
+    }
+   ],
+   "line": 683
+  },
+  {
+   "t": "show",
+   "text": "{color=#000000}'Rest. I'll go get the doctor.'{/color}",
+   "zorder": 3,
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.85,
+      "yalign": 0.8
+     }
+    }
+   ],
+   "line": 685
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 687
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 3.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": 1.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 688
+  },
+  {
+   "t": "show",
+   "zorder": 2,
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": -2.5
+     }
+    },
+    {
+     "warp": "easein",
+     "time": 3.5,
+     "props": {
+      "yalign": -0.3
+     }
+    },
+    {
+     "wait": 0.5
+    },
+    {
+     "warp": "easeout",
+     "time": 2.5,
+     "props": {
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 693
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 698
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}A few months later, when I had recovered enough...{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 699
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 701
+  },
+  {
+   "t": "hide",
+   "image": "black1",
+   "line": 702
+  },
+  {
+   "t": "hide",
+   "image": "black2",
+   "line": 703
+  },
+  {
+   "t": "hide",
+   "image": "musician",
+   "line": 704
+  },
+  {
+   "t": "hide",
+   "image": "text",
+   "line": 705
+  },
+  {
+   "t": "show",
+   "image": "musician_cutscene_3",
+   "line": 706
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 707
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 708
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 709
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 711
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Thank you for playing!{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 713
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 715
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 716
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 717
+  },
+  {
+   "t": "show",
+   "image": "bg imperial theatre",
+   "line": 720
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5
+     }
+    }
+   ],
+   "line": 721
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "Hideo?",
+   "line": 723
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I've been waiting for you, Naomi.",
+   "line": 724
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "Don't you have rehearsal?",
+   "line": 725
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 726
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "That can wait.",
+   "line": 727
+  },
+  {
+   "t": "show",
+   "image": "musician troubled",
+   "line": 728
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "There's something I need to tell you.",
+   "line": 729
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "...",
+   "line": 730
+  },
+  {
+   "t": "show",
+   "image": "musician shy2",
+   "line": 731
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I...",
+   "line": 732
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I really like you.",
+   "line": 733
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "surprised"
+   ],
+   "text": "...",
+   "line": 734
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I feel the same way...",
+   "line": 735
+  },
+  {
+   "t": "show",
+   "image": "musician surprised",
+   "line": 736
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "You do?",
+   "line": 737
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 738
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'm glad.",
+   "line": 739
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "Will you stay here with me from now on?",
+   "line": 740
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I will.",
+   "line": 741
+  },
+  {
+   "t": "show",
+   "image": "musician shy",
+   "line": 742
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I need to go now.",
+   "line": 743
+  },
+  {
+   "t": "show",
+   "image": "musician happy",
+   "line": 744
+  },
+  {
+   "t": "say",
+   "who": "musician",
+   "attrs": [],
+   "text": "I'll see you later?",
+   "line": 745
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Sure!",
+   "line": 746
+  },
+  {
+   "t": "hide",
+   "with": "moveoutleft",
+   "image": "musician",
+   "line": 747
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "I can't believe he feels the same way as me.",
+   "line": 748
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "Everything worked out just right.",
+   "line": 749
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "I found a job.",
+   "line": 750
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "blush"
+   ],
+   "text": "And met Hideo.",
+   "line": 751
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "happy"
+   ],
+   "text": "I'm so happy, I feel like I'm dreaming right now!",
+   "line": 752
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "thinking"
+   ],
+   "text": "...",
+   "line": 753
+  },
+  {
+   "t": "say",
+   "who": "naomi",
+   "attrs": [
+    "troubled"
+   ],
+   "text": "What if it's all just a dream?",
+   "line": 754
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 755
+  },
+  {
+   "t": "show",
+   "image": "black1",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 1.0
+     }
+    }
+   ],
+   "line": 756
+  },
+  {
+   "t": "show",
+   "image": "black2",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.0
+     }
+    }
+   ],
+   "line": 758
+  },
+  {
+   "t": "show",
+   "text": "{color=#ffffff}Game over.{/color}",
+   "image": "text",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.5,
+      "yalign": 0.5
+     }
+    }
+   ],
+   "line": 760
+  },
+  {
+   "t": "with",
+   "name": "Fade(2.0,0.5,0.5)",
+   "line": 762
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 763
+  },
+  {
+   "t": "todo",
+   "code": "$ renpy.full_restart()",
+   "why": "Python: renpy.full_restart",
+   "line": 764
+  }
+ ]
+}

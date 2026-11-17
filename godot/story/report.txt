@@ -1,0 +1,667 @@
+Converted 5042 steps. 86 were not converted.
+
+STORY LINES NOT CONVERTED (86)
+The player skips these and prints a warning. Port each one by hand.
+
+script.rpy:22  [statement not supported yet]
+    init python:
+        def naomi_cheek_color(st,at,cheek):
+            return im.MatrixColor(cheek, im.matrix.tint(cheek_color_r,cheek_color_g,cheek_color_b)), None
+        def naomi_eye_color(st,at,eye):
+            return im.MatrixColor(eye, im.matrix.tint(eye_color_r,eye_color_g,eye_color_b)), None
+        def naomi_lip_color(st,at,lip):
+            return im.MatrixColor(lip, im.matrix.hue(lip_color_h)*im.matrix.saturation(lip_color_s)*im.matrix.brightness(lip_color_v)), None
+        class glitch(renpy.Displayable):
+            """
+            `randomkey`
+                Follows the rules of the random modume's seed function.
+                If not set, a random seed is generated when the transform is applied,
+                and stays the same afterwards.
+                If you want the effect to be random for each render operation, set to None.
+            `chroma`
+                Boolean, whether to apply the chromatic aberration effect.
+            `minbandheight`
+                Minimum height of each slice.
+            `offset`
+                The offset of each slice will be between -offset and offset pixels.
+            `nslices`
+                Number of slicings to do (the number of slices will be nslices + 1).
+                Setting this to 0 is not supported.
+                None (the default) makes it random.
+            """
+            NotSet = object()
+            def __init__(self, child, *, randomkey=NotSet, chroma=True, minbandheight=1, offset=30, nslices=None, **properties):
+                super().__init__(**properties)
+                self.child = renpy.displayable(child)
+                if randomkey is self.NotSet:
+                    randomkey = renpy.random.random()
+                self.randomkey = randomkey
+                self.chroma = chroma
+                self.minbandheight = minbandheight
+                self.offset = offset
+                self.nslices = nslices
+            def render(self, width, height, st, at):
+                child = self.child
+                child_render = renpy.render(child, width, height, st, at)
+                cwidth, cheight = child_render.get_size()
+                if not (cwidth and cheight):
+                    return child_render
+                render = renpy.Render(cwidth, cheight)
+                randomobj = renpy.random.Random(self.randomkey)
+                chroma = self.chroma and renpy.display.render.models
+                offset = self.offset
+                minbandheight = self.minbandheight
+                nslices = self.nslices
+                if nslices is None:
+                    nslices = min(int(cheight/minbandheight), randomobj.randrange(10, 21))
+                theights = sorted(randomobj.randrange(int(cheight)+1) for k in range(nslices))
+                offt = 0
+                fheight = 0
+                while fheight<cheight:
+                    if theights:
+                        theight = max(theights.pop(0)-fheight, minbandheight)
+                    else:
+                        theight = cheight-theight
+                    slice_render = child_render.subsurface((0, fheight, cwidth, theight))
+                    if offt and chroma:
+                        for color_mask, chponder in (((False, False, True, True), 1.25), ((False, True, False, True), 1.), ((True, False, False, True), .75)):
+                            chroma_render = slice_render.subsurface((0, 0, cwidth, theight))
+                            chroma_render.add_property("gl_color_mask", color_mask)
+                            render.blit(chroma_render, (round(offt*chponder), round(fheight)))
+                    else:
+                        render.blit(slice_render, (offt, round(fheight)))
+                    fheight += theight
+                    if offt:
+                        offt = 0
+                    else:
+                        offt = randomobj.randrange(-offset, offset+1)
+                return render
+            def visit(self):
+                return [self.child]
+
+script.rpy:122  [statement not supported yet]
+    layeredimage side naomi:
+        group base auto:
+            zoom 0.5
+            attribute happy default
+        group blush auto:
+            zoom 0.5
+            attribute happy default:
+                DynamicDisplayable(naomi_cheek_color, cheek="images/side/side_naomi_blush_happy.png")
+            attribute angry:
+                DynamicDisplayable(naomi_cheek_color, cheek="images/side/side_naomi_blush_angry.png")
+            attribute blush:
+                DynamicDisplayable(naomi_cheek_color, cheek="images/side/side_naomi_blush_blush.png")
+            attribute relieved:
+                DynamicDisplayable(naomi_cheek_color, cheek="images/side/side_naomi_blush_relieved.png")
+            attribute sleepy:
+                DynamicDisplayable(naomi_cheek_color, cheek="images/side/side_naomi_blush_sleepy.png")
+            attribute smirk:
+                DynamicDisplayable(naomi_cheek_color, cheek="images/side/side_naomi_blush_smirk.png")
+            attribute surprised:
+                DynamicDisplayable(naomi_cheek_color, cheek="images/side/side_naomi_blush_surprised.png")
+            attribute thinking:
+                DynamicDisplayable(naomi_cheek_color, cheek="images/side/side_naomi_blush_thinking.png")
+            attribute troubled:
+                DynamicDisplayable(naomi_cheek_color, cheek="images/side/side_naomi_blush_troubled.png")
+        group eye auto:
+            zoom 0.5
+            attribute happy default:
+                DynamicDisplayable(naomi_eye_color, eye="images/side/side_naomi_eye_happy.png")
+            attribute angry:
+                DynamicDisplayable(naomi_eye_color, eye="images/side/side_naomi_eye_angry.png")
+            attribute blush:
+                DynamicDisplayable(naomi_eye_color, eye="images/side/side_naomi_eye_blush.png")
+            attribute relieved:
+                DynamicDisplayable(naomi_eye_color, eye="images/side/side_naomi_eye_relieved.png")
+            attribute sleepy:
+                DynamicDisplayable(naomi_eye_color, eye="images/side/side_naomi_eye_sleepy.png")
+            attribute smirk:
+                DynamicDisplayable(naomi_eye_color, eye="images/side/side_naomi_eye_smirk.png")
+            attribute surprised:
+                DynamicDisplayable(naomi_eye_color, eye="images/side/side_naomi_eye_surprised.png")
+            attribute thinking:
+                DynamicDisplayable(naomi_eye_color, eye="images/side/side_naomi_eye_thinking.png")
+            attribute troubled:
+                DynamicDisplayable(naomi_eye_color, eye="images/side/side_naomi_eye_troubled.png")
+        group lip auto:
+            zoom 0.5
+            attribute happy default:
+                DynamicDisplayable(naomi_lip_color, lip="images/side/side_naomi_lip_happy.png")
+            attribute angry:
+                DynamicDisplayable(naomi_lip_color, lip="images/side/side_naomi_lip_angry.png")
+            attribute blush:
+                DynamicDisplayable(naomi_lip_color, lip="images/side/side_naomi_lip_blush.png")
+            attribute relieved:
+                DynamicDisplayable(naomi_lip_color, lip="images/side/side_naomi_lip_relieved.png")
+            attribute sleepy:
+                DynamicDisplayable(naomi_lip_color, lip="images/side/side_naomi_lip_sleepy.png")
+            attribute smirk:
+                DynamicDisplayable(naomi_lip_color, lip="images/side/side_naomi_lip_smirk.png")
+            attribute surprised:
+                DynamicDisplayable(naomi_lip_color, lip="images/side/side_naomi_lip_surprised.png")
+            attribute thinking:
+                DynamicDisplayable(naomi_lip_color, lip="images/side/side_naomi_lip_thinking.png")
+            attribute troubled:
+                DynamicDisplayable(naomi_lip_color, lip="images/side/side_naomi_lip_troubled.png")
+        always:
+            "side/side_naomi_[naomi_hair].png" zoom 0.5
+        always:
+            "side/side_naomi_[naomi_dress].png" zoom 0.5
+
+script.rpy:324  [statement not supported yet]
+    init python:
+        def add_point(char):
+            relationship_points[char] = min(relationship_points[char] + 1, 15)
+        def get_stage(char):
+            pts = relationship_points[char]
+            if pts >= 13: return 5
+            if pts >= 10: return 4
+            if pts >= 6:  return 3
+            if pts >= 3:  return 2
+            if pts >= 1:  return 1
+            return 0
+        def calc_demographics():
+            total = sum(get_stage(c) for c in relationship_points)
+            return min(int(total * (30.0 / 25.0)), 30)
+
+script.rpy:357  [statement not supported yet]
+    init python:
+        def flag(name):
+            return story_flags.get(name, False)
+        def set_flag(name):
+            story_flags[name] = True
+
+script.rpy:412  [statement not supported yet]
+    init python:
+        def _musician_day_gate(flag_key, gap=None):
+            if gap is None:
+                gap = MUSICIAN_INTRO_GAP
+            last_day = story_flags.get(flag_key, -9999)
+            return (last_day - totaldays) >= gap
+        def musician_8_gate():
+            return _musician_day_gate("musician_1_day")
+        def musician_8_ready():
+            return relationship_points["musician"] >= 3 and not flag("musician_show_seen")
+        def musician_show_today():
+            return dayofweeknumber == 6 and musician_event == 1 and totaldays <= 16
+        def musician_casual_paused():
+            show_window = (flag("musician_show_seen") or musician_show_today()) and encounters["musician"] < 10
+            return show_window or musician_tower_today()
+        def musician_9_condition():
+            return flag("musician_ticketer_talk_seen")
+        def musician_9_blocked():
+            encounters["musician"] += 1
+        def musician_9_branch():
+            days_since_9 = story_flags.get("musician_9_day", -9999) - totaldays
+            return "musician_9a" if days_since_9 <= 2 else "musician_9b"
+        def musician_11_condition():
+            return totaldays >= 3
+        def musician_tower_today():
+            return dayofweeknumber == 7 and musician_event == 3
+        musician_encounter_table = { 1: {"label": "musician_1"}, 3: {"label": "musician_3"}, 5: {"label": "musician_5"}, 7: {"label": "musician_7"}, 8: {"condition": musician_8_ready, "label": "musician_8"}, 10: {"branch": musician_9_branch}, }
+        def get_musician_action():
+            entry = musician_encounter_table.get(encounters["musician"])
+            if not entry:
+                return None
+            if "branch" in entry:
+                return entry["branch"]()
+            condition = entry.get("condition")
+            if condition is None or condition():
+                return entry["label"]
+            elif "on_blocked" in entry:
+                entry["on_blocked"]()
+            return None
+
+script_01_opening.rpy:186  [Python: renpy.shuffle]
+    $ renpy.random.shuffle(cafe_menu)
+
+script_02_day_choices.rpy:72  [show screen - port by hand]
+    show screen map_tutorial
+
+script_03_cafe.rpy:424  ['as' clause]
+    show bg caferight as bg_copy at atl_dizzy
+
+script_03_cafe.rpy:426  [Python: renpy.vibrate]
+    $ renpy.vibrate(0.5)
+
+script_03_dept.rpy:18  [hide screen - port by hand]
+    hide screen stationery_counter
+
+script_03_dept.rpy:19  [hide screen - port by hand]
+    hide screen accessories_counter
+
+script_03_dept.rpy:20  [hide screen - port by hand]
+    hide screen clothes_counter
+
+script_03_dept.rpy:21  [hide screen - port by hand]
+    hide screen cosmetics_counter
+
+script_03_dept.rpy:22  [hide screen - port by hand]
+    hide screen dept_store
+
+script_03_dept.rpy:32  [hide screen - port by hand]
+    hide screen stationery_counter
+
+script_03_dept.rpy:33  [hide screen - port by hand]
+    hide screen accessories_counter
+
+script_03_dept.rpy:34  [hide screen - port by hand]
+    hide screen clothes_counter
+
+script_03_dept.rpy:35  [hide screen - port by hand]
+    hide screen cosmetics_counter
+
+script_03_dept.rpy:43  [show screen - port by hand]
+    show screen stationery_counter
+
+script_03_dept.rpy:55  [show screen - port by hand]
+    show screen stationery_counter
+
+script_03_dept.rpy:74  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:88  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:100  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:112  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:124  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:136  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:148  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:160  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:172  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:184  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:196  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:208  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:220  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:232  [show screen - port by hand]
+    show screen accessories_counter
+
+script_03_dept.rpy:248  [show screen - port by hand]
+    show screen clothes_counter
+
+script_03_dept.rpy:260  [show screen - port by hand]
+    show screen clothes_counter
+
+script_03_dept.rpy:272  [show screen - port by hand]
+    show screen clothes_counter
+
+script_03_dept.rpy:284  [show screen - port by hand]
+    show screen clothes_counter
+
+script_03_dept.rpy:296  [show screen - port by hand]
+    show screen clothes_counter
+
+script_03_dept.rpy:312  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_dept.rpy:324  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_dept.rpy:336  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_dept.rpy:348  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_dept.rpy:360  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_dept.rpy:372  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_dept.rpy:384  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_dept.rpy:396  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_dept.rpy:408  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_dept.rpy:420  [show screen - port by hand]
+    show screen cosmetics_counter
+
+script_03_shrine.rpy:52  [ATL: property 'anchor']
+    show shrine_counter:
+        anchor (1.0,1.0)
+        linear 3.0 xalign 1.0 ypos 1.28 zoom 0.8
+
+script_04_hospital.rpy:431  ['as' clause]
+    show clinic as clinic_copy at atl_dizzy
+
+script_04_hospital.rpy:578  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+script_04_merchant.rpy:1045  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+script_04_musician.rpy:118  [ATL: property 'easeout_circ']
+    show pudding_cherry zorder 4.0:
+        xalign 0.46 ypos 0.75 zoom 0.5
+        easeout_circ 0.8 align (0.4, 0.85) knot (0.41, 0.83) zpos 150 zoom 0.6
+        ease 0.6 align (0.35, 0.85) knot (0.37, 0.82)
+
+script_04_musician.rpy:441  ['as' clause]
+    show bg imperial theatre as theatre_copy at atl_dizzy
+
+script_04_musician.rpy:443  [Python: renpy.vibrate]
+    $ renpy.vibrate(0.5)
+
+script_04_musician.rpy:727  [Python: Delete]
+    $ del inventory["ticket_front_new"]
+
+script_04_musician.rpy:732  [Python: Delete]
+    $ del inventory["ticket_back_new"]
+
+script_04_musician.rpy:750  ['as' clause]
+    show musician_cutscene_12 as cutscene_copy at atl_dizzy
+
+script_04_musician.rpy:1050  ['as' clause]
+    show bg caferight as cutscene_copy at atl_dizzy
+
+script_04_musician.rpy:1052  [Python: renpy.vibrate]
+    $ renpy.vibrate(0.5)
+
+script_04_musician.rpy:1183  [show screen - port by hand]
+    show screen wardrobe
+
+script_04_musician.rpy:1282  ['as' clause]
+    show musician_cutscene_2 as cutscene_copy at atl_dizzy
+
+script_04_musician.rpy:1284  [Python: renpy.vibrate]
+    $ renpy.vibrate(0.5)
+
+script_04_musician.rpy:1378  ['as' clause]
+    show bg caferight as cutscene_copy at atl_dizzy
+
+script_04_musician.rpy:1380  [Python: renpy.vibrate]
+    $ renpy.vibrate(0.5)
+
+script_04_musician.rpy:1407  ['as' clause]
+    show bg cafeleft as cutscene_copy at atl_dizzy
+
+script_04_musician.rpy:1409  [Python: renpy.vibrate]
+    $ renpy.vibrate(0.5)
+
+script_04_musician.rpy:1419  ['as' clause]
+    show bg cafeleft as bg_copy at atl_dizzy
+
+script_04_musician.rpy:1572  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+script_04_musician.rpy:1609  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+script_05_events.rpy:25  [show screen - port by hand]
+    show screen wardrobe
+
+script_05_events.rpy:214  ['as' clause]
+    show bg dancehall 2 as bg_copy at atl_dizzy
+
+script_05_events.rpy:217  [Python: renpy.vibrate]
+    $ renpy.vibrate(0.5)
+
+script_05_events.rpy:304  [show screen - port by hand]
+    show screen wardrobe
+
+script_05_events.rpy:374  ['as' clause]
+    show bg movie as bg_copy at atl_dizzy
+
+script_05_events.rpy:378  [Python: renpy.vibrate]
+    $ renpy.vibrate(0.5)
+
+script_06_final.rpy:213  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+script_06_final.rpy:269  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+script_06_final.rpy:282  ['as' clause]
+    show bg clinic as bg_copy at atl_dizzy
+
+script_06_final.rpy:294  ['as' clause]
+    show bg clinic as bg_copy at atl_dizzy
+
+script_06_final.rpy:489  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+script_06_final.rpy:546  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+script_06_final.rpy:565  ['as' clause]
+    show bg imperial theatre as bg_copy at atl_dizzy
+
+script_06_final.rpy:717  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+script_06_final.rpy:764  [Python: renpy.full_restart]
+    $ renpy.full_restart()
+
+
+PYTHON BLOCKS (4)
+Each needs a function with this name in godot/state.gd.
+
+script_02_day_choices.rpy:24  func py_reset_daily_visits_1()
+    for c in visited_today:
+        visited_today[c] = False
+    cafe_menu = []
+
+script_03_cafe.rpy:21  func py_check_cafe_visits_1()
+    eligible = []
+    already_picked = set()
+    fixed_chars_today = []
+    forced_char = None
+    for char, triggers in cafe_encounter_triggers.items():
+        if char not in unlocked_chars or visited_today[char]:
+            continue
+        trigger = triggers.get(encounters[char])
+        if trigger:
+            item_match = trigger["item"] in cafe_menu
+            cond_match = trigger["condition"]() if trigger["condition"] else True
+            if item_match and cond_match:
+                forced_char = char
+                break
+    if forced_char:
+        already_picked.add(forced_char)
+        fixed_chars_today.append(forced_char)
+    for item in cafe_menu:
+        mapping = item_to_character.get(item)
+        if mapping is None or isinstance(mapping, list):
+            continue
+        if mapping == "musician" and musician_casual_paused():
+            continue
+        if mapping in unlocked_chars and not visited_today[mapping] and mapping not in already_picked:
+            eligible.append(mapping)
+            already_picked.add(mapping)
+            fixed_chars_today.append(mapping)
+    for item in cafe_menu:
+        mapping = item_to_character.get(item)
+        if mapping is None or not isinstance(mapping, list):
+            continue
+        candidates = [ c for c in mapping if c in unlocked_chars and not visited_today[c] and c not in already_picked and not (c == "musician" and musician_casual_paused()) ]
+        if candidates:
+            if renpy.random.random() < CATCHUP_CHANCE:
+                candidates_sorted = sorted(candidates, key=lambda c: total_visits[c])
+            else:
+                candidates_sorted = sorted(candidates, key=lambda c: encounters[c], reverse=True)
+            chosen = candidates_sorted[0]
+            eligible.append(chosen)
+            already_picked.add(chosen)
+    visiting_chars = []
+    if forced_char:
+        visiting_chars.append(forced_char)
+        if eligible:
+            renpy.random.shuffle(eligible)
+            visiting_chars.append(eligible[0])
+    elif eligible:
+        renpy.random.shuffle(eligible)
+        pool = fixed_chars_today if fixed_chars_today else eligible
+        if renpy.random.random() < CATCHUP_CHANCE:
+            visiting_chars.append(sorted(pool, key=lambda c: total_visits[c])[0])
+        else:
+            visiting_chars.append(sorted(pool, key=lambda c: encounters[c], reverse=True)[0])
+        remaining = [c for c in eligible if c not in visiting_chars]
+        if remaining:
+            visiting_chars.append(renpy.random.choice(remaining))
+
+script_03_cafe.rpy:98  func py_check_cafe_visits_2()
+    override1 = None
+    num1 = encounters[char1]
+    trigger = cafe_encounter_triggers.get(char1, {}).get(num1)
+    if trigger:
+        item_match = trigger["item"] in cafe_menu
+        cond_match = trigger["condition"]() if trigger["condition"] else True
+        if item_match and cond_match:
+            override1 = char1 + "_" + str(num1)
+
+script_03_cafe.rpy:120  func py_check_cafe_visits_3()
+    override2 = None
+    num2 = encounters[char2]
+    trigger = cafe_encounter_triggers.get(char2, {}).get(num2)
+    if trigger:
+        item_match = trigger["item"] in cafe_menu
+        cond_match = trigger["condition"]() if trigger["condition"] else True
+        if item_match and cond_match:
+            override2 = char2 + "_" + str(num2)
+
+
+SCREENS THE STORY OPENS (13)
+Each needs a scene in godot/screens/. Until then a placeholder is shown.
+
+accessories_counter
+asakusa_large
+asakusa_shrine
+asakusa_small
+bedroom
+cafe_game
+cafe_menu
+clothes_counter
+cosmetics_counter
+dept_store
+ginza_large
+ginza_small
+stationery_counter
+
+EFFECTS LEFT OUT FOR NOW (52)
+The picture shows, but without this effect (it needs a shader).
+
+script_02_day_choices.rpy:309  matrixcolor BrightnessMatrix(0.2)
+script_02_day_choices.rpy:313  matrixcolor BrightnessMatrix(0.2)
+script_02_day_choices.rpy:320  blur 10.0
+script_02_day_choices.rpy:320  blur 0.0
+script_02_day_choices.rpy:325  blur 0.0
+script_02_day_choices.rpy:444  blur 20.0
+script_02_day_choices.rpy:444  matrixcolor BrightnessMatrix(0.5)
+script_02_day_choices.rpy:444  blur 10.0
+script_02_day_choices.rpy:444  matrixcolor BrightnessMatrix(0.2)
+script_02_day_choices.rpy:444  blur 15.0
+script_02_day_choices.rpy:444  matrixcolor BrightnessMatrix(0.4)
+script_02_day_choices.rpy:477  blur 20.0
+script_02_day_choices.rpy:477  matrixcolor BrightnessMatrix(0.5)
+script_02_day_choices.rpy:477  blur 10.0
+script_02_day_choices.rpy:477  matrixcolor BrightnessMatrix(0.2)
+script_02_day_choices.rpy:477  blur 15.0
+script_02_day_choices.rpy:477  matrixcolor BrightnessMatrix(0.4)
+script_02_day_choices.rpy:513  blur 20.0
+script_02_day_choices.rpy:513  matrixcolor BrightnessMatrix(0.5)
+script_02_day_choices.rpy:513  blur 10.0
+script_02_day_choices.rpy:513  matrixcolor BrightnessMatrix(0.2)
+script_02_day_choices.rpy:513  blur 15.0
+script_02_day_choices.rpy:513  matrixcolor BrightnessMatrix(0.4)
+script_03_cafe.rpy:418  blur 10.0
+script_03_shrine.rpy:381  matrixcolor BrightnessMatrix(-0.5)
+script_03_shrine.rpy:384  matrixcolor BrightnessMatrix(0)
+script_04_hospital.rpy:442  blur 5.0
+script_04_hospital.rpy:442  matrixcolor BrightnessMatrix(-0.3)
+script_04_hospital.rpy:447  blur 0.0
+script_04_hospital.rpy:447  matrixcolor BrightnessMatrix(0.0)
+script_04_merchant.rpy:128  blur 5.0
+script_04_merchant.rpy:172  blur 5.0
+script_04_merchant.rpy:806  matrixcolor BrightnessMatrix(0.0)
+script_04_merchant.rpy:806  matrixcolor BrightnessMatrix(-0.1)
+script_04_merchant.rpy:809  matrixcolor BrightnessMatrix(0.0)
+script_04_merchant.rpy:809  matrixcolor BrightnessMatrix(-0.2)
+script_04_merchant.rpy:812  matrixcolor BrightnessMatrix(0.0)
+script_04_merchant.rpy:812  matrixcolor BrightnessMatrix(-0.2)
+script_04_musician.rpy:737  matrixcolor BrightnessMatrix(-0.2)
+script_04_musician.rpy:1219  matrixcolor SaturationMatrix(1.2)
+script_04_musician.rpy:1221  matrixcolor BrightnessMatrix(-0.1)
+script_05_events.rpy:118  blur 0.0
+script_05_events.rpy:150  matrixcolor BrightnessMatrix(0)
+script_05_events.rpy:150  blur 5.0
+script_05_events.rpy:150  matrixcolor BrightnessMatrix(-0.1)
+script_05_events.rpy:153  matrixcolor BrightnessMatrix(-0.05)
+script_05_events.rpy:157  blur 10.0
+script_05_events.rpy:219  blur 10.0
+script_05_events.rpy:228  blur 10.0
+script_05_events.rpy:234  blur 10.0
+script_06_final.rpy:368  blur 10.0
+script_06_final.rpy:398  blur 10.0
+
+FILES WITH THE WRONG EXTENSION (1)
+Copied into Godot under the right one. Worth renaming in game/ too.
+
+gui/map/ginza_ground.png is really a .jpg file
+
+MISSING FILES (16)
+
+picture 'bg theatre' is shown in the story but no file or `image` line matches it
+picture 'doctor glitched' is shown in the story but no file or `image` line matches it
+picture 'doctor glitched2' is shown in the story but no file or `image` line matches it
+picture 'doctor glitched3' is shown in the story but no file or `image` line matches it
+picture 'kirako glitched' is shown in the story but no file or `image` line matches it
+picture 'merchant discussing' is shown in the story but no file or `image` line matches it
+picture 'merchant glitched' is shown in the story but no file or `image` line matches it
+picture 'merchant glitched0' is shown in the story but no file or `image` line matches it
+picture 'merchant glitched2' is shown in the story but no file or `image` line matches it
+picture 'merchant glitched3' is shown in the story but no file or `image` line matches it
+picture 'merchant glitched4' is shown in the story but no file or `image` line matches it
+picture 'musician glitched' is shown in the story but no file or `image` line matches it
+picture 'musician glitched2' is shown in the story but no file or `image` line matches it
+picture 'musician glitched3' is shown in the story but no file or `image` line matches it
+picture 'musician glitched4' is shown in the story but no file or `image` line matches it
+audio file not found: spring.mp3
+
+SETUP LINES THE CONVERTER DID NOT READ (17)
+
+script.rpy:299  default 'cafe_encounter_triggers' is not a plain value - set it in state.gd
+script.rpy:545  image 'merchant_cutscene_3' uses a form the converter does not read: im.Scale(im.Crop("images/merchant/merchant_cutscene_3.png", (0, 0, 1024, 576)),1920,1080)
+script_01_opening.rpy:127  image 'kirako glitched' is an ATL image - port by hand
+script_03_cafe.rpy:403  image 'doctor glitched' is an ATL image - port by hand
+script_04_hospital.rpy:422  image 'doctor glitched' is an ATL image - port by hand
+script_04_merchant.rpy:353  image 'merchant glitched0' is an ATL image - port by hand
+script_04_merchant.rpy:660  image 'merchant glitched3' is an ATL image - port by hand
+script_04_merchant.rpy:786  image 'merchant discussing' is an ATL image - port by hand
+script_04_merchant.rpy:942  image 'merchant glitched' is an ATL image - port by hand
+script_04_musician.rpy:130  image 'musician glitched' is an ATL image - port by hand
+script_04_musician.rpy:916  image 'musician glitched2' is an ATL image - port by hand
+script_04_musician.rpy:1420  image 'musician glitched4' is an ATL image - port by hand
+script_05_events.rpy:202  image 'merchant glitched2' is an ATL image - port by hand
+script_05_events.rpy:363  image 'doctor glitched2' is an ATL image - port by hand
+script_06_final.rpy:34  image 'merchant glitched4' is an ATL image - port by hand
+script_06_final.rpy:297  image 'doctor glitched3' is an ATL image - port by hand
+script_06_final.rpy:566  image 'musician glitched3' is an ATL image - port by hand

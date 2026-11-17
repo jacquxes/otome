@@ -1,0 +1,2233 @@
+{
+ "source": "script_03_dept.rpy",
+ "labels": {
+  "dept_store": 0,
+  "dept_only": 5,
+  "dept_exit": 8,
+  "stationery_section": 33,
+  "purchase_pen": 35,
+  "purchase_notebook": 44,
+  "accessories_section": 53,
+  "purchase_hair_bow": 55,
+  "purchase_hair_hat": 66,
+  "purchase_hair_band": 75,
+  "purchase_hair_ribbon": 84,
+  "purchase_hair_flower": 93,
+  "purchase_hand_round": 102,
+  "purchase_hand_evening": 111,
+  "purchase_hand_straw": 120,
+  "purchase_hand_parasol": 129,
+  "purchase_shoes_koppori": 138,
+  "purchase_shoes_zori": 147,
+  "purchase_shoes_heels": 156,
+  "purchase_shoes_pumps": 165,
+  "purchase_shoes_boots": 174,
+  "clothes_section": 183,
+  "purchase_dress_cute": 185,
+  "purchase_dress_hakama": 194,
+  "purchase_dress_modern": 203,
+  "purchase_dress_flapper": 212,
+  "purchase_dress_prim": 221,
+  "cosmetics_section": 230,
+  "purchase_shadow_blue": 232,
+  "purchase_shadow_brown": 241,
+  "purchase_shadow_orange": 250,
+  "purchase_shadow_pink": 259,
+  "purchase_stick_orange": 268,
+  "purchase_stick_peach": 277,
+  "purchase_stick_pink": 286,
+  "purchase_stick_red": 295,
+  "purchase_blush_pink": 304,
+  "purchase_blush_orange": 313
+ },
+ "ops": [
+  {
+   "t": "scene",
+   "image": "bg dept",
+   "line": 4
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(encounters[\"merchant\"] == 0)",
+   "to": 4,
+   "line": 5
+  },
+  {
+   "t": "jump",
+   "label": "merchant_0",
+   "line": 6
+  },
+  {
+   "t": "goto",
+   "to": 4
+  },
+  {
+   "t": "screen",
+   "name": "dept_store",
+   "line": 7
+  },
+  {
+   "t": "scene",
+   "image": "bg dept",
+   "line": 10
+  },
+  {
+   "t": "screen",
+   "name": "dept_store",
+   "line": 11
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 12
+  },
+  {
+   "t": "scene",
+   "image": "bg dept",
+   "line": 15
+  },
+  {
+   "t": "menu",
+   "prompt": null,
+   "choices": [
+    {
+     "text": "Leave",
+     "cond": null,
+     "to": 10
+    },
+    {
+     "text": "Stay",
+     "cond": null,
+     "to": 27
+    }
+   ],
+   "line": 16
+  },
+  {
+   "t": "todo",
+   "code": "hide screen stationery_counter",
+   "why": "hide screen - port by hand",
+   "line": 18
+  },
+  {
+   "t": "todo",
+   "code": "hide screen accessories_counter",
+   "why": "hide screen - port by hand",
+   "line": 19
+  },
+  {
+   "t": "todo",
+   "code": "hide screen clothes_counter",
+   "why": "hide screen - port by hand",
+   "line": 20
+  },
+  {
+   "t": "todo",
+   "code": "hide screen cosmetics_counter",
+   "why": "hide screen - port by hand",
+   "line": 21
+  },
+  {
+   "t": "todo",
+   "code": "hide screen dept_store",
+   "why": "hide screen - port by hand",
+   "line": 22
+  },
+  {
+   "t": "set",
+   "var": "timeslot",
+   "keys": [],
+   "op": "-=",
+   "value": "1",
+   "line": 23
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(dayofweeknumber > 5)",
+   "to": 19,
+   "line": 24
+  },
+  {
+   "t": "return",
+   "line": 25
+  },
+  {
+   "t": "goto",
+   "to": 26
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot == 1)",
+   "to": 22,
+   "line": 27
+  },
+  {
+   "t": "jump",
+   "label": "ginza_small",
+   "line": 28
+  },
+  {
+   "t": "goto",
+   "to": 22
+  },
+  {
+   "t": "jump_if_not",
+   "cond": "(timeslot < 1)",
+   "to": 25,
+   "line": 29
+  },
+  {
+   "t": "jump",
+   "label": "evening_time",
+   "line": 30
+  },
+  {
+   "t": "goto",
+   "to": 25
+  },
+  {
+   "t": "goto",
+   "to": 26
+  },
+  {
+   "t": "goto",
+   "to": 33
+  },
+  {
+   "t": "todo",
+   "code": "hide screen stationery_counter",
+   "why": "hide screen - port by hand",
+   "line": 32
+  },
+  {
+   "t": "todo",
+   "code": "hide screen accessories_counter",
+   "why": "hide screen - port by hand",
+   "line": 33
+  },
+  {
+   "t": "todo",
+   "code": "hide screen clothes_counter",
+   "why": "hide screen - port by hand",
+   "line": 34
+  },
+  {
+   "t": "todo",
+   "code": "hide screen cosmetics_counter",
+   "why": "hide screen - port by hand",
+   "line": 35
+  },
+  {
+   "t": "jump",
+   "label": "dept_only",
+   "line": 36
+  },
+  {
+   "t": "goto",
+   "to": 33
+  },
+  {
+   "t": "screen",
+   "name": "stationery_counter",
+   "line": 39
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 40
+  },
+  {
+   "t": "todo",
+   "code": "show screen stationery_counter",
+   "why": "show screen - port by hand",
+   "line": 43
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "An exquisitely-made fountain pen with a firm grip."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 37
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 42
+    }
+   ],
+   "line": 44
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 47
+  },
+  {
+   "t": "eval",
+   "code": "inventory.append(\"pen\")",
+   "line": 48
+  },
+  {
+   "t": "eval",
+   "code": "stationery.erase(\"pen\")",
+   "line": 49
+  },
+  {
+   "t": "jump",
+   "label": "stationery_section",
+   "line": 50
+  },
+  {
+   "t": "goto",
+   "to": 44
+  },
+  {
+   "t": "jump",
+   "label": "stationery_section",
+   "line": 52
+  },
+  {
+   "t": "goto",
+   "to": 44
+  },
+  {
+   "t": "todo",
+   "code": "show screen stationery_counter",
+   "why": "show screen - port by hand",
+   "line": 55
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A notebook with a beautifully illustrated cover and creamy lined pages."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 46
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 51
+    }
+   ],
+   "line": 56
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 59
+  },
+  {
+   "t": "eval",
+   "code": "inventory.append(\"notebook\")",
+   "line": 60
+  },
+  {
+   "t": "eval",
+   "code": "stationery.erase(\"notebook\")",
+   "line": 61
+  },
+  {
+   "t": "jump",
+   "label": "stationery_section",
+   "line": 62
+  },
+  {
+   "t": "goto",
+   "to": 53
+  },
+  {
+   "t": "jump",
+   "label": "stationery_section",
+   "line": 64
+  },
+  {
+   "t": "goto",
+   "to": 53
+  },
+  {
+   "t": "screen",
+   "name": "accessories_counter",
+   "line": 70
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 71
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 74
+  },
+  {
+   "t": "show",
+   "image": "staff happy",
+   "line": 75
+  },
+  {
+   "t": "window",
+   "show": false,
+   "line": 76
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "This Western-style bow for 5 yen is very popular recently!"
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 59
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 64
+    }
+   ],
+   "line": 77
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 80
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_hair.merge({\"hair_bow\": [1608, 700]}, true)",
+   "line": 81
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"hair_bow\")",
+   "line": 82
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 83
+  },
+  {
+   "t": "goto",
+   "to": 66
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 85
+  },
+  {
+   "t": "goto",
+   "to": 66
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 88
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "This hat goes well with Western-style dresses, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 68
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 73
+    }
+   ],
+   "line": 89
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 92
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_hair.merge({\"hair_hat\": [1565, 335]}, true)",
+   "line": 93
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"hair_hat\")",
+   "line": 94
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 95
+  },
+  {
+   "t": "goto",
+   "to": 75
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 97
+  },
+  {
+   "t": "goto",
+   "to": 75
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 100
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A touch of glamour that keeps your hair in place while dancing, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 77
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 82
+    }
+   ],
+   "line": 101
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 104
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_hair.merge({\"hair_band\": [1584, 440]}, true)",
+   "line": 105
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"hair_band\")",
+   "line": 106
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 107
+  },
+  {
+   "t": "goto",
+   "to": 84
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 109
+  },
+  {
+   "t": "goto",
+   "to": 84
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 112
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "This velvet ribbon for 5 yen was imported from England."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 86
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 91
+    }
+   ],
+   "line": 113
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 116
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_hair.merge({\"hair_ribbon\": [1342, 484]}, true)",
+   "line": 117
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"hair_ribbon\")",
+   "line": 118
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 119
+  },
+  {
+   "t": "goto",
+   "to": 93
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 121
+  },
+  {
+   "t": "goto",
+   "to": 93
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 124
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A pretty silk flower to decorate your hair for 5 yen. It won't wilt!"
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 95
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 100
+    }
+   ],
+   "line": 125
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 128
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_hair.merge({\"hair_flower\": [1484, 620]}, true)",
+   "line": 129
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"hair_flower\")",
+   "line": 130
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 131
+  },
+  {
+   "t": "goto",
+   "to": 102
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 133
+  },
+  {
+   "t": "goto",
+   "to": 102
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 136
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A fashionable round leather handbag for 10 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 10)",
+     "to": 104
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 109
+    }
+   ],
+   "line": 137
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "10",
+   "line": 140
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_accessories.append(\"hand_round\")",
+   "line": 141
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"hand_round\")",
+   "line": 142
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 143
+  },
+  {
+   "t": "goto",
+   "to": 111
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 145
+  },
+  {
+   "t": "goto",
+   "to": 111
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 148
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "An elegant evening clutch for 10 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 10)",
+     "to": 113
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 118
+    }
+   ],
+   "line": 149
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "10",
+   "line": 152
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_accessories.append(\"hand_evening\")",
+   "line": 153
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"hand_evening\")",
+   "line": 154
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 155
+  },
+  {
+   "t": "goto",
+   "to": 120
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 157
+  },
+  {
+   "t": "goto",
+   "to": 120
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 160
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A sturdy straw bag for 10 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 10)",
+     "to": 122
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 127
+    }
+   ],
+   "line": 161
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "10",
+   "line": 164
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_accessories.append(\"hand_straw\")",
+   "line": 165
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"hand_straw\")",
+   "line": 166
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 167
+  },
+  {
+   "t": "goto",
+   "to": 129
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 169
+  },
+  {
+   "t": "goto",
+   "to": 129
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 172
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A parasol with delicate blue embroidery for 10 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 10)",
+     "to": 131
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 136
+    }
+   ],
+   "line": 173
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "10",
+   "line": 176
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_parasol.append(\"hand_parasol\")",
+   "line": 177
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"hand_parasol\")",
+   "line": 178
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 179
+  },
+  {
+   "t": "goto",
+   "to": 138
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 181
+  },
+  {
+   "t": "goto",
+   "to": 138
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 184
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Laminated wooden slippers which elevates your kimono, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 140
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 145
+    }
+   ],
+   "line": 185
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 188
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_shoes.append(\"shoes_koppori\")",
+   "line": 189
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"shoes_koppori\")",
+   "line": 190
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 191
+  },
+  {
+   "t": "goto",
+   "to": 147
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 193
+  },
+  {
+   "t": "goto",
+   "to": 147
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 196
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Sturdy straw slippers which last a long time, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 149
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 154
+    }
+   ],
+   "line": 197
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 200
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_shoes.append(\"shoes_zori\")",
+   "line": 201
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"shoes_zori\")",
+   "line": 202
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 203
+  },
+  {
+   "t": "goto",
+   "to": 156
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 205
+  },
+  {
+   "t": "goto",
+   "to": 156
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 208
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Western-style shoes for an evening out, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 158
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 163
+    }
+   ],
+   "line": 209
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 212
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_shoes.append(\"shoes_heels\")",
+   "line": 213
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"shoes_heels\")",
+   "line": 214
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 215
+  },
+  {
+   "t": "goto",
+   "to": 165
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 217
+  },
+  {
+   "t": "goto",
+   "to": 165
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 220
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Shoes that can be used everyday by the modern woman, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 167
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 172
+    }
+   ],
+   "line": 221
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 224
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_shoes.append(\"shoes_pumps\")",
+   "line": 225
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"shoes_pumps\")",
+   "line": 226
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 227
+  },
+  {
+   "t": "goto",
+   "to": 174
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 229
+  },
+  {
+   "t": "goto",
+   "to": 174
+  },
+  {
+   "t": "todo",
+   "code": "show screen accessories_counter",
+   "why": "show screen - port by hand",
+   "line": 232
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Sturdy Western-style boots that will protect your feet, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 176
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 181
+    }
+   ],
+   "line": 233
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 236
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_shoes.append(\"shoes_boots\")",
+   "line": 237
+  },
+  {
+   "t": "eval",
+   "code": "accessories.erase(\"shoes_boots\")",
+   "line": 238
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 239
+  },
+  {
+   "t": "goto",
+   "to": 183
+  },
+  {
+   "t": "jump",
+   "label": "accessories_section",
+   "line": 241
+  },
+  {
+   "t": "goto",
+   "to": 183
+  },
+  {
+   "t": "screen",
+   "name": "clothes_counter",
+   "line": 244
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 245
+  },
+  {
+   "t": "todo",
+   "code": "show screen clothes_counter",
+   "why": "show screen - port by hand",
+   "line": 248
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A kimono with a refreshing blue print, just right for a walk in late spring, for 25 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 25)",
+     "to": 187
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 192
+    }
+   ],
+   "line": 249
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "25",
+   "line": 252
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_dress.append(\"dress_cute\")",
+   "line": 253
+  },
+  {
+   "t": "eval",
+   "code": "clothes.erase(\"dress_cute\")",
+   "line": 254
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 255
+  },
+  {
+   "t": "goto",
+   "to": 194
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 257
+  },
+  {
+   "t": "goto",
+   "to": 194
+  },
+  {
+   "t": "todo",
+   "code": "show screen clothes_counter",
+   "why": "show screen - port by hand",
+   "line": 260
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A hakama with a trendy print, easy to move around in, for 25 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 25)",
+     "to": 196
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 201
+    }
+   ],
+   "line": 261
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "25",
+   "line": 264
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_dress.append(\"dress_hakama\")",
+   "line": 265
+  },
+  {
+   "t": "eval",
+   "code": "clothes.erase(\"dress_hakama\")",
+   "line": 266
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 267
+  },
+  {
+   "t": "goto",
+   "to": 203
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 269
+  },
+  {
+   "t": "goto",
+   "to": 203
+  },
+  {
+   "t": "todo",
+   "code": "show screen clothes_counter",
+   "why": "show screen - port by hand",
+   "line": 272
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A fashionable kimono with a bold and artistic print, for 25 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 25)",
+     "to": 205
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 210
+    }
+   ],
+   "line": 273
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "25",
+   "line": 276
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_dress.append(\"dress_modern\")",
+   "line": 277
+  },
+  {
+   "t": "eval",
+   "code": "clothes.erase(\"dress_modern\")",
+   "line": 278
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 279
+  },
+  {
+   "t": "goto",
+   "to": 212
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 281
+  },
+  {
+   "t": "goto",
+   "to": 212
+  },
+  {
+   "t": "todo",
+   "code": "show screen clothes_counter",
+   "why": "show screen - port by hand",
+   "line": 284
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A fashionable Western-style flapper dress for a night out at the dance club, for 25 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 25)",
+     "to": 214
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 219
+    }
+   ],
+   "line": 285
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "25",
+   "line": 288
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_dress.append(\"dress_flapper\")",
+   "line": 289
+  },
+  {
+   "t": "eval",
+   "code": "clothes.erase(\"dress_flapper\")",
+   "line": 290
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 291
+  },
+  {
+   "t": "goto",
+   "to": 221
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 293
+  },
+  {
+   "t": "goto",
+   "to": 221
+  },
+  {
+   "t": "todo",
+   "code": "show screen clothes_counter",
+   "why": "show screen - port by hand",
+   "line": 296
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "A modest Western-style dress for the modern girl, for 25 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 25)",
+     "to": 223
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 228
+    }
+   ],
+   "line": 297
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "25",
+   "line": 300
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_dress.append(\"dress_prim\")",
+   "line": 301
+  },
+  {
+   "t": "eval",
+   "code": "clothes.erase(\"dress_prim\")",
+   "line": 302
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 303
+  },
+  {
+   "t": "goto",
+   "to": 230
+  },
+  {
+   "t": "jump",
+   "label": "clothes_section",
+   "line": 305
+  },
+  {
+   "t": "goto",
+   "to": 230
+  },
+  {
+   "t": "screen",
+   "name": "cosmetics_counter",
+   "line": 308
+  },
+  {
+   "t": "pause",
+   "time": null,
+   "line": 309
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 312
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Blue eyeshadow adds smoky depth and mystery, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 234
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 239
+    }
+   ],
+   "line": 313
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 316
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_eye.append(\"shadow_blue\")",
+   "line": 317
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"shadow_blue\")",
+   "line": 318
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 319
+  },
+  {
+   "t": "goto",
+   "to": 241
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 321
+  },
+  {
+   "t": "goto",
+   "to": 241
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 324
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Brown eyeshadow lends warm and earthy tones, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 243
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 248
+    }
+   ],
+   "line": 325
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 328
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_eye.append(\"shadow_brown\")",
+   "line": 329
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"shadow_brown\")",
+   "line": 330
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 331
+  },
+  {
+   "t": "goto",
+   "to": 250
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 333
+  },
+  {
+   "t": "goto",
+   "to": 250
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 336
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Orange eyeshadow lends vibrancy to the eyes, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 252
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 257
+    }
+   ],
+   "line": 337
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 340
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_eye.append(\"shadow_orange\")",
+   "line": 341
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"shadow_orange\")",
+   "line": 342
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 343
+  },
+  {
+   "t": "goto",
+   "to": 259
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 345
+  },
+  {
+   "t": "goto",
+   "to": 259
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 348
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Pink eyeshadow adds a touch of color and femininity, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 261
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 266
+    }
+   ],
+   "line": 349
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 352
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_eye.append(\"shadow_pink\")",
+   "line": 353
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"shadow_pink\")",
+   "line": 354
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 355
+  },
+  {
+   "t": "goto",
+   "to": 268
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 357
+  },
+  {
+   "t": "goto",
+   "to": 268
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 360
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Orange lipstick adds a natural sun-kissed glow, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 270
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 275
+    }
+   ],
+   "line": 361
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 364
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_lip.append(\"stick_orange\")",
+   "line": 365
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"stick_orange\")",
+   "line": 366
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 367
+  },
+  {
+   "t": "goto",
+   "to": 277
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 369
+  },
+  {
+   "t": "goto",
+   "to": 277
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 372
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Peach lipstick creates a warm and natural look, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 279
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 284
+    }
+   ],
+   "line": 373
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 376
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_lip.append(\"stick_peach\")",
+   "line": 377
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"stick_peach\")",
+   "line": 378
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 379
+  },
+  {
+   "t": "goto",
+   "to": 286
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 381
+  },
+  {
+   "t": "goto",
+   "to": 286
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 384
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Pink lipstick evokes a soft and feminine feeling, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 288
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 293
+    }
+   ],
+   "line": 385
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 388
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_lip.append(\"stick_pink\")",
+   "line": 389
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"stick_pink\")",
+   "line": 390
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 391
+  },
+  {
+   "t": "goto",
+   "to": 295
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 393
+  },
+  {
+   "t": "goto",
+   "to": 295
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 396
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Red lipstick exudes glamour and confidence, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 297
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 302
+    }
+   ],
+   "line": 397
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 400
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_lip.append(\"stick_red\")",
+   "line": 401
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"stick_red\")",
+   "line": 402
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 403
+  },
+  {
+   "t": "goto",
+   "to": 304
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 405
+  },
+  {
+   "t": "goto",
+   "to": 304
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 408
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Pink blush enhances the natural flush of the skin, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 306
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 311
+    }
+   ],
+   "line": 409
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 412
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_cheek.append(\"blush_pink\")",
+   "line": 413
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"blush_pink\")",
+   "line": 414
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 415
+  },
+  {
+   "t": "goto",
+   "to": 313
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 417
+  },
+  {
+   "t": "goto",
+   "to": 313
+  },
+  {
+   "t": "todo",
+   "code": "show screen cosmetics_counter",
+   "why": "show screen - port by hand",
+   "line": 420
+  },
+  {
+   "t": "menu",
+   "prompt": {
+    "who": "staff_bubble",
+    "attrs": [],
+    "text": "Orange blush brings a natural sun-kissed appearance, for 5 yen."
+   },
+   "choices": [
+    {
+     "text": "Buy.",
+     "cond": "(money >= 5)",
+     "to": 315
+    },
+    {
+     "text": "Don't buy.",
+     "cond": null,
+     "to": 320
+    }
+   ],
+   "line": 421
+  },
+  {
+   "t": "set",
+   "var": "money",
+   "keys": [],
+   "op": "-=",
+   "value": "5",
+   "line": 424
+  },
+  {
+   "t": "eval",
+   "code": "wardrobe_cheek.append(\"blush_orange\")",
+   "line": 425
+  },
+  {
+   "t": "eval",
+   "code": "cosmetics.erase(\"blush_orange\")",
+   "line": 426
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 427
+  },
+  {
+   "t": "goto",
+   "to": 322
+  },
+  {
+   "t": "jump",
+   "label": "cosmetics_section",
+   "line": 429
+  },
+  {
+   "t": "goto",
+   "to": 322
+  }
+ ]
+}

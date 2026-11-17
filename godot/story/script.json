@@ -1,0 +1,55 @@
+{
+ "source": "script.rpy",
+ "labels": {
+  "start": 5
+ },
+ "ops": [
+  {
+   "t": "todo",
+   "code": "init python:\n    def naomi_cheek_color(st,at,cheek):\n        return im.MatrixColor(cheek, im.matrix.tint(cheek_color_r,cheek_color_g,cheek_color_b)), None\n    def naomi_eye_color(st,at,eye):\n        return im.MatrixColor(eye, im.matrix.tint(eye_color_r,eye_color_g,eye_color_b)), None\n    def naomi_lip_color(st,at,lip):\n        return im.MatrixColor(lip, im.matrix.hue(lip_color_h)*im.matrix.saturation(lip_color_s)*im.matrix.brightness(lip_color_v)), None\n    class glitch(renpy.Displayable):\n        \"\"\"\n        `randomkey`\n            Follows the rules of the random modume's seed function.\n            If not set, a random seed is generated when the transform is applied,\n            and stays the same afterwards.\n            If you want the effect to be random for each render operation, set to None.\n        `chroma`\n            Boolean, whether to apply the chromatic aberration effect.\n        `minbandheight`\n            Minimum height of each slice.\n        `offset`\n            The offset of each slice will be between -offset and offset pixels.\n        `nslices`\n            Number of slicings to do (the number of slices will be nslices + 1).\n            Setting this to 0 is not supported.\n            None (the default) makes it random.\n        \"\"\"\n        NotSet = object()\n        def __init__(self, child, *, randomkey=NotSet, chroma=True, minbandheight=1, offset=30, nslices=None, **properties):\n            super().__init__(**properties)\n            self.child = renpy.displayable(child)\n            if randomkey is self.NotSet:\n                randomkey = renpy.random.random()\n            self.randomkey = randomkey\n            self.chroma = chroma\n            self.minbandheight = minbandheight\n            self.offset = offset\n            self.nslices = nslices\n        def render(self, width, height, st, at):\n            child = self.child\n            child_render = renpy.render(child, width, height, st, at)\n            cwidth, cheight = child_render.get_size()\n            if not (cwidth and cheight):\n                return child_render\n            render = renpy.Render(cwidth, cheight)\n            randomobj = renpy.random.Random(self.randomkey)\n            chroma = self.chroma and renpy.display.render.models\n            offset = self.offset\n            minbandheight = self.minbandheight\n            nslices = self.nslices\n            if nslices is None:\n                nslices = min(int(cheight/minbandheight), randomobj.randrange(10, 21))\n            theights = sorted(randomobj.randrange(int(cheight)+1) for k in range(nslices))\n            offt = 0\n            fheight = 0\n            while fheight<cheight:\n                if theights:\n                    theight = max(theights.pop(0)-fheight, minbandheight)\n                else:\n                    theight = cheight-theight\n                slice_render = child_render.subsurface((0, fheight, cwidth, theight))\n                if offt and chroma:\n                    for color_mask, chponder in (((False, False, True, True), 1.25), ((False, True, False, True), 1.), ((True, False, False, True), .75)):\n                        chroma_render = slice_render.subsurface((0, 0, cwidth, theight))\n                        chroma_render.add_property(\"gl_color_mask\", color_mask)\n                        render.blit(chroma_render, (round(offt*chponder), round(fheight)))\n                else:\n                    render.blit(slice_render, (offt, round(fheight)))\n                fheight += theight\n                if offt:\n                    offt = 0\n                else:\n                    offt = randomobj.randrange(-offset, offset+1)\n            return render\n        def visit(self):\n            return [self.child]",
+   "why": "statement not supported yet",
+   "line": 22
+  },
+  {
+   "t": "todo",
+   "code": "layeredimage side naomi:\n    group base auto:\n        zoom 0.5\n        attribute happy default\n    group blush auto:\n        zoom 0.5\n        attribute happy default:\n            DynamicDisplayable(naomi_cheek_color, cheek=\"images/side/side_naomi_blush_happy.png\")\n        attribute angry:\n            DynamicDisplayable(naomi_cheek_color, cheek=\"images/side/side_naomi_blush_angry.png\")\n        attribute blush:\n            DynamicDisplayable(naomi_cheek_color, cheek=\"images/side/side_naomi_blush_blush.png\")\n        attribute relieved:\n            DynamicDisplayable(naomi_cheek_color, cheek=\"images/side/side_naomi_blush_relieved.png\")\n        attribute sleepy:\n            DynamicDisplayable(naomi_cheek_color, cheek=\"images/side/side_naomi_blush_sleepy.png\")\n        attribute smirk:\n            DynamicDisplayable(naomi_cheek_color, cheek=\"images/side/side_naomi_blush_smirk.png\")\n        attribute surprised:\n            DynamicDisplayable(naomi_cheek_color, cheek=\"images/side/side_naomi_blush_surprised.png\")\n        attribute thinking:\n            DynamicDisplayable(naomi_cheek_color, cheek=\"images/side/side_naomi_blush_thinking.png\")\n        attribute troubled:\n            DynamicDisplayable(naomi_cheek_color, cheek=\"images/side/side_naomi_blush_troubled.png\")\n    group eye auto:\n        zoom 0.5\n        attribute happy default:\n            DynamicDisplayable(naomi_eye_color, eye=\"images/side/side_naomi_eye_happy.png\")\n        attribute angry:\n            DynamicDisplayable(naomi_eye_color, eye=\"images/side/side_naomi_eye_angry.png\")\n        attribute blush:\n            DynamicDisplayable(naomi_eye_color, eye=\"images/side/side_naomi_eye_blush.png\")\n        attribute relieved:\n            DynamicDisplayable(naomi_eye_color, eye=\"images/side/side_naomi_eye_relieved.png\")\n        attribute sleepy:\n            DynamicDisplayable(naomi_eye_color, eye=\"images/side/side_naomi_eye_sleepy.png\")\n        attribute smirk:\n            DynamicDisplayable(naomi_eye_color, eye=\"images/side/side_naomi_eye_smirk.png\")\n        attribute surprised:\n            DynamicDisplayable(naomi_eye_color, eye=\"images/side/side_naomi_eye_surprised.png\")\n        attribute thinking:\n            DynamicDisplayable(naomi_eye_color, eye=\"images/side/side_naomi_eye_thinking.png\")\n        attribute troubled:\n            DynamicDisplayable(naomi_eye_color, eye=\"images/side/side_naomi_eye_troubled.png\")\n    group lip auto:\n        zoom 0.5\n        attribute happy default:\n            DynamicDisplayable(naomi_lip_color, lip=\"images/side/side_naomi_lip_happy.png\")\n        attribute angry:\n            DynamicDisplayable(naomi_lip_color, lip=\"images/side/side_naomi_lip_angry.png\")\n        attribute blush:\n            DynamicDisplayable(naomi_lip_color, lip=\"images/side/side_naomi_lip_blush.png\")\n        attribute relieved:\n            DynamicDisplayable(naomi_lip_color, lip=\"images/side/side_naomi_lip_relieved.png\")\n        attribute sleepy:\n            DynamicDisplayable(naomi_lip_color, lip=\"images/side/side_naomi_lip_sleepy.png\")\n        attribute smirk:\n            DynamicDisplayable(naomi_lip_color, lip=\"images/side/side_naomi_lip_smirk.png\")\n        attribute surprised:\n            DynamicDisplayable(naomi_lip_color, lip=\"images/side/side_naomi_lip_surprised.png\")\n        attribute thinking:\n            DynamicDisplayable(naomi_lip_color, lip=\"images/side/side_naomi_lip_thinking.png\")\n        attribute troubled:\n            DynamicDisplayable(naomi_lip_color, lip=\"images/side/side_naomi_lip_troubled.png\")\n    always:\n        \"side/side_naomi_[naomi_hair].png\" zoom 0.5\n    always:\n        \"side/side_naomi_[naomi_dress].png\" zoom 0.5",
+   "why": "statement not supported yet",
+   "line": 122
+  },
+  {
+   "t": "todo",
+   "code": "init python:\n    def add_point(char):\n        relationship_points[char] = min(relationship_points[char] + 1, 15)\n    def get_stage(char):\n        pts = relationship_points[char]\n        if pts >= 13: return 5\n        if pts >= 10: return 4\n        if pts >= 6:  return 3\n        if pts >= 3:  return 2\n        if pts >= 1:  return 1\n        return 0\n    def calc_demographics():\n        total = sum(get_stage(c) for c in relationship_points)\n        return min(int(total * (30.0 / 25.0)), 30)",
+   "why": "statement not supported yet",
+   "line": 324
+  },
+  {
+   "t": "todo",
+   "code": "init python:\n    def flag(name):\n        return story_flags.get(name, False)\n    def set_flag(name):\n        story_flags[name] = True",
+   "why": "statement not supported yet",
+   "line": 357
+  },
+  {
+   "t": "todo",
+   "code": "init python:\n    def _musician_day_gate(flag_key, gap=None):\n        if gap is None:\n            gap = MUSICIAN_INTRO_GAP\n        last_day = story_flags.get(flag_key, -9999)\n        return (last_day - totaldays) >= gap\n    def musician_8_gate():\n        return _musician_day_gate(\"musician_1_day\")\n    def musician_8_ready():\n        return relationship_points[\"musician\"] >= 3 and not flag(\"musician_show_seen\")\n    def musician_show_today():\n        return dayofweeknumber == 6 and musician_event == 1 and totaldays <= 16\n    def musician_casual_paused():\n        show_window = (flag(\"musician_show_seen\") or musician_show_today()) and encounters[\"musician\"] < 10\n        return show_window or musician_tower_today()\n    def musician_9_condition():\n        return flag(\"musician_ticketer_talk_seen\")\n    def musician_9_blocked():\n        encounters[\"musician\"] += 1\n    def musician_9_branch():\n        days_since_9 = story_flags.get(\"musician_9_day\", -9999) - totaldays\n        return \"musician_9a\" if days_since_9 <= 2 else \"musician_9b\"\n    def musician_11_condition():\n        return totaldays >= 3\n    def musician_tower_today():\n        return dayofweeknumber == 7 and musician_event == 3\n    musician_encounter_table = { 1: {\"label\": \"musician_1\"}, 3: {\"label\": \"musician_3\"}, 5: {\"label\": \"musician_5\"}, 7: {\"label\": \"musician_7\"}, 8: {\"condition\": musician_8_ready, \"label\": \"musician_8\"}, 10: {\"branch\": musician_9_branch}, }\n    def get_musician_action():\n        entry = musician_encounter_table.get(encounters[\"musician\"])\n        if not entry:\n            return None\n        if \"branch\" in entry:\n            return entry[\"branch\"]()\n        condition = entry.get(\"condition\")\n        if condition is None or condition():\n            return entry[\"label\"]\n        elif \"on_blocked\" in entry:\n            entry[\"on_blocked\"]()\n        return None",
+   "why": "statement not supported yet",
+   "line": 412
+  },
+  {
+   "t": "set",
+   "var": "day_display",
+   "keys": [],
+   "op": "=",
+   "value": "false",
+   "line": 605
+  },
+  {
+   "t": "jump",
+   "label": "opening_sequence",
+   "line": 606
+  },
+  {
+   "t": "return",
+   "line": 611
+  }
+ ]
+}
