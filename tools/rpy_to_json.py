@@ -204,6 +204,10 @@ def to_godot(node):
                 return "randi_range(%s)" % ", ".join(args)
             if owner_src == "renpy.random" and f.attr == "choice":
                 return "%s.pick_random()" % args[0]
+            if owner_src == "renpy.random" and f.attr == "shuffle" and len(args) == 1:
+                return "%s.shuffle()" % args[0]
+            if owner_src == "renpy" and f.attr == "vibrate":
+                return "vibrate(%s)" % ", ".join(args)   # in state.gd
             if owner_src.startswith("renpy"):
                 raise CannotConvert("renpy." + f.attr)
             owner = to_godot(f.value)
@@ -255,7 +259,13 @@ def python_line_to_op(source):
         return {"t": "set", "var": root, "keys": keys,
                 "op": BIN_OPS[type(stmt.op)] + "=", "value": to_godot(stmt.value)}
     if isinstance(stmt, ast.Expr) and isinstance(stmt.value, ast.Call):
+        if ast.unparse(stmt.value.func) == "renpy.full_restart":
+            return {"t": "restart"}     # back to the title menu
         return {"t": "eval", "code": to_godot(stmt.value)}
+    if isinstance(stmt, ast.Delete) and len(stmt.targets) == 1 and isinstance(stmt.targets[0], ast.Subscript):
+        # del inventory["ticket"]  ->  inventory.erase("ticket")
+        target = stmt.targets[0]
+        return {"t": "eval", "code": "%s.erase(%s)" % (to_godot(target.value), to_godot(target.slice))}
     raise CannotConvert(type(stmt).__name__)
 
 
@@ -266,9 +276,14 @@ def python_line_to_op(source):
 STRING = r'"((?:[^"\\]|\\.)*)"'
 SAY_RE = re.compile(r'^(?:(\w+)((?:\s+\w+)*)\s+)?' + STRING + r'(?:\s+with\s+(.+))?$')
 WARPERS = {"linear", "ease", "easein", "easeout"}
-# Effects that need a shader in Godot. The picture still shows; the effect is left out for now.
-ATL_LATER = {"blur", "matrixcolor"}
-ATL_PROPS = {"xalign", "yalign", "xpos", "ypos", "zoom", "xzoom", "yzoom", "alpha", "xanchor", "yanchor",
+# Also ease_circ, easein_back, easeout_quad ... (Ren'Py's names for the easings.net curves)
+WARPER_RE = re.compile(r"^(ease|easein|easeout)_(quad|cubic|quart|quint|expo|circ|back|elastic|bounce|sine)$")
+# Things the player cannot do yet. The picture still shows; the effect is left out.
+ATL_LATER = {"knot", "matrixcolor"}
+# Pairs: `align (0.4, 0.85)` sets xalign and yalign.
+ATL_PAIRS = {"align": ("xalign", "yalign"), "anchor": ("xanchor", "yanchor"),
+             "pos": ("xpos", "ypos"), "offset": ("xoffset", "yoffset")}
+ATL_PROPS = {"brightness", "saturation", "blur", "xalign", "yalign", "xpos", "ypos", "zoom", "xzoom", "yzoom", "alpha", "xanchor", "yanchor",
              "xoffset", "yoffset", "rotate", "zpos"}
 
 
@@ -379,6 +394,9 @@ class Converter:
             self.emit({"t": "python", "func": name, "code": code}, line)
             return
 
+        if word in ("init", "layeredimage", "screen", "style", "translate", "python"):
+            return  # setup (functions, the side picture, screens): ported by hand in Godot
+
         if word in ("define", "default", "image", "transform", "camera"):
             return  # setup lines: read once for game_data.json, nothing to do while playing
 
@@ -438,10 +456,12 @@ class Converter:
 
         m = SAY_RE.match(text)
         if m and not line.children:
-            who, attrs, what, _with = m.groups()
+            who, attrs, what, with_ = m.groups()
             if who is None or who in self.characters or who == "extend":
-                self.emit({"t": "say", "who": who, "attrs": (attrs or "").split(),
-                           "text": unescape(what)}, line)
+                op = {"t": "say", "who": who, "attrs": (attrs or "").split(), "text": unescape(what)}
+                if with_:
+                    op["with"] = with_.strip()     # e.g. naomi pain "Unngh!" with vpunch
+                self.emit(op, line)
                 return
             return self.unsupported(line, "speaker '%s' is not a defined Character" % who)
 
@@ -455,7 +475,10 @@ class Converter:
             if not m or word != "call":
                 return self.unsupported(line, "screen call form")
             self.screens.add(m.group(1))
-            self.emit({"t": "screen", "name": m.group(1)}, line)
+            op = {"t": "screen", "name": m.group(1)}
+            if m.group(3):
+                op["with"] = m.group(3).strip()[len("with"):].strip()   # call screen cafe_menu with pushleft
+            self.emit(op, line)
             return
         if rest.startswith("expression"):
             try:
@@ -489,6 +512,16 @@ class Converter:
     def show(self, line, word):
         text = line.text.rstrip(":").strip()
         rest = text[len(word):].strip()
+        m = re.match(r"^screen\s+(\w+)\s*(\(.*?\))?(\s+with\s+\S+)?$", rest)
+        if m and word in ("show", "hide"):
+            # A screen shown on top while the story carries on (or taken away again).
+            if word == "show":
+                self.screens.add(m.group(1))
+            op = {"t": word + "_screen", "name": m.group(1)}
+            if m.group(3):
+                op["with"] = m.group(3).strip()[len("with"):].strip()
+            self.emit(op, line)
+            return
         if rest.startswith("screen") or rest.startswith("expression") or rest.startswith("layer"):
             return self.unsupported(line, "%s %s - port by hand" % (word, rest.split()[0]))
         op = {"t": word}
@@ -508,7 +541,12 @@ class Converter:
         if m:
             op["zorder"] = int(float(m.group(1)))
             rest = rest[:m.start()] + rest[m.end():]
-        for clause in ("behind", "as", "onlayer"):
+        m = re.search(r"\s+as\s+(\w+)", rest)
+        if m:
+            # A second copy of a picture under its own name: `show bg cafeleft as bg_copy`
+            op["tag"] = m.group(1)
+            rest = rest[:m.start()] + rest[m.end():]
+        for clause in ("behind", "onlayer"):
             if re.search(r"\s+%s\s+" % clause, " " + rest + " "):
                 return self.unsupported(line, "'%s' clause" % clause)
         op["image"] = rest.strip()
@@ -527,7 +565,8 @@ class Converter:
         for line in lines:
             if line.children:
                 return None, "nested block (%s)" % line.text
-            tokens = line.text.split()
+            # Words, `(a, b)` pairs and `Name(...)` calls each count as one token.
+            tokens = re.findall(r"\w+\([^)]*\)|\([^)]*\)|\S+", line.text)
             step = {"warp": None, "time": 0.0, "props": {}}
             if tokens[0] == "pause" and len(tokens) == 2:
                 try:
@@ -535,7 +574,7 @@ class Converter:
                     continue
                 except ValueError:
                     return None, line.text
-            if tokens[0] in WARPERS:
+            if tokens[0] in WARPERS or WARPER_RE.match(tokens[0]):
                 try:
                     step["warp"] = tokens[0]
                     step["time"] = float(tokens[1])
@@ -545,6 +584,20 @@ class Converter:
             if len(tokens) % 2:
                 return None, line.text
             for name, value in zip(tokens[0::2], tokens[1::2]):
+                colour = re.match(r"^(Brightness|Saturation)Matrix\((-?[\d.]+)\)$", value)
+                if name == "matrixcolor" and colour:
+                    # BrightnessMatrix(0.2) lightens; SaturationMatrix(1.2) makes colours stronger
+                    step["props"][colour.group(1).lower()] = float(colour.group(2))
+                    continue
+                if name in ATL_PAIRS:
+                    pair = re.match(r"^\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)$", value)
+                    if not pair:
+                        return None, "value '%s'" % value
+                    for part_name, part in zip(ATL_PAIRS[name], pair.groups()):
+                        if part_name in ("xpos", "ypos") and "." not in part:
+                            part_name += "_px"
+                        step["props"][part_name] = float(part)
+                    continue
                 if name in ATL_LATER:
                     self.skipped.append((self.file, owner.number, "%s %s" % (name, value)))
                     continue
@@ -613,7 +666,7 @@ def literal_assignments(block_lines):
 
 def collect_game_data(game_dir, report):
     characters, images, tag_transforms, defaults = {}, {}, {}, {}
-    persistent, gallery, game = {}, [], {}
+    persistent, gallery, game, transitions = {}, [], {}, {}
 
     # Ren'Py names every file under images/ after its file name, lower case.
     images_dir = os.path.join(game_dir, "images")
@@ -660,6 +713,12 @@ def collect_game_data(game_dir, report):
                     pass
                 continue
 
+            # Your own transitions: define fadehold = Fade(1.0, 1.0, 2.0)
+            m = re.match(r"^define\s+(\w+)\s*=\s*((?:Fade|Dissolve|Pixellate|MoveTransition)\s*\(.*\))$", text)
+            if m:
+                transitions[m.group(1)] = re.sub(r"\s+", "", m.group(2))
+                continue
+
             m = re.match(r'^define\s+config\.(name|version)\s*=\s*(?:_\()?"([^"]*)"', text)
             if m:
                 game[m.group(1)] = m.group(2)
@@ -694,9 +753,14 @@ def collect_game_data(game_dir, report):
                     report.append("%s:%d  image '%s' uses a form the converter does not read: %s"
                                   % (name, line.number, img_name, value))
                 continue
-            if re.match(r"^image\s+[\w ]+:$", text):
-                report.append("%s:%d  image '%s' is an ATL image - port by hand"
-                              % (name, line.number, text[6:-1]))
+            m = re.match(r"^image\s+([\w ]+?)\s*:$", text)
+            if m:
+                frames = parse_image_frames(line.children)
+                if frames:
+                    images[m.group(1)] = frames
+                else:
+                    report.append("%s:%d  image '%s' is an ATL image the converter does not read - port by hand"
+                                  % (name, line.number, m.group(1)))
                 continue
 
             # Plain settings such as `define TIP_MIN = 4` are kept too, so the Godot
@@ -718,12 +782,16 @@ def collect_game_data(game_dir, report):
                     # Stored as Godot source text so whole numbers stay whole numbers.
                     defaults[m.group(1)] = expr_to_godot(m.group(2))
                 except (ValueError, SyntaxError, CannotConvert):
-                    report.append("%s:%d  default '%s' is not a plain value - set it in state.gd"
-                                  % (name, line.number, m.group(1)))
+                    value = value_naming_functions(m.group(2))
+                    if value is not None:
+                        defaults[m.group(1)] = value
+                    else:
+                        report.append("%s:%d  default '%s' is not a plain value - set it in state.gd"
+                                      % (name, line.number, m.group(1)))
 
     return {"characters": characters, "images": images,
             "tag_transforms": tag_transforms, "defaults": defaults,
-            "persistent": persistent, "gallery": gallery, "game": game,
+            "persistent": persistent, "gallery": gallery, "game": game, "transitions": transitions,
             "screens": collect_screens(game_dir)}
 
 
@@ -746,6 +814,68 @@ def collect_screens(game_dir):
     return screens
 
 
+def value_naming_functions(source):
+    """A table that names functions, like cafe_encounter_triggers:
+    {"condition": musician_9_condition} becomes {"condition": "musician_9_condition"},
+    and state.gd calls the function with that name."""
+    try:
+        tree = ast.parse(source, mode="eval")
+    except SyntaxError:
+        return None
+
+    class NamesToText(ast.NodeTransformer):
+        def visit_Name(self, node):
+            return ast.Constant(node.id)
+
+    tree = NamesToText().visit(tree)
+    try:
+        ast.literal_eval(tree.body)
+        return to_godot(tree.body)
+    except (ValueError, CannotConvert):
+        return None
+
+
+def parse_image_frames(lines):
+    """An image made of frames:   "merchant thinking" / pause 0.3 / ... / repeat
+    glitch("kirako angry", offset=60) is a frame of that picture with a glitch effect."""
+    frames, loop, props = [], False, {}
+    for line in lines:
+        text = line.text
+        if line.children:
+            return None
+        # Size and position lines before the frames: `zoom 3.5 yalign 0.15 xalign 0.5`
+        tokens = text.split()
+        if not frames and len(tokens) % 2 == 0 and all(t in ATL_PROPS for t in tokens[0::2]):
+            try:
+                props.update({k: float(v) for k, v in zip(tokens[0::2], tokens[1::2])})
+                continue
+            except ValueError:
+                return None
+        m = re.match(r'^"([^"]+)"$', text)
+        if m:
+            frames.append({"image": m.group(1), "time": 0.0})
+            continue
+        m = re.match(r'^glitch\(\s*"([^"]+)"(.*)\)$', text)
+        if m:
+            offset = re.search(r"offset\s*=\s*(\d+)", m.group(2))
+            frames.append({"image": m.group(1), "time": 0.0, "glitch": int(offset.group(1)) if offset else 30})
+            continue
+        m = re.match(r"^pause\s+([\d.]+)$", text)
+        if m and frames:
+            frames[-1]["time"] = float(m.group(1))
+            continue
+        if text == "repeat":
+            loop = True
+            continue
+        return None
+    if not frames:
+        return None
+    entry = {"frames": frames, "loop": loop}
+    if props:
+        entry["props"] = props
+    return entry
+
+
 def parse_image_value(value):
     m = re.match(r'^"([^"\[]+)"$', value)
     if m:
@@ -757,6 +887,11 @@ def parse_image_value(value):
     m = re.match(r'^im\.Scale\(\s*"([^"\[]+)"\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$', value)
     if m:
         return {"path": m.group(1), "size": [int(m.group(2)), int(m.group(3))]}
+    # im.Scale(im.Crop("file.png", (x, y, w, h)), width, height)
+    m = re.match(r'^im\.Scale\(\s*im\.Crop\(\s*"([^"\[]+)"\s*,\s*\(([\d,\s]+)\)\s*\)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$', value)
+    if m:
+        return {"path": m.group(1), "crop": [int(n) for n in m.group(2).split(",")],
+                "size": [int(m.group(3)), int(m.group(4))]}
     m = re.match(r'^Transform\(\s*"([^"\[]+)"\s*,\s*zoom\s*=\s*([\d.]+)\s*\)$', value)
     if m:
         return {"path": m.group(1), "zoom": float(m.group(2))}
@@ -903,8 +1038,8 @@ def main():
         if name not in data["images"] and not (name == tag and any(k.split()[0] == tag for k in data["images"])):
             missing.append("picture '%s' is shown in the story but no file or `image` line matches it" % name)
     for name, entry in sorted(data["images"].items()):
-        if entry.get("dynamic"):
-            continue
+        if entry.get("dynamic") or entry.get("frames"):
+            continue   # worked out while playing / made of other pictures
         rel = resolve_asset(args.game_dir, entry["path"])
         if rel is None:
             if name.split()[0] in used_tags:

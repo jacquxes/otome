@@ -391,9 +391,27 @@
    "line": 50
   },
   {
-   "t": "todo",
-   "code": "show shrine_counter:\n    anchor (1.0,1.0)\n    linear 3.0 xalign 1.0 ypos 1.28 zoom 0.8",
-   "why": "ATL: property 'anchor'",
+   "t": "show",
+   "image": "shrine_counter",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xanchor": 1.0,
+      "yanchor": 1.0
+     }
+    },
+    {
+     "warp": "linear",
+     "time": 3.0,
+     "props": {
+      "xalign": 1.0,
+      "ypos": 1.28,
+      "zoom": 0.8
+     }
+    }
+   ],
    "line": 52
   },
   {
@@ -2777,7 +2795,8 @@
       "zoom": 0.1,
       "xalign": 0.35,
       "yalign": 0.6,
-      "xzoom": -1.0
+      "xzoom": -1.0,
+      "brightness": -0.5
      }
     }
    ],
@@ -2798,7 +2817,8 @@
      "props": {
       "zoom": 1.0,
       "xzoom": 1.0,
-      "xalign": 0.5
+      "xalign": 0.5,
+      "brightness": 0.0
      }
     }
    ],

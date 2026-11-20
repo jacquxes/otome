@@ -226,6 +226,14 @@ func get_musician_action() -> Variant:
 	return null
 
 
+# -- phone --
+
+## renpy.vibrate(seconds): buzz the phone, if the player has vibration on in Settings.
+func vibrate(seconds: float) -> void:
+	if persistent.get("haptics_enabled", true):
+		Input.vibrate_handheld(int(seconds * 1000.0))
+
+
 # -- relationship stage --
 
 func add_point(character: String) -> void:
@@ -251,24 +259,9 @@ func calc_demographics() -> int:
 
 # -- cafe --
 
-## Cafe encounters that override casual visits (same table as script.rpy).
-## character -> encounter number -> the menu item needed, and an optional
-## condition (the name of a function in this file, "" for none).
-const CAFE_ENCOUNTER_TRIGGERS := {
-	"musician": {
-		0: {"item": "Pudding", "condition": ""},
-		4: {"item": "Pudding", "condition": ""},
-		6: {"item": "Pudding", "condition": ""},
-		9: {"item": "Pudding", "condition": "musician_9_condition"},
-		11: {"item": "Pudding", "condition": "musician_11_condition"},
-	},
-	"doctor": {
-		0: {"item": "Cake", "condition": ""},
-	},
-	"merchant": {
-		1: {"item": "Coffee", "condition": ""},
-	},
-}
+## Cafe encounters that override casual visits come from `cafe_encounter_triggers`
+## in script.rpy (read by the converter): character -> encounter number ->
+## {"item": menu item needed, "condition": name of a function in this file, or null}.
 
 
 ## Call this ONCE, right before the cafe_game screen is shown. (screens_cafe.rpy)
@@ -296,11 +289,11 @@ func setup_cafe_round() -> void:
 ## The trigger for this character's current encounter number, if its menu item
 ## is on today's menu and its condition passes. Otherwise null.
 func _cafe_trigger(character: String) -> Variant:
-	var trigger: Variant = CAFE_ENCOUNTER_TRIGGERS.get(character, {}).get(int(vars["encounters"][character]))
+	var trigger: Variant = vars["cafe_encounter_triggers"].get(character, {}).get(int(vars["encounters"][character]))
 	if trigger == null:
 		return null
 	var item_match: bool = trigger["item"] in vars["cafe_menu"]
-	var cond_match: bool = call(trigger["condition"]) if trigger["condition"] != "" else true
+	var cond_match: bool = call(trigger["condition"]) if trigger["condition"] != null else true
 	return trigger if item_match and cond_match else null
 
 
@@ -339,7 +332,7 @@ func py_check_cafe_visits_1() -> void:
 	var forced_char: Variant = null
 
 	# Check for forced encounter triggers first
-	for character in CAFE_ENCOUNTER_TRIGGERS:
+	for character in vars["cafe_encounter_triggers"]:
 		if character not in vars["unlocked_chars"] or vars["visited_today"][character]:
 			continue
 		if _cafe_trigger(character) != null:

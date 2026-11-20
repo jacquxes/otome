@@ -122,6 +122,7 @@
   "accessories": "[\"hair_band\", \"hair_hat\", \"hair_flower\", \"hair_ribbon\", \"hair_bow\", \"hand_round\", \"hand_evening\", \"hand_straw\", \"hand_parasol\", \"shoes_koppori\", \"shoes_zori\", \"shoes_heels\", \"shoes_pumps\", \"shoes_boots\"]",
   "accessories2": "{\"hair_band\": [1584, 440], \"hair_hat\": [1565, 335], \"hair_flower\": [1484, 620], \"hair_ribbon\": [1342, 484], \"hair_bow\": [1608, 700]}",
   "all_menu": "{\"Pudding\": true, \"Coffee\": true, \"Cake\": true, \"Katsudon\": false, \"Omurice\": false, \"Curry\": false, \"Steak\": false}",
+  "cafe_encounter_triggers": "{\"musician\": {0: {\"item\": \"Pudding\", \"condition\": null}, 4: {\"item\": \"Pudding\", \"condition\": null}, 6: {\"item\": \"Pudding\", \"condition\": null}, 9: {\"item\": \"Pudding\", \"condition\": \"musician_9_condition\"}, 11: {\"item\": \"Pudding\", \"condition\": \"musician_11_condition\"}}, \"doctor\": {0: {\"item\": \"Cake\", \"condition\": null}}, \"merchant\": {1: {\"item\": \"Coffee\", \"condition\": null}}}",
   "cafe_menu": "[]",
   "characters": "{\"musician\": {\"name\": \"Saito Hideo\", \"bio\": \"He’s shy and comes off as aloof, but his gentle nature is evident in his kind words and delicate sensibility for music.\", \"bio2\": \"When playing, he reveals a different side to him.\", \"bio2_width\": 460, \"favorite\": \"Pudding\", \"occupation\": \"Musician\", \"height\": \"178 cm\", \"quote\": \"\\\"...It's fine. The pudding's the same either way.\\\"\", \"image\": \"images/musician/musician thinking.png\", \"cutscenes\": [\"musician_1\", \"musician_2\"], \"cutscene_previews\": [\"images/musician/musician_cutscene_11.png\", \"images/musician/musician_cutscene_2.png\"]}, \"merchant\": {\"name\": \"Fujiya Yujiro\", \"bio\": \"Due to his father’s stern upbringing as heir, he appears cold and overbearing.\", \"bio2\": \"A kind heart who cares deeply about people.\", \"bio2_width\": 400, \"favorite\": \"Steak\", \"occupation\": \"Merchant\", \"height\": \"182 cm\", \"quote\": \"\\\"You'll earn more working for me. I'll be expecting you.\\\"\", \"image\": \"images/merchant/merchant happy.png\", \"cutscenes\": [\"merchant_1\", \"merchant_2\"], \"cutscene_previews\": [\"images/merchant/merchant_cutscene_1.png\", \"images/merchant/merchant_cutscene_2.png\"]}}",
   "charisma": "0",
@@ -504,6 +505,78 @@
   "doctor concerned": {
    "path": "images/doctor/doctor concerned.png"
   },
+  "doctor glitched": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "doctor happy",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "doctor happy",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "doctor happy",
+     "time": 0.1
+    },
+    {
+     "image": "doctor happy",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
+  "doctor glitched2": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "doctor happy",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "doctor happy",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "doctor happy",
+     "time": 0.1
+    },
+    {
+     "image": "doctor happy",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
+  "doctor glitched3": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "doctor concerned",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "doctor concerned",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "doctor concerned",
+     "time": 0.1
+    },
+    {
+     "image": "doctor concerned",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
   "doctor happy": {
    "path": "images/doctor/doctor happy.png"
   },
@@ -637,6 +710,30 @@
   "kirako angry": {
    "path": "images/kirako/kirako angry.png"
   },
+  "kirako glitched": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "kirako angry",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "kirako angry",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "kirako angry",
+     "time": 0.1
+    },
+    {
+     "image": "kirako angry",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
   "kirako happy": {
    "path": "images/kirako/kirako happy.png"
   },
@@ -703,6 +800,51 @@
   "menu_open": {
    "path": "images/menu/menu_open.png"
   },
+  "merchant discussing": {
+   "frames": [
+    {
+     "image": "merchant thinking",
+     "time": 0.3
+    },
+    {
+     "image": "merchant thinkingside",
+     "time": 0.3
+    },
+    {
+     "image": "merchant scowlside",
+     "time": 0.3
+    },
+    {
+     "image": "merchant scowlfront",
+     "time": 0.3
+    },
+    {
+     "image": "merchant frown",
+     "time": 0.3
+    },
+    {
+     "image": "merchant thinking",
+     "time": 0.3
+    },
+    {
+     "image": "merchant thinkingside",
+     "time": 0.3
+    },
+    {
+     "image": "merchant scowlside",
+     "time": 0.3
+    },
+    {
+     "image": "merchant scowlfront",
+     "time": 0.3
+    },
+    {
+     "image": "merchant frown",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
   "merchant frown": {
    "path": "images/merchant/merchant frown.png"
   },
@@ -714,6 +856,141 @@
   },
   "merchant frownside_suit": {
    "path": "images/merchant/merchant frownside_suit.png"
+  },
+  "merchant glitched": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "merchant scowlside",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "merchant scowlside",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "merchant scowlside",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "merchant scowlside",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "merchant scowlside",
+     "time": 0.0
+    },
+    {
+     "image": "merchant scowlside",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
+  "merchant glitched0": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "merchant frownside",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "merchant frownside",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "merchant frownside",
+     "time": 0.1
+    },
+    {
+     "image": "merchant frownside",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
+  "merchant glitched2": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "merchant happy_suit",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "merchant happy_suit",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "merchant happy_suit",
+     "time": 0.1
+    },
+    {
+     "image": "merchant happy_suit",
+     "time": 0.0
+    }
+   ],
+   "loop": false,
+   "props": {
+    "xalign": 0.5,
+    "yalign": 0.15,
+    "zoom": 3.5
+   }
+  },
+  "merchant glitched3": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "merchant scowlside",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "merchant scowlside",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "merchant scowlside",
+     "time": 0.1
+    },
+    {
+     "image": "merchant scowlside",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
+  "merchant glitched4": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "merchant smile",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "merchant smile",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "merchant smile",
+     "time": 0.1
+    },
+    {
+     "image": "merchant smile",
+     "time": 0.0
+    }
+   ],
+   "loop": false
   },
   "merchant happy": {
    "path": "images/merchant/merchant happy.png"
@@ -772,7 +1049,17 @@
    ]
   },
   "merchant_cutscene_3": {
-   "path": "images/merchant/merchant_cutscene_3.png"
+   "crop": [
+    0,
+    0,
+    1024,
+    576
+   ],
+   "path": "images/merchant/merchant_cutscene_3.png",
+   "size": [
+    1920,
+    1080
+   ]
   },
   "merchant_namecard": {
    "path": "images/merchant/namecard_flat.png"
@@ -788,6 +1075,112 @@
   },
   "musician blush": {
    "path": "images/musician/musician blush.png"
+  },
+  "musician glitched": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "musician happy",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "musician happy",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "musician happy",
+     "time": 0.1
+    },
+    {
+     "image": "musician happy",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
+  "musician glitched2": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "musician shy",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "musician shy",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "musician shy2",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "musician shy2",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "musician shy2",
+     "time": 0.0
+    },
+    {
+     "image": "musician shy2",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
+  "musician glitched3": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "musician troubled",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "musician troubled",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "musician troubled",
+     "time": 0.1
+    },
+    {
+     "image": "musician troubled",
+     "time": 0.0
+    }
+   ],
+   "loop": false
+  },
+  "musician glitched4": {
+   "frames": [
+    {
+     "glitch": 30,
+     "image": "musician troubled",
+     "time": 0.1
+    },
+    {
+     "glitch": 60,
+     "image": "musician troubled",
+     "time": 0.1
+    },
+    {
+     "glitch": 30,
+     "image": "musician troubled",
+     "time": 0.1
+    },
+    {
+     "image": "musician troubled",
+     "time": 0.0
+    }
+   ],
+   "loop": false
   },
   "musician happy": {
    "path": "images/musician/musician happy.png"
@@ -1558,5 +1951,8 @@
   "stranger": {
    "zoom": 0.5
   }
+ },
+ "transitions": {
+  "fadehold": "Fade(1.0,1.0,2.0)"
  }
 }

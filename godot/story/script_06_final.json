@@ -1444,9 +1444,7 @@
    "line": 212
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 213
   },
   {
@@ -1848,9 +1846,7 @@
    "line": 268
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 269
   },
   {
@@ -1927,9 +1923,12 @@
    "line": 281
   },
   {
-   "t": "todo",
-   "code": "show bg clinic as bg_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "bg_copy",
+   "image": "bg clinic",
    "line": 282
   },
   {
@@ -1954,6 +1953,7 @@
     "pain"
    ],
    "text": "Ngh!",
+   "with": "vpunch",
    "line": 285
   },
   {
@@ -2019,9 +2019,12 @@
    "line": 293
   },
   {
-   "t": "todo",
-   "code": "show bg clinic as bg_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "bg_copy",
+   "image": "bg clinic",
    "line": 294
   },
   {
@@ -2031,6 +2034,7 @@
     "pain"
    ],
    "text": "Ahh!",
+   "with": "vpunch",
    "line": 295
   },
   {
@@ -2495,7 +2499,8 @@
      "props": {
       "xpos": 2.5,
       "ypos": 0.5,
-      "zoom": 2.5
+      "zoom": 2.5,
+      "blur": 10.0
      }
     }
    ],
@@ -2681,7 +2686,8 @@
      "props": {
       "xpos": -0.5,
       "ypos": 0.5,
-      "zoom": 2.5
+      "zoom": 2.5,
+      "blur": 10.0
      }
     }
    ],
@@ -3301,9 +3307,7 @@
    "line": 488
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 489
   },
   {
@@ -3710,9 +3714,7 @@
    "line": 545
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 546
   },
   {
@@ -3835,9 +3837,12 @@
    "line": 564
   },
   {
-   "t": "todo",
-   "code": "show bg imperial theatre as bg_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "bg_copy",
+   "image": "bg imperial theatre",
    "line": 565
   },
   {
@@ -3852,6 +3857,7 @@
     "pain"
    ],
    "text": "Ngh!",
+   "with": "vpunch",
    "line": 575
   },
   {
@@ -4822,9 +4828,7 @@
    "line": 716
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 717
   },
   {
@@ -5148,9 +5152,7 @@
    "line": 763
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 764
   }
  ]

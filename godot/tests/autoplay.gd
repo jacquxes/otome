@@ -11,6 +11,7 @@ extends Node
 ##   lines=N           stop after N lines of dialogue
 ##   NAME=VALUE        set a game variable before starting, e.g. money=10
 ##   shots=FOLDER      also save a picture of the screen at every line, menu and screen
+##   stage=1           also list the pictures on the stage at every line
 
 var player: Control
 var choices: Array = [0]
@@ -19,6 +20,7 @@ var max_lines := 100000
 var shots := ""
 var count := 0
 var lines := 0
+var list_stage := false
 
 
 func _ready() -> void:
@@ -34,6 +36,7 @@ func _ready() -> void:
 			"route": route = Array(pair[1].split(","))
 			"lines": max_lines = int(pair[1])
 			"shots": shots = pair[1]
+			"stage": list_stage = pair[1] == "1"
 			_: State.vars[pair[0]] = State.evaluate(pair[1])
 	player.line_shown.connect(_on_line)
 	player.menu_shown.connect(_on_menu)
@@ -45,6 +48,9 @@ func _ready() -> void:
 
 func _on_line(who: String, text: String) -> void:
 	print("%s: %s" % [who, text] if who != "" else text)
+	if list_stage:
+		for c in player.stage.get_children():
+			print("      [%s  at %s  size %s  zorder %d  alpha %.2f]" % [c.image_name, c.position.round(), c.size.round(), c.zorder, c.modulate.a])
 	lines += 1
 	await _shot()
 	if lines >= max_lines:
@@ -62,6 +68,12 @@ func _on_menu(captions: Array) -> void:
 
 
 func _on_screen(screen_name: String, screen: Control) -> void:
+	if "modal" in screen:
+		# A screen shown on top of the story (show screen); it closes by itself.
+		print("  OVERLAY %s" % screen_name)
+		if shots != "":
+			_shoot_every(screen, 2.5)
+		return
 	await _shot()
 	if screen.has_method("autoplay"):
 		print("  SCREEN %s plays itself" % screen_name)

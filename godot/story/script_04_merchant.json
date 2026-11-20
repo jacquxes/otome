@@ -940,7 +940,8 @@
      "props": {
       "xpos": -1.0,
       "ypos": 2.0,
-      "zoom": 3.0
+      "zoom": 3.0,
+      "blur": 5.0
      }
     }
    ],
@@ -1246,7 +1247,8 @@
      "props": {
       "xpos": -0.8,
       "ypos": 2.0,
-      "zoom": 3.0
+      "zoom": 3.0,
+      "blur": 5.0
      }
     }
    ],
@@ -4929,13 +4931,16 @@
      "warp": null,
      "time": 0.0,
      "props": {
-      "zoom": 1.0
+      "zoom": 1.0,
+      "brightness": 0.0
      }
     },
     {
      "warp": "easeout",
      "time": 3.0,
-     "props": {}
+     "props": {
+      "brightness": -0.1
+     }
     }
    ],
    "line": 806
@@ -4947,12 +4952,16 @@
     {
      "warp": null,
      "time": 0.0,
-     "props": {}
+     "props": {
+      "brightness": 0.0
+     }
     },
     {
      "warp": "easeout",
      "time": 3.0,
-     "props": {}
+     "props": {
+      "brightness": -0.2
+     }
     }
    ],
    "line": 809
@@ -4964,12 +4973,16 @@
     {
      "warp": null,
      "time": 0.0,
-     "props": {}
+     "props": {
+      "brightness": 0.0
+     }
     },
     {
      "warp": "easeout",
      "time": 3.0,
-     "props": {}
+     "props": {
+      "brightness": -0.2
+     }
     }
    ],
    "line": 812
@@ -6501,9 +6514,7 @@
    "line": 1044
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 1045
   }
  ]

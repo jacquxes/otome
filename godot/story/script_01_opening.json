@@ -942,14 +942,14 @@
    "line": 185
   },
   {
-   "t": "todo",
-   "code": "$ renpy.random.shuffle(cafe_menu)",
-   "why": "Python: renpy.shuffle",
+   "t": "eval",
+   "code": "cafe_menu.shuffle()",
    "line": 186
   },
   {
    "t": "screen",
    "name": "cafe_menu",
+   "with": "pushleft",
    "line": 187
   },
   {

@@ -147,9 +147,8 @@
    "line": 24
   },
   {
-   "t": "todo",
-   "code": "show screen wardrobe",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "wardrobe",
    "line": 25
   },
   {
@@ -810,7 +809,8 @@
      "props": {
       "zoom": 1.0,
       "yalign": 0.7,
-      "xpos": 0.7
+      "xpos": 0.7,
+      "blur": 0.0
      }
     }
    ],
@@ -1023,14 +1023,18 @@
     {
      "warp": null,
      "time": 0.0,
-     "props": {}
+     "props": {
+      "brightness": 0.0
+     }
     },
     {
      "warp": "linear",
      "time": 2.0,
      "props": {
       "zoom": 1.2,
-      "yalign": 0.8
+      "yalign": 0.8,
+      "blur": 5.0,
+      "brightness": -0.1
      }
     }
    ],
@@ -1054,7 +1058,8 @@
      "props": {
       "zoom": 2.5,
       "yanchor": 0.0,
-      "ypos": -0.5
+      "ypos": -0.5,
+      "brightness": -0.05
      }
     }
    ],
@@ -1076,7 +1081,8 @@
      "time": 2.0,
      "props": {
       "zoom": 1.3,
-      "yalign": 0.0
+      "yalign": 0.0,
+      "blur": 10.0
      }
     }
    ],
@@ -1295,9 +1301,12 @@
    "line": 213
   },
   {
-   "t": "todo",
-   "code": "show bg dancehall 2 as bg_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "bg_copy",
+   "image": "bg dancehall 2",
    "line": 214
   },
   {
@@ -1312,9 +1321,8 @@
    "line": 216
   },
   {
-   "t": "todo",
-   "code": "$ renpy.vibrate(0.5)",
-   "why": "Python: renpy.vibrate",
+   "t": "eval",
+   "code": "vibrate(0.5)",
    "line": 217
   },
   {
@@ -1328,6 +1336,7 @@
     "pain"
    ],
    "text": "Ngh!",
+   "with": "vpunch",
    "line": 218
   },
   {
@@ -1340,7 +1349,8 @@
      "props": {
       "zoom": 1.4,
       "xalign": 0.5,
-      "yalign": 0.1
+      "yalign": 0.1,
+      "blur": 10.0
      }
     }
    ],
@@ -1402,7 +1412,8 @@
      "props": {
       "zoom": 1.4,
       "xalign": 0.5,
-      "yalign": 0.0
+      "yalign": 0.0,
+      "blur": 10.0
      }
     }
    ],
@@ -1447,7 +1458,8 @@
      "time": 2.0,
      "props": {
       "xalign": 0.0,
-      "yalign": 0.0
+      "yalign": 0.0,
+      "blur": 10.0
      }
     }
    ],
@@ -1894,9 +1906,8 @@
    "line": 303
   },
   {
-   "t": "todo",
-   "code": "show screen wardrobe",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "wardrobe",
    "line": 304
   },
   {
@@ -2324,9 +2335,12 @@
    "line": 373
   },
   {
-   "t": "todo",
-   "code": "show bg movie as bg_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "bg_copy",
+   "image": "bg movie",
    "line": 374
   },
   {
@@ -2351,9 +2365,8 @@
    "line": 377
   },
   {
-   "t": "todo",
-   "code": "$ renpy.vibrate(0.5)",
-   "why": "Python: renpy.vibrate",
+   "t": "eval",
+   "code": "vibrate(0.5)",
    "line": 378
   },
   {
@@ -2367,6 +2380,7 @@
     "pain"
    ],
    "text": "Ngh!",
+   "with": "vpunch",
    "line": 379
   },
   {

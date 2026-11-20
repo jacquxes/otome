@@ -63,6 +63,56 @@ Run the converter again (same command). Then read `godot/story/report.txt`. It l
   screens use the same numbers: `State.TIP_MIN`. Change them in the .rpy, re-run the converter.
 - A `python:` block runs the function named in report.txt, e.g. `py_reset_daily_visits_1`.
 - `$ x = some_function()` calls `some_function` in `state.gd`.
+- `renpy.vibrate(n)` buzzes the phone (if Vibration is on), `renpy.full_restart()` goes back to
+  the title menu, `renpy.random.shuffle(x)` and `del x[...]` work as in Python.
+- Tables that name functions, like `cafe_encounter_triggers`, are read from script.rpy too.
+
+## Placing characters by hand
+
+While playing from the Godot editor, press **F2**. The story pauses and you can:
+
+- drag a character to move it
+- use the arrow keys to nudge it 1 pixel (hold Shift for 10)
+- press + or - (or scroll) to make it bigger or smaller
+
+Press **F2** again to save and carry on. Positions go into `godot/sprite_positions.json`, one
+entry per character, and replace the `config.tag_transform` values from Ren'Py. A `show ... at`
+or a `show ...:` block in the script still moves a character for that one scene.
+F2 does nothing in an exported game, so players never see it.
+
+## Character sizes
+
+As in Ren'Py, a `zoom` in the script multiplies the character's usual size:
+`zoom 1.0` is the usual size, `zoom 2.0` a close-up at twice that, `zoom 0.5` a distant shot.
+The usual size comes from `config.tag_transform` (or `sprite_positions.json`, see above).
+
+`godot --headless --path godot res://tests/size_check.tscn` lists every character shown at an
+unusual size, with its script line, so you can spot any that look wrong.
+
+## How pictures are placed (same rules as Ren'Py)
+
+- `show x` with no block: centred at the bottom, or the `config.tag_transform` spot.
+- `show x:` with a block, when x is not on screen yet: anything the block leaves out starts
+  at the top-left. So `xpos 1119 ypos 262` puts the picture's top-left corner there.
+- `zorder` orders pictures among themselves; they always stay under the text box.
+- `zpos` works with the 3D camera turned on in `label start` (closer = bigger).
+- Effects: `blur`, `rotate`, `matrixcolor BrightnessMatrix(n)` and `SaturationMatrix(n)`.
+- Pairs like `align (0.4, 0.85)` and `anchor (1.0, 1.0)`, and curves like `easeout_circ`.
+- Pictures made of frames (`image kirako glitched:`), including `glitch("...", offset=n)`.
+- `show x as copy` (a second copy under its own name), and `at atl_dizzy`, which is
+  rebuilt by hand in story_player.gd (`_at_dizzy`) because it uses `choice` and `parallel`.
+- Not copied: `knot` (curved paths, used once for the cherry); it moves in a straight line.
+- `show screen x` puts a screen on top while the story carries on (the map tutorial uses this).
+
+## Transitions
+
+All the transitions in the story work, timed as in Ren'Py:
+`dissolve`, `Dissolve(t)`, `fade`, `Fade(out, hold, in)`, `fadehold`, `pushleft` / `pushright`,
+`Pixellate(t, steps)`, `vpunch`, `moveinleft` ... `moveoutbottom`, and
+`MoveTransition(t, leave=offscreenright)`. Your own `define fadehold = Fade(...)` lines are used.
+The screen-wide ones (dissolve, fade, push, pixellate) are drawn over the whole screen, so the
+story waits for them; a tap skips to the end. A new `scene` hides the text box until the next
+line, like Ren'Py's `window auto`.
 
 ## Menus: where everything lives
 

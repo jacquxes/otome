@@ -63,6 +63,7 @@
   {
    "t": "screen",
    "name": "cafe_menu",
+   "with": "pushleft",
    "line": 14
   },
   {
@@ -1305,7 +1306,8 @@
      "props": {
       "xpos": 2.5,
       "ypos": 0.5,
-      "zoom": 2.5
+      "zoom": 2.5,
+      "blur": 10.0
      }
     }
    ],
@@ -1329,9 +1331,12 @@
    "line": 423
   },
   {
-   "t": "todo",
-   "code": "show bg caferight as bg_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "bg_copy",
+   "image": "bg caferight",
    "line": 424
   },
   {
@@ -1341,9 +1346,8 @@
    "line": 425
   },
   {
-   "t": "todo",
-   "code": "$ renpy.vibrate(0.5)",
-   "why": "Python: renpy.vibrate",
+   "t": "eval",
+   "code": "vibrate(0.5)",
    "line": 426
   },
   {
@@ -1357,6 +1361,7 @@
     "pain"
    ],
    "text": "Unngh!",
+   "with": "vpunch",
    "line": 427
   },
   {

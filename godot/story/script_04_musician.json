@@ -814,9 +814,38 @@
    "line": 116
   },
   {
-   "t": "todo",
-   "code": "show pudding_cherry zorder 4.0:\n    xalign 0.46 ypos 0.75 zoom 0.5\n    easeout_circ 0.8 align (0.4, 0.85) knot (0.41, 0.83) zpos 150 zoom 0.6\n    ease 0.6 align (0.35, 0.85) knot (0.37, 0.82)",
-   "why": "ATL: property 'easeout_circ'",
+   "t": "show",
+   "zorder": 4,
+   "image": "pudding_cherry",
+   "atl": [
+    {
+     "warp": null,
+     "time": 0.0,
+     "props": {
+      "xalign": 0.46,
+      "ypos": 0.75,
+      "zoom": 0.5
+     }
+    },
+    {
+     "warp": "easeout_circ",
+     "time": 0.8,
+     "props": {
+      "xalign": 0.4,
+      "yalign": 0.85,
+      "zpos": 150.0,
+      "zoom": 0.6
+     }
+    },
+    {
+     "warp": "ease",
+     "time": 0.6,
+     "props": {
+      "xalign": 0.35,
+      "yalign": 0.85
+     }
+    }
+   ],
    "line": 118
   },
   {
@@ -2993,9 +3022,12 @@
    "line": 440
   },
   {
-   "t": "todo",
-   "code": "show bg imperial theatre as theatre_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "theatre_copy",
+   "image": "bg imperial theatre",
    "line": 441
   },
   {
@@ -3005,9 +3037,8 @@
    "line": 442
   },
   {
-   "t": "todo",
-   "code": "$ renpy.vibrate(0.5)",
-   "why": "Python: renpy.vibrate",
+   "t": "eval",
+   "code": "vibrate(0.5)",
    "line": 443
   },
   {
@@ -3021,6 +3052,7 @@
     "pain"
    ],
    "text": "(It makes me feel...)",
+   "with": "vpunch",
    "line": 444
   },
   {
@@ -5014,9 +5046,8 @@
    "line": 726
   },
   {
-   "t": "todo",
-   "code": "$ del inventory[\"ticket_front_new\"]",
-   "why": "Python: Delete",
+   "t": "eval",
+   "code": "inventory.erase(\"ticket_front_new\")",
    "line": 727
   },
   {
@@ -5045,9 +5076,8 @@
    "line": 731
   },
   {
-   "t": "todo",
-   "code": "$ del inventory[\"ticket_back_new\"]",
-   "why": "Python: Delete",
+   "t": "eval",
+   "code": "inventory.erase(\"ticket_back_new\")",
    "line": 732
   },
   {
@@ -5090,7 +5120,8 @@
      "props": {
       "zoom": 0.4,
       "xalign": 0.6,
-      "yalign": 0.7
+      "yalign": 0.7,
+      "brightness": -0.2
      }
     }
    ],
@@ -5179,9 +5210,12 @@
    "line": 749
   },
   {
-   "t": "todo",
-   "code": "show musician_cutscene_12 as cutscene_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "cutscene_copy",
+   "image": "musician_cutscene_12",
    "line": 750
   },
   {
@@ -7204,9 +7238,12 @@
    "line": 1049
   },
   {
-   "t": "todo",
-   "code": "show bg caferight as cutscene_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "cutscene_copy",
+   "image": "bg caferight",
    "line": 1050
   },
   {
@@ -7216,9 +7253,8 @@
    "line": 1051
   },
   {
-   "t": "todo",
-   "code": "$ renpy.vibrate(0.5)",
-   "why": "Python: renpy.vibrate",
+   "t": "eval",
+   "code": "vibrate(0.5)",
    "line": 1052
   },
   {
@@ -7232,6 +7268,7 @@
     "pain"
    ],
    "text": "Ah!",
+   "with": "vpunch",
    "line": 1053
   },
   {
@@ -8086,9 +8123,8 @@
    "line": 1182
   },
   {
-   "t": "todo",
-   "code": "show screen wardrobe",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "wardrobe",
    "line": 1183
   },
   {
@@ -8336,7 +8372,9 @@
     {
      "warp": null,
      "time": 0.0,
-     "props": {}
+     "props": {
+      "saturation": 1.2
+     }
     }
    ],
    "line": 1219
@@ -8349,7 +8387,8 @@
      "warp": null,
      "time": 0.0,
      "props": {
-      "xalign": 0.9
+      "xalign": 0.9,
+      "brightness": -0.1
      }
     }
    ],
@@ -8761,9 +8800,12 @@
    "line": 1281
   },
   {
-   "t": "todo",
-   "code": "show musician_cutscene_2 as cutscene_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "cutscene_copy",
+   "image": "musician_cutscene_2",
    "line": 1282
   },
   {
@@ -8773,9 +8815,8 @@
    "line": 1283
   },
   {
-   "t": "todo",
-   "code": "$ renpy.vibrate(0.5)",
-   "why": "Python: renpy.vibrate",
+   "t": "eval",
+   "code": "vibrate(0.5)",
    "line": 1284
   },
   {
@@ -8789,6 +8830,7 @@
     "pain"
    ],
    "text": "(Ah!)",
+   "with": "vpunch",
    "line": 1285
   },
   {
@@ -9436,9 +9478,12 @@
    "line": 1376
   },
   {
-   "t": "todo",
-   "code": "show bg caferight as cutscene_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "cutscene_copy",
+   "image": "bg caferight",
    "line": 1378
   },
   {
@@ -9448,9 +9493,8 @@
    "line": 1379
   },
   {
-   "t": "todo",
-   "code": "$ renpy.vibrate(0.5)",
-   "why": "Python: renpy.vibrate",
+   "t": "eval",
+   "code": "vibrate(0.5)",
    "line": 1380
   },
   {
@@ -9464,6 +9508,7 @@
     "pain"
    ],
    "text": "(I know this tune!)",
+   "with": "vpunch",
    "line": 1381
   },
   {
@@ -9629,9 +9674,12 @@
    "line": 1406
   },
   {
-   "t": "todo",
-   "code": "show bg cafeleft as cutscene_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "cutscene_copy",
+   "image": "bg cafeleft",
    "line": 1407
   },
   {
@@ -9641,9 +9689,8 @@
    "line": 1408
   },
   {
-   "t": "todo",
-   "code": "$ renpy.vibrate(0.5)",
-   "why": "Python: renpy.vibrate",
+   "t": "eval",
+   "code": "vibrate(0.5)",
    "line": 1409
   },
   {
@@ -9657,6 +9704,7 @@
     "pain"
    ],
    "text": "Ah!",
+   "with": "vpunch",
    "line": 1410
   },
   {
@@ -9718,9 +9766,12 @@
    "line": 1418
   },
   {
-   "t": "todo",
-   "code": "show bg cafeleft as bg_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "bg_copy",
+   "image": "bg cafeleft",
    "line": 1419
   },
   {
@@ -9735,6 +9786,7 @@
     "pain"
    ],
    "text": "Ngh!",
+   "with": "vpunch",
    "line": 1429
   },
   {
@@ -10710,9 +10762,7 @@
    "line": 1571
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 1572
   },
   {
@@ -10956,9 +11006,7 @@
    "line": 1608
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 1609
   }
  ]

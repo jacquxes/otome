@@ -104,33 +104,28 @@
    "line": 16
   },
   {
-   "t": "todo",
-   "code": "hide screen stationery_counter",
-   "why": "hide screen - port by hand",
+   "t": "hide_screen",
+   "name": "stationery_counter",
    "line": 18
   },
   {
-   "t": "todo",
-   "code": "hide screen accessories_counter",
-   "why": "hide screen - port by hand",
+   "t": "hide_screen",
+   "name": "accessories_counter",
    "line": 19
   },
   {
-   "t": "todo",
-   "code": "hide screen clothes_counter",
-   "why": "hide screen - port by hand",
+   "t": "hide_screen",
+   "name": "clothes_counter",
    "line": 20
   },
   {
-   "t": "todo",
-   "code": "hide screen cosmetics_counter",
-   "why": "hide screen - port by hand",
+   "t": "hide_screen",
+   "name": "cosmetics_counter",
    "line": 21
   },
   {
-   "t": "todo",
-   "code": "hide screen dept_store",
-   "why": "hide screen - port by hand",
+   "t": "hide_screen",
+   "name": "dept_store",
    "line": 22
   },
   {
@@ -194,27 +189,23 @@
    "to": 33
   },
   {
-   "t": "todo",
-   "code": "hide screen stationery_counter",
-   "why": "hide screen - port by hand",
+   "t": "hide_screen",
+   "name": "stationery_counter",
    "line": 32
   },
   {
-   "t": "todo",
-   "code": "hide screen accessories_counter",
-   "why": "hide screen - port by hand",
+   "t": "hide_screen",
+   "name": "accessories_counter",
    "line": 33
   },
   {
-   "t": "todo",
-   "code": "hide screen clothes_counter",
-   "why": "hide screen - port by hand",
+   "t": "hide_screen",
+   "name": "clothes_counter",
    "line": 34
   },
   {
-   "t": "todo",
-   "code": "hide screen cosmetics_counter",
-   "why": "hide screen - port by hand",
+   "t": "hide_screen",
+   "name": "cosmetics_counter",
    "line": 35
   },
   {
@@ -237,9 +228,8 @@
    "line": 40
   },
   {
-   "t": "todo",
-   "code": "show screen stationery_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "stationery_counter",
    "line": 43
   },
   {
@@ -300,9 +290,8 @@
    "to": 44
   },
   {
-   "t": "todo",
-   "code": "show screen stationery_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "stationery_counter",
    "line": 55
   },
   {
@@ -373,9 +362,8 @@
    "line": 71
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 74
   },
   {
@@ -446,9 +434,8 @@
    "to": 66
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 88
   },
   {
@@ -509,9 +496,8 @@
    "to": 75
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 100
   },
   {
@@ -572,9 +558,8 @@
    "to": 84
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 112
   },
   {
@@ -635,9 +620,8 @@
    "to": 93
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 124
   },
   {
@@ -698,9 +682,8 @@
    "to": 102
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 136
   },
   {
@@ -761,9 +744,8 @@
    "to": 111
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 148
   },
   {
@@ -824,9 +806,8 @@
    "to": 120
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 160
   },
   {
@@ -887,9 +868,8 @@
    "to": 129
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 172
   },
   {
@@ -950,9 +930,8 @@
    "to": 138
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 184
   },
   {
@@ -1013,9 +992,8 @@
    "to": 147
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 196
   },
   {
@@ -1076,9 +1054,8 @@
    "to": 156
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 208
   },
   {
@@ -1139,9 +1116,8 @@
    "to": 165
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 220
   },
   {
@@ -1202,9 +1178,8 @@
    "to": 174
   },
   {
-   "t": "todo",
-   "code": "show screen accessories_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "accessories_counter",
    "line": 232
   },
   {
@@ -1275,9 +1250,8 @@
    "line": 245
   },
   {
-   "t": "todo",
-   "code": "show screen clothes_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "clothes_counter",
    "line": 248
   },
   {
@@ -1338,9 +1312,8 @@
    "to": 194
   },
   {
-   "t": "todo",
-   "code": "show screen clothes_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "clothes_counter",
    "line": 260
   },
   {
@@ -1401,9 +1374,8 @@
    "to": 203
   },
   {
-   "t": "todo",
-   "code": "show screen clothes_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "clothes_counter",
    "line": 272
   },
   {
@@ -1464,9 +1436,8 @@
    "to": 212
   },
   {
-   "t": "todo",
-   "code": "show screen clothes_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "clothes_counter",
    "line": 284
   },
   {
@@ -1527,9 +1498,8 @@
    "to": 221
   },
   {
-   "t": "todo",
-   "code": "show screen clothes_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "clothes_counter",
    "line": 296
   },
   {
@@ -1600,9 +1570,8 @@
    "line": 309
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 312
   },
   {
@@ -1663,9 +1632,8 @@
    "to": 241
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 324
   },
   {
@@ -1726,9 +1694,8 @@
    "to": 250
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 336
   },
   {
@@ -1789,9 +1756,8 @@
    "to": 259
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 348
   },
   {
@@ -1852,9 +1818,8 @@
    "to": 268
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 360
   },
   {
@@ -1915,9 +1880,8 @@
    "to": 277
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 372
   },
   {
@@ -1978,9 +1942,8 @@
    "to": 286
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 384
   },
   {
@@ -2041,9 +2004,8 @@
    "to": 295
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 396
   },
   {
@@ -2104,9 +2066,8 @@
    "to": 304
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 408
   },
   {
@@ -2167,9 +2128,8 @@
    "to": 313
   },
   {
-   "t": "todo",
-   "code": "show screen cosmetics_counter",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "cosmetics_counter",
    "line": 420
   },
   {

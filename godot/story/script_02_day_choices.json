@@ -274,9 +274,8 @@
    "line": 71
   },
   {
-   "t": "todo",
-   "code": "show screen map_tutorial",
-   "why": "show screen - port by hand",
+   "t": "show_screen",
+   "name": "map_tutorial",
    "line": 72
   },
   {
@@ -1670,7 +1669,8 @@
      "props": {
       "zoom": 0.5,
       "xpos_px": 1119.0,
-      "ypos_px": 262.0
+      "ypos_px": 262.0,
+      "brightness": 0.2
      }
     }
    ],
@@ -1699,7 +1699,8 @@
      "props": {
       "zoom": 0.5,
       "xalign": 0.0,
-      "yalign": 1.0
+      "yalign": 1.0,
+      "brightness": 0.2
      }
     }
    ],
@@ -1749,7 +1750,8 @@
      "props": {
       "xpos": -0.5,
       "ypos": 0.2,
-      "zoom": 2.5
+      "zoom": 2.5,
+      "blur": 10.0
      }
     },
     {
@@ -1758,7 +1760,8 @@
      "props": {
       "xalign": 0.7,
       "yalign": 0.0,
-      "zoom": 1.0
+      "zoom": 1.0,
+      "blur": 0.0
      }
     }
    ],
@@ -1790,7 +1793,8 @@
      "props": {
       "xalign": 0.7,
       "yalign": 0.0,
-      "zoom": 1.0
+      "zoom": 1.0,
+      "blur": 0.0
      }
     }
    ],
@@ -2022,13 +2026,18 @@
      "time": 0.0,
      "props": {
       "xalign": 0.5,
-      "yalign": 0.0
+      "yalign": 0.0,
+      "blur": 20.0,
+      "brightness": 0.5
      }
     },
     {
      "warp": "easein",
      "time": 4.8,
-     "props": {}
+     "props": {
+      "blur": 10.0,
+      "brightness": 0.2
+     }
     },
     {
      "wait": 0.5
@@ -2038,7 +2047,9 @@
      "time": 0.0,
      "props": {
       "xalign": 1.0,
-      "zoom": 0.8
+      "zoom": 0.8,
+      "blur": 15.0,
+      "brightness": 0.4
      }
     }
    ],
@@ -2225,13 +2236,18 @@
      "time": 0.0,
      "props": {
       "xalign": 0.5,
-      "yalign": 0.0
+      "yalign": 0.0,
+      "blur": 20.0,
+      "brightness": 0.5
      }
     },
     {
      "warp": "easein",
      "time": 4.8,
-     "props": {}
+     "props": {
+      "blur": 10.0,
+      "brightness": 0.2
+     }
     },
     {
      "wait": 0.5
@@ -2241,7 +2257,9 @@
      "time": 0.0,
      "props": {
       "xalign": 1.0,
-      "zoom": 0.8
+      "zoom": 0.8,
+      "blur": 15.0,
+      "brightness": 0.4
      }
     }
    ],
@@ -2433,13 +2451,18 @@
      "time": 0.0,
      "props": {
       "xalign": 0.5,
-      "yalign": 0.0
+      "yalign": 0.0,
+      "blur": 20.0,
+      "brightness": 0.5
      }
     },
     {
      "warp": "easein",
      "time": 4.8,
-     "props": {}
+     "props": {
+      "blur": 10.0,
+      "brightness": 0.2
+     }
     },
     {
      "wait": 0.5
@@ -2449,7 +2472,9 @@
      "time": 0.0,
      "props": {
       "xalign": 1.0,
-      "zoom": 0.8
+      "zoom": 0.8,
+      "blur": 15.0,
+      "brightness": 0.4
      }
     }
    ],

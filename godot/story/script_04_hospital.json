@@ -2653,9 +2653,12 @@
    "line": 430
   },
   {
-   "t": "todo",
-   "code": "show clinic as clinic_copy at atl_dizzy",
-   "why": "'as' clause",
+   "t": "show",
+   "at": [
+    "atl_dizzy"
+   ],
+   "tag": "clinic_copy",
+   "image": "clinic",
    "line": 431
   },
   {
@@ -2665,6 +2668,7 @@
     "pain"
    ],
    "text": "Unngh!",
+   "with": "vpunch",
    "line": 432
   },
   {
@@ -2724,7 +2728,9 @@
      "props": {
       "xalign": 0.5,
       "yalign": 0.4,
-      "zoom": 4.0
+      "zoom": 4.0,
+      "blur": 5.0,
+      "brightness": -0.3
      }
     }
    ],
@@ -2760,7 +2766,9 @@
      "time": 0.5,
      "props": {
       "yalign": 0.2,
-      "zoom": 2.0
+      "zoom": 2.0,
+      "blur": 0.0,
+      "brightness": 0.0
      }
     }
    ],
@@ -3657,9 +3665,7 @@
    "line": 577
   },
   {
-   "t": "todo",
-   "code": "$ renpy.full_restart()",
-   "why": "Python: renpy.full_restart",
+   "t": "restart",
    "line": 578
   }
  ]
